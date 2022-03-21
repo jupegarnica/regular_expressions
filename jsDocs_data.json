@@ -1,346 +1,6 @@
 [
   {
     "kind": "variable",
-    "name": "camelCase",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 5,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  camelCase string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((?![A-Z])[a-zA-Z0-9]+)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "camelCase_should_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 7,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "camelCase_should_not_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 12,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "kebabCase",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 23,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  kebab-case string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((?!-)([a-z0-9]+)(-[a-z0-9])?)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "kebabCase_should_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 25,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "kebabCase_should_not_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 30,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 46,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  snake_case string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((?!_)([a-z0-9]+)(_[a-z0-9])?)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase_should_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 48,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase_should_not_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 53,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "pascalCase",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 70,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  PascalCase string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([A-Z][a-z0-9]+)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "pascalCase_should_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 72,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "pascalCase_should_not_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 77,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "constantCase",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 90,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  CONSTANT_CASE string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([A-Z0-9]+)(_[A-Z0-9]+)?",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "constantCase_should_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 92,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "constantCase_should_not_match",
-    "location": {
-      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
-      "line": 96,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
     "name": "url",
     "location": {
       "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/uri.ts",
@@ -2703,6 +2363,346 @@
     "location": {
       "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/js_eval.ts",
       "line": 576,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 5,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  camelCase string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?![A-Z])[a-zA-Z0-9]+)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase_should_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 7,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase_should_not_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 12,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 23,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  kebab-case string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?!-)([a-z0-9]+)(-[a-z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase_should_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 25,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase_should_not_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 30,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 46,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  snake_case string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?!_)([a-z0-9]+)(_[a-z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase_should_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 48,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase_should_not_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 53,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 70,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  PascalCase string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([A-Z][a-z0-9]+)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase_should_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 72,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase_should_not_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 77,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 90,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  CONSTANT_CASE string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([A-Z0-9]+)(_[A-Z0-9]+)?",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase_should_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 92,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase_should_not_match",
+    "location": {
+      "filename": "file:///home/runner/work/regular_expressions/regular_expressions/src/case.ts",
+      "line": 96,
       "col": 0
     },
     "declarationKind": "export",
