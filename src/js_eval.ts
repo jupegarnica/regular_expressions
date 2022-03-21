@@ -561,7 +561,6 @@ const globalScopeAll = [
 
 /**
  * Should match any global variable
-
  */
 export const globalScope = new RegExp(
   raw`${globalScopeAll.join("|")}`,
