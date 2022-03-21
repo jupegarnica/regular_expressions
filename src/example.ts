@@ -1,7 +1,6 @@
 /**
  * should match any single letter but not H.
- * @author Github Copilot
- * @see https://www.w3.org/TR/CSS2/syndata.html#characters
+ * https://www.w3.org/TR/CSS2/syndata.html#characters
  */
 
 export const lettersButNotH = /(?![H])[a-zA-Z]/;

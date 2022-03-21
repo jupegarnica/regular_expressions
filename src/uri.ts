@@ -1,6 +1,5 @@
 /**
  * Should match any url with or without http/s protocol and with or without port
- * @author Github copilot
  */
 export const url =
   /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:[0-9]{1,5})?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
@@ -48,8 +47,7 @@ export const url_should_not_match: string[] = [
 
 /**
  * Should match any url with or without http/s protocols and port
- * @author Github copilot
- * @see https://es.wikipedia.org/wiki/Anexo:Puertos_de_red
+ * https://es.wikipedia.org/wiki/Anexo:Puertos_de_red
  */
 
 export const urlWithPort =
@@ -73,7 +71,6 @@ export const urlWithPort_should_not_match: string[] = [
 
 /**
  * Should match any url with http/s protocols and with or without port
- * @author Github copilot
  */
 
 export const urlWithProtocol =
@@ -97,7 +94,6 @@ export const urlWithProtocol_should_not_match: string[] = [
 
 /**
  * Should match any url hostname (no protocol, no port, no path)
- * @author Github copilot
  */
 export const hostname = /[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}/;
 
@@ -125,9 +121,7 @@ export const hostname_should_not_match: string[] = [
 ];
 
 /**
- * Should match any uri with any protocol, for example file://, http://, https://, ftp://, chrome-extension://, chrome://, etc...
- * @see https://es.wikipedia.org/wiki/Esquema_de_URI
- * @author Github copilot
+ * Should match any uri with any protocol, for example file://, http://, https://, ftp://, chrome-extension://, chrome://, etc... * https://es.wikipedia.org/wiki/Esquema_de_URI
  */
 export const uri =
   /([\w-.]{3,}:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
@@ -164,7 +158,6 @@ export const uri_should_not_match: string[] = [
 
 /**
  * Should match any ip v4 without protocol, no any mask of subnet
- * @author Github copilot
  */
 export const ipv4 =
   /((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/;
@@ -190,9 +183,7 @@ export const ipv4_should_not_match: string[] = [
   // "00.00.00.00",
 ];
 /**
- * Should match any subnet mask
- * @see https://en.wikipedia.org/wiki/Subnetwork
- * @author Github copilot
+ * Should match any subnet mask * https://en.wikipedia.org/wiki/Subnetwork
  */
 
 export const ipv4SubnetMask =
@@ -212,9 +203,7 @@ export const ipv4SubnetMask_should_not_match: string[] = [
 ];
 
 /**
- * Should match any ipv4 CIDR notation (subnet)
- * @see https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
- * @author Github copilot
+ * Should match any ipv4 CIDR notation (subnet) * https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
  */
 
 export const ipv4CIDR =
@@ -268,8 +257,7 @@ export const ipv4CIDR_should_not_match: string[] = [
 
 /**
  * Should match any ip v6 without protocol
- * @author Github copilot
- * @see https://es.wikipedia.org/wiki/IPv6
+ * https://es.wikipedia.org/wiki/IPv6
  */
 
 export const ipv6 = /(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}/;
@@ -295,7 +283,6 @@ export const ipv6_should_not_match: string[] = [
 
 /**
  * Should match any private ip v4
- * @author Github copilot
  */
 export const iPv4Private =
   /(?:(?:10|127)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\.254|192\.168)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/;
@@ -316,9 +303,7 @@ export const iPv4Private_should_not_match: string[] = [
 
 /**
  * Should match any valid uri protocol
- * @author Github copilot
- * @see https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
- * @see https://es.wikipedia.org/wiki/Esquema_de_URI
+ * https://en.wikipedia.org/wiki/Uniform_Resource_Identifier * https://es.wikipedia.org/wiki/Esquema_de_URI
  */
 
 export const uriProtocol =

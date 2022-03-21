@@ -1,6 +1,5 @@
 /**
  * Should match any valid JS number but not NaN, Infinity or -Infinity.
- * @author Github Copilot
  */
 
 export const number =
@@ -32,7 +31,6 @@ export const number_should_not_match: string[] = [
 ];
 /**
  * Should match any number signed integer or unsigned integer.
- * @author Github Copilot
  */
 
 export const numberInteger = /(?:[-+]?(?:0|[1-9][0-9]*))/;
@@ -55,7 +53,6 @@ export const numberInteger_should_not_match: string[] = [
 
 /**
  * Should match any float number, signed or unsigned, but not integers or exponential.
- * @author Github Copilot
  */
 
 export const numberFloat = /([-+]?([0-9]+))?\.([0-9])+/;
@@ -82,7 +79,6 @@ export const numberFloat_should_not_match: string[] = [
 ];
 /**
  * Should match any exponential number.
- * @author Github Copilot
  */
 
 export const numberExponential =
@@ -113,7 +109,6 @@ export const numberExponential_should_not_match: string[] = [
 
 /**
  * Should match any number hexadecimal, signed or unsigned
- * @author Github Copilot
  */
 
 export const numberHex = /(([+-])?0[xX][0-9a-fA-F]+)/;
@@ -141,7 +136,6 @@ export const numberHex_should_not_match: string[] = [
 
 /**
  * Should match any number octal, signed or unsigned, but not integers or exponential.
- * @author Github Copilot
  */
 
 export const numberOctal = /([+-])?(0o?[0-7]+)/;
@@ -174,7 +168,6 @@ export const numberOctal_should_not_match: string[] = [
 
 /**
  * Should match any binary number, signed or unsigned, but not integers or exponential.
- * @author Github Copilot
  */
 
 export const numberBinary = /([+-])?0[bB][01]+/;
@@ -205,8 +198,7 @@ export const numberBinary_should_not_match: string[] = [
 
 /**
  * Should match any base64 string.
- * @author Github Copilot
- * @see https://en.wikipedia.org/wiki/Base64
+ * https://en.wikipedia.org/wiki/Base64
  */
 
 export const base64 = /[A-Za-z0-9+/]+={0,2}/;
@@ -222,8 +214,7 @@ export const base64_should_not_match: string[] = [
 
 /**
  * Should match any roman numeral
- * @author Github Copilot
- * @see https://en.wikipedia.org/wiki/Roman_numerals
+ * https://en.wikipedia.org/wiki/Roman_numerals
  */
 
 export const romanNumeral =
@@ -373,8 +364,7 @@ export const romanNumeral_should_not_match: string[] = [
 
 /**
  * Should match any BigInt
- * @author Github Copilot
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
  */
 
 export const numberBigInt = /[+-]?(0|[1-9][0-9]*)n/;

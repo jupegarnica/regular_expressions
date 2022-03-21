@@ -1,11 +1,8 @@
-import { red } from "https://deno.land/std@0.129.0/fmt/colors.ts";
-
 const raw = String.raw;
 
 /**
  * Should match a js reserved word
- * @author Github Copilot
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords
  */
 export const reservedWords =
   /(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b)/;
@@ -85,9 +82,7 @@ export const reservedWords_should_not_match: string[] = [
 const variableCharacters = /([a-zA-Z$_][a-zA-Z0-9$_]*)/;
 
 /**
- * Should match a valid js variable/function/class name
- * @see https://developer.mozilla.org/en-US/docs/Glossary/Identifier
- * @author Github Copilot
+ * Should match a valid js variable/function/class name * https://developer.mozilla.org/en-US/docs/Glossary/Identifier
  */
 export const identifierNames = new RegExp(
   `((?!${reservedWords.source})${variableCharacters.source})`,
@@ -120,7 +115,6 @@ export const identifierNames_should_not_match: string[] = [
 ];
 /**
  * Should match a js anonymous classic function definition
- * @author Github Copilot
  */
 
 export const functionAnonymous = /function(?<noName>\s*)\(.*\)\s*\{(.*)\}/;
@@ -139,7 +133,6 @@ export const functionAnonymous_should_not_match: string[] = [
 
 /**
  * Should match a js classic function definition
- * @author Github Copilot
  */
 
 export const functionClassic = new RegExp(
@@ -169,7 +162,6 @@ export const functionClassic_should_not_match: string[] = [
 
 /**
  * Should match a js arrow function definition
- * @author Github Copilot
  */
 
 // TODO: make argumente math a valid identifier name
@@ -191,7 +183,6 @@ export const functionArrow_should_not_match: string[] = [
 
 /**
  * Should match a js async function definition
- * @author Github Copilot
  */
 export const functionAsync = new RegExp(
   raw
@@ -214,7 +205,6 @@ export const functionAsync_should_not_match: string[] = [
 
 /**
  * Should match a js generator function definition
- * @author Github Copilot
  */
 export const functionGenerator = new RegExp(
   raw`((${functionAnonymous.source})|(${functionClassic.source}))`.replaceAll(
@@ -239,8 +229,7 @@ export const functionGenerator_should_not_match: string[] = [
 
 /**
  * Should match a js async generator function. Only matches the syntax of `async function*` not any other way of creating an async generator or iterator.
- * @author Github Copilot
- * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+ * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
  */
 export const functionAsyncGenerator = new RegExp(
   raw`async\s+${functionGenerator.source}`,
@@ -265,8 +254,8 @@ const classDefinitionAnyName =
 
 /**
  * Should match a js class definition
- * @author Github Copilot
  */
+
 export const classDefinition = new RegExp(
   classDefinitionAnyName.source.replaceAll(
     raw`[a-zA-Z$_][a-zA-Z0-9$_]*`,
@@ -572,8 +561,7 @@ const globalScopeAll = [
 
 /**
  * Should match any global variable
- * @author Github Copilot
- * @see
+
  */
 export const globalScope = new RegExp(
   raw`${globalScopeAll.join("|")}`,
@@ -596,9 +584,7 @@ export const globalScope_should_not_match = [
 // TODO Work in progress
 // /**
 //  * Should match a js pure function. But for now, it's just a function declaration with no access to the global scope
-//  * @author Github Copilot
-//  * @see https://en.wikipedia.org/wiki/Pure_function
-//  * @see https://www.freecodecamp.org/news/what-is-a-pure-function-in-javascript-acb887375dfe/ *
+//  * https://www.freecodecamp.org/news/what-is-a-pure-function-in-javascript-acb887375dfe/ *
 //  */
 
 // export const functionPure = new RegExp(

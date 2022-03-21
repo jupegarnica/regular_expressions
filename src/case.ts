@@ -1,6 +1,5 @@
 /**
  * Should match  camelCase string
- * @author Github Copilot
  */
 
 export const camelCase = /((?![A-Z])[a-zA-Z0-9]+)+/;
@@ -19,7 +18,6 @@ export const camelCase_should_not_match = [
 
 /**
  * Should match  kebab-case string
- * @author Github Copilot
  */
 
 export const kebabCase = /((?!-)([a-z0-9]+)(-[a-z0-9])?)+/;
@@ -43,7 +41,6 @@ export const kebabCase_should_not_match = [
 
 /**
  * Should match  snake_case string
- * @author Github Copilot
  */
 
 export const snakeCase = /((?!_)([a-z0-9]+)(_[a-z0-9])?)+/;
@@ -68,17 +65,16 @@ export const snakeCase_should_not_match = [
 
 /**
  * Should match  PascalCase string
- * @author Github Copilot
  */
 
-export const PascalCase = /([A-Z][a-z0-9]+)+/;
+export const pascalCase = /([A-Z][a-z0-9]+)+/;
 
-export const PascalCase_should_match = [
+export const pascalCase_should_match = [
   "PascalCase",
   "Pascal",
   "PascalCase2",
 ];
-export const PascalCase_should_not_match = [
+export const pascalCase_should_not_match = [
   "PascalCAse3",
   "PAscalCase3",
   "camelCase",
@@ -89,7 +85,6 @@ export const PascalCase_should_not_match = [
 
 /**
  * Should match  CONSTANT_CASE string
- * @author Github Copilot
  */
 
 export const constantCase = /([A-Z0-9]+)(_[A-Z0-9]+)?/;
