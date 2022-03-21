@@ -1,0 +1,21 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false,
+    "source.organizeImports": false
+  },
+  "deno.enable": true,
+  "deno.lint": true,
+  "deno.unstable": true,
+  "deno.suggest.imports.hosts": {
+    "https://deno.land/": true
+  },
+  "deno.suggest.imports.autoDiscover": true,
+  "deno.config": "./deno.jsonc",
+  "deno.codeLens.implementations": true,
+  "deno.codeLens.references": true,
+  "deno.codeLens.referencesAllFunctions": true,
+  "deno.codeLens.testArgs": [
+    "--allow-all"
+  ],
+  "deno.codeLens.test": true
+}

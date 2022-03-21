@@ -1,0 +1,28 @@
+name: TODO bot
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Run tdg-github-action
+      uses: ribtoks/tdg-github-action@master
+      with:
+        TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        REPO: ${{ github.repository }}
+        SHA: ${{ github.sha }}
+        REF: ${{ github.ref }}
+        LABEL: "TODO"
+        MIN_WORDS: 1
+        MIN_CHARACTERS: 0
+        ADD_LIMIT: 0
+        CLOSE_LIMIT: 0
+        # ROOT: "src"
+        # PROJECT_COLUMN_ID: 824533
+        # INCLUDE_PATTERN: "\\.(cpp|h)$"

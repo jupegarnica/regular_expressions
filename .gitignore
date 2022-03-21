@@ -1,0 +1,7 @@
+!.vim
+!.env.example
+*.log
+coverage
+.stagedFiles
+.cache
+npm
