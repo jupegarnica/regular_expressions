@@ -3,7 +3,6 @@ import { basename } from "https://deno.land/std@0.130.0/path/mod.ts";
 
 // import * as all from "../mod.ts";
 
-
 let allImported: Record<string, RegExp | string[]> = {};
 const path = new URL("./", import.meta.url).pathname;
 
@@ -12,8 +11,7 @@ for await (const file of Deno.readDir(path + "../src")) {
   allImported = {
     ...allImported,
     ...(await import(path + "../src/" + file.name)),
-  }
-
+  };
 }
 
 const allKeysImported = Object.keys(allImported);
@@ -27,10 +25,10 @@ type Expression = {
   shouldMatch: string[];
   shouldNotMatch: string[];
   docs: string;
-  location?: { filename: string, line: number, column: number };
+  location?: { filename: string; line: number; column: number };
 };
 const data: Expression[] = allRegularExpressionsImported.map((name) => {
-  const variable = jsDocs.find((doc: { name: string }) => doc.name === name)
+  const variable = jsDocs.find((doc: { name: string }) => doc.name === name);
   const jsDoc = variable?.jsDoc;
   const docs = `${jsDoc?.doc || ""}`;
   const location = variable?.location;
@@ -47,9 +45,13 @@ const data: Expression[] = allRegularExpressionsImported.map((name) => {
 function generateMarkdown(data: Expression[]): string {
   let output = "";
 
-  for (const { name, regex, shouldMatch, shouldNotMatch, docs, location } of data) {
+  for (
+    const { name, regex, shouldMatch, shouldNotMatch, docs, location } of data
+  ) {
     const fileName = location && basename(location.filename);
-    const pathToFile = fileName ? `at: ![${fileName}](./src/${fileName}:${location?.line})` : ""
+    const pathToFile = fileName
+      ? `at: ![${fileName}](./src/${fileName}:${location?.line})`
+      : "";
     output += `## ${name}
 
 ${docs}
@@ -75,4 +77,4 @@ const markdown = generateMarkdown(data);
 
 await Deno.writeTextFile(path + "../docs.md", markdown);
 
-console.log('Generated docs.md');
+console.log("Generated docs.md");
