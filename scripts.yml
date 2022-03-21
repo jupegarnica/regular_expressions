@@ -91,7 +91,7 @@ scripts:
 
   commitlint:
     cmd: deno run --allow-read="./.git" _scripts/commitlint.ts
-    gitHook: commit-msg
+    # gitHook: commit-msg
 
   tag: deno task tag
   release: deno task release
