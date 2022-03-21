@@ -1,0 +1,25 @@
+name: Build docs
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: denoland/setup-deno@v1
+    - run: deno task docs
+    - name: Create Pull Request
+      uses: peter-evans/create-pull-request@v3
+      with:
+        commit-message: "chore(docs): update docs"
+        title: Update Deno Dependencies
+        body: |
+          Automated docs generation
+        branch: update-docs
+        author: GitHub <noreply@github.com>
+        delete-branch: true
