@@ -9,18 +9,18 @@ export const allRegularExpressionsImported = allKeysImported.filter((key) =>
   allImported[key] instanceof RegExp
 );
 
-
 type Expression = {
-  name: string,
-  regex: RegExp,
-  shouldMatch: string[],
-  shouldNotMatch: string[],
-  docs: string,
+  name: string;
+  regex: RegExp;
+  shouldMatch: string[];
+  shouldNotMatch: string[];
+  docs: string;
 };
 const data: Expression[] = allRegularExpressionsImported.map((name) => {
-  const jsDoc = jsDocs.find((doc: { name: string }) => doc.name === name)?.jsDoc;
+  const jsDoc = jsDocs.find((doc: { name: string }) => doc.name === name)
+    ?.jsDoc;
   const docs = `${jsDoc?.doc || ""}
-${jsDoc?.tags.map((tag: { value: string }) => tag.value).join("\n")}`
+${jsDoc?.tags.map((tag: { value: string }) => tag.value).join("\n")}`;
 
   return {
     name,
@@ -32,9 +32,9 @@ ${jsDoc?.tags.map((tag: { value: string }) => tag.value).join("\n")}`
 });
 
 function generateMarkdown(data: Expression[]): string {
-  let output = ''
+  let output = "";
   for (const { name, regex, shouldMatch, shouldNotMatch, docs } of data) {
-    output +=`## ${name}
+    output += `## ${name}
 
 ${docs}
 
@@ -49,12 +49,10 @@ Should not match:
 ${regex.toString()}
 \`\`\`
 
-`
+`;
   }
   return output;
-
 }
-
 
 const markdown = generateMarkdown(data);
 

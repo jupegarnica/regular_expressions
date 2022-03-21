@@ -260,9 +260,8 @@ export const functionAsyncGenerator_should_not_match: string[] = [
   "function named(a1,a2,a3)",
 ];
 
-
 const classDefinitionAnyName =
-/class\s+[a-zA-Z$_][a-zA-Z0-9$_]*\s*(extends\s+[a-zA-Z$_][a-zA-Z0-9$_]*)?\s*\{.*\}/;
+  /class\s+[a-zA-Z$_][a-zA-Z0-9$_]*\s*(extends\s+[a-zA-Z$_][a-zA-Z0-9$_]*)?\s*\{.*\}/;
 
 /**
  * Should match a js class definition

@@ -1,69 +1,69 @@
 ## PascalCase
 
-Should match  PascalCase string
-@author Github Copilot
+Should match PascalCase string @author Github Copilot
 
 Should match:
+
 - PascalCase
 - Pascal
 - PascalCase2
 
 Should not match:
+
 - PascalCAse3
 - PAscalCase3
 - camelCase
 - kebab-case
 - snake_case
 
-
 ```js
-/([A-Z][a-z0-9]+)+/
+/([A-Z][a-z0-9]+)+/;
 ```
 
 ## base64
 
-Should match any base64 string.
-@author Github Copilot
-@see https://en.wikipedia.org/wiki/Base64
+Should match any base64 string. @author Github Copilot @see
+https://en.wikipedia.org/wiki/Base64
 
 Should match:
+
 - Zm9vYmFy
 - MTIzNDU2Nzc4OTBxd2VlcnR5dWlvcGFzZGZnaGprbPF6eGN2Ym5tUVdFRVJUWVVJT1BBU0RGR0hKS0zRWlhDVkJOTSsvfEAjfr1+rHtbXX0KIb8/W11fOjssLjw+KCkkJSZeKg==
 
 Should not match:
+
 - !@#$%^&*()_+
 
-
 ```js
-/[A-Za-z0-9+/]+={0,2}/
+/[A-Za-z0-9+/]+={0,2}/;
 ```
 
 ## camelCase
 
-Should match  camelCase string
-@author Github Copilot
+Should match camelCase string @author Github Copilot
 
 Should match:
+
 - camelCase
 - camelCase2
 - camelCase3
 
 Should not match:
+
 - PascalCase
 - kebab-case
 - snake_case
 
-
 ```js
-/((?![A-Z])[a-zA-Z0-9]+)+/
+/((?![A-Z])[a-zA-Z0-9]+)+/;
 ```
 
 ## classDefinition
 
-Should match a js class definition
-@author Github Copilot
+Should match a js class definition @author Github Copilot
 
 Should match:
+
 - class A{ }
 - class A{}
 - class A { }
@@ -77,29 +77,28 @@ Should match:
 - class A extends B { constructor() { super(); } foo() { } bar() { } }
 
 Should not match:
+
 - class 1foo{}
 - class foo extends 3hola{}
 - class A extends 1{ }
 - class while {}
 - class foo extends if{}
 - classB{}
-- class MyClass 
+- class MyClass
 - class MyClass {
 - CLASS A {}
 - class A extendsB{ }
 
-
 ```js
-/class\s+((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))\s*(extends\s+((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*)))?\s*\{.*\}/
+/class\s+((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))\s*(extends\s+((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*)))?\s*\{.*\}/;
 ```
 
 ## color
 
-
-@description: Should match any valid css color.
-@author Github Copilot
+@description: Should match any valid css color. @author Github Copilot
 
 Should match:
+
 - #abc
 - #ABC
 - #123
@@ -113,16 +112,17 @@ Should match:
 - rgb(255,255,255,0.5)
 - rgba(255,255,255,0.1)
 - rgba(255,255,255)
-- rgba( 255  ,   255     ,  255  )
+- rgba( 255 , 255 , 255 )
 - rgb(999,0,0)
 - hsl(0,100%,50%)
 - hsl(0,100%,50%,0.5)
 - hsla(0,100%,50%,0.1)
 - hsla(0,100%,50%)
-- hsla( 0  ,  100%       ,  50%  )
+- hsla( 0 , 100% , 50% )
 - hsl(24,50%,200%)
 
 Should not match:
+
 - #0ffcc00
 - #abcdefG
 - #FFG
@@ -146,18 +146,17 @@ Should not match:
 - hs(256,255,255,0.5)
 - (256,255,255,0.5)
 
-
 ```js
-/(#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4})))|(rgba?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})(\s*,\s*0?\.[0-9])?\s*\))|(hsla?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})%\s*,\s*([0-9]{1,3}%)(\s*,\s*0?\.[0-9])?\s*\))/
+/(#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4})))|(rgba?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})(\s*,\s*0?\.[0-9])?\s*\))|(hsla?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})%\s*,\s*([0-9]{1,3}%)(\s*,\s*0?\.[0-9])?\s*\))/;
 ```
 
 ## colorHex
 
-
-@description: Should match any valid css hex color. (#ffcc00,  #abc, or #ffcc0033)
-@author Github Copilot
+@description: Should match any valid css hex color. (#ffcc00, #abc, or
+#ffcc0033) @author Github Copilot
 
 Should match:
+
 - #abc
 - #ABC
 - #123
@@ -169,6 +168,7 @@ Should match:
 - #abcdefee
 
 Should not match:
+
 - #0ffcc00
 - #abcdefG
 - #FFG
@@ -181,26 +181,26 @@ Should not match:
 - #123456789a
 - #123456789ab
 
-
 ```js
-/#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4}))/
+/#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4}))/;
 ```
 
 ## colorHsl
 
-
-@description: Should match any valid  css hsl color. (hsl(0,100%,50%), hsla(0,100%,50%,0.5))
-@author Github Copilot
+@description: Should match any valid css hsl color. (hsl(0,100%,50%),
+hsla(0,100%,50%,0.5)) @author Github Copilot
 
 Should match:
+
 - hsl(0,100%,50%)
 - hsl(0,100%,50%,0.5)
 - hsla(0,100%,50%,0.1)
 - hsla(0,100%,50%)
-- hsla( 0  ,  100%       ,  50%  )
+- hsla( 0 , 100% , 50% )
 - hsl(24,50%,200%)
 
 Should not match:
+
 - hsl(24,50%,200)
 - hsla(2 55,255,255)
 - hslc(300,0%,0%)
@@ -208,47 +208,47 @@ Should not match:
 - hs(256,255,255,0.5)
 - (256,255,255,0.5)
 
-
 ```js
-/hsla?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})%\s*,\s*([0-9]{1,3}%)(\s*,\s*0?\.[0-9])?\s*\)/
+/hsla?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})%\s*,\s*([0-9]{1,3}%)(\s*,\s*0?\.[0-9])?\s*\)/;
 ```
 
 ## colorRgb
 
-
-@description: Should match any valid css rgb o rgba color. (rgb(255,255,255), rgba(255,255,255,0.5))
-@author Github Copilot
+@description: Should match any valid css rgb o rgba color. (rgb(255,255,255),
+rgba(255,255,255,0.5)) @author Github Copilot
 
 Should match:
+
 - rgb(255,255,255)
 - rgb(255,255,255,0.5)
 - rgba(255,255,255,0.1)
 - rgba(255,255,255)
-- rgba( 255  ,   255     ,  255  )
+- rgba( 255 , 255 , 255 )
 - rgb(999,0,0)
 
 Should not match:
+
 - rgba(2 55,255,255)
 - rgbc(300,0,0)
 - rgb(256,25 5,255,0.5)
 - rg(256,255,255,0.5)
 - (256,255,255,0.5)
 
-
 ```js
-/rgba?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})(\s*,\s*0?\.[0-9])?\s*\)/
+/rgba?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})(\s*,\s*0?\.[0-9])?\s*\)/;
 ```
 
 ## constantCase
 
-Should match  CONSTANT_CASE string
-@author Github Copilot
+Should match CONSTANT_CASE string @author Github Copilot
 
 Should match:
+
 - CONSTANT_CASE2
 - CONSTANT
 
 Should not match:
+
 - PascalCase
 - camelCase
 - kebab-case
@@ -258,18 +258,18 @@ Should not match:
 - _CONSTANT_CASE
 - CONSTANT_CAse
 
-
 ```js
-/([A-Z0-9]+)(_[A-Z0-9]+)?/
+/([A-Z0-9]+)(_[A-Z0-9]+)?/;
 ```
 
 ## email
 
-
-@description: Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters
-@author Github copilot
+@description: Allow IP as domain name: hello@154.145.68.12 does allow literal
+addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names
+after the last &quot;.&quot; minimum 2 letters @author Github copilot
 
 Should match:
+
 - juan@garn.dev
 - email+foo@email.com
 - email+112@email.com
@@ -284,6 +284,7 @@ Should match:
 - hello@154.145.68.12
 
 Should not match:
+
 - em|ail@email
 - email&email.com
 - hello@worl_d.com
@@ -291,17 +292,16 @@ Should not match:
 - .hello@wor#.co.uk
 - juan@@garn.dev
 
-
 ```js
-/[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+/
+/[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+/;
 ```
 
 ## functionAnonymous
 
-Should match a js anonymous classic function definition
-@author Github Copilot
+Should match a js anonymous classic function definition @author Github Copilot
 
 Should match:
+
 - function(){}
 - function (...args) { }
 - function (a1,a2,a3) { }
@@ -309,21 +309,21 @@ Should match:
 - function (){ if(true) { return 1; } }
 
 Should not match:
+
 - function name(){return 2;}
 - func(){}
 - function(a1,a2,a3)
 
-
 ```js
-/function(?<noName>\s*)\(.*\)\s*\{(.*)\}/
+/function(?<noName>\s*)\(.*\)\s*\{(.*)\}/;
 ```
 
 ## functionArrow
 
-Should match a js arrow function definition
-@author Github Copilot
+Should match a js arrow function definition @author Github Copilot
 
 Should match:
+
 - A => A
 - () => 42
 - (a,b,c) => 42
@@ -332,22 +332,22 @@ Should match:
 - () => { return 'hello'; }
 
 Should not match:
+
 - A,B => A
-- functionname () {  return 'hello'; }
+- functionname () { return 'hello'; }
 - function () {}
 - function myFunction(param1, param2) {
 
-
 ```js
-/([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)/
+/([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)/;
 ```
 
 ## functionAsync
 
-Should match a js async function definition
-@author Github Copilot
+Should match a js async function definition @author Github Copilot
 
 Should match:
+
 - async function(){}
 - async function named() {}
 - async function (...args) { }
@@ -358,76 +358,79 @@ Should match:
 - async () => {return 2;}
 
 Should not match:
+
 - async func(){}
 - async functionA(a1,a2,a3)
 
-
 ```js
-/async\s+((function(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\})|(([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)))/
+/async\s+((function(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\})|(([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)))/;
 ```
 
 ## functionAsyncGenerator
 
-Should match a js async generator function. Only matches the syntax of `async function*` not any other way of creating an async generator or iterator.
-@author Github Copilot
-@see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+Should match a js async generator function. Only matches the syntax of
+`async function*` not any other way of creating an async generator or iterator.
+@author Github Copilot @see
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
 
 Should match:
+
 - async function* (){}
 - async function* named() {}
 - async function* (...args) { }
 - async function* named(a1,a2,a3) { yield 42; return 43; }
 
 Should not match:
+
 - function (){}
 - async function (){}
 - function* while() {}
 - async function (){}
 - function named(a1,a2,a3)
 
-
 ```js
-/async\s+((function\*(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\*\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}))/
+/async\s+((function\*(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\*\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}))/;
 ```
 
 ## functionClassic
 
-Should match a js classic function definition
-@author Github Copilot
+Should match a js classic function definition @author Github Copilot
 
 Should match:
+
 - function name(param1, param2) { }
-- function name() {  }
+- function name() { }
 - function name () {}
-- function name         () {}
-- function name() {  return 'hello'; }
-- function name() {  if(true) { return 42 } }
+- function name () {}
+- function name() { return 'hello'; }
+- function name() { if(true) { return 42 } }
 
 Should not match:
+
 - function while() {}
 - function function() { }
-- functionname () {  return 'hello'; }
-- function name     foo    () {}
+- functionname () { return 'hello'; }
+- function name foo () {}
 - function () {}
--  () => {}
+- () => {}
 - function myFunction(param1, param2) {
 
-
 ```js
-/function\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}/
+/function\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}/;
 ```
 
 ## functionGenerator
 
-Should match a js generator function definition
-@author Github Copilot
+Should match a js generator function definition @author Github Copilot
 
 Should match:
+
 - function*(){}
 - function* named() {}
 - function* (...args) { }
 
 Should not match:
+
 - function (){}
 - async function (){}
 - function* while() {}
@@ -435,45 +438,45 @@ Should not match:
 - function named(a1,a2,a3)
 - async function* named(a1,a2,a3)
 
-
 ```js
-/((function\*(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\*\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}))/
+/((function\*(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\*\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}))/;
 ```
 
 ## globalScope
 
-Should match any global variable
-@author Github Copilot
-@see
+Should match any global variable @author Github Copilot @see
 
 Should match:
+
 - Deno
 - fetch
 - window
 - global
 
 Should not match:
+
 - DENO
 - fETCH
 - Window
 - Global
 
-
 ```js
-/Deno|queueMicrotask|dispatchEvent|addEventListener|removeEventListener|AbortSignal|AbortController|atob|btoa|clearInterval|clearTimeout|crypto|fetch|performance|setInterval|setTimeout|structuredClone|location|window|self|navigator|close|closed|alert|confirm|prompt|localStorage|sessionStorage|onload|onunload|global|clearImmediate|setImmediate|document|name|customElements|history|locationbar|menubar|personalbar|scrollbars|statusbar|toolbar|status|frames|length|top|opener|parent|frameElement|origin|external|screen|innerWidth|innerHeight|scrollX|pageXOffset|scrollY|pageYOffset|visualViewport|screenX|screenY|outerWidth|outerHeight|devicePixelRatio|clientInformation|screenLeft|screenTop|defaultStatus|defaultstatus|styleMedia|onsearch|isSecureContext|onappinstalled|onbeforeinstallprompt|indexedDB|webkitStorageInfo|onbeforexrselect|onabort|onblur|oncancel|oncanplay|oncanplaythrough|onchange|onclick|onclose|oncontextmenu|oncuechange|ondblclick|ondrag|ondragend|ondragenter|ondragleave|ondragover|ondragstart|ondrop|ondurationchange|onemptied|onended|onerror|onfocus|onformdata|oninput|oninvalid|onkeydown|onkeypress|onkeyup|onloadeddata|onloadedmetadata|onloadstart|onmousedown|onmouseenter|onmouseleave|onmousemove|onmouseout|onmouseover|onmouseup|onmousewheel|onpause|onplay|onplaying|onprogress|onratechange|onreset|onresize|onscroll|onsecuritypolicyviolation|onseeked|onseeking|onselect|onslotchange|onstalled|onsubmit|onsuspend|ontimeupdate|ontoggle|onvolumechange|onwaiting|onwebkitanimationend|onwebkitanimationiteration|onwebkitanimationstart|onwebkittransitionend|onwheel|onauxclick|ongotpointercapture|onlostpointercapture|onpointerdown|onpointermove|onpointerup|onpointercancel|onpointerover|onpointerout|onpointerenter|onpointerleave|onselectstart|onselectionchange|onanimationend|onanimationiteration|onanimationstart|ontransitionrun|ontransitionstart|ontransitionend|ontransitioncancel|onafterprint|onbeforeprint|onbeforeunload|onhashchange|onlanguagechange|onmessage|onmessageerror|onoffline|ononline|onpagehide|onpageshow|onpopstate|onrejectionhandled|onstorage|onunhandledrejection|blur|cancelAnimationFrame|cancelIdleCallback|captureEvents|createImageBitmap|find|focus|getComputedStyle|getSelection|matchMedia|moveBy|moveTo|open|postMessage|print|releaseEvents|reportError|requestAnimationFrame|requestIdleCallback|resizeBy|resizeTo|scroll|scrollBy|scrollTo|stop|webkitCancelAnimationFrame|webkitRequestAnimationFrame|chrome|caches|cookieStore|ondevicemotion|ondeviceorientation|ondeviceorientationabsolute|oncontextlost|oncontextrestored|showDirectoryPicker|showOpenFilePicker|showSaveFilePicker|originAgentCluster|trustedTypes|speechSynthesis|onpointerrawupdate|crossOriginIsolated|scheduler|openDatabase|webkitRequestFileSystem|webkitResolveLocalFileSystemURL|console/
+/Deno|queueMicrotask|dispatchEvent|addEventListener|removeEventListener|AbortSignal|AbortController|atob|btoa|clearInterval|clearTimeout|crypto|fetch|performance|setInterval|setTimeout|structuredClone|location|window|self|navigator|close|closed|alert|confirm|prompt|localStorage|sessionStorage|onload|onunload|global|clearImmediate|setImmediate|document|name|customElements|history|locationbar|menubar|personalbar|scrollbars|statusbar|toolbar|status|frames|length|top|opener|parent|frameElement|origin|external|screen|innerWidth|innerHeight|scrollX|pageXOffset|scrollY|pageYOffset|visualViewport|screenX|screenY|outerWidth|outerHeight|devicePixelRatio|clientInformation|screenLeft|screenTop|defaultStatus|defaultstatus|styleMedia|onsearch|isSecureContext|onappinstalled|onbeforeinstallprompt|indexedDB|webkitStorageInfo|onbeforexrselect|onabort|onblur|oncancel|oncanplay|oncanplaythrough|onchange|onclick|onclose|oncontextmenu|oncuechange|ondblclick|ondrag|ondragend|ondragenter|ondragleave|ondragover|ondragstart|ondrop|ondurationchange|onemptied|onended|onerror|onfocus|onformdata|oninput|oninvalid|onkeydown|onkeypress|onkeyup|onloadeddata|onloadedmetadata|onloadstart|onmousedown|onmouseenter|onmouseleave|onmousemove|onmouseout|onmouseover|onmouseup|onmousewheel|onpause|onplay|onplaying|onprogress|onratechange|onreset|onresize|onscroll|onsecuritypolicyviolation|onseeked|onseeking|onselect|onslotchange|onstalled|onsubmit|onsuspend|ontimeupdate|ontoggle|onvolumechange|onwaiting|onwebkitanimationend|onwebkitanimationiteration|onwebkitanimationstart|onwebkittransitionend|onwheel|onauxclick|ongotpointercapture|onlostpointercapture|onpointerdown|onpointermove|onpointerup|onpointercancel|onpointerover|onpointerout|onpointerenter|onpointerleave|onselectstart|onselectionchange|onanimationend|onanimationiteration|onanimationstart|ontransitionrun|ontransitionstart|ontransitionend|ontransitioncancel|onafterprint|onbeforeprint|onbeforeunload|onhashchange|onlanguagechange|onmessage|onmessageerror|onoffline|ononline|onpagehide|onpageshow|onpopstate|onrejectionhandled|onstorage|onunhandledrejection|blur|cancelAnimationFrame|cancelIdleCallback|captureEvents|createImageBitmap|find|focus|getComputedStyle|getSelection|matchMedia|moveBy|moveTo|open|postMessage|print|releaseEvents|reportError|requestAnimationFrame|requestIdleCallback|resizeBy|resizeTo|scroll|scrollBy|scrollTo|stop|webkitCancelAnimationFrame|webkitRequestAnimationFrame|chrome|caches|cookieStore|ondevicemotion|ondeviceorientation|ondeviceorientationabsolute|oncontextlost|oncontextrestored|showDirectoryPicker|showOpenFilePicker|showSaveFilePicker|originAgentCluster|trustedTypes|speechSynthesis|onpointerrawupdate|crossOriginIsolated|scheduler|openDatabase|webkitRequestFileSystem|webkitResolveLocalFileSystemURL|console/;
 ```
 
 ## hostname
 
-Should match any url hostname (no protocol, no port, no path)
-@author Github copilot
+Should match any url hostname (no protocol, no port, no path) @author Github
+copilot
 
 Should match:
+
 - example.com
 - sub.example.com
 - www.exampl3.com
 
 Should not match:
+
 - example.com/
 - example.com:1234
 - example.com:1234/
@@ -489,17 +492,16 @@ Should not match:
 - http://example.com/path/
 - https://example.com/path/
 
-
 ```js
-/[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}/
+/[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}/;
 ```
 
 ## iPv4Private
 
-Should match any private ip v4
-@author Github copilot
+Should match any private ip v4 @author Github copilot
 
 Should match:
+
 - 10.196.0.1
 - 127.196.100.1
 - 192.168.1.0
@@ -507,22 +509,23 @@ Should match:
 - 192.168.0.1
 
 Should not match:
+
 - 156.10.3.1
 - 127.196.300.1
 - 139.47.8.243
 
-
 ```js
-/(?:(?:10|127)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\.254|192\.168)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/
+/(?:(?:10|127)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\.254|192\.168)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/;
 ```
 
 ## identifierNames
 
-Should match a valid js variable/function/class name
-@see https://developer.mozilla.org/en-US/docs/Glossary/Identifier
-@author Github Copilot
+Should match a valid js variable/function/class name @see
+https://developer.mozilla.org/en-US/docs/Glossary/Identifier @author Github
+Copilot
 
 Should match:
+
 - a
 - Z
 - FOO
@@ -536,6 +539,7 @@ Should match:
 - _
 
 Should not match:
+
 - 1
 - 1a
 - name with space
@@ -548,17 +552,17 @@ Should not match:
 - for
 - let
 
-
 ```js
-/((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))/
+/((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))/;
 ```
 
 ## ipv4
 
-Should match any ip v4 without protocol, no any mask of subnet
-@author Github copilot
+Should match any ip v4 without protocol, no any mask of subnet @author Github
+copilot
 
 Should match:
+
 - 192.168.1.0
 - 192.168.1.1
 - 10.123.3.234
@@ -570,24 +574,25 @@ Should match:
 - 255.255.255.255
 
 Should not match:
+
 - 254.254.254.254.254
 - 1.1.1.1.1
 - 1.1.1
 - 192.168.A.0
 - 192.168.1.b
 
-
 ```js
-/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/
+/((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/;
 ```
 
 ## ipv4CIDR
 
-Should match any ipv4 CIDR notation (subnet)
-@see https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-@author Github copilot
+Should match any ipv4 CIDR notation (subnet) @see
+https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing @author Github
+copilot
 
 Should match:
+
 - 192.168.100.1/24
 - 192.168.0.1/25
 - 192.168.254.1/26
@@ -626,21 +631,21 @@ Should match:
 - 10.0.0.0/1
 
 Should not match:
+
 - 192.168.100.1/33
 - 0.0.0.0/90
 
-
 ```js
-/(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))/
+/(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))/;
 ```
 
 ## ipv4SubnetMask
 
-Should match any subnet mask
-@see https://en.wikipedia.org/wiki/Subnetwork
+Should match any subnet mask @see https://en.wikipedia.org/wiki/Subnetwork
 @author Github copilot
 
 Should match:
+
 - 255.255.255.255
 - 255.255.255.0
 - 255.255.0.0
@@ -649,26 +654,27 @@ Should match:
 - 255.255.255.192
 
 Should not match:
+
 - 255.255.255.253
 
-
 ```js
-/((255\.){3}(0|128|192|224|240|248|252|254|255))|((255\.){2}(0|128|192|224|240|248|252|254|255)\.0)|((255\.)(0|128|192|224|240|248|252|254|255)\.0\.0)|((255\.){1}(0|128|192|224|240|248|252|254|255)\.0\.0\.0)/
+/((255\.){3}(0|128|192|224|240|248|252|254|255))|((255\.){2}(0|128|192|224|240|248|252|254|255)\.0)|((255\.)(0|128|192|224|240|248|252|254|255)\.0\.0)|((255\.){1}(0|128|192|224|240|248|252|254|255)\.0\.0\.0)/;
 ```
 
 ## ipv6
 
-Should match any ip v6 without protocol
-@author Github copilot
-@see https://es.wikipedia.org/wiki/IPv6
+Should match any ip v6 without protocol @author Github copilot @see
+https://es.wikipedia.org/wiki/IPv6
 
 Should match:
+
 - 2001:0db8:85a3:0000:0000:8a2e:0370:7334
 - 2001:db8:85a3:0:0:8a2e:370:7334
 - 2001:db8:85a3:8a2e:0370:7334:ff:fe00
 - a591:dfe9:8840:aa39:f830:0224:55c8:f21b
 
 Should not match:
+
 - :a591:dfe9:8840:aa39:f830:0224:55c8:f21b
 - 2001:0db8:85a3:0000:0000:8a2e:0370:7334:
 - g591:dfe9:8840:aa39:f830:0224:55c8:f21b
@@ -677,22 +683,22 @@ Should not match:
 - ::1
 - ::ffff
 
-
 ```js
-/(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}/
+/(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}/;
 ```
 
 ## kebabCase
 
-Should match  kebab-case string
-@author Github Copilot
+Should match kebab-case string @author Github Copilot
 
 Should match:
+
 - kebab-case
 - kebab-case2
 - kebab-case3
 
 Should not match:
+
 - PascalCase
 - camelCase
 - no kebab case
@@ -703,39 +709,39 @@ Should not match:
 - kebab-CAse
 - KEBAB-CASE
 
-
 ```js
-/((?!-)([a-z0-9]+)(-[a-z0-9])?)+/
+/((?!-)([a-z0-9]+)(-[a-z0-9])?)+/;
 ```
 
 ## lettersButNotH
 
-should match any single letter but not H.
-@author Github Copilot
-@see https://www.w3.org/TR/CSS2/syndata.html#characters
+should match any single letter but not H. @author Github Copilot @see
+https://www.w3.org/TR/CSS2/syndata.html#characters
 
 Should match:
+
 - a
 - h
 - A
 - Z
 
 Should not match:
+
 - H
 - 3
 - aa
 
-
 ```js
-/(?![H])[a-zA-Z]/
+/(?![H])[a-zA-Z]/;
 ```
 
 ## number
 
-Should match any valid JS number but not NaN, Infinity or -Infinity.
-@author Github Copilot
+Should match any valid JS number but not NaN, Infinity or -Infinity. @author
+Github Copilot
 
 Should match:
+
 - 1_000_000
 - 1_000.45
 - 123.45
@@ -751,6 +757,7 @@ Should match:
 - +123
 
 Should not match:
+
 - 0123
 - 123a
 - 123e
@@ -760,18 +767,17 @@ Should not match:
 - NaN
 - Infinity
 
-
 ```js
-/(?:[-+]?(?:0|[1-9_][0-9_]*)(?:\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?)/
+/(?:[-+]?(?:0|[1-9_][0-9_]*)(?:\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?)/;
 ```
 
 ## numberBigInt
 
-Should match any BigInt
-@author Github Copilot
-@see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
+Should match any BigInt @author Github Copilot @see
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
 
 Should match:
+
 - 0n
 - +1n
 - -1n
@@ -780,22 +786,23 @@ Should match:
 - 9999999999n
 
 Should not match:
+
 - 00n
 - 01n
 - 10
 - 200
 
-
 ```js
-/[+-]?(0|[1-9][0-9]*)n/
+/[+-]?(0|[1-9][0-9]*)n/;
 ```
 
 ## numberBinary
 
-Should match any binary number, signed or unsigned, but not integers or exponential.
-@author Github Copilot
+Should match any binary number, signed or unsigned, but not integers or
+exponential. @author Github Copilot
 
 Should match:
+
 - 0b101
 - 0b0
 - +0b1
@@ -805,6 +812,7 @@ Should match:
 - 0b01111000
 
 Should not match:
+
 - 0b0abc
 - 0babc
 - 0
@@ -819,17 +827,16 @@ Should not match:
 - 0b101.45e-4.5
 - 0b101.45e+4.5
 
-
 ```js
-/([+-])?0[bB][01]+/
+/([+-])?0[bB][01]+/;
 ```
 
 ## numberExponential
 
-Should match any exponential number.
-@author Github Copilot
+Should match any exponential number. @author Github Copilot
 
 Should match:
+
 - 123e4
 - 0.123e4
 - .1e4
@@ -842,6 +849,7 @@ Should match:
 - 0.123e+4
 
 Should not match:
+
 - 123.45
 - .e4
 - 0.123
@@ -852,17 +860,17 @@ Should not match:
 - 0.123e-4.5
 - 0.123e+4.5
 
-
 ```js
-/([-+]?([0-9]+))?(\.([0-9]+))?[eE]([-+]?([0-9]+))/
+/([-+]?([0-9]+))?(\.([0-9]+))?[eE]([-+]?([0-9]+))/;
 ```
 
 ## numberFloat
 
-Should match any float number, signed or unsigned, but not integers or exponential.
-@author Github Copilot
+Should match any float number, signed or unsigned, but not integers or
+exponential. @author Github Copilot
 
 Should match:
+
 - 123.45
 - 0.123
 - 1.0
@@ -870,8 +878,10 @@ Should match:
 - .9
 
 Should not match:
+
 - 7
-- 7.
+-
+  7.
 - 123
 - 1e4
 - 0.123e4
@@ -883,17 +893,16 @@ Should not match:
 - 0.123e-4.5
 - 0.123e+4.5
 
-
 ```js
-/([-+]?([0-9]+))?\.([0-9])+/
+/([-+]?([0-9]+))?\.([0-9])+/;
 ```
 
 ## numberHex
 
-Should match any number hexadecimal, signed or unsigned
-@author Github Copilot
+Should match any number hexadecimal, signed or unsigned @author Github Copilot
 
 Should match:
+
 - 0x123
 - 0x0
 - 0X1
@@ -905,6 +914,7 @@ Should match:
 - 0xabc
 
 Should not match:
+
 - *0x1
 - 123
 - 0xG
@@ -914,23 +924,24 @@ Should not match:
 - 0x123.45e-4
 - 0x123.45e+4
 
-
 ```js
-/(([+-])?0[xX][0-9a-fA-F]+)/
+/(([+-])?0[xX][0-9a-fA-F]+)/;
 ```
 
 ## numberInteger
 
-Should match any number signed integer or unsigned integer.
-@author Github Copilot
+Should match any number signed integer or unsigned integer. @author Github
+Copilot
 
 Should match:
+
 - 0
 - 123
 - -999
 - +6
 
 Should not match:
+
 - 00
 - 000
 - 123.45
@@ -940,17 +951,17 @@ Should not match:
 - 0.123e-4
 - 0.123e+4
 
-
 ```js
-/(?:[-+]?(?:0|[1-9][0-9]*))/
+/(?:[-+]?(?:0|[1-9][0-9]*))/;
 ```
 
 ## numberOctal
 
-Should match any number octal, signed or unsigned, but not integers or exponential.
-@author Github Copilot
+Should match any number octal, signed or unsigned, but not integers or
+exponential. @author Github Copilot
 
 Should match:
+
 - 0123
 - 07
 - 0o51
@@ -959,6 +970,7 @@ Should match:
 - -0o7
 
 Should not match:
+
 - 0
 - 058
 - 0o58
@@ -975,18 +987,17 @@ Should not match:
 - 0123.45e-4
 - 0123.45e+4
 
-
 ```js
-/([+-])?(0o?[0-7]+)/
+/([+-])?(0o?[0-7]+)/;
 ```
 
 ## reservedWords
 
-Should match a js reserved word
-@author Github Copilot
-@see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords
+Should match a js reserved word @author Github Copilot @see
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords
 
 Should match:
+
 - break
 - case
 - catch
@@ -1052,6 +1063,7 @@ Should match:
 - false
 
 Should not match:
+
 - BREAK
 - CASE
 - CATCH
@@ -1116,18 +1128,17 @@ Should not match:
 - TRUE
 - FALSE
 
-
 ```js
-/(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b)/
+/(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b)/;
 ```
 
 ## romanNumeral
 
-Should match any roman numeral
-@author Github Copilot
-@see https://en.wikipedia.org/wiki/Roman_numerals
+Should match any roman numeral @author Github Copilot @see
+https://en.wikipedia.org/wiki/Roman_numerals
 
 Should match:
+
 - I
 - II
 - III
@@ -1248,6 +1259,7 @@ Should match:
 - MMMM
 
 Should not match:
+
 - iii
 - IIV
 - IIII
@@ -1265,22 +1277,22 @@ Should not match:
 - lxxviii
 - asdsdf
 
-
 ```js
-/M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})/
+/M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})/;
 ```
 
 ## snakeCase
 
-Should match  snake_case string
-@author Github Copilot
+Should match snake_case string @author Github Copilot
 
 Should match:
+
 - snake_case
 - snake_case2
 - snake_case3
 
 Should not match:
+
 - PascalCase
 - camelCase
 - no snake case
@@ -1292,18 +1304,18 @@ Should not match:
 - snake_CAse
 - SNAKE_CASE
 
-
 ```js
-/((?!_)([a-z0-9]+)(_[a-z0-9])?)+/
+/((?!_)([a-z0-9]+)(_[a-z0-9])?)+/;
 ```
 
 ## uri
 
-Should match any uri with any protocol, for example file://, http://, https://, ftp://, chrome-extension://, chrome://, etc...
-@see https://es.wikipedia.org/wiki/Esquema_de_URI
-@author Github copilot
+Should match any uri with any protocol, for example file://, http://, https://,
+ftp://, chrome-extension://, chrome://, etc... @see
+https://es.wikipedia.org/wiki/Esquema_de_URI @author Github copilot
 
 Should match:
+
 - https://example.com:1234
 - http://example.com:1234/
 - any://example.com
@@ -1324,25 +1336,25 @@ Should match:
 - estrange-protocol://example.com/path/
 
 Should not match:
+
 - //example.com
 - example.com
 - example.com/
 - example.com/path
 - example.com/path/
 
-
 ```js
-/([\w-.]{3,}:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
+/([\w-.]{3,}:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
 ```
 
 ## uriProtocol
 
-Should match any valid uri protocol
-@author Github copilot
-@see https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
-@see https://es.wikipedia.org/wiki/Esquema_de_URI
+Should match any valid uri protocol @author Github copilot @see
+https://en.wikipedia.org/wiki/Uniform_Resource_Identifier @see
+https://es.wikipedia.org/wiki/Esquema_de_URI
 
 Should match:
+
 - http:
 - https:
 - ftp:
@@ -1380,14 +1392,14 @@ Should match:
 - gtalk:
 
 Should not match:
+
 - http://
 - https
 - www.google.com
 - ftp://ftp.is.co.za/rfc/rfc1808.txt
 
-
 ```js
-/((aaa)|(aaas)|(about)|(acap)|(adiumxtra)|(afp)|(aim)|(apt)|(attachment)|(aw)|(beshare)|(bitcoin)|(bolo)|(callto)|(cap)|(chrome)|(chrome-extension)|(cid)|(content)|(crid)|(cvs)|(data)|(dav)|(dict)|(dns)|(ed2k)|(facetime)|(fax)|(feed)|(file)|(finger)|(fish)|(ftp)|(geo)|(gg)|(git)|(gizmoproject)|(go)|(gopher)|(gtalk)|(h323)|(hcp)|(http)|(https)|(iax)|(icap)|(im)|(imap)|(info)|(ipp)|(irc)|(irc6)|(ircs)|(iris)|(iris.beep)|(iris\.xpc)|(iris\.xpcs)|(iris\.lws)|(itms)|(jar)|(keyparc)|(lastfm)|(ldap)|(ldaps)|(lightning)|(magnet)|(mailto)|(maps)|(market)|(message)|(mid)|(mms)|(modem)|(ms-help)|(msnim)|(msrp)|(msrps)|(mtqp)|(mumble)|(mupdate)|(mvn)|(news)|(nfs)|(nntp)|(notes)|(opaquelocktoken)|(palm)|(paparazzi)|(platform)|(pop)|(pres)|(prospero)|(proxy)|(psyc)|(query)|(res)|(resource)|(rmi)|(rsync)|(rtmp)|(rtsp)|(secondlife)|(service)|(sftp)|(sgn)|(shttp)|(sieve)|(sip)|(sips)|(skype)|(smb)|(sms)|(snmp)|(soap\.beep)|(soap\.beeps)|(soldat)|(spotify)|(ssh)|(steam)|(svn)|(tag)|(teamspeak)|(tel)|(telnet)|(tftp)|(things)|(thismessage)|(tip)|(tv)|(udp)|(unreal)|(urn)|(ut2004)|(uuid)|(vemmi)|(ventrilo)|(view-source)|(wais)|(webcal)|(ws)|(wss)|(wtai)|(wyciwyg)|(xfire)|(xmlrpc\.beep)|(xmlrpc\.beeps)|(xmpp)|(xri)|(ymsgr)|(z39\.50r)|(z39\.50s)):/
+/((aaa)|(aaas)|(about)|(acap)|(adiumxtra)|(afp)|(aim)|(apt)|(attachment)|(aw)|(beshare)|(bitcoin)|(bolo)|(callto)|(cap)|(chrome)|(chrome-extension)|(cid)|(content)|(crid)|(cvs)|(data)|(dav)|(dict)|(dns)|(ed2k)|(facetime)|(fax)|(feed)|(file)|(finger)|(fish)|(ftp)|(geo)|(gg)|(git)|(gizmoproject)|(go)|(gopher)|(gtalk)|(h323)|(hcp)|(http)|(https)|(iax)|(icap)|(im)|(imap)|(info)|(ipp)|(irc)|(irc6)|(ircs)|(iris)|(iris.beep)|(iris\.xpc)|(iris\.xpcs)|(iris\.lws)|(itms)|(jar)|(keyparc)|(lastfm)|(ldap)|(ldaps)|(lightning)|(magnet)|(mailto)|(maps)|(market)|(message)|(mid)|(mms)|(modem)|(ms-help)|(msnim)|(msrp)|(msrps)|(mtqp)|(mumble)|(mupdate)|(mvn)|(news)|(nfs)|(nntp)|(notes)|(opaquelocktoken)|(palm)|(paparazzi)|(platform)|(pop)|(pres)|(prospero)|(proxy)|(psyc)|(query)|(res)|(resource)|(rmi)|(rsync)|(rtmp)|(rtsp)|(secondlife)|(service)|(sftp)|(sgn)|(shttp)|(sieve)|(sip)|(sips)|(skype)|(smb)|(sms)|(snmp)|(soap\.beep)|(soap\.beeps)|(soldat)|(spotify)|(ssh)|(steam)|(svn)|(tag)|(teamspeak)|(tel)|(telnet)|(tftp)|(things)|(thismessage)|(tip)|(tv)|(udp)|(unreal)|(urn)|(ut2004)|(uuid)|(vemmi)|(ventrilo)|(view-source)|(wais)|(webcal)|(ws)|(wss)|(wtai)|(wyciwyg)|(xfire)|(xmlrpc\.beep)|(xmlrpc\.beeps)|(xmpp)|(xri)|(ymsgr)|(z39\.50r)|(z39\.50s)):/;
 ```
 
 ## url
@@ -1396,6 +1408,7 @@ Should match any url with or without http/s protocol and with or without port
 @author Github copilot
 
 Should match:
+
 - //ex4mpl3.com
 - http://ex4mpl3.com
 - http://subdomain.example.com
@@ -1427,6 +1440,7 @@ Should match:
 - https://example.com:65535
 
 Should not match:
+
 - https://example.com:123456
 - http://example.com:123456
 - http://example.c0m
@@ -1434,18 +1448,17 @@ Should not match:
 - example,com
 - example_com
 
-
 ```js
-/((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:[0-9]{1,5})?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
+/((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:[0-9]{1,5})?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
 ```
 
 ## urlWithPort
 
-Should match any url with or without http/s protocols and port
-@author Github copilot
-@see https://es.wikipedia.org/wiki/Anexo:Puertos_de_red
+Should match any url with or without http/s protocols and port @author Github
+copilot @see https://es.wikipedia.org/wiki/Anexo:Puertos_de_red
 
 Should match:
+
 - https://example.com:0
 - http://example.com:1
 - http://example.com:80
@@ -1456,21 +1469,22 @@ Should match:
 - example.com:65535
 
 Should not match:
+
 - https://example.com:
 - //example.com
 - example.com
 
-
 ```js
-/((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
+/((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
 ```
 
 ## urlWithProtocol
 
-Should match any url with http/s protocols and with or without port
-@author Github copilot
+Should match any url with http/s protocols and with or without port @author
+Github copilot
 
 Should match:
+
 - https://example.com:0
 - http://example.com:1
 - http://example.com:80
@@ -1479,14 +1493,13 @@ Should match:
 - https://example.com:65535
 
 Should not match:
+
 - //example.com:65535
 - example.com:65535
 - https://example.com:
 - //example.com
 - example.com
 
-
 ```js
-/(https?:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
+/(https?:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
 ```
-

@@ -36,7 +36,6 @@
     "bench": "deno bench --allow-env=NO-COLOR,LOG_LEVEL --no-check",
     "docs": "sh  -c 'deno doc mod.ts --json > jsDocs_data.json' && deno task build-docs",
     "build-docs": "deno run -A _scripts/build_docs.ts"
-
   }
   // "importMap":"vendor/import_map.json"
 }
