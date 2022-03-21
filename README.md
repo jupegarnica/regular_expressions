@@ -19,7 +19,7 @@ Ready to be imported or copy pasted into your code.
   - [x] Roman numerals
   - [x] base64
   - [ ] base32
-  - [ ] bigInt
+  - [x] bigInt
 - [x] emails
 - [x] uris
   - [x] url
