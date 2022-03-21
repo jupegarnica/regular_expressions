@@ -84,7 +84,7 @@ scripts:
     cmd:
       - vr lint
       - vr fmt --check
-      - vr test
+      - timeout 14 vr test
 
     gitHook: pre-push
 
