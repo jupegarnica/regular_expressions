@@ -1,686 +1,6 @@
 [
   {
     "kind": "variable",
-    "name": "reservedWords",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 7,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match a js reserved word\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "(\\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\\b)",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "reservedWords_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 10,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "reservedWords_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 79,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "identifierNames",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 87,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match a valid js variable/function/class name * https://developer.mozilla.org/en-US/docs/Glossary/Identifier"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "RegExp",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "identifierNames_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 90,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "identifierNames_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 103,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionAnonymous",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 120,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match a js anonymous classic function definition"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "function(?<noName>\\s*)\\(.*\\)\\s*\\{(.*)\\}",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionAnonymous_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 121,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionAnonymous_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 128,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionClassic",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 138,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match a js classic function definition"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "RegExp",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionClassic_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 145,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionClassic_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 153,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionArrow",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 168,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match a js arrow function definition"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([a-zA-Z0-9-$]+)|(\\(.*\\))\\s*=>\\s*(.*)",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionArrow_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 169,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionArrow_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 177,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionAsync",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 187,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match a js async function definition"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "RegExp",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionAsync_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 191,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionAsync_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 201,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionGenerator",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 209,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match a js generator function definition"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "RegExp",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionGenerator_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 216,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionGenerator_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 221,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionAsyncGenerator",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 234,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match a js async generator function. Only matches the syntax of `async function*` not any other way of creating an async generator or iterator.\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "RegExp",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionAsyncGenerator_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 238,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "functionAsyncGenerator_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 244,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "classDefinition",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 259,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match a js class definition"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "RegExp",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "classDefinition_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 266,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "classDefinition_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 279,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "globalScope",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 566,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any global variable"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "RegExp",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "globalScope_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 570,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "globalScope_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 577,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
     "name": "number",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
@@ -1701,19 +1021,19 @@
   },
   {
     "kind": "variable",
-    "name": "email",
+    "name": "reservedWords",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
-      "line": 12,
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 7,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters"
+      "doc": "Should match a js reserved word\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords"
     },
     "variableDef": {
       "tsType": {
-        "repr": "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+",
+        "repr": "(\\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\\b)",
         "kind": "typeRef",
         "typeRef": {
           "typeParams": null,
@@ -1725,10 +1045,10 @@
   },
   {
     "kind": "variable",
-    "name": "email_should_match",
+    "name": "reservedWords_should_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
-      "line": 15,
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 10,
       "col": 0
     },
     "declarationKind": "export",
@@ -1747,10 +1067,962 @@
   },
   {
     "kind": "variable",
-    "name": "email_should_not_match",
+    "name": "reservedWords_should_not_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 79,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "identifierNames",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 87,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match a valid js variable/function/class name * https://developer.mozilla.org/en-US/docs/Glossary/Identifier"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "RegExp",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "identifierNames_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 90,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "identifierNames_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 103,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionAnonymous",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 120,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match a js anonymous classic function definition"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "function(?<noName>\\s*)\\(.*\\)\\s*\\{(.*)\\}",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionAnonymous_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 121,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionAnonymous_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 128,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionClassic",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 138,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match a js classic function definition"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "RegExp",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionClassic_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 145,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionClassic_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 153,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionArrow",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 168,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match a js arrow function definition"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([a-zA-Z0-9-$]+)|(\\(.*\\))\\s*=>\\s*(.*)",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionArrow_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 169,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionArrow_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 177,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionAsync",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 187,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match a js async function definition"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "RegExp",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionAsync_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 191,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionAsync_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 201,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionGenerator",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 209,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match a js generator function definition"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "RegExp",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionGenerator_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 216,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionGenerator_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 221,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionAsyncGenerator",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 234,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match a js async generator function. Only matches the syntax of `async function*` not any other way of creating an async generator or iterator.\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "RegExp",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionAsyncGenerator_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 238,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "functionAsyncGenerator_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 244,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "classDefinition",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 259,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match a js class definition"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "RegExp",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "classDefinition_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 266,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "classDefinition_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 279,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "globalScope",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 565,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any global variable"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "RegExp",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "globalScope_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 569,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "globalScope_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
+      "line": 576,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 5,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  camelCase string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?![A-Z])[a-zA-Z0-9]+)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 7,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 12,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 23,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  kebab-case string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?!-)([a-z0-9]+)(-[a-z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 25,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
       "line": 30,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 46,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  snake_case string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?!_)([a-z0-9]+)(_[a-z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 48,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 53,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 70,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  PascalCase string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([A-Z][a-z0-9]+)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 72,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 77,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 90,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  CONSTANT_CASE string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([A-Z0-9]+)(_[A-Z0-9]+)?",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 92,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 96,
       "col": 0
     },
     "declarationKind": "export",
@@ -2517,87 +2789,19 @@
   },
   {
     "kind": "variable",
-    "name": "camelCase",
+    "name": "email",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 5,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  camelCase string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((?![A-Z])[a-zA-Z0-9]+)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "camelCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 7,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "camelCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
       "line": 12,
       "col": 0
     },
     "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "kebabCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 23,
-      "col": 0
-    },
-    "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match  kebab-case string"
+      "doc": "Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters"
     },
     "variableDef": {
       "tsType": {
-        "repr": "((?!-)([a-z0-9]+)(-[a-z0-9])?)+",
+        "repr": "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+",
         "kind": "typeRef",
         "typeRef": {
           "typeParams": null,
@@ -2609,10 +2813,10 @@
   },
   {
     "kind": "variable",
-    "name": "kebabCase_should_match",
+    "name": "email_should_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 25,
+      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
+      "line": 15,
       "col": 0
     },
     "declarationKind": "export",
@@ -2631,214 +2835,10 @@
   },
   {
     "kind": "variable",
-    "name": "kebabCase_should_not_match",
+    "name": "email_should_not_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
       "line": 30,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 46,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  snake_case string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((?!_)([a-z0-9]+)(_[a-z0-9])?)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 48,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 53,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "pascalCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 70,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  PascalCase string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([A-Z][a-z0-9]+)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "pascalCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 72,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "pascalCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 77,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "constantCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 90,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  CONSTANT_CASE string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([A-Z0-9]+)(_[A-Z0-9]+)?",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "constantCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 92,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "constantCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 96,
       "col": 0
     },
     "declarationKind": "export",

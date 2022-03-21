@@ -25,7 +25,7 @@ type Expression = {
   shouldMatch: string[];
   shouldNotMatch: string[];
   docs: string;
-  location?: { filename: string; line: number; column: number };
+  location?: { filename: string; line: number; col: number };
 };
 const data: Expression[] = allRegularExpressionsImported.map((name) => {
   const variable = jsDocs.find((doc: { name: string }) => doc.name === name);
@@ -50,7 +50,7 @@ function generateMarkdown(data: Expression[]): string {
   ) {
     const fileName = location && basename(location.filename);
     const pathToFile = fileName
-      ? `at: ![${fileName}](./src/${fileName}:${location?.line})`
+      ? `at: [${fileName}](./src/${fileName}:${location?.line})`
       : "";
     output += `## ${name}
 

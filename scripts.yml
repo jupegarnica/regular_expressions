@@ -18,7 +18,7 @@ scripts:
 
   server: deno task server
 
-  test: deno task test-watch
+  test: deno task test
 
   bench: deno task bench
 
