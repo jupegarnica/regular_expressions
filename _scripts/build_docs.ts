@@ -50,7 +50,7 @@ function generateMarkdown(data: Expression[]): string {
   ) {
     const fileName = location && basename(location.filename);
     const pathToFile = fileName
-      ? `at: [${fileName}](./src/${fileName}:${location?.line})`
+      ? `at: [${fileName}](./src/${fileName}#L${location?.line})`
       : "";
     output += `## ${name}
 
