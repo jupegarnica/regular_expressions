@@ -1,410 +1,15 @@
 [
   {
     "kind": "variable",
-    "name": "email",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
-      "line": 13,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@description: Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "email_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
-      "line": 16,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "email_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
-      "line": 31,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "colorHex",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 5,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@description: Should match any valid css hex color. (#ffcc00,  #abc, or #ffcc0033)"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4}))",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "colorHex_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 6,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "colorHex_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 17,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "colorRgb",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 35,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@description: Should match any valid css rgb o rgba color. (rgb(255,255,255), rgba(255,255,255,0.5))"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "rgba?\\(\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})(\\s*,\\s*0?\\.[0-9])?\\s*\\)",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "colorRgb_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 38,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "colorRgb_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 46,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "colorHsl",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 59,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@description: Should match any valid  css hsl color. (hsl(0,100%,50%), hsla(0,100%,50%,0.5))"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "hsla?\\(\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})%\\s*,\\s*([0-9]{1,3}%)(\\s*,\\s*0?\\.[0-9])?\\s*\\)",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "colorHsl_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 61,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "colorHsl_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 69,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "color",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 82,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@description: Should match any valid css color."
-        },
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "RegExp",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "color_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 86,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "color_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
-      "line": 91,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
     "name": "reservedWords",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 10,
+      "line": 7,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match a js reserved word",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords"
-        }
-      ]
+      "doc": "Should match a js reserved word\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords"
     },
     "variableDef": {
       "tsType": {
@@ -423,7 +28,7 @@
     "name": "reservedWords_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 13,
+      "line": 10,
       "col": 0
     },
     "declarationKind": "export",
@@ -445,7 +50,7 @@
     "name": "reservedWords_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 82,
+      "line": 79,
       "col": 0
     },
     "declarationKind": "export",
@@ -467,22 +72,12 @@
     "name": "identifierNames",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 92,
+      "line": 87,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match a valid js variable/function/class name",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@see https://developer.mozilla.org/en-US/docs/Glossary/Identifier"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match a valid js variable/function/class name * https://developer.mozilla.org/en-US/docs/Glossary/Identifier"
     },
     "variableDef": {
       "tsType": {
@@ -501,7 +96,7 @@
     "name": "identifierNames_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 95,
+      "line": 90,
       "col": 0
     },
     "declarationKind": "export",
@@ -523,7 +118,7 @@
     "name": "identifierNames_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 108,
+      "line": 103,
       "col": 0
     },
     "declarationKind": "export",
@@ -545,18 +140,12 @@
     "name": "functionAnonymous",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 126,
+      "line": 120,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match a js anonymous classic function definition",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match a js anonymous classic function definition"
     },
     "variableDef": {
       "tsType": {
@@ -575,7 +164,7 @@
     "name": "functionAnonymous_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 127,
+      "line": 121,
       "col": 0
     },
     "declarationKind": "export",
@@ -597,7 +186,7 @@
     "name": "functionAnonymous_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 134,
+      "line": 128,
       "col": 0
     },
     "declarationKind": "export",
@@ -619,18 +208,12 @@
     "name": "functionClassic",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 145,
+      "line": 138,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match a js classic function definition",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match a js classic function definition"
     },
     "variableDef": {
       "tsType": {
@@ -649,7 +232,7 @@
     "name": "functionClassic_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 152,
+      "line": 145,
       "col": 0
     },
     "declarationKind": "export",
@@ -671,7 +254,7 @@
     "name": "functionClassic_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 160,
+      "line": 153,
       "col": 0
     },
     "declarationKind": "export",
@@ -693,18 +276,12 @@
     "name": "functionArrow",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 176,
+      "line": 168,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match a js arrow function definition",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match a js arrow function definition"
     },
     "variableDef": {
       "tsType": {
@@ -723,7 +300,7 @@
     "name": "functionArrow_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 177,
+      "line": 169,
       "col": 0
     },
     "declarationKind": "export",
@@ -745,7 +322,7 @@
     "name": "functionArrow_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 185,
+      "line": 177,
       "col": 0
     },
     "declarationKind": "export",
@@ -767,18 +344,12 @@
     "name": "functionAsync",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 196,
+      "line": 187,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match a js async function definition",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match a js async function definition"
     },
     "variableDef": {
       "tsType": {
@@ -797,7 +368,7 @@
     "name": "functionAsync_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 200,
+      "line": 191,
       "col": 0
     },
     "declarationKind": "export",
@@ -819,7 +390,7 @@
     "name": "functionAsync_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 210,
+      "line": 201,
       "col": 0
     },
     "declarationKind": "export",
@@ -841,18 +412,12 @@
     "name": "functionGenerator",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 219,
+      "line": 209,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match a js generator function definition",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match a js generator function definition"
     },
     "variableDef": {
       "tsType": {
@@ -871,7 +436,7 @@
     "name": "functionGenerator_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 226,
+      "line": 216,
       "col": 0
     },
     "declarationKind": "export",
@@ -893,7 +458,7 @@
     "name": "functionGenerator_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 231,
+      "line": 221,
       "col": 0
     },
     "declarationKind": "export",
@@ -915,22 +480,12 @@
     "name": "functionAsyncGenerator",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 245,
+      "line": 234,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match a js async generator function. Only matches the syntax of `async function*` not any other way of creating an async generator or iterator.",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
-        }
-      ]
+      "doc": "Should match a js async generator function. Only matches the syntax of `async function*` not any other way of creating an async generator or iterator.\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function"
     },
     "variableDef": {
       "tsType": {
@@ -949,7 +504,7 @@
     "name": "functionAsyncGenerator_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 249,
+      "line": 238,
       "col": 0
     },
     "declarationKind": "export",
@@ -971,7 +526,7 @@
     "name": "functionAsyncGenerator_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 255,
+      "line": 244,
       "col": 0
     },
     "declarationKind": "export",
@@ -993,18 +548,12 @@
     "name": "classDefinition",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 271,
+      "line": 259,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match a js class definition",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match a js class definition"
     },
     "variableDef": {
       "tsType": {
@@ -1023,7 +572,7 @@
     "name": "classDefinition_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 278,
+      "line": 266,
       "col": 0
     },
     "declarationKind": "export",
@@ -1045,7 +594,7 @@
     "name": "classDefinition_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 291,
+      "line": 279,
       "col": 0
     },
     "declarationKind": "export",
@@ -1067,22 +616,12 @@
     "name": "globalScope",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 579,
+      "line": 566,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any global variable",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see"
-        }
-      ]
+      "doc": "Should match any global variable"
     },
     "variableDef": {
       "tsType": {
@@ -1101,7 +640,7 @@
     "name": "globalScope_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 583,
+      "line": 570,
       "col": 0
     },
     "declarationKind": "export",
@@ -1123,863 +662,7 @@
     "name": "globalScope_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 590,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "import",
-    "name": "red",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
-      "line": 1,
-      "col": 0
-    },
-    "declarationKind": "private",
-    "importDef": {
-      "src": "https://deno.land/std@0.129.0/fmt/colors.ts",
-      "imported": "red"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "url",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 5,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any url with or without http/s protocol and with or without port",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((https?:)?\\/\\/)?(www\\.)?[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}(:[0-9]{1,5})?(\\/[-a-zA-Z0-9:%_\\+.~#?&//=]*)?",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "url_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 8,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "url_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 40,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "urlWithPort",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 55,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any url with or without http/s protocols and port",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://es.wikipedia.org/wiki/Anexo:Puertos_de_red"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((https?:)?\\/\\/)?(www\\.)?[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}(:([0-9]{1,5}))(\\/[-a-zA-Z0-9:%_\\+.~#?&//=]*)?",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "urlWithPort_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 58,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "urlWithPort_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 68,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "urlWithProtocol",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 79,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any url with http/s protocols and with or without port",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "(https?:\\/\\/)(www\\.)?[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}(:([0-9]{1,5}))(\\/[-a-zA-Z0-9:%_\\+.~#?&//=]*)?",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "urlWithProtocol_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 82,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "urlWithProtocol_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 90,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "hostname",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 102,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any url hostname (no protocol, no port, no path)",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "hostname_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 104,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "hostname_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 110,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "uri",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 132,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any uri with any protocol, for example file://, http://, https://, ftp://, chrome-extension://, chrome://, etc...",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@see https://es.wikipedia.org/wiki/Esquema_de_URI"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([\\w-.]{3,}:\\/\\/)(www\\.)?[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}(:([0-9]{1,5}))?(\\/[-a-zA-Z0-9:%_\\+.~#?&//=]*)?",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "uri_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 135,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "uri_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 156,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv4",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 169,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any ip v4 without protocol, no any mask of subnet",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv4_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 172,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv4_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 183,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv4SubnetMask",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 198,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any subnet mask",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@see https://en.wikipedia.org/wiki/Subnetwork"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((255\\.){3}(0|128|192|224|240|248|252|254|255))|((255\\.){2}(0|128|192|224|240|248|252|254|255)\\.0)|((255\\.)(0|128|192|224|240|248|252|254|255)\\.0\\.0)|((255\\.){1}(0|128|192|224|240|248|252|254|255)\\.0\\.0\\.0)",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv4SubnetMask_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 201,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv4SubnetMask_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 210,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv4CIDR",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 220,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any ipv4 CIDR notation (subnet)",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@see https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv4CIDR_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 225,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv4CIDR_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 264,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv6",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 275,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any ip v6 without protocol",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://es.wikipedia.org/wiki/IPv6"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv6_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 279,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "ipv6_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 286,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "iPv4Private",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 300,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any private ip v4",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "(?:(?:10|127)\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\\.254|192\\.168)\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "iPv4Private_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 304,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "iPv4Private_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 311,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "uriProtocol",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 324,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any valid uri protocol",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://en.wikipedia.org/wiki/Uniform_Resource_Identifier"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://es.wikipedia.org/wiki/Esquema_de_URI"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((aaa)|(aaas)|(about)|(acap)|(adiumxtra)|(afp)|(aim)|(apt)|(attachment)|(aw)|(beshare)|(bitcoin)|(bolo)|(callto)|(cap)|(chrome)|(chrome-extension)|(cid)|(content)|(crid)|(cvs)|(data)|(dav)|(dict)|(dns)|(ed2k)|(facetime)|(fax)|(feed)|(file)|(finger)|(fish)|(ftp)|(geo)|(gg)|(git)|(gizmoproject)|(go)|(gopher)|(gtalk)|(h323)|(hcp)|(http)|(https)|(iax)|(icap)|(im)|(imap)|(info)|(ipp)|(irc)|(irc6)|(ircs)|(iris)|(iris.beep)|(iris\\.xpc)|(iris\\.xpcs)|(iris\\.lws)|(itms)|(jar)|(keyparc)|(lastfm)|(ldap)|(ldaps)|(lightning)|(magnet)|(mailto)|(maps)|(market)|(message)|(mid)|(mms)|(modem)|(ms-help)|(msnim)|(msrp)|(msrps)|(mtqp)|(mumble)|(mupdate)|(mvn)|(news)|(nfs)|(nntp)|(notes)|(opaquelocktoken)|(palm)|(paparazzi)|(platform)|(pop)|(pres)|(prospero)|(proxy)|(psyc)|(query)|(res)|(resource)|(rmi)|(rsync)|(rtmp)|(rtsp)|(secondlife)|(service)|(sftp)|(sgn)|(shttp)|(sieve)|(sip)|(sips)|(skype)|(smb)|(sms)|(snmp)|(soap\\.beep)|(soap\\.beeps)|(soldat)|(spotify)|(ssh)|(steam)|(svn)|(tag)|(teamspeak)|(tel)|(telnet)|(tftp)|(things)|(thismessage)|(tip)|(tv)|(udp)|(unreal)|(urn)|(ut2004)|(uuid)|(vemmi)|(ventrilo)|(view-source)|(wais)|(webcal)|(ws)|(wss)|(wtai)|(wyciwyg)|(xfire)|(xmlrpc\\.beep)|(xmlrpc\\.beeps)|(xmpp)|(xri)|(ymsgr)|(z39\\.50r)|(z39\\.50s)):",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "uriProtocol_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 327,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "uriProtocol_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 365,
+      "line": 577,
       "col": 0
     },
     "declarationKind": "export",
@@ -2001,18 +684,12 @@
     "name": "number",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 6,
+      "line": 5,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any valid JS number but not NaN, Infinity or -Infinity.",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any valid JS number but not NaN, Infinity or -Infinity."
     },
     "variableDef": {
       "tsType": {
@@ -2031,7 +708,7 @@
     "name": "number_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 8,
+      "line": 7,
       "col": 0
     },
     "declarationKind": "export",
@@ -2053,7 +730,7 @@
     "name": "number_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 23,
+      "line": 22,
       "col": 0
     },
     "declarationKind": "export",
@@ -2075,18 +752,12 @@
     "name": "numberInteger",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 38,
+      "line": 36,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any number signed integer or unsigned integer.",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any number signed integer or unsigned integer."
     },
     "variableDef": {
       "tsType": {
@@ -2105,7 +776,7 @@
     "name": "numberInteger_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 39,
+      "line": 37,
       "col": 0
     },
     "declarationKind": "export",
@@ -2127,7 +798,7 @@
     "name": "numberInteger_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 45,
+      "line": 43,
       "col": 0
     },
     "declarationKind": "export",
@@ -2149,18 +820,12 @@
     "name": "numberFloat",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 61,
+      "line": 58,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any float number, signed or unsigned, but not integers or exponential.",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any float number, signed or unsigned, but not integers or exponential."
     },
     "variableDef": {
       "tsType": {
@@ -2179,7 +844,7 @@
     "name": "numberFloat_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 62,
+      "line": 59,
       "col": 0
     },
     "declarationKind": "export",
@@ -2201,7 +866,7 @@
     "name": "numberFloat_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 69,
+      "line": 66,
       "col": 0
     },
     "declarationKind": "export",
@@ -2223,18 +888,12 @@
     "name": "numberExponential",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 88,
+      "line": 84,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any exponential number.",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any exponential number."
     },
     "variableDef": {
       "tsType": {
@@ -2253,7 +912,7 @@
     "name": "numberExponential_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 90,
+      "line": 86,
       "col": 0
     },
     "declarationKind": "export",
@@ -2275,7 +934,7 @@
     "name": "numberExponential_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 102,
+      "line": 98,
       "col": 0
     },
     "declarationKind": "export",
@@ -2297,18 +956,12 @@
     "name": "numberHex",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 119,
+      "line": 114,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any number hexadecimal, signed or unsigned",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any number hexadecimal, signed or unsigned"
     },
     "variableDef": {
       "tsType": {
@@ -2327,7 +980,7 @@
     "name": "numberHex_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 120,
+      "line": 115,
       "col": 0
     },
     "declarationKind": "export",
@@ -2349,7 +1002,7 @@
     "name": "numberHex_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 131,
+      "line": 126,
       "col": 0
     },
     "declarationKind": "export",
@@ -2371,18 +1024,12 @@
     "name": "numberOctal",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 147,
+      "line": 141,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any number octal, signed or unsigned, but not integers or exponential.",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any number octal, signed or unsigned, but not integers or exponential."
     },
     "variableDef": {
       "tsType": {
@@ -2401,7 +1048,7 @@
     "name": "numberOctal_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 148,
+      "line": 142,
       "col": 0
     },
     "declarationKind": "export",
@@ -2423,7 +1070,7 @@
     "name": "numberOctal_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 157,
+      "line": 151,
       "col": 0
     },
     "declarationKind": "export",
@@ -2445,18 +1092,12 @@
     "name": "numberBinary",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 180,
+      "line": 173,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any binary number, signed or unsigned, but not integers or exponential.",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any binary number, signed or unsigned, but not integers or exponential."
     },
     "variableDef": {
       "tsType": {
@@ -2475,7 +1116,7 @@
     "name": "numberBinary_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 181,
+      "line": 174,
       "col": 0
     },
     "declarationKind": "export",
@@ -2497,7 +1138,7 @@
     "name": "numberBinary_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 190,
+      "line": 183,
       "col": 0
     },
     "declarationKind": "export",
@@ -2519,22 +1160,12 @@
     "name": "base64",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 212,
+      "line": 204,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any base64 string.",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://en.wikipedia.org/wiki/Base64"
-        }
-      ]
+      "doc": "Should match any base64 string.\nhttps://en.wikipedia.org/wiki/Base64"
     },
     "variableDef": {
       "tsType": {
@@ -2553,7 +1184,7 @@
     "name": "base64_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 213,
+      "line": 205,
       "col": 0
     },
     "declarationKind": "export",
@@ -2575,7 +1206,7 @@
     "name": "base64_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 219,
+      "line": 211,
       "col": 0
     },
     "declarationKind": "export",
@@ -2597,22 +1228,12 @@
     "name": "romanNumeral",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 229,
+      "line": 220,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any roman numeral",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://en.wikipedia.org/wiki/Roman_numerals"
-        }
-      ]
+      "doc": "Should match any roman numeral\nhttps://en.wikipedia.org/wiki/Roman_numerals"
     },
     "variableDef": {
       "tsType": {
@@ -2631,7 +1252,7 @@
     "name": "romanNumeral_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 231,
+      "line": 222,
       "col": 0
     },
     "declarationKind": "export",
@@ -2653,7 +1274,7 @@
     "name": "romanNumeral_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 355,
+      "line": 346,
       "col": 0
     },
     "declarationKind": "export",
@@ -2675,22 +1296,12 @@
     "name": "numberBigInt",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 380,
+      "line": 370,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any BigInt",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"
-        }
-      ]
+      "doc": "Should match any BigInt\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"
     },
     "variableDef": {
       "tsType": {
@@ -2709,7 +1320,7 @@
     "name": "numberBigInt_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 381,
+      "line": 371,
       "col": 0
     },
     "declarationKind": "export",
@@ -2731,7 +1342,7 @@
     "name": "numberBigInt_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 389,
+      "line": 379,
       "col": 0
     },
     "declarationKind": "export",
@@ -2750,25 +1361,19 @@
   },
   {
     "kind": "variable",
-    "name": "camelCase",
+    "name": "colorHex",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 6,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 4,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match  camelCase string",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any valid css hex color. (#ffcc00,  #abc, or #ffcc0033)"
     },
     "variableDef": {
       "tsType": {
-        "repr": "((?![A-Z])[a-zA-Z0-9]+)+",
+        "repr": "#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4}))",
         "kind": "typeRef",
         "typeRef": {
           "typeParams": null,
@@ -2780,10 +1385,10 @@
   },
   {
     "kind": "variable",
-    "name": "camelCase_should_match",
+    "name": "colorHex_should_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 8,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 5,
       "col": 0
     },
     "declarationKind": "export",
@@ -2802,10 +1407,10 @@
   },
   {
     "kind": "variable",
-    "name": "camelCase_should_not_match",
+    "name": "colorHex_should_not_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 13,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 16,
       "col": 0
     },
     "declarationKind": "export",
@@ -2824,25 +1429,19 @@
   },
   {
     "kind": "variable",
-    "name": "kebabCase",
+    "name": "colorRgb",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 25,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 33,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match  kebab-case string",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any valid css rgb o rgba color. (rgb(255,255,255), rgba(255,255,255,0.5))"
     },
     "variableDef": {
       "tsType": {
-        "repr": "((?!-)([a-z0-9]+)(-[a-z0-9])?)+",
+        "repr": "rgba?\\(\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})(\\s*,\\s*0?\\.[0-9])?\\s*\\)",
         "kind": "typeRef",
         "typeRef": {
           "typeParams": null,
@@ -2854,10 +1453,10 @@
   },
   {
     "kind": "variable",
-    "name": "kebabCase_should_match",
+    "name": "colorRgb_should_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 27,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 36,
       "col": 0
     },
     "declarationKind": "export",
@@ -2876,10 +1475,10 @@
   },
   {
     "kind": "variable",
-    "name": "kebabCase_should_not_match",
+    "name": "colorRgb_should_not_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 32,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 44,
       "col": 0
     },
     "declarationKind": "export",
@@ -2898,99 +1497,19 @@
   },
   {
     "kind": "variable",
-    "name": "snakeCase",
+    "name": "colorHsl",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 49,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  snake_case string",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((?!_)([a-z0-9]+)(_[a-z0-9])?)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 51,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
       "line": 56,
       "col": 0
     },
     "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "PascalCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 74,
-      "col": 0
-    },
-    "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match  PascalCase string",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any valid  css hsl color. (hsl(0,100%,50%), hsla(0,100%,50%,0.5))"
     },
     "variableDef": {
       "tsType": {
-        "repr": "([A-Z][a-z0-9]+)+",
+        "repr": "hsla?\\(\\s*([0-9]{1,3})\\s*,\\s*([0-9]{1,3})%\\s*,\\s*([0-9]{1,3}%)(\\s*,\\s*0?\\.[0-9])?\\s*\\)",
         "kind": "typeRef",
         "typeRef": {
           "typeParams": null,
@@ -3002,10 +1521,10 @@
   },
   {
     "kind": "variable",
-    "name": "PascalCase_should_match",
+    "name": "colorHsl_should_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 76,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 58,
       "col": 0
     },
     "declarationKind": "export",
@@ -3024,10 +1543,10 @@
   },
   {
     "kind": "variable",
-    "name": "PascalCase_should_not_match",
+    "name": "colorHsl_should_not_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 81,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 66,
       "col": 0
     },
     "declarationKind": "export",
@@ -3046,25 +1565,19 @@
   },
   {
     "kind": "variable",
-    "name": "constantCase",
+    "name": "color",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 95,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 78,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match  CONSTANT_CASE string",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        }
-      ]
+      "doc": "Should match any valid css color."
     },
     "variableDef": {
       "tsType": {
-        "repr": "([A-Z0-9]+)(_[A-Z0-9]+)?",
+        "repr": "RegExp",
         "kind": "typeRef",
         "typeRef": {
           "typeParams": null,
@@ -3076,10 +1589,10 @@
   },
   {
     "kind": "variable",
-    "name": "constantCase_should_match",
+    "name": "color_should_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 97,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 82,
       "col": 0
     },
     "declarationKind": "export",
@@ -3098,10 +1611,10 @@
   },
   {
     "kind": "variable",
-    "name": "constantCase_should_not_match",
+    "name": "color_should_not_match",
     "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 101,
+      "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
+      "line": 87,
       "col": 0
     },
     "declarationKind": "export",
@@ -3123,22 +1636,12 @@
     "name": "lettersButNotH",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/example.ts",
-      "line": 7,
+      "line": 6,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "should match any single letter but not H.",
-      "tags": [
-        {
-          "kind": "unsupported",
-          "value": "@author Github Copilot"
-        },
-        {
-          "kind": "unsupported",
-          "value": "@see https://www.w3.org/TR/CSS2/syndata.html#characters"
-        }
-      ]
+      "doc": "should match any single letter but not H.\nhttps://www.w3.org/TR/CSS2/syndata.html#characters"
     },
     "variableDef": {
       "tsType": {
@@ -3157,7 +1660,7 @@
     "name": "lettersButNotH_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/example.ts",
-      "line": 8,
+      "line": 7,
       "col": 0
     },
     "declarationKind": "export",
@@ -3179,7 +1682,1163 @@
     "name": "lettersButNotH_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/example.ts",
-      "line": 14,
+      "line": 13,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "email",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
+      "line": 12,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "email_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
+      "line": 15,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "email_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
+      "line": 30,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "url",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 4,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any url with or without http/s protocol and with or without port"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((https?:)?\\/\\/)?(www\\.)?[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}(:[0-9]{1,5})?(\\/[-a-zA-Z0-9:%_\\+.~#?&//=]*)?",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "url_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 7,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "url_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 39,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "urlWithPort",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 53,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any url with or without http/s protocols and port\nhttps://es.wikipedia.org/wiki/Anexo:Puertos_de_red"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((https?:)?\\/\\/)?(www\\.)?[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}(:([0-9]{1,5}))(\\/[-a-zA-Z0-9:%_\\+.~#?&//=]*)?",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "urlWithPort_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 56,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "urlWithPort_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 66,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "urlWithProtocol",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 76,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any url with http/s protocols and with or without port"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "(https?:\\/\\/)(www\\.)?[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}(:([0-9]{1,5}))(\\/[-a-zA-Z0-9:%_\\+.~#?&//=]*)?",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "urlWithProtocol_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 79,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "urlWithProtocol_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 87,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "hostname",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 98,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any url hostname (no protocol, no port, no path)"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "hostname_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 100,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "hostname_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 106,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "uri",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 126,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any uri with any protocol, for example file://, http://, https://, ftp://, chrome-extension://, chrome://, etc... * https://es.wikipedia.org/wiki/Esquema_de_URI"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([\\w-.]{3,}:\\/\\/)(www\\.)?[-a-zA-Z0-9:%._\\+~#=]{2,256}\\.[a-z]{2,6}(:([0-9]{1,5}))?(\\/[-a-zA-Z0-9:%_\\+.~#?&//=]*)?",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "uri_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 129,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "uri_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 150,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv4",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 162,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any ip v4 without protocol, no any mask of subnet"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv4_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 165,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv4_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 176,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv4SubnetMask",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 189,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any subnet mask * https://en.wikipedia.org/wiki/Subnetwork"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((255\\.){3}(0|128|192|224|240|248|252|254|255))|((255\\.){2}(0|128|192|224|240|248|252|254|255)\\.0)|((255\\.)(0|128|192|224|240|248|252|254|255)\\.0\\.0)|((255\\.){1}(0|128|192|224|240|248|252|254|255)\\.0\\.0\\.0)",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv4SubnetMask_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 192,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv4SubnetMask_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 201,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv4CIDR",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 209,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any ipv4 CIDR notation (subnet) * https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\\/([0-9]|[1-2][0-9]|3[0-2]))",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv4CIDR_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 214,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv4CIDR_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 253,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv6",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 263,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any ip v6 without protocol\nhttps://es.wikipedia.org/wiki/IPv6"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv6_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 267,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "ipv6_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 274,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "iPv4Private",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 287,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any private ip v4"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "(?:(?:10|127)\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\\.254|192\\.168)\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "iPv4Private_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 291,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "iPv4Private_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 298,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "uriProtocol",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 309,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any valid uri protocol\nhttps://en.wikipedia.org/wiki/Uniform_Resource_Identifier * https://es.wikipedia.org/wiki/Esquema_de_URI"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((aaa)|(aaas)|(about)|(acap)|(adiumxtra)|(afp)|(aim)|(apt)|(attachment)|(aw)|(beshare)|(bitcoin)|(bolo)|(callto)|(cap)|(chrome)|(chrome-extension)|(cid)|(content)|(crid)|(cvs)|(data)|(dav)|(dict)|(dns)|(ed2k)|(facetime)|(fax)|(feed)|(file)|(finger)|(fish)|(ftp)|(geo)|(gg)|(git)|(gizmoproject)|(go)|(gopher)|(gtalk)|(h323)|(hcp)|(http)|(https)|(iax)|(icap)|(im)|(imap)|(info)|(ipp)|(irc)|(irc6)|(ircs)|(iris)|(iris.beep)|(iris\\.xpc)|(iris\\.xpcs)|(iris\\.lws)|(itms)|(jar)|(keyparc)|(lastfm)|(ldap)|(ldaps)|(lightning)|(magnet)|(mailto)|(maps)|(market)|(message)|(mid)|(mms)|(modem)|(ms-help)|(msnim)|(msrp)|(msrps)|(mtqp)|(mumble)|(mupdate)|(mvn)|(news)|(nfs)|(nntp)|(notes)|(opaquelocktoken)|(palm)|(paparazzi)|(platform)|(pop)|(pres)|(prospero)|(proxy)|(psyc)|(query)|(res)|(resource)|(rmi)|(rsync)|(rtmp)|(rtsp)|(secondlife)|(service)|(sftp)|(sgn)|(shttp)|(sieve)|(sip)|(sips)|(skype)|(smb)|(sms)|(snmp)|(soap\\.beep)|(soap\\.beeps)|(soldat)|(spotify)|(ssh)|(steam)|(svn)|(tag)|(teamspeak)|(tel)|(telnet)|(tftp)|(things)|(thismessage)|(tip)|(tv)|(udp)|(unreal)|(urn)|(ut2004)|(uuid)|(vemmi)|(ventrilo)|(view-source)|(wais)|(webcal)|(ws)|(wss)|(wtai)|(wyciwyg)|(xfire)|(xmlrpc\\.beep)|(xmlrpc\\.beeps)|(xmpp)|(xri)|(ymsgr)|(z39\\.50r)|(z39\\.50s)):",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "uriProtocol_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 312,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "uriProtocol_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
+      "line": 350,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 5,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  camelCase string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?![A-Z])[a-zA-Z0-9]+)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 7,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 12,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 23,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  kebab-case string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?!-)([a-z0-9]+)(-[a-z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 25,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 30,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 46,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  snake_case string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?!_)([a-z0-9]+)(_[a-z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 48,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 53,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 70,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  PascalCase string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([A-Z][a-z0-9]+)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 72,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 77,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 90,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  CONSTANT_CASE string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([A-Z0-9]+)(_[A-Z0-9]+)?",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 92,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 96,
       "col": 0
     },
     "declarationKind": "export",
