@@ -18,13 +18,7 @@ scripts:
 
   server: deno task server
 
-  test: deno task test-doc
-
-  test-server:  deno task test-server
-      # pll:
-      #   - timeout 5 vr server || exit 0
-      #   - sleep 1 && vr test
-    # gitHook: pre-push
+  test: deno task test-watch
 
   bench: deno task bench
 
@@ -37,7 +31,6 @@ scripts:
       - vr cache
 
   lint: deno lint --ignore=coverage,.cache
-
   fmt: deno fmt --ignore=coverage,.cache
 
   docs:
@@ -80,7 +73,7 @@ scripts:
   cov:
     desc: Shows uncovered lists
     cmd:
-      - vr test --coverage=coverage
+      - deno test -A --coverage=coverage
       - deno coverage --unstable coverage --lcov > coverage/coverage.lcov
       - which genhtml || sudo apt install lcov
       - genhtml -o coverage/html coverage/coverage.lcov

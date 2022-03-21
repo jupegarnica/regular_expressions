@@ -1,5 +1,4 @@
 {
-  // curl -O https://config.deno.dev/deno.jsonc
   "lint": {
     "files": {
       "exclude": [
@@ -27,21 +26,17 @@
     }
   },
   "tasks": {
-    "dev": "deno run -A --watch --no-check src/main.ts",
-    "start": "deno run src/main.ts",
-    "debug": "deno run --inspect-brk src/main.ts",
-    "server": "deno run --allow-net --allow-env --allow-read=.  src/server.ts",
-    "server-timeout": "timeout 5 deno task server || exit 0",
-    "install-hooks": "vr",
-    "test": "deno test -A --ignore=.cache --no-prompt",
+    "test": "deno test --fail-fast --ignore=.cache --no-prompt",
     "test-doc": "deno task test -- --doc",
     "test-watch": "deno task test -- --watch",
-    "test-server": "deno task server-timeout & sleep 1 && TEST_SERVER=1  deno task test -- --filter=[server]",
     "build-npm": "deno run -A _scripts/build_npm.ts",
     "ci": "deno lint && deno fmt --check && deno task test-ci",
     "release": "sh _scripts/release.sh",
     "tag": "sh _scripts/tag.sh",
-    "bench": "deno bench --allow-env=NO-COLOR,LOG_LEVEL --no-check"
+    "bench": "deno bench --allow-env=NO-COLOR,LOG_LEVEL --no-check",
+    "docs": "sh  -c 'deno doc mod.ts --json > jsDocs_data.json' && deno task build-docs",
+    "build-docs": "deno run -A _scripts/build_docs.ts"
+
   }
   // "importMap":"vendor/import_map.json"
 }
