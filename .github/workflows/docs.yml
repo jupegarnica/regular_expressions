@@ -17,7 +17,7 @@ jobs:
       uses: peter-evans/create-pull-request@v3
       with:
         commit-message: "chore(docs): update docs"
-        title: Update Deno Dependencies
+        title: Update Docs
         body: |
           Automated docs generation
         branch: update-docs
