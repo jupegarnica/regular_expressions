@@ -58,15 +58,16 @@ ${docs}
 
 ${pathToFile}
 
+\`\`\`js
+${regex.toString()}
+\`\`\`
+
 Should match:
  - ${shouldMatch.join("\n- ")}
 
 Should not match:
  - ${shouldNotMatch.join("\n- ")}
 
-\`\`\`js
-${regex.toString()}
-\`\`\`
 
 `;
   }
