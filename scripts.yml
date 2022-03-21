@@ -67,7 +67,7 @@ scripts:
   #   gitHook: post-commit
   auto-format:
     cmd: sh _scripts/auto_format.sh
-    gitHook: post-commit
+    # gitHook: post-commit
 
 
   cov:
@@ -85,6 +85,7 @@ scripts:
       - vr lint
       - vr fmt --check
       - vr test
+
     gitHook: pre-push
 
 
