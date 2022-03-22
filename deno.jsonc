@@ -41,7 +41,7 @@
     "release": "sh _scripts/release.sh",
     "tag": "sh _scripts/tag.sh",
     "bench": "deno bench --allow-env=NO-COLOR,LOG_LEVEL --no-check",
-    "docs": "sh  -c 'deno doc mod.ts --json > jsDocs_data.json' && deno task build-docs",
+    "docs": "sh  -c 'deno doc mod.ts --json > jsDocs_data.json' && deno task build-docs && deno fmt",
     "build-docs": "deno run -A _scripts/build_docs.ts"
   }
   // "importMap":"vendor/import_map.json"

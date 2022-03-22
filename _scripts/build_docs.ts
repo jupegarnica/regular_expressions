@@ -54,9 +54,8 @@ function generateMarkdown(data: Expression[]): string {
       table.push([shouldMatch[index], shouldNotMatch[index]]);
     }
 
-
     const fileName = location && basename(location.filename);
-    const linkToFile = `[${fileName}](./src/${fileName}#L${location?.line})`
+    const linkToFile = `[${fileName}](./src/${fileName}#L${location?.line})`;
     output += `## ${name}
 
 **${docs}**
@@ -73,7 +72,15 @@ import { ${name} } from "https://deno.land/x/regular-expressions/src/${fileName}
 
 | Should match | Should not match  |
 |---|---|
-${table.map(([shouldMatch, shouldNotMatch]) => `| ${shouldMatch ? `\`${shouldMatch.replaceAll(/\|/g, '\\|')}\`` : ''} | ${shouldNotMatch ? `\`${shouldNotMatch.replaceAll(/\|/g, '\\|')}\`` : ''}  |`).join("\n")}
+${
+      table.map(([shouldMatch, shouldNotMatch]) =>
+        `| ${
+          shouldMatch ? `\`${shouldMatch.replaceAll(/\|/g, "\\|")}\`` : ""
+        } | ${
+          shouldNotMatch ? `\`${shouldNotMatch.replaceAll(/\|/g, "\\|")}\`` : ""
+        }  |`
+      ).join("\n")
+    }
 
 `;
   }
