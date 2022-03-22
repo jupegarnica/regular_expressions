@@ -1,74 +1,6 @@
 [
   {
     "kind": "variable",
-    "name": "email",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
-      "line": 12,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "email_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
-      "line": 15,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "email_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
-      "line": 30,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
     "name": "colorHex",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
@@ -323,686 +255,6 @@
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/color.ts",
       "line": 87,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "number",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 5,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any valid JS number but not NaN, Infinity or -Infinity."
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "(?:[-+]?(?:0|[1-9_][0-9_]*)(?:\\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?)",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "number_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 7,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "number_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 22,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberInteger",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 36,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any number signed integer or unsigned integer."
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "(?:[-+]?(?:0|[1-9][0-9]*))",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberInteger_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 37,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberInteger_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 43,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberFloat",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 58,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any float number, signed or unsigned, but not integers or exponential."
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([-+]?([0-9]+))?\\.([0-9])+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberFloat_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 59,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberFloat_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 66,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberExponential",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 84,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any exponential number."
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([-+]?([0-9]+))?(\\.([0-9]+))?[eE]([-+]?([0-9]+))",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberExponential_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 86,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberExponential_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 98,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberHex",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 114,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any number hexadecimal, signed or unsigned"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "(([+-])?0[xX][0-9a-fA-F]+)",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberHex_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 115,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberHex_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 126,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberOctal",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 141,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any number octal, signed or unsigned, but not integers or exponential."
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([+-])?(0o?[0-7]+)",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberOctal_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 142,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberOctal_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 151,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberBinary",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 173,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any binary number, signed or unsigned, but not integers or exponential."
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([+-])?0[bB][01]+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberBinary_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 174,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberBinary_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 183,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "base64",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 204,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any base64 string.\nhttps://en.wikipedia.org/wiki/Base64"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "[A-Za-z0-9+/]+={0,2}",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "base64_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 205,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "base64_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 211,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "romanNumeral",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 220,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any roman numeral\nhttps://en.wikipedia.org/wiki/Roman_numerals"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "romanNumeral_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 222,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "romanNumeral_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 346,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberBigInt",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 370,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match any BigInt\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "[+-]?(0|[1-9][0-9]*)n",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberBigInt_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 371,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "numberBigInt_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
-      "line": 379,
       "col": 0
     },
     "declarationKind": "export",
@@ -1683,414 +935,6 @@
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/js_eval.ts",
       "line": 576,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "camelCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 5,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  camelCase string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((?![A-Z])[a-zA-Z0-9]+)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "camelCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 7,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "camelCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 12,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "kebabCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 23,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  kebab-case string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((?!-)([a-z0-9]+)(-[a-z0-9])?)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "kebabCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 25,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "kebabCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 30,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 46,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  snake_case string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "((?!_)([a-z0-9]+)(_[a-z0-9])?)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 48,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "snakeCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 53,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "pascalCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 70,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  PascalCase string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([A-Z][a-z0-9]+)+",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "pascalCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 72,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "pascalCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 77,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "constantCase",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 90,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "Should match  CONSTANT_CASE string"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "([A-Z0-9]+)(_[A-Z0-9]+)?",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "constantCase_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 92,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "constantCase_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
-      "line": 96,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "lettersButNotH",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/example.ts",
-      "line": 6,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "jsDoc": {
-      "doc": "should match any single letter but not H.\nhttps://www.w3.org/TR/CSS2/syndata.html#characters"
-    },
-    "variableDef": {
-      "tsType": {
-        "repr": "(?![H])[a-zA-Z]",
-        "kind": "typeRef",
-        "typeRef": {
-          "typeParams": null,
-          "typeName": "RegExp"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "lettersButNotH_should_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/example.ts",
-      "line": 7,
-      "col": 0
-    },
-    "declarationKind": "export",
-    "variableDef": {
-      "tsType": {
-        "repr": "",
-        "kind": "array",
-        "array": {
-          "repr": "string",
-          "kind": "keyword",
-          "keyword": "string"
-        }
-      },
-      "kind": "const"
-    }
-  },
-  {
-    "kind": "variable",
-    "name": "lettersButNotH_should_not_match",
-    "location": {
-      "filename": "file:///home/juan/dev/regular_expressions/src/example.ts",
-      "line": 13,
       "col": 0
     },
     "declarationKind": "export",
@@ -2792,12 +1636,12 @@
     "name": "uriProtocol",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 309,
+      "line": 310,
       "col": 0
     },
     "declarationKind": "export",
     "jsDoc": {
-      "doc": "Should match any valid uri protocol\nhttps://en.wikipedia.org/wiki/Uniform_Resource_Identifier * https://es.wikipedia.org/wiki/Esquema_de_URI"
+      "doc": "Should match any valid uri protocol\nhttps://en.wikipedia.org/wiki/Uniform_Resource_Identifier\nhttps://es.wikipedia.org/wiki/Esquema_de_URI"
     },
     "variableDef": {
       "tsType": {
@@ -2816,7 +1660,7 @@
     "name": "uriProtocol_should_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 312,
+      "line": 313,
       "col": 0
     },
     "declarationKind": "export",
@@ -2838,7 +1682,1163 @@
     "name": "uriProtocol_should_not_match",
     "location": {
       "filename": "file:///home/juan/dev/regular_expressions/src/uri.ts",
-      "line": 350,
+      "line": 351,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "number",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 5,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any valid JS number but not NaN, Infinity or -Infinity."
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "(?:[-+]?(?:0|[1-9_][0-9_]*)(?:\\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?)",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "number_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 7,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "number_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 22,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberInteger",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 36,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any number signed integer or unsigned integer."
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "(?:[-+]?(?:0|[1-9][0-9]*))",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberInteger_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 37,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberInteger_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 43,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberFloat",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 58,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any float number, signed or unsigned, but not integers or exponential."
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([-+]?([0-9]+))?\\.([0-9])+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberFloat_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 59,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberFloat_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 66,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberExponential",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 84,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any exponential number."
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([-+]?([0-9]+))?(\\.([0-9]+))?[eE]([-+]?([0-9]+))",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberExponential_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 86,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberExponential_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 98,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberHex",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 114,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any number hexadecimal, signed or unsigned"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "(([+-])?0[xX][0-9a-fA-F]+)",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberHex_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 115,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberHex_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 126,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberOctal",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 141,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any number octal, signed or unsigned, but not integers or exponential."
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([+-])?(0o?[0-7]+)",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberOctal_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 142,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberOctal_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 151,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberBinary",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 173,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any binary number, signed or unsigned, but not integers or exponential."
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([+-])?0[bB][01]+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberBinary_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 174,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberBinary_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 183,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "base64",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 204,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any base64 string.\nhttps://en.wikipedia.org/wiki/Base64"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "[A-Za-z0-9+/]+={0,2}",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "base64_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 205,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "base64_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 211,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "romanNumeral",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 220,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any roman numeral\nhttps://en.wikipedia.org/wiki/Roman_numerals"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "romanNumeral_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 222,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "romanNumeral_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 346,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberBigInt",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 370,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match any BigInt\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "[+-]?(0|[1-9][0-9]*)n",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberBigInt_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 371,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "numberBigInt_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/number.ts",
+      "line": 379,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "email",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
+      "line": 12,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "email_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
+      "line": 15,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "email_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/email.ts",
+      "line": 30,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 5,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  camelCase string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?![A-Z])[a-zA-Z0-9]+)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 7,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "camelCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 12,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 23,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  kebab-case string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?!-)([a-z0-9]+)(-[a-z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 25,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "kebabCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 30,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 46,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  snake_case string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "((?!_)([a-z0-9]+)(_[a-z0-9])?)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 48,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "snakeCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 53,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 70,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  PascalCase string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([A-Z][a-z0-9]+)+",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 72,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "pascalCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 77,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 90,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "Should match  CONSTANT_CASE string"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "([A-Z0-9]+)(_[A-Z0-9]+)?",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 92,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "constantCase_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/case.ts",
+      "line": 96,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "lettersButNotH",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/example.ts",
+      "line": 6,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "jsDoc": {
+      "doc": "should match any single letter but not H.\nhttps://www.w3.org/TR/CSS2/syndata.html#characters"
+    },
+    "variableDef": {
+      "tsType": {
+        "repr": "(?![H])[a-zA-Z]",
+        "kind": "typeRef",
+        "typeRef": {
+          "typeParams": null,
+          "typeName": "RegExp"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "lettersButNotH_should_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/example.ts",
+      "line": 7,
+      "col": 0
+    },
+    "declarationKind": "export",
+    "variableDef": {
+      "tsType": {
+        "repr": "",
+        "kind": "array",
+        "array": {
+          "repr": "string",
+          "kind": "keyword",
+          "keyword": "string"
+        }
+      },
+      "kind": "const"
+    }
+  },
+  {
+    "kind": "variable",
+    "name": "lettersButNotH_should_not_match",
+    "location": {
+      "filename": "file:///home/juan/dev/regular_expressions/src/example.ts",
+      "line": 13,
       "col": 0
     },
     "declarationKind": "export",

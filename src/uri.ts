@@ -303,7 +303,8 @@ export const iPv4Private_should_not_match: string[] = [
 
 /**
  * Should match any valid uri protocol
- * https://en.wikipedia.org/wiki/Uniform_Resource_Identifier * https://es.wikipedia.org/wiki/Esquema_de_URI
+ * https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+ * https://es.wikipedia.org/wiki/Esquema_de_URI
  */
 
 export const uriProtocol =

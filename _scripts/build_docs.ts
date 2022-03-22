@@ -48,26 +48,32 @@ function generateMarkdown(data: Expression[]): string {
   for (
     const { name, regex, shouldMatch, shouldNotMatch, docs, location } of data
   ) {
+    const tableLength = Math.max(shouldMatch.length, shouldNotMatch.length);
+    const table = [];
+    for (let index = 0; index < tableLength; index++) {
+      table.push([shouldMatch[index], shouldNotMatch[index]]);
+    }
+
+
     const fileName = location && basename(location.filename);
-    const pathToFile = fileName
-      ? `at: [${fileName}](./src/${fileName}#L${location?.line})`
-      : "";
+    const linkToFile = `[${fileName}](./src/${fileName}#L${location?.line})`
     output += `## ${name}
 
-${docs}
+**${docs}**
 
-${pathToFile}
+Copy or import from ${linkToFile}
 
 \`\`\`js
-${regex.toString()}
+const ${name} = ${regex.toString()}
 \`\`\`
 
-Should match:
- - ${shouldMatch.join("\n- ")}
+\`\`\`ts
+import { ${name} } from "https://deno.land/x/regular-expressions/src/${fileName}";
+\`\`\`
 
-Should not match:
- - ${shouldNotMatch.join("\n- ")}
-
+| Should match | Should not match  |
+|---|---|
+${table.map(([shouldMatch, shouldNotMatch]) => `| ${shouldMatch ? `\`${shouldMatch}\``: ''} | ${shouldNotMatch ? `\`${shouldNotMatch}\``: ''}  |`).join("\n")}
 
 `;
   }
