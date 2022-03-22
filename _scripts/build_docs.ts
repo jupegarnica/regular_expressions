@@ -54,15 +54,7 @@ Fully tested, benchmarked and documented.
 
 Mainly assisted by github copilot and tweaked by [me](https://garn.dev).
 
-<style>
-table {
-  font-size: 0.8em;
-}
-h4 {
-  font-size: 1.2em;
-}
-</style>
-## Contents
+# Contents
 `;
   const fileNames: { [x: string]: true } = {};
 
@@ -82,15 +74,15 @@ h4 {
     // create filename header
     let h2filename = "";
     if (fileName && !fileNames[fileName]) {
-      h2filename = `## [${
-        fileName.replace(/(\..+)$/, "")
-      }](./src/${fileName})\n`;
+      h2filename = `# ${fileName.replace(/(\..+)$/, "")}
+
+> At: [${fileName}](./src/${fileName})\n`;
       fileNames[fileName] = true;
     }
 
     output += `
 ${h2filename}
-#### **${name}**
+### **${name}**
 
 ${docs}
 

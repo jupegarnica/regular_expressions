@@ -8,20 +8,13 @@ Fully tested, benchmarked and documented.
 
 Mainly assisted by github copilot and tweaked by [me](https://garn.dev).
 
-<style>
-table {
-  font-size: 0.8em;
-}
-h4 {
-  font-size: 1.2em;
-}
-</style>
+# Contents
 
-## Contents
+# case
 
-## [case](./src/case.ts)
+> At: [case.ts](./src/case.ts)
 
-#### **camelCase**
+### **camelCase**
 
 Should match camelCase string
 
@@ -43,7 +36,7 @@ import { camelCase } from "https://deno.land/x/regular-expressions/src/case.ts";
 | `camelCase2` | `kebab-case`     |
 | `camelCase3` | `snake_case`     |
 
-#### **constantCase**
+### **constantCase**
 
 Should match CONSTANT_CASE string
 
@@ -70,7 +63,7 @@ import { constantCase } from "https://deno.land/x/regular-expressions/src/case.t
 |                  | `_CONSTANT_CASE` |
 |                  | `CONSTANT_CAse`  |
 
-#### **kebabCase**
+### **kebabCase**
 
 Should match kebab-case string
 
@@ -98,7 +91,7 @@ import { kebabCase } from "https://deno.land/x/regular-expressions/src/case.ts";
 |               | `kebab-CAse`     |
 |               | `KEBAB-CASE`     |
 
-#### **pascalCase**
+### **pascalCase**
 
 Should match PascalCase string
 
@@ -122,7 +115,7 @@ import { pascalCase } from "https://deno.land/x/regular-expressions/src/case.ts"
 |               | `kebab-case`     |
 |               | `snake_case`     |
 
-#### **snakeCase**
+### **snakeCase**
 
 Should match snake_case string
 
@@ -151,9 +144,11 @@ import { snakeCase } from "https://deno.land/x/regular-expressions/src/case.ts";
 |               | `snake_CAse`     |
 |               | `SNAKE_CASE`     |
 
-## [uri](./src/uri.ts)
+# uri
 
-#### **hostname**
+> At: [uri.ts](./src/uri.ts)
+
+### **hostname**
 
 Should match any url hostname (no protocol, no port, no path)
 
@@ -186,7 +181,7 @@ import { hostname } from "https://deno.land/x/regular-expressions/src/uri.ts";
 |                   | `http://example.com/path/`  |
 |                   | `https://example.com/path/` |
 
-#### **iPv4Private**
+### **iPv4Private**
 
 Should match any private ip v4
 
@@ -211,7 +206,7 @@ import { iPv4Private } from "https://deno.land/x/regular-expressions/src/uri.ts"
 | `192.168.123.134` |                  |
 | `192.168.0.1`     |                  |
 
-#### **ipv4**
+### **ipv4**
 
 Should match any ip v4 without protocol, no any mask of subnet
 
@@ -240,7 +235,7 @@ import { ipv4 } from "https://deno.land/x/regular-expressions/src/uri.ts";
 | `255.255.255.0`   |                       |
 | `255.255.255.255` |                       |
 
-#### **ipv4CIDR**
+### **ipv4CIDR**
 
 Should match any ipv4 CIDR notation (subnet) *
 https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
@@ -297,7 +292,7 @@ import { ipv4CIDR } from "https://deno.land/x/regular-expressions/src/uri.ts";
 | `10.0.0.0/2`       |                    |
 | `10.0.0.0/1`       |                    |
 
-#### **ipv4SubnetMask**
+### **ipv4SubnetMask**
 
 Should match any subnet mask * https://en.wikipedia.org/wiki/Subnetwork
 
@@ -323,7 +318,7 @@ import { ipv4SubnetMask } from "https://deno.land/x/regular-expressions/src/uri.
 | `255.255.255.128` |                   |
 | `255.255.255.192` |                   |
 
-#### **ipv6**
+### **ipv6**
 
 Should match any ip v6 without protocol https://es.wikipedia.org/wiki/IPv6
 
@@ -349,7 +344,7 @@ import { ipv6 } from "https://deno.land/x/regular-expressions/src/uri.ts";
 |                                           | `::1`                                      |
 |                                           | `::ffff`                                   |
 
-#### **uri**
+### **uri**
 
 Should match any uri with any protocol, for example file://, http://, https://,
 ftp://, chrome-extension://, chrome://, etc... *
@@ -389,7 +384,7 @@ import { uri } from "https://deno.land/x/regular-expressions/src/uri.ts";
 | `chrome-extensions://example.com/path/` |                     |
 | `estrange-protocol://example.com/path/` |                     |
 
-#### **uriProtocol**
+### **uriProtocol**
 
 Should match any valid uri protocol
 https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
@@ -446,7 +441,7 @@ import { uriProtocol } from "https://deno.land/x/regular-expressions/src/uri.ts"
 | `aim:`       |                                      |
 | `gtalk:`     |                                      |
 
-#### **url**
+### **url**
 
 Should match any url with or without http/s protocol and with or without port
 
@@ -495,7 +490,7 @@ import { url } from "https://deno.land/x/regular-expressions/src/uri.ts";
 | `https://example.com:1234`              |                              |
 | `https://example.com:65535`             |                              |
 
-#### **urlWithPort**
+### **urlWithPort**
 
 Should match any url with or without http/s protocols and port
 https://es.wikipedia.org/wiki/Anexo:Puertos_de_red
@@ -524,7 +519,7 @@ import { urlWithPort } from "https://deno.land/x/regular-expressions/src/uri.ts"
 | `//example.com:65535`       |                        |
 | `example.com:65535`         |                        |
 
-#### **urlWithProtocol**
+### **urlWithProtocol**
 
 Should match any url with http/s protocols and with or without port
 
@@ -550,9 +545,11 @@ import { urlWithProtocol } from "https://deno.land/x/regular-expressions/src/uri
 | `https://example.com:1234`  | `example.com`          |
 | `https://example.com:65535` |                        |
 
-## [example](./src/example.ts)
+# example
 
-#### **lettersButNotH**
+> At: [example.ts](./src/example.ts)
+
+### **lettersButNotH**
 
 should match any single letter but not H.
 https://www.w3.org/TR/CSS2/syndata.html#characters
@@ -576,9 +573,11 @@ import { lettersButNotH } from "https://deno.land/x/regular-expressions/src/exam
 | `A`          | `aa`             |
 | `Z`          |                  |
 
-## [email](./src/email.ts)
+# email
 
-#### **email**
+> At: [email.ts](./src/email.ts)
+
+### **email**
 
 Allow IP as domain name: hello@154.145.68.12 does allow literal addresses
 &quot;hello, how are you?&quot;@world.com allows numeric domain names after the
@@ -612,9 +611,11 @@ import { email } from "https://deno.land/x/regular-expressions/src/email.ts";
 | `h1ello@123.com`        |                        |
 | `hello@154.145.68.12`   |                        |
 
-## [color](./src/color.ts)
+# color
 
-#### **color**
+> At: [color.ts](./src/color.ts)
+
+### **color**
 
 Should match any valid css color.
 
@@ -656,7 +657,7 @@ import { color } from "https://deno.land/x/regular-expressions/src/color.ts";
 | `hsl(24,50%,200%)`                 | `hs(256,255,255,0.5)`   |
 |                                    | `(256,255,255,0.5)`     |
 
-#### **colorHex**
+### **colorHex**
 
 Should match any valid css hex color. (#ffcc00, #abc, or #ffcc0033)
 
@@ -686,7 +687,7 @@ import { colorHex } from "https://deno.land/x/regular-expressions/src/color.ts";
 |              | `#123456789a`    |
 |              | `#123456789ab`   |
 
-#### **colorHsl**
+### **colorHsl**
 
 Should match any valid css hsl color. (hsl(0,100%,50%), hsla(0,100%,50%,0.5))
 
@@ -712,7 +713,7 @@ import { colorHsl } from "https://deno.land/x/regular-expressions/src/color.ts";
 | `hsla( 0  ,  100%       ,  50%  )` | `hs(256,255,255,0.5)`   |
 | `hsl(24,50%,200%)`                 | `(256,255,255,0.5)`     |
 
-#### **colorRgb**
+### **colorRgb**
 
 Should match any valid css rgb o rgba color. (rgb(255,255,255),
 rgba(255,255,255,0.5))
@@ -739,9 +740,11 @@ import { colorRgb } from "https://deno.land/x/regular-expressions/src/color.ts";
 | `rgba( 255  ,   255     ,  255  )` | `(256,255,255,0.5)`     |
 | `rgb(999,0,0)`                     |                         |
 
-## [number](./src/number.ts)
+# number
 
-#### **base64**
+> At: [number.ts](./src/number.ts)
+
+### **base64**
 
 Should match any base64 string. https://en.wikipedia.org/wiki/Base64
 
@@ -762,7 +765,7 @@ import { base64 } from "https://deno.land/x/regular-expressions/src/number.ts";
 | `Zm9vYmFy`                                                                                                                                 | `!@#$%^&*()_+`   |
 | `MTIzNDU2Nzc4OTBxd2VlcnR5dWlvcGFzZGZnaGprbPF6eGN2Ym5tUVdFRVJUWVVJT1BBU0RGR0hKS0zRWlhDVkJOTSsvfEAjfr1+rHtbXX0KIb8/W11fOjssLjw+KCkkJSZeKg==` |                  |
 
-#### **number**
+### **number**
 
 Should match any valid JS number but not NaN, Infinity or -Infinity.
 
@@ -794,7 +797,7 @@ import { number } from "https://deno.land/x/regular-expressions/src/number.ts";
 | `-123`       |                  |
 | `+123`       |                  |
 
-#### **numberBigInt**
+### **numberBigInt**
 
 Should match any BigInt
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/BigInt
@@ -820,7 +823,7 @@ import { numberBigInt } from "https://deno.land/x/regular-expressions/src/number
 | `300n`        |                  |
 | `9999999999n` |                  |
 
-#### **numberBinary**
+### **numberBinary**
 
 Should match any binary number, signed or unsigned, but not integers or
 exponential.
@@ -853,7 +856,7 @@ import { numberBinary } from "https://deno.land/x/regular-expressions/src/number
 |                 | `0b101.45e-4.5`  |
 |                 | `0b101.45e+4.5`  |
 
-#### **numberExponential**
+### **numberExponential**
 
 Should match any exponential number.
 
@@ -882,7 +885,7 @@ import { numberExponential } from "https://deno.land/x/regular-expressions/src/n
 | `0.123e-4`   | `0.123e+4.5`     |
 | `0.123e+4`   |                  |
 
-#### **numberFloat**
+### **numberFloat**
 
 Should match any float number, signed or unsigned, but not integers or
 exponential.
@@ -914,7 +917,7 @@ import { numberFloat } from "https://deno.land/x/regular-expressions/src/number.
 |              | `0.123e-4.5`     |
 |              | `0.123e+4.5`     |
 
-#### **numberHex**
+### **numberHex**
 
 Should match any number hexadecimal, signed or unsigned
 
@@ -942,7 +945,7 @@ import { numberHex } from "https://deno.land/x/regular-expressions/src/number.ts
 | `0xabcdef`   | `0x123.45e+4`    |
 | `0xabc`      |                  |
 
-#### **numberInteger**
+### **numberInteger**
 
 Should match any number signed integer or unsigned integer.
 
@@ -969,7 +972,7 @@ import { numberInteger } from "https://deno.land/x/regular-expressions/src/numbe
 |              | `0.123e-4`       |
 |              | `0.123e+4`       |
 
-#### **numberOctal**
+### **numberOctal**
 
 Should match any number octal, signed or unsigned, but not integers or
 exponential.
@@ -1004,7 +1007,7 @@ import { numberOctal } from "https://deno.land/x/regular-expressions/src/number.
 |              | `0123.45e-4`     |
 |              | `0123.45e+4`     |
 
-#### **romanNumeral**
+### **romanNumeral**
 
 Should match any roman numeral https://en.wikipedia.org/wiki/Roman_numerals
 
@@ -1141,9 +1144,11 @@ import { romanNumeral } from "https://deno.land/x/regular-expressions/src/number
 | `MMM`        |                  |
 | `MMMM`       |                  |
 
-## [js_eval](./src/js_eval.ts)
+# js_eval
 
-#### **classDefinition**
+> At: [js_eval.ts](./src/js_eval.ts)
+
+### **classDefinition**
 
 Should match a js class definition
 
@@ -1174,7 +1179,7 @@ import { classDefinition } from "https://deno.land/x/regular-expressions/src/js_
 | `class A extends B { constructor() { super(); } foo() { } }`           | `class A extendsB{ }`       |
 | `class A extends B { constructor() { super(); } foo() { } bar() { } }` |                             |
 
-#### **functionAnonymous**
+### **functionAnonymous**
 
 Should match a js anonymous classic function definition
 
@@ -1198,7 +1203,7 @@ import { functionAnonymous } from "https://deno.land/x/regular-expressions/src/j
 | `function() {return 1;}`                |                              |
 | `function (){ if(true) { return 1; } }` |                              |
 
-#### **functionArrow**
+### **functionArrow**
 
 Should match a js arrow function definition
 
@@ -1223,7 +1228,7 @@ import { functionArrow } from "https://deno.land/x/regular-expressions/src/js_ev
 | `() => {}`                  |                                         |
 | `() => { return 'hello'; }` |                                         |
 
-#### **functionAsync**
+### **functionAsync**
 
 Should match a js async function definition
 
@@ -1251,7 +1256,7 @@ import { functionAsync } from "https://deno.land/x/regular-expressions/src/js_ev
 | `async function name(){return 2;}`            |                             |
 | `async () => {return 2;}`                     |                             |
 
-#### **functionAsyncGenerator**
+### **functionAsyncGenerator**
 
 Should match a js async generator function. Only matches the syntax of
 `async function*` not any other way of creating an async generator or iterator.
@@ -1278,7 +1283,7 @@ import { functionAsyncGenerator } from "https://deno.land/x/regular-expressions/
 | `async function* named(a1,a2,a3) { yield 42; return 43; }` | `async function (){}`      |
 |                                                            | `function named(a1,a2,a3)` |
 
-#### **functionClassic**
+### **functionClassic**
 
 Should match a js classic function definition
 
@@ -1305,7 +1310,7 @@ import { functionClassic } from "https://deno.land/x/regular-expressions/src/js_
 | `function name() {  if(true) { return 42 } }` | `() => {}`                              |
 |                                               | `function myFunction(param1, param2) {` |
 
-#### **functionGenerator**
+### **functionGenerator**
 
 Should match a js generator function definition
 
@@ -1331,7 +1336,7 @@ import { functionGenerator } from "https://deno.land/x/regular-expressions/src/j
 |                           | `function named(a1,a2,a3)`        |
 |                           | `async function* named(a1,a2,a3)` |
 
-#### **globalScope**
+### **globalScope**
 
 Should match any global variable
 
@@ -1355,7 +1360,7 @@ import { globalScope } from "https://deno.land/x/regular-expressions/src/js_eval
 | `window`     | `Window`         |
 | `global`     | `Global`         |
 
-#### **identifierNames**
+### **identifierNames**
 
 Should match a valid js variable/function/class name *
 https://developer.mozilla.org/en-US/docs/Glossary/Identifier
@@ -1387,7 +1392,7 @@ import { identifierNames } from "https://deno.land/x/regular-expressions/src/js_
 | `whileDo`    | `for`             |
 | `_`          | `let`             |
 
-#### **reservedWords**
+### **reservedWords**
 
 Should match a js reserved word
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords
