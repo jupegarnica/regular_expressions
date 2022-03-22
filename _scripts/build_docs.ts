@@ -73,7 +73,7 @@ import { ${name} } from "https://deno.land/x/regular-expressions/src/${fileName}
 
 | Should match | Should not match  |
 |---|---|
-${table.map(([shouldMatch, shouldNotMatch]) => `| ${shouldMatch ? `\`${shouldMatch}\``: ''} | ${shouldNotMatch ? `\`${shouldNotMatch}\``: ''}  |`).join("\n")}
+${table.map(([shouldMatch, shouldNotMatch]) => `| ${shouldMatch ? `\`${shouldMatch.replaceAll(/\|/g, '\\|')}\`` : ''} | ${shouldNotMatch ? `\`${shouldNotMatch.replaceAll(/\|/g, '\\|')}\`` : ''}  |`).join("\n")}
 
 `;
   }
@@ -82,6 +82,6 @@ ${table.map(([shouldMatch, shouldNotMatch]) => `| ${shouldMatch ? `\`${shouldMat
 
 const markdown = generateMarkdown(data);
 
-await Deno.writeTextFile(path + "../docs.md", markdown);
+await Deno.writeTextFile(path + "../DOCS.md", markdown);
 
-console.log("Generated docs.md");
+console.log("Generated DOCS.md");

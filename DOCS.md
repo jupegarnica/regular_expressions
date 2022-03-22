@@ -520,7 +520,7 @@ import { email } from "https://deno.land/x/regular-expressions/src/email.ts";
 
 | Should match | Should not match  |
 |---|---|
-| `juan@garn.dev` | `em|ail@email`  |
+| `juan@garn.dev` | `em\|ail@email`  |
 | `email+foo@email.com` | `email&email.com`  |
 | `email+112@email.com` | `hello@worl_d.com`  |
 | `he_llo@worl.d.com` | `he&amp;llo@world.co1`  |
@@ -528,7 +528,7 @@ import { email } from "https://deno.land/x/regular-expressions/src/email.ts";
 | `e.m.a.il@email.com` | `juan@@garn.dev`  |
 | `email@email.uk.co` |   |
 | `bar.ba@test.co.uk` |   |
-| `em|ail@email.com` |   |
+| `em\|ail@email.com` |   |
 | `hel.l-o@wor-ld.museum` |   |
 | `h1ello@123.com` |   |
 | `hello@154.145.68.12` |   |
