@@ -43,11 +43,33 @@ const data: Expression[] = allRegularExpressionsImported.map((name) => {
 });
 
 function generateMarkdown(data: Expression[]): string {
-  let output = "";
+  let output = `
+# The Collection of Regular Expressions
+
+A handmade collection of regular expressions for JavaScript.
+
+Ready to be imported or copy pasted into your code.
+
+Fully tested, benchmarked and documented.
+
+Mainly assisted by github copilot and tweaked by [me](https://garn.dev).
+
+<style>
+table {
+  font-size: 0.8em;
+}
+h4 {
+  font-size: 1.2em;
+}
+</style>
+## Contents
+`;
+  const fileNames: { [x: string]: true } = {};
 
   for (
     const { name, regex, shouldMatch, shouldNotMatch, docs, location } of data
   ) {
+    // create shouldMatch table data
     const tableLength = Math.max(shouldMatch.length, shouldNotMatch.length);
     const table = [];
     for (let index = 0; index < tableLength; index++) {
@@ -56,12 +78,25 @@ function generateMarkdown(data: Expression[]): string {
 
     const fileName = location && basename(location.filename);
     const linkToFile = `[${fileName}](./src/${fileName}#L${location?.line})`;
-    output += `## ${name}
 
-**${docs}**
+    // create filename header
+    let h2filename = "";
+    if (fileName && !fileNames[fileName]) {
+      h2filename = `## [${
+        fileName.replace(/(\..+)$/, "")
+      }](./src/${fileName})\n`;
+      fileNames[fileName] = true;
+    }
 
-Copy or import from ${linkToFile}
+    output += `
+${h2filename}
+#### **${name}**
 
+${docs}
+
+From ${linkToFile}
+
+Copy:
 \`\`\`js
 const ${name} = ${regex.toString()}
 \`\`\`
@@ -82,6 +117,7 @@ ${
       ).join("\n")
     }
 
+
 `;
   }
   return output;
@@ -89,6 +125,6 @@ ${
 
 const markdown = generateMarkdown(data);
 
-await Deno.writeTextFile(path + "../DOCS.md", markdown);
+await Deno.writeTextFile(path + "../README.md", markdown);
 
-console.log("Generated DOCS.md");
+console.log("Generated README.md");
