@@ -12,10 +12,13 @@ await build({
   entryPoints: [resolve(baseDir, "mod.ts")],
   outDir: resolve(baseDir, "npm"),
   test: true,
+  typeCheck: true,
   compilerOptions: {
     sourceMap: true,
   },
-  shims: {},
+  shims: {
+    deno: true,
+  },
   package: {
     name: prompt("Package name: ", "deno-npm") || "",
     version: prompt("Package version: ", "0.0.1") || "",
