@@ -24,7 +24,7 @@ for (const regexpName of allRegularExpressionsImported) {
 
   Deno.test({
     name: `-- ${regexpName} ---`,
-    // only: regexpName.includes("functionGenerator"),
+    // only: regexpName.includes("hour"),
     fn: async (t) => {
       const step = (name: string, fn: () => void) =>
         t.step({
