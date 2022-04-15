@@ -10,7 +10,13 @@
   - [x] base64
   - [ ] base32
   - [x] bigInt
-- [x] emails
+- [x] userData
+  - [x] emails
+  - [ ] passwords
+  - [ ] phone numbers
+  - [ ] postal codes
+  - [ ] credit card
+
 - [x] uris
   - [x] url
   - [x] hostname
@@ -64,9 +70,6 @@
   - [x] datetime ISO 8601 (yyyy-mm-ddThh:mm:ss)
 
 - [ ] currency
-- [ ] phone numbers
-- [ ] postal codes
-- [ ] credit
 - [ ] uuid
 - [ ] iban
 - [ ] bic
@@ -75,8 +78,6 @@
 - [ ] mime types
 - [ ] file extensions
 - [ ] mac addresses
-- [ ] passwords
-- [ ] credit card
 - [ ] semver
 - [ ] conventional commit messages
 - [ ] git references
