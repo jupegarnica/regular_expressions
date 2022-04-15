@@ -1,7 +1,5 @@
-
 /**
  * should match a currency symbol
- *
  */
 //  export const currencySymbol =
 

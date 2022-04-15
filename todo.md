@@ -55,14 +55,13 @@
   - [x] hours
   - [x] minutes
   - [x] seconds
-  - [x] time  (hh:mm:ss)
+  - [x] time (hh:mm:ss)
   - [x] year
   - [x] month
   - [x] day
   - [x] date (yyyy-mm-dd)
   - [x] datetime (yyyy-mm-dd hh:mm:ss)
   - [x] datetime ISO 8601 (yyyy-mm-ddThh:mm:ss)
-
 
 - [ ] currency
 - [ ] phone numbers
