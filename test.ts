@@ -6,7 +6,7 @@ import {
 
 import * as all from "./mod.ts";
 
-import { dim } from "https://deno.land/std@0.129.0/fmt/colors.ts";
+import { dim , bold, underline } from "https://deno.land/std@0.129.0/fmt/colors.ts";
 
 const allKeysImported = Object.keys(all);
 const allImported: Record<string, RegExp | string[]> = all;
@@ -23,7 +23,7 @@ for (const regexpName of allRegularExpressionsImported) {
     allImported[regexpName + "_should_not_match"] as string[];
 
   Deno.test({
-    name: `-- ${regexpName} ---`,
+    name:underline( bold(`${regexpName}`)),
     // only: regexpName.includes("hour"),
     fn: async (t) => {
       const step = (name: string, fn: () => void) =>
@@ -39,20 +39,20 @@ for (const regexpName of allRegularExpressionsImported) {
 
       steps.push(
         step(
-          "| with -> " + dim(`${regexpName} with _should_match strings`),
+          "with -> " + dim(`${regexpName} with _should_match strings`),
           () => assert(strings_should_match.length > 0),
         ),
       );
       steps.push(
         step(
-          "| with -> " + dim(`${regexpName} with _should_not_match strings`),
+          "with -> " + dim(`${regexpName} with _should_not_match strings`),
           () => assert(strings_should_not_match.length > 0),
         ),
       );
 
       steps.push(
         step(
-          "| without -> " + dim(`${regexpName} without flags`),
+          "without -> " + dim(`${regexpName} without flags`),
           () => assert(regexp.flags === ""),
         ),
       );
@@ -60,7 +60,7 @@ for (const regexpName of allRegularExpressionsImported) {
       const has_tests = strings_should_match.map((string) => {
         const txt = addSurroundingText(string);
         return step(
-          "| has -> " + dim(`${txt} has ${regexpName}`),
+          "has -> " + dim(`${txt} has ${regexpName}`),
           () =>
             assertMatch(
               txt,
@@ -70,14 +70,14 @@ for (const regexpName of allRegularExpressionsImported) {
       });
       const is_tests = strings_should_match.map((string) =>
         step(
-          "| is -> " + dim(`${string} is ${regexpName}`),
+          "is -> " + dim(`${string} is ${regexpName}`),
           () => assertMatch(string, new RegExp(`^${regexp.source}$`)),
         )
       );
 
       const is_not_tests = strings_should_not_match.map((string) =>
         step(
-          "| is not -> " + dim(`${string} is not ${regexpName}`),
+          "is not -> " + dim(`${string} is not ${regexpName}`),
           () => assertNotMatch(string, new RegExp(`^(${regexp.source})$`)),
           // () => assertMatch(string, new RegExp(`(?!(${regexp.source}))`, "")),
         )
