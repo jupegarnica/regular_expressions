@@ -34,8 +34,8 @@
   },
   "tasks": {
     "test": "deno test --fail-fast --ignore=.cache --no-prompt",
-    "test-doc": "deno task test -- --doc",
-    "test-watch": "deno task test -- --watch",
+    "test-doc": "deno task test --doc",
+    "test-watch": "deno task test --watch",
     "build-npm": "deno run -A _scripts/build_npm.ts",
     "ci": "deno lint && deno fmt --check && deno task test-ci",
     "release": "sh _scripts/release.sh",
