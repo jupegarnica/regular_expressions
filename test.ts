@@ -6,7 +6,12 @@ import {
 
 import * as all from "./mod.ts";
 
-import { dim, bold, blue , gray} from "https://deno.land/std@0.129.0/fmt/colors.ts";
+import {
+  blue,
+  bold,
+  dim,
+  gray,
+} from "https://deno.land/std@0.129.0/fmt/colors.ts";
 
 const allKeysImported = Object.keys(all);
 const allImported: Record<string, RegExp | string[]> = all;
@@ -45,7 +50,8 @@ for (const regexpName of allRegularExpressionsImported) {
       );
       steps.push(
         step(
-          gray("with -> ") + dim(`${regexpName} with _should_not_match strings`),
+          gray("with -> ") +
+            dim(`${regexpName} with _should_not_match strings`),
           () => assert(strings_should_not_match.length > 0),
         ),
       );

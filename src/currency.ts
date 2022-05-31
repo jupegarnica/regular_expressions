@@ -1,7 +1,6 @@
 /**
  * should match a currency symbol
  * @see https://en.wikipedia.org/wiki/ISO_4217
- *
  */
 //  export const currencySymbol = /[\u0024\u00A2-\u00A5\u20AC\u00A3\u20A1\u20A4\uFFE5\uFFE6\u0024]/u;
 
@@ -48,8 +47,6 @@
 //    "y",
 //    "z",
 //  ];
-
-
 
 // /**
 //  * should match a currency code
