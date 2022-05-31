@@ -40,7 +40,7 @@
     "ci": "deno lint && deno fmt --check && deno task test-ci",
     "release": "sh _scripts/release.sh",
     "tag": "sh _scripts/tag.sh",
-    "bench": "deno bench --allow-env=NO-COLOR,LOG_LEVEL --no-check",
+    "bench": "deno bench --allow-env=NO-COLOR,LOG_LEVEL --no-check --unstable",
     "docs": "sh  -c 'deno doc mod.ts --json > jsDocs_data.json' && deno task build-docs && deno fmt",
     "build-docs": "deno run -A _scripts/build_docs.ts"
   }

@@ -24,9 +24,7 @@ for (const regexpName of allRegularExpressionsImported) {
   // const regexNotExactly = new RegExp(`^(?!${regexp.source})$`);
 
   Deno.bench({
-    name: `| ${regexpName}`.padEnd(30, " "),
-    n: 1e5,
-    warmup: 1e5,
+    name: `${regexpName}`,
     // only: regexpName.includes("functionGenerator"),
     fn: () => {
       assertMatch(strings_should_match[0], regexNotExactly);

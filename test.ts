@@ -6,7 +6,7 @@ import {
 
 import * as all from "./mod.ts";
 
-import { dim , bold, underline } from "https://deno.land/std@0.129.0/fmt/colors.ts";
+import { dim , bold, blue } from "https://deno.land/std@0.129.0/fmt/colors.ts";
 
 const allKeysImported = Object.keys(all);
 const allImported: Record<string, RegExp | string[]> = all;
@@ -23,7 +23,7 @@ for (const regexpName of allRegularExpressionsImported) {
     allImported[regexpName + "_should_not_match"] as string[];
 
   Deno.test({
-    name:underline( bold(`${regexpName}`)),
+    name: blue(bold(` ${regexpName} `.padStart(30, "-").padEnd(50, "-"))),
     // only: regexpName.includes("hour"),
     fn: async (t) => {
       const step = (name: string, fn: () => void) =>
