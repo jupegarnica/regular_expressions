@@ -3,50 +3,34 @@
  * @see https://en.wikipedia.org/wiki/ISO_4217
  */
 //  export const currencySymbol = /[\u0024\u00A2-\u00A5\u20AC\u00A3\u20A1\u20A4\uFFE5\uFFE6\u0024]/u;
+ export const currencySymbol = /[$€£¥₩₤₦₹₨₪₱]/;
 
-//  export const currencySymbol_should_match = [
-//    "$",
-//    "€",
-//    "£",
-//    "¥",
-//    "₩",
-//    "₤",
-//    "₦",
-//    "₹",
-//    "₨",
-//    "₪",
-//    "₱",
-//  ];
-//  export const currencySymbol_should_not_match = [
-//    "",
-//    " ",
-//    "a",
-//    "b",
-//    "c",
-//    "d",
-//    "e",
-//    "f",
-//    "g",
-//    "h",
-//    "i",
-//    "j",
-//    "k",
-//    "l",
-//    "m",
-//    "n",
-//    "o",
-//    "p",
-//    "q",
-//    "r",
-//    "s",
-//    "t",
-//    "u",
-//    "v",
-//    "w",
-//    "x",
-//    "y",
-//    "z",
-//  ];
+ export const currencySymbol_should_match = [
+   "$",
+   "€",
+   "£",
+   "¥",
+   "₩",
+   "₤",
+   "₦",
+   "₹",
+   "₨",
+   "₪",
+   "₱",
+ ];
+ export const currencySymbol_should_not_match = [
+   "",
+   " ",
+   "a",
+   "b",
+   "c",
+   "d",
+   "e",
+   "f",
+   "x",
+   "y",
+   "z",
+ ];
 
 // /**
 //  * should match a currency code

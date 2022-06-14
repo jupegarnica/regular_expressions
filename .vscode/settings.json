@@ -17,5 +17,25 @@
   "deno.codeLens.testArgs": [
     "--allow-all"
   ],
-  "deno.codeLens.test": true
+  "deno.codeLens.test": true,
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#d18378",
+    "activityBar.activeBorder": "#b8e7bd",
+    "activityBar.background": "#d18378",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#b8e7bd",
+    "activityBarBadge.foreground": "#15202b",
+    "sash.hoverBorder": "#d18378",
+    "statusBar.background": "#c46052",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#d18378",
+    "statusBarItem.remoteBackground": "#c46052",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#c46052",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#c4605299",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#c46052"
 }
