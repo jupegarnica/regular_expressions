@@ -611,9 +611,15 @@ import { email } from "https://deno.land/x/regular-expressions/src/email.ts";
 | `h1ello@123.com`        |                        |
 | `hello@154.145.68.12`   |                        |
 
+# datetime
+
+> At: [datetime.ts](./src/datetime.ts)
+
 ### **date**
 
-From [undefined](./src/undefined#Lundefined)
+should match any date in YYYY-MM-DD format
+
+From [datetime.ts](./src/datetime.ts#L164)
 
 Copy:
 
@@ -622,7 +628,7 @@ const date = /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])/;
 ```
 
 ```ts
-import { date } from "https://deno.land/x/regular-expressions/src/undefined";
+import { date } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -636,7 +642,9 @@ import { date } from "https://deno.land/x/regular-expressions/src/undefined";
 
 ### **dateTime**
 
-From [undefined](./src/undefined#Lundefined)
+should match any date time in `YYYY-MM-DD  hh:mm:ss` format
+
+From [datetime.ts](./src/datetime.ts#L184)
 
 Copy:
 
@@ -646,7 +654,7 @@ const dateTime =
 ```
 
 ```ts
-import { dateTime } from "https://deno.land/x/regular-expressions/src/undefined";
+import { dateTime } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match          | Should not match      |
@@ -660,7 +668,10 @@ import { dateTime } from "https://deno.land/x/regular-expressions/src/undefined"
 
 ### **dateTimeISO8601**
 
-From [undefined](./src/undefined#Lundefined)
+should match any date time ISO8601 in `YYYY-MM-DDThh:mm:ss` format
+https://es.wikipedia.org/wiki/ISO_8601
+
+From [datetime.ts](./src/datetime.ts#L205)
 
 Copy:
 
@@ -670,7 +681,7 @@ const dateTimeISO8601 =
 ```
 
 ```ts
-import { dateTimeISO8601 } from "https://deno.land/x/regular-expressions/src/undefined";
+import { dateTimeISO8601 } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match          | Should not match      |
@@ -683,7 +694,9 @@ import { dateTimeISO8601 } from "https://deno.land/x/regular-expressions/src/und
 
 ### **day**
 
-From [undefined](./src/undefined#Lundefined)
+should match any day number, 2 digits numbers from 01 to 31,
+
+From [datetime.ts](./src/datetime.ts#L103)
 
 Copy:
 
@@ -692,7 +705,7 @@ const day = /(0[1-9]|[1-2][0-9]|3[0-1])/;
 ```
 
 ```ts
-import { day } from "https://deno.land/x/regular-expressions/src/undefined";
+import { day } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -707,7 +720,9 @@ import { day } from "https://deno.land/x/regular-expressions/src/undefined";
 
 ### **hour**
 
-From [undefined](./src/undefined#Lundefined)
+should match valid hours in 24h format
+
+From [datetime.ts](./src/datetime.ts#L5)
 
 Copy:
 
@@ -716,7 +731,7 @@ const hour = /([0-1][0-9]|2[0-3])/;
 ```
 
 ```ts
-import { hour } from "https://deno.land/x/regular-expressions/src/undefined";
+import { hour } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -729,7 +744,9 @@ import { hour } from "https://deno.land/x/regular-expressions/src/undefined";
 
 ### **millisecond**
 
-From [undefined](./src/undefined#Lundefined)
+should match valid milliseconds in 24h format
+
+From [datetime.ts](./src/datetime.ts#L62)
 
 Copy:
 
@@ -738,7 +755,7 @@ const millisecond = /([0-9]{3})/;
 ```
 
 ```ts
-import { millisecond } from "https://deno.land/x/regular-expressions/src/undefined";
+import { millisecond } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -751,7 +768,9 @@ import { millisecond } from "https://deno.land/x/regular-expressions/src/undefin
 
 ### **minute**
 
-From [undefined](./src/undefined#Lundefined)
+should match valid minutes in 24h format
+
+From [datetime.ts](./src/datetime.ts#L25)
 
 Copy:
 
@@ -760,7 +779,7 @@ const minute = /([0-5][0-9])/;
 ```
 
 ```ts
-import { minute } from "https://deno.land/x/regular-expressions/src/undefined";
+import { minute } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -773,7 +792,9 @@ import { minute } from "https://deno.land/x/regular-expressions/src/undefined";
 
 ### **month**
 
-From [undefined](./src/undefined#Lundefined)
+should match any month number, must be 2 digits numbers
+
+From [datetime.ts](./src/datetime.ts#L124)
 
 Copy:
 
@@ -782,7 +803,7 @@ const month = /(0[1-9]|1[0-2])/;
 ```
 
 ```ts
-import { month } from "https://deno.land/x/regular-expressions/src/undefined";
+import { month } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -794,7 +815,9 @@ import { month } from "https://deno.land/x/regular-expressions/src/undefined";
 
 ### **second**
 
-From [undefined](./src/undefined#Lundefined)
+should match valid seconds in 24h format
+
+From [datetime.ts](./src/datetime.ts#L43)
 
 Copy:
 
@@ -803,7 +826,7 @@ const second = /([0-5][0-9])/;
 ```
 
 ```ts
-import { second } from "https://deno.land/x/regular-expressions/src/undefined";
+import { second } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -816,7 +839,9 @@ import { second } from "https://deno.land/x/regular-expressions/src/undefined";
 
 ### **time**
 
-From [undefined](./src/undefined#Lundefined)
+should match valid time in 24h format
+
+From [datetime.ts](./src/datetime.ts#L82)
 
 Copy:
 
@@ -825,7 +850,7 @@ const time = /([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])/;
 ```
 
 ```ts
-import { time } from "https://deno.land/x/regular-expressions/src/undefined";
+import { time } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -839,7 +864,9 @@ import { time } from "https://deno.land/x/regular-expressions/src/undefined";
 
 ### **year**
 
-From [undefined](./src/undefined#Lundefined)
+should match any year number, must be 4 digits numbers
+
+From [datetime.ts](./src/datetime.ts#L141)
 
 Copy:
 
@@ -848,7 +875,7 @@ const year = /([0-9]{4})/;
 ```
 
 ```ts
-import { year } from "https://deno.land/x/regular-expressions/src/undefined";
+import { year } from "https://deno.land/x/regular-expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -1726,3 +1753,37 @@ import { reservedWords } from "https://deno.land/x/regular-expressions/src/js_ev
 | `null`         | `NULL`           |
 | `true`         | `TRUE`           |
 | `false`        | `FALSE`          |
+
+# currency
+
+> At: [currency.ts](./src/currency.ts)
+
+### **currencySymbol**
+
+should match a currency symbol
+
+From [currency.ts](./src/currency.ts#L6)
+
+Copy:
+
+```js
+const currencySymbol = /[$€£¥₩₤₦₹₨₪₱]/;
+```
+
+```ts
+import { currencySymbol } from "https://deno.land/x/regular-expressions/src/currency.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `$`          |                  |
+| `€`          | ``               |
+| `£`          | `a`              |
+| `¥`          | `b`              |
+| `₩`          | `c`              |
+| `₤`          | `d`              |
+| `₦`          | `e`              |
+| `₹`          | `f`              |
+| `₨`          | `x`              |
+| `₪`          | `y`              |
+| `₱`          | `z`              |
