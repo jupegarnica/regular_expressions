@@ -94,7 +94,7 @@ const ${name} = ${regex.toString()}
 \`\`\`
 
 \`\`\`ts
-import { ${name} } from "https://deno.land/x/regular-expressions/src/${fileName}";
+import { ${name} } from "https://deno.land/x/regular_expressions/src/${fileName}";
 \`\`\`
 
 | Should match | Should not match  |

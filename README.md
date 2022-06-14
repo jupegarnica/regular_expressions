@@ -27,7 +27,7 @@ const camelCase = /((?![A-Z])[a-zA-Z0-9]+)+/;
 ```
 
 ```ts
-import { camelCase } from "https://deno.land/x/regular-expressions/src/case.ts";
+import { camelCase } from "https://deno.land/x/regular_expressions/src/case.ts";
 ```
 
 | Should match | Should not match |
@@ -49,7 +49,7 @@ const constantCase = /([A-Z0-9]+)(_[A-Z0-9]+)?/;
 ```
 
 ```ts
-import { constantCase } from "https://deno.land/x/regular-expressions/src/case.ts";
+import { constantCase } from "https://deno.land/x/regular_expressions/src/case.ts";
 ```
 
 | Should match     | Should not match |
@@ -76,7 +76,7 @@ const kebabCase = /((?!-)([a-z0-9]+)(-[a-z0-9])?)+/;
 ```
 
 ```ts
-import { kebabCase } from "https://deno.land/x/regular-expressions/src/case.ts";
+import { kebabCase } from "https://deno.land/x/regular_expressions/src/case.ts";
 ```
 
 | Should match  | Should not match |
@@ -104,7 +104,7 @@ const pascalCase = /([A-Z][a-z0-9]+)+/;
 ```
 
 ```ts
-import { pascalCase } from "https://deno.land/x/regular-expressions/src/case.ts";
+import { pascalCase } from "https://deno.land/x/regular_expressions/src/case.ts";
 ```
 
 | Should match  | Should not match |
@@ -128,7 +128,7 @@ const snakeCase = /((?!_)([a-z0-9]+)(_[a-z0-9])?)+/;
 ```
 
 ```ts
-import { snakeCase } from "https://deno.land/x/regular-expressions/src/case.ts";
+import { snakeCase } from "https://deno.land/x/regular_expressions/src/case.ts";
 ```
 
 | Should match  | Should not match |
@@ -161,7 +161,7 @@ const hostname = /[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}/;
 ```
 
 ```ts
-import { hostname } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { hostname } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match      | Should not match            |
@@ -195,7 +195,7 @@ const iPv4Private =
 ```
 
 ```ts
-import { iPv4Private } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { iPv4Private } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match      | Should not match |
@@ -220,7 +220,7 @@ const ipv4 =
 ```
 
 ```ts
-import { ipv4 } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { ipv4 } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match      | Should not match      |
@@ -250,7 +250,7 @@ const ipv4CIDR =
 ```
 
 ```ts
-import { ipv4CIDR } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { ipv4CIDR } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match       | Should not match   |
@@ -306,7 +306,7 @@ const ipv4SubnetMask =
 ```
 
 ```ts
-import { ipv4SubnetMask } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { ipv4SubnetMask } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match      | Should not match  |
@@ -331,7 +331,7 @@ const ipv6 = /(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}/;
 ```
 
 ```ts
-import { ipv6 } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { ipv6 } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match                              | Should not match                           |
@@ -360,7 +360,7 @@ const uri =
 ```
 
 ```ts
-import { uri } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { uri } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match                            | Should not match    |
@@ -400,7 +400,7 @@ const uriProtocol =
 ```
 
 ```ts
-import { uriProtocol } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { uriProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match | Should not match                     |
@@ -455,7 +455,7 @@ const url =
 ```
 
 ```ts
-import { url } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { url } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match                            | Should not match             |
@@ -505,7 +505,7 @@ const urlWithPort =
 ```
 
 ```ts
-import { urlWithPort } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { urlWithPort } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match                | Should not match       |
@@ -533,7 +533,7 @@ const urlWithProtocol =
 ```
 
 ```ts
-import { urlWithProtocol } from "https://deno.land/x/regular-expressions/src/uri.ts";
+import { urlWithProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
 ```
 
 | Should match                | Should not match       |
@@ -563,7 +563,7 @@ const lettersButNotH = /(?![H])[a-zA-Z]/;
 ```
 
 ```ts
-import { lettersButNotH } from "https://deno.land/x/regular-expressions/src/example.ts";
+import { lettersButNotH } from "https://deno.land/x/regular_expressions/src/example.ts";
 ```
 
 | Should match | Should not match |
@@ -593,7 +593,7 @@ const email =
 ```
 
 ```ts
-import { email } from "https://deno.land/x/regular-expressions/src/email.ts";
+import { email } from "https://deno.land/x/regular_expressions/src/email.ts";
 ```
 
 | Should match            | Should not match       |
@@ -628,7 +628,7 @@ const date = /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])/;
 ```
 
 ```ts
-import { date } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { date } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -654,7 +654,7 @@ const dateTime =
 ```
 
 ```ts
-import { dateTime } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { dateTime } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match          | Should not match      |
@@ -681,7 +681,7 @@ const dateTimeISO8601 =
 ```
 
 ```ts
-import { dateTimeISO8601 } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { dateTimeISO8601 } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match          | Should not match      |
@@ -705,7 +705,7 @@ const day = /(0[1-9]|[1-2][0-9]|3[0-1])/;
 ```
 
 ```ts
-import { day } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { day } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -731,7 +731,7 @@ const hour = /([0-1][0-9]|2[0-3])/;
 ```
 
 ```ts
-import { hour } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { hour } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -755,7 +755,7 @@ const millisecond = /([0-9]{3})/;
 ```
 
 ```ts
-import { millisecond } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { millisecond } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -779,7 +779,7 @@ const minute = /([0-5][0-9])/;
 ```
 
 ```ts
-import { minute } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { minute } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -803,7 +803,7 @@ const month = /(0[1-9]|1[0-2])/;
 ```
 
 ```ts
-import { month } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { month } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -826,7 +826,7 @@ const second = /([0-5][0-9])/;
 ```
 
 ```ts
-import { second } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { second } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -850,7 +850,7 @@ const time = /([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])/;
 ```
 
 ```ts
-import { time } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { time } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -875,7 +875,7 @@ const year = /([0-9]{4})/;
 ```
 
 ```ts
-import { year } from "https://deno.land/x/regular-expressions/src/datetime.ts";
+import { year } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 ```
 
 | Should match | Should not match |
@@ -907,7 +907,7 @@ const color =
 ```
 
 ```ts
-import { color } from "https://deno.land/x/regular-expressions/src/color.ts";
+import { color } from "https://deno.land/x/regular_expressions/src/color.ts";
 ```
 
 | Should match                       | Should not match        |
@@ -948,7 +948,7 @@ const colorHex = /#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4}))/;
 ```
 
 ```ts
-import { colorHex } from "https://deno.land/x/regular-expressions/src/color.ts";
+import { colorHex } from "https://deno.land/x/regular_expressions/src/color.ts";
 ```
 
 | Should match | Should not match |
@@ -979,7 +979,7 @@ const colorHsl =
 ```
 
 ```ts
-import { colorHsl } from "https://deno.land/x/regular-expressions/src/color.ts";
+import { colorHsl } from "https://deno.land/x/regular_expressions/src/color.ts";
 ```
 
 | Should match                       | Should not match        |
@@ -1006,7 +1006,7 @@ const colorRgb =
 ```
 
 ```ts
-import { colorRgb } from "https://deno.land/x/regular-expressions/src/color.ts";
+import { colorRgb } from "https://deno.land/x/regular_expressions/src/color.ts";
 ```
 
 | Should match                       | Should not match        |
@@ -1035,7 +1035,7 @@ const base64 = /[A-Za-z0-9+/]+={0,2}/;
 ```
 
 ```ts
-import { base64 } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { base64 } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match                                                                                                                               | Should not match |
@@ -1056,7 +1056,7 @@ const number = /(?:[-+]?(?:0|[1-9_][0-9_]*)(?:\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?)/;
 ```
 
 ```ts
-import { number } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { number } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match | Should not match |
@@ -1089,7 +1089,7 @@ const numberBigInt = /[+-]?(0|[1-9][0-9]*)n/;
 ```
 
 ```ts
-import { numberBigInt } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { numberBigInt } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match  | Should not match |
@@ -1115,7 +1115,7 @@ const numberBinary = /([+-])?0[bB][01]+/;
 ```
 
 ```ts
-import { numberBinary } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { numberBinary } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match    | Should not match |
@@ -1147,7 +1147,7 @@ const numberExponential = /([-+]?([0-9]+))?(\.([0-9]+))?[eE]([-+]?([0-9]+))/;
 ```
 
 ```ts
-import { numberExponential } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { numberExponential } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match | Should not match |
@@ -1177,7 +1177,7 @@ const numberFloat = /([-+]?([0-9]+))?\.([0-9])+/;
 ```
 
 ```ts
-import { numberFloat } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { numberFloat } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match | Should not match |
@@ -1208,7 +1208,7 @@ const numberHex = /(([+-])?0[xX][0-9a-fA-F]+)/;
 ```
 
 ```ts
-import { numberHex } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { numberHex } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match | Should not match |
@@ -1236,7 +1236,7 @@ const numberInteger = /(?:[-+]?(?:0|[1-9][0-9]*))/;
 ```
 
 ```ts
-import { numberInteger } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { numberInteger } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match | Should not match |
@@ -1264,7 +1264,7 @@ const numberOctal = /([+-])?(0o?[0-7]+)/;
 ```
 
 ```ts
-import { numberOctal } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { numberOctal } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match | Should not match |
@@ -1298,7 +1298,7 @@ const romanNumeral = /M{0,4}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})/;
 ```
 
 ```ts
-import { romanNumeral } from "https://deno.land/x/regular-expressions/src/number.ts";
+import { romanNumeral } from "https://deno.land/x/regular_expressions/src/number.ts";
 ```
 
 | Should match | Should not match |
@@ -1440,7 +1440,7 @@ const classDefinition =
 ```
 
 ```ts
-import { classDefinition } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { classDefinition } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match                                                           | Should not match            |
@@ -1470,7 +1470,7 @@ const functionAnonymous = /function(?<noName>\s*)\(.*\)\s*\{(.*)\}/;
 ```
 
 ```ts
-import { functionAnonymous } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { functionAnonymous } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match                            | Should not match             |
@@ -1494,7 +1494,7 @@ const functionArrow = /([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)/;
 ```
 
 ```ts
-import { functionArrow } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { functionArrow } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match                | Should not match                        |
@@ -1520,7 +1520,7 @@ const functionAsync =
 ```
 
 ```ts
-import { functionAsync } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { functionAsync } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match                                  | Should not match            |
@@ -1550,7 +1550,7 @@ const functionAsyncGenerator =
 ```
 
 ```ts
-import { functionAsyncGenerator } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { functionAsyncGenerator } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match                                               | Should not match           |
@@ -1575,7 +1575,7 @@ const functionClassic =
 ```
 
 ```ts
-import { functionClassic } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { functionClassic } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match                                  | Should not match                        |
@@ -1602,7 +1602,7 @@ const functionGenerator =
 ```
 
 ```ts
-import { functionGenerator } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { functionGenerator } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match              | Should not match                  |
@@ -1628,7 +1628,7 @@ const globalScope =
 ```
 
 ```ts
-import { globalScope } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { globalScope } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match | Should not match |
@@ -1653,7 +1653,7 @@ const identifierNames =
 ```
 
 ```ts
-import { identifierNames } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { identifierNames } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match | Should not match  |
@@ -1685,7 +1685,7 @@ const reservedWords =
 ```
 
 ```ts
-import { reservedWords } from "https://deno.land/x/regular-expressions/src/js_eval.ts";
+import { reservedWords } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match   | Should not match |
@@ -1771,7 +1771,7 @@ const currencySymbol = /[$€£¥₩₤₦₹₨₪₱]/;
 ```
 
 ```ts
-import { currencySymbol } from "https://deno.land/x/regular-expressions/src/currency.ts";
+import { currencySymbol } from "https://deno.land/x/regular_expressions/src/currency.ts";
 ```
 
 | Should match | Should not match |
