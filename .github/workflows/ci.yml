@@ -34,3 +34,6 @@ jobs:
       #     echo SAMPLE_TOKEN=sample_token >> .env
       - name: Run CI
         run: vr ci
+      - name: build docs
+        run: deno task docs
+      - run: git add README.md && git commit -m'Update Readme' && git push origin main
