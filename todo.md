@@ -70,6 +70,7 @@
   - [x] datetime ISO 8601 (yyyy-mm-ddThh:mm:ss)
 
 - [ ] currency
+  - [x] currency symbol
 - [ ] uuid
 - [ ] iban
 - [ ] bic
