@@ -4,6 +4,7 @@
  * From: https://regexlib.com/REDetails.aspx?regexp_id=333
  */
 
+// TODO decide if we want to use this
 // export const email_regex = /[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z]{2,})/gm
 
 /**
@@ -11,6 +12,8 @@ Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;
  */
 export const email =
   /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+/;
+
+export const email_description = "Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters"
 
 export const email_should_match: string[] = [
   "juan@garn.dev",

@@ -14,7 +14,7 @@ import {
 } from "https://deno.land/std@0.129.0/fmt/colors.ts";
 
 const allKeysImported = Object.keys(all);
-const allImported: Record<string, RegExp | string[]> = all;
+const allImported: Record<string, RegExp | string[] | string> = all;
 
 export const allRegularExpressionsImported = allKeysImported.filter((key) =>
   allImported[key] instanceof RegExp

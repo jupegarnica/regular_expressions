@@ -7,6 +7,7 @@ const raw = String.raw;
 export const reservedWords =
   /(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b)/;
 
+export const reservedWords_description = `Should match a js reserved word\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords`;
 export const reservedWords_should_match: string[] = [
   // ES5
   "break",
@@ -81,12 +82,14 @@ export const reservedWords_should_not_match: string[] = [
 ];
 const variableCharacters = /([a-zA-Z$_][a-zA-Z0-9$_]*)/;
 
+
 /**
  * Should match a valid js variable/function/class name * https://developer.mozilla.org/en-US/docs/Glossary/Identifier
  */
 export const identifierNames = new RegExp(
   `((?!${reservedWords.source})${variableCharacters.source})`,
 );
+export const identifierNames_description = `Should match a valid js variable/function/class name\nhttps://developer.mozilla.org/en-US/docs/Glossary/Identifier`;
 export const identifierNames_should_match: string[] = [
   "a",
   "Z",
@@ -118,6 +121,7 @@ export const identifierNames_should_not_match: string[] = [
  */
 
 export const functionAnonymous = /function(?<noName>\s*)\(.*\)\s*\{(.*)\}/;
+export const functionAnonymous_description = `Should match a js anonymous classic function definition`;
 export const functionAnonymous_should_match: string[] = [
   "function(){}",
   "function (...args) { }",
@@ -141,6 +145,7 @@ export const functionClassic = new RegExp(
     raw`\s+(?<name>(${identifierNames.source}))\s*`,
   ),
 );
+export const functionClassic_description = `Should match a js classic function definition`;
 
 export const functionClassic_should_match: string[] = [
   "function name(param1, param2) { }",
@@ -166,6 +171,7 @@ export const functionClassic_should_not_match: string[] = [
 
 // TODO: make argumente math a valid identifier name
 export const functionArrow = /([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)/;
+export const functionArrow_description = `Should match a js arrow function definition`;
 export const functionArrow_should_match: string[] = [
   "A => A",
   "() => 42",
@@ -188,6 +194,7 @@ export const functionAsync = new RegExp(
   raw
     `async\s+((${functionAnonymous.source})|(${functionClassic.source})|(${functionArrow.source}))`,
 );
+export const functionAsync_description = `Should match a js async function definition`;
 export const functionAsync_should_match: string[] = [
   "async function(){}",
   "async function named() {}",
@@ -212,6 +219,7 @@ export const functionGenerator = new RegExp(
     raw`(function\*`,
   ),
 );
+export const functionGenerator_description = `Should match a js generator function definition`;
 
 export const functionGenerator_should_match: string[] = [
   "function*(){}",
@@ -234,6 +242,7 @@ export const functionGenerator_should_not_match: string[] = [
 export const functionAsyncGenerator = new RegExp(
   raw`async\s+${functionGenerator.source}`,
 );
+export const functionAsyncGenerator_description = `Should match a js async generator function. Only matches the syntax of \`async function*\` not any other way of creating an async generator or iterator.\nhttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function`;
 
 export const functionAsyncGenerator_should_match: string[] = [
   "async function* (){}",
@@ -262,6 +271,7 @@ export const classDefinition = new RegExp(
     raw`${identifierNames.source}`,
   ),
 );
+export const classDefinition_description = `Should match a js class definition`;
 
 export const classDefinition_should_match: string[] = [
   "class A{ }",
@@ -565,6 +575,7 @@ const globalScopeAll = [
 export const globalScope = new RegExp(
   raw`${globalScopeAll.join("|")}`,
 );
+export const globalScope_description = "Should match any global variable";
 
 export const globalScope_should_match = [
   "Deno",

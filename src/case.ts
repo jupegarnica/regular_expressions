@@ -4,6 +4,7 @@
 
 export const camelCase = /((?![A-Z])[a-zA-Z0-9]+)+/;
 
+export const camelCAse_description = "Should match camelCase string";
 export const camelCase_should_match = [
   "camelCase",
   "camelCase2",
@@ -22,6 +23,7 @@ export const camelCase_should_not_match = [
 
 export const kebabCase = /((?!-)([a-z0-9]+)(-[a-z0-9])?)+/;
 
+export const kebabCase_description = "Should match kebab-case string";
 export const kebabCase_should_match = [
   "kebab-case",
   "kebab-case2",
@@ -45,6 +47,7 @@ export const kebabCase_should_not_match = [
 
 export const snakeCase = /((?!_)([a-z0-9]+)(_[a-z0-9])?)+/;
 
+export const snakeCase_description = "Should match snake_case string";
 export const snakeCase_should_match = [
   "snake_case",
   "snake_case2",
@@ -64,11 +67,12 @@ export const snakeCase_should_not_match = [
 ];
 
 /**
- * Should match  PascalCase string
+ * Should match PascalCase string
  */
 
 export const pascalCase = /([A-Z][a-z0-9]+)+/;
 
+export const pascalCase_description = "Should match PascalCase string";
 export const pascalCase_should_match = [
   "PascalCase",
   "Pascal",
@@ -89,6 +93,7 @@ export const pascalCase_should_not_match = [
 
 export const constantCase = /([A-Z0-9]+)(_[A-Z0-9]+)?/;
 
+export const constantCase_description = "Should match CONSTANT_CASE string";
 export const constantCase_should_match = [
   "CONSTANT_CASE2",
   "CONSTANT",
