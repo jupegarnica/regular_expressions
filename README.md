@@ -144,751 +144,6 @@ import { snakeCase } from "https://deno.land/x/regular_expressions/src/case.ts";
 |               | `snake_CAse`     |
 |               | `SNAKE_CASE`     |
 
-# uri
-
-> At: [uri.ts](./src/uri.ts)
-
-### **hostname**
-
-Should match any url hostname (no protocol, no port, no path)
-
-From [uri.ts](./src/uri.ts#L98)
-
-Copy:
-
-```js
-const hostname = /[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}/;
-```
-
-```ts
-import { hostname } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match      | Should not match            |
-| ----------------- | --------------------------- |
-| `example.com`     | `example.com/`              |
-| `sub.example.com` | `example.com:1234`          |
-| `www.exampl3.com` | `example.com:1234/`         |
-|                   | `example.com/path`          |
-|                   | `example.com/path/`         |
-|                   | `//example.com`             |
-|                   | `http://example.com:1234`   |
-|                   | `https://example.com`       |
-|                   | `http://example.com/`       |
-|                   | `https://example.com/`      |
-|                   | `http://example.com/path`   |
-|                   | `https://example.com/path`  |
-|                   | `http://example.com/path/`  |
-|                   | `https://example.com/path/` |
-
-### **iPv4Private**
-
-Should match any private ip v4
-
-From [uri.ts](./src/uri.ts#L287)
-
-Copy:
-
-```js
-const iPv4Private =
-  /(?:(?:10|127)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\.254|192\.168)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/;
-```
-
-```ts
-import { iPv4Private } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match      | Should not match |
-| ----------------- | ---------------- |
-| `10.196.0.1`      | `156.10.3.1`     |
-| `127.196.100.1`   | `127.196.300.1`  |
-| `192.168.1.0`     | `139.47.8.243`   |
-| `192.168.123.134` |                  |
-| `192.168.0.1`     |                  |
-
-### **ipv4**
-
-Should match any ip v4 without protocol, no any mask of subnet
-
-From [uri.ts](./src/uri.ts#L162)
-
-Copy:
-
-```js
-const ipv4 =
-  /((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/;
-```
-
-```ts
-import { ipv4 } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match      | Should not match      |
-| ----------------- | --------------------- |
-| `192.168.1.0`     | `254.254.254.254.254` |
-| `192.168.1.1`     | `1.1.1.1.1`           |
-| `10.123.3.234`    | `1.1.1`               |
-| `254.254.254.254` | `192.168.A.0`         |
-| `0.0.0.0`         | `192.168.1.b`         |
-| `255.0.0.0`       |                       |
-| `255.255.0.0`     |                       |
-| `255.255.255.0`   |                       |
-| `255.255.255.255` |                       |
-
-### **ipv4CIDR**
-
-Should match any ipv4 CIDR notation (subnet) *
-https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-
-From [uri.ts](./src/uri.ts#L209)
-
-Copy:
-
-```js
-const ipv4CIDR =
-  /(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))/;
-```
-
-```ts
-import { ipv4CIDR } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match       | Should not match   |
-| ------------------ | ------------------ |
-| `192.168.100.1/24` | `192.168.100.1/33` |
-| `192.168.0.1/25`   | `0.0.0.0/90`       |
-| `192.168.254.1/26` |                    |
-| `0.0.0.0/0`        |                    |
-| `10.120.192.2/32`  |                    |
-| `10.120.192.2/31`  |                    |
-| `10.120.192.2/30`  |                    |
-| `10.120.192.2/29`  |                    |
-| `10.120.192.2/28`  |                    |
-| `10.120.192.2/27`  |                    |
-| `10.120.192.2/26`  |                    |
-| `10.120.192.2/25`  |                    |
-| `10.120.192.0/24`  |                    |
-| `10.120.192.0/23`  |                    |
-| `10.120.192.0/22`  |                    |
-| `10.120.192.0/21`  |                    |
-| `10.120.192.0/20`  |                    |
-| `10.120.192.0/19`  |                    |
-| `10.120.192.0/18`  |                    |
-| `10.120.192.0/17`  |                    |
-| `10.120.0.0/16`    |                    |
-| `10.120.0.0/15`    |                    |
-| `10.120.0.0/14`    |                    |
-| `10.120.0.0/13`    |                    |
-| `10.120.0.0/12`    |                    |
-| `10.120.0.0/11`    |                    |
-| `10.120.0.0/10`    |                    |
-| `10.120.0.0/9`     |                    |
-| `10.0.0.0/8`       |                    |
-| `10.0.0.0/7`       |                    |
-| `10.0.0.0/6`       |                    |
-| `10.0.0.0/5`       |                    |
-| `10.0.0.0/4`       |                    |
-| `10.0.0.0/3`       |                    |
-| `10.0.0.0/2`       |                    |
-| `10.0.0.0/1`       |                    |
-
-### **ipv4SubnetMask**
-
-Should match any subnet mask * https://en.wikipedia.org/wiki/Subnetwork
-
-From [uri.ts](./src/uri.ts#L189)
-
-Copy:
-
-```js
-const ipv4SubnetMask =
-  /((255\.){3}(0|128|192|224|240|248|252|254|255))|((255\.){2}(0|128|192|224|240|248|252|254|255)\.0)|((255\.)(0|128|192|224|240|248|252|254|255)\.0\.0)|((255\.){1}(0|128|192|224|240|248|252|254|255)\.0\.0\.0)/;
-```
-
-```ts
-import { ipv4SubnetMask } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match      | Should not match  |
-| ----------------- | ----------------- |
-| `255.255.255.255` | `255.255.255.253` |
-| `255.255.255.0`   |                   |
-| `255.255.0.0`     |                   |
-| `255.0.0.0`       |                   |
-| `255.255.255.128` |                   |
-| `255.255.255.192` |                   |
-
-### **ipv6**
-
-Should match any ip v6 without protocol https://es.wikipedia.org/wiki/IPv6
-
-From [uri.ts](./src/uri.ts#L263)
-
-Copy:
-
-```js
-const ipv6 = /(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}/;
-```
-
-```ts
-import { ipv6 } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match                              | Should not match                           |
-| ----------------------------------------- | ------------------------------------------ |
-| `2001:0db8:85a3:0000:0000:8a2e:0370:7334` | `:a591:dfe9:8840:aa39:f830:0224:55c8:f21b` |
-| `2001:db8:85a3:0:0:8a2e:370:7334`         | `2001:0db8:85a3:0000:0000:8a2e:0370:7334:` |
-| `2001:db8:85a3:8a2e:0370:7334:ff:fe00`    | `g591:dfe9:8840:aa39:f830:0224:55c8:f21b`  |
-| `a591:dfe9:8840:aa39:f830:0224:55c8:f21b` | `2001:db8:85a3:0:0:8a2e:370:7334:`         |
-|                                           | `2001:db8:85a3:0:8a2e:370:7334:`           |
-|                                           | `::1`                                      |
-|                                           | `::ffff`                                   |
-
-### **uri**
-
-Should match any uri with any protocol, for example file://, http://, https://,
-ftp://, chrome-extension://, chrome://, etc... *
-https://es.wikipedia.org/wiki/Esquema_de_URI
-
-From [uri.ts](./src/uri.ts#L126)
-
-Copy:
-
-```js
-const uri =
-  /([\w-.]{3,}:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
-```
-
-```ts
-import { uri } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match                            | Should not match    |
-| --------------------------------------- | ------------------- |
-| `https://example.com:1234`              | `//example.com`     |
-| `http://example.com:1234/`              | `example.com`       |
-| `any://example.com`                     | `example.com/`      |
-| `ftp://example.com/`                    | `example.com/path`  |
-| `ftp://example.com:1234`                | `example.com/path/` |
-| `z39.50r://example.com`                 |                     |
-| `https://example.com`                   |                     |
-| `https://example.com/`                  |                     |
-| `http://example.com/path`               |                     |
-| `https://example.com/path`              |                     |
-| `http://example.com/path/`              |                     |
-| `https://example.com/path/`             |                     |
-| `file://example.com`                    |                     |
-| `file://example.com/`                   |                     |
-| `file://example.com/path`               |                     |
-| `file://example.com/path/`              |                     |
-| `chrome-extensions://example.com/path/` |                     |
-| `estrange-protocol://example.com/path/` |                     |
-
-### **uriProtocol**
-
-Should match any valid uri protocol
-https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
-https://es.wikipedia.org/wiki/Esquema_de_URI
-
-From [uri.ts](./src/uri.ts#L310)
-
-Copy:
-
-```js
-const uriProtocol =
-  /((aaa)|(aaas)|(about)|(acap)|(adiumxtra)|(afp)|(aim)|(apt)|(attachment)|(aw)|(beshare)|(bitcoin)|(bolo)|(callto)|(cap)|(chrome)|(chrome-extension)|(cid)|(content)|(crid)|(cvs)|(data)|(dav)|(dict)|(dns)|(ed2k)|(facetime)|(fax)|(feed)|(file)|(finger)|(fish)|(ftp)|(geo)|(gg)|(git)|(gizmoproject)|(go)|(gopher)|(gtalk)|(h323)|(hcp)|(http)|(https)|(iax)|(icap)|(im)|(imap)|(info)|(ipp)|(irc)|(irc6)|(ircs)|(iris)|(iris.beep)|(iris\.xpc)|(iris\.xpcs)|(iris\.lws)|(itms)|(jar)|(keyparc)|(lastfm)|(ldap)|(ldaps)|(lightning)|(magnet)|(mailto)|(maps)|(market)|(message)|(mid)|(mms)|(modem)|(ms-help)|(msnim)|(msrp)|(msrps)|(mtqp)|(mumble)|(mupdate)|(mvn)|(news)|(nfs)|(nntp)|(notes)|(opaquelocktoken)|(palm)|(paparazzi)|(platform)|(pop)|(pres)|(prospero)|(proxy)|(psyc)|(query)|(res)|(resource)|(rmi)|(rsync)|(rtmp)|(rtsp)|(secondlife)|(service)|(sftp)|(sgn)|(shttp)|(sieve)|(sip)|(sips)|(skype)|(smb)|(sms)|(snmp)|(soap\.beep)|(soap\.beeps)|(soldat)|(spotify)|(ssh)|(steam)|(svn)|(tag)|(teamspeak)|(tel)|(telnet)|(tftp)|(things)|(thismessage)|(tip)|(tv)|(udp)|(unreal)|(urn)|(ut2004)|(uuid)|(vemmi)|(ventrilo)|(view-source)|(wais)|(webcal)|(ws)|(wss)|(wtai)|(wyciwyg)|(xfire)|(xmlrpc\.beep)|(xmlrpc\.beeps)|(xmpp)|(xri)|(ymsgr)|(z39\.50r)|(z39\.50s)):/;
-```
-
-```ts
-import { uriProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match                     |
-| ------------ | ------------------------------------ |
-| `http:`      | `http://`                            |
-| `https:`     | `https`                              |
-| `ftp:`       | `www.google.com`                     |
-| `ssh:`       | `ftp://ftp.is.co.za/rfc/rfc1808.txt` |
-| `irc:`       |                                      |
-| `ircs:`      |                                      |
-| `git:`       |                                      |
-| `gopher:`    |                                      |
-| `telnet:`    |                                      |
-| `nntp:`      |                                      |
-| `news:`      |                                      |
-| `mailto:`    |                                      |
-| `sftp:`      |                                      |
-| `ldap:`      |                                      |
-| `ldaps:`     |                                      |
-| `webcal:`    |                                      |
-| `xmpp:`      |                                      |
-| `callto:`    |                                      |
-| `ymsgr:`     |                                      |
-| `skype:`     |                                      |
-| `sip:`       |                                      |
-| `sips:`      |                                      |
-| `sms:`       |                                      |
-| `mailto:`    |                                      |
-| `msnim:`     |                                      |
-| `irc:`       |                                      |
-| `aim:`       |                                      |
-| `gtalk:`     |                                      |
-| `feed:`      |                                      |
-| `sip:`       |                                      |
-| `sips:`      |                                      |
-| `sms:`       |                                      |
-| `msnim:`     |                                      |
-| `aim:`       |                                      |
-| `gtalk:`     |                                      |
-
-### **url**
-
-Should match any url with or without http/s protocol and with or without port
-
-From [uri.ts](./src/uri.ts#L4)
-
-Copy:
-
-```js
-const url =
-  /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:[0-9]{1,5})?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
-```
-
-```ts
-import { url } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match                            | Should not match             |
-| --------------------------------------- | ---------------------------- |
-| `//ex4mpl3.com`                         | `https://example.com:123456` |
-| `http://ex4mpl3.com`                    | `http://example.com:123456`  |
-| `http://subdomain.example.com`          | `http://example.c0m`         |
-| `http://sub.domain.example.com`         | `example.c0m`                |
-| `http://sub.domain.numb3rs.example.com` | `example,com`                |
-| `http://example.com`                    | `example_com`                |
-| `https://example.com`                   |                              |
-| `http://example.com/`                   |                              |
-| `https://example.com/`                  |                              |
-| `http://example.com/path`               |                              |
-| `https://example.com/path`              |                              |
-| `http://example.com/path/`              |                              |
-| `https://example.com/path/subpath`      |                              |
-| `http://example.com:1234`               |                              |
-| `//example.com`                         |                              |
-| `example.com`                           |                              |
-| `example.com:80`                        |                              |
-| `example.com/`                          |                              |
-| `example.com/path`                      |                              |
-| `example.com/path/`                     |                              |
-| `//www.example.com`                     |                              |
-| `sub-d0m4in.exampl3.com`                |                              |
-| `http://sub-d0m4in.exampl3.com`         |                              |
-| `http://example.com`                    |                              |
-| `https://example.com:1`                 |                              |
-| `http://example.com:80`                 |                              |
-| `https://example.com:123`               |                              |
-| `https://example.com:1234`              |                              |
-| `https://example.com:65535`             |                              |
-
-### **urlWithPort**
-
-Should match any url with or without http/s protocols and port
-https://es.wikipedia.org/wiki/Anexo:Puertos_de_red
-
-From [uri.ts](./src/uri.ts#L53)
-
-Copy:
-
-```js
-const urlWithPort =
-  /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
-```
-
-```ts
-import { urlWithPort } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match                | Should not match       |
-| --------------------------- | ---------------------- |
-| `https://example.com:0`     | `https://example.com:` |
-| `http://example.com:1`      | `//example.com`        |
-| `http://example.com:80`     | `example.com`          |
-| `https://example.com:123`   |                        |
-| `https://example.com:1234`  |                        |
-| `https://example.com:65535` |                        |
-| `//example.com:65535`       |                        |
-| `example.com:65535`         |                        |
-
-### **urlWithProtocol**
-
-Should match any url with http/s protocols and with or without port
-
-From [uri.ts](./src/uri.ts#L76)
-
-Copy:
-
-```js
-const urlWithProtocol =
-  /(https?:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
-```
-
-```ts
-import { urlWithProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match                | Should not match       |
-| --------------------------- | ---------------------- |
-| `https://example.com:0`     | `//example.com:65535`  |
-| `http://example.com:1`      | `example.com:65535`    |
-| `http://example.com:80`     | `https://example.com:` |
-| `https://example.com:123`   | `//example.com`        |
-| `https://example.com:1234`  | `example.com`          |
-| `https://example.com:65535` |                        |
-
-# example
-
-> At: [example.ts](./src/example.ts)
-
-### **lettersButNotH**
-
-should match any single letter but not H.
-https://www.w3.org/TR/CSS2/syndata.html#characters
-
-From [example.ts](./src/example.ts#L6)
-
-Copy:
-
-```js
-const lettersButNotH = /(?![H])[a-zA-Z]/;
-```
-
-```ts
-import { lettersButNotH } from "https://deno.land/x/regular_expressions/src/example.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `a`          | `H`              |
-| `h`          | `3`              |
-| `A`          | `aa`             |
-| `Z`          |                  |
-
-# email
-
-> At: [email.ts](./src/email.ts)
-
-### **email**
-
-Allow IP as domain name: hello@154.145.68.12 does allow literal addresses
-&quot;hello, how are you?&quot;@world.com allows numeric domain names after the
-last &quot;.&quot; minimum 2 letters
-
-From [email.ts](./src/email.ts#L12)
-
-Copy:
-
-```js
-const email =
-  /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+/;
-```
-
-```ts
-import { email } from "https://deno.land/x/regular_expressions/src/email.ts";
-```
-
-| Should match            | Should not match       |
-| ----------------------- | ---------------------- |
-| `juan@garn.dev`         | `em\|ail@email`        |
-| `email+foo@email.com`   | `email&email.com`      |
-| `email+112@email.com`   | `hello@worl_d.com`     |
-| `he_llo@worl.d.com`     | `he&amp;llo@world.co1` |
-| `EMAIL@DOMAIN.COM`      | `.hello@wor#.co.uk`    |
-| `e.m.a.il@email.com`    | `juan@@garn.dev`       |
-| `email@email.uk.co`     |                        |
-| `bar.ba@test.co.uk`     |                        |
-| `em\|ail@email.com`     |                        |
-| `hel.l-o@wor-ld.museum` |                        |
-| `h1ello@123.com`        |                        |
-| `hello@154.145.68.12`   |                        |
-
-# datetime
-
-> At: [datetime.ts](./src/datetime.ts)
-
-### **date**
-
-should match any date in YYYY-MM-DD format
-
-From [datetime.ts](./src/datetime.ts#L164)
-
-Copy:
-
-```js
-const date = /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])/;
-```
-
-```ts
-import { date } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `2022-01-01` | `2022/01/01`     |
-| `3044-12-31` | `13-12-2021`     |
-| `1982-01-01` | `82-12-31`       |
-| `1982-12-31` | `2020-31-12`     |
-| `1082-01-01` |                  |
-| `0082-12-31` |                  |
-
-### **dateTime**
-
-should match any date time in `YYYY-MM-DD  hh:mm:ss` format
-
-From [datetime.ts](./src/datetime.ts#L184)
-
-Copy:
-
-```js
-const dateTime =
-  /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])/;
-```
-
-```ts
-import { dateTime } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match          | Should not match      |
-| --------------------- | --------------------- |
-| `2020-01-01 00:00:00` | `13-12-2021 23:59:59` |
-| `2020-12-31 23:59:59` | `82-12-31 23:59:59`   |
-| `1982-01-01 00:00:00` | `2020-12-31 00:60:00` |
-| `1982-12-31 23:59:59` | `2020-12-31`          |
-| `1082-01-01 00:00:00` | `00:59:00`            |
-| `0082-12-31 23:59:59` |                       |
-
-### **dateTimeISO8601**
-
-should match any date time ISO8601 in `YYYY-MM-DDThh:mm:ss` format
-https://es.wikipedia.org/wiki/ISO_8601
-
-From [datetime.ts](./src/datetime.ts#L205)
-
-Copy:
-
-```js
-const dateTimeISO8601 =
-  /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])/;
-```
-
-```ts
-import { dateTimeISO8601 } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match          | Should not match      |
-| --------------------- | --------------------- |
-| `2020-01-01T00:00:00` | `13-12-2021T23:59:59` |
-| `2020-12-31T23:59:59` | `82-12-31T23:59:59`   |
-| `1982-01-01T00:00:00` | `2020-12-31T00:60:00` |
-| `1982-12-31T23:59:59` | `2020-12-31`          |
-| `1082-01-01T00:00:00` | `00:59:00`            |
-
-### **day**
-
-should match any day number, 2 digits numbers from 01 to 31,
-
-From [datetime.ts](./src/datetime.ts#L103)
-
-Copy:
-
-```js
-const day = /(0[1-9]|[1-2][0-9]|3[0-1])/;
-```
-
-```ts
-import { day } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `01`         | `00`             |
-| `12`         | `32`             |
-| `03`         | `100`            |
-| `04`         | `0`              |
-| `05`         | `2`              |
-| `22`         |                  |
-| `31`         |                  |
-
-### **hour**
-
-should match valid hours in 24h format
-
-From [datetime.ts](./src/datetime.ts#L5)
-
-Copy:
-
-```js
-const hour = /([0-1][0-9]|2[0-3])/;
-```
-
-```ts
-import { hour } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `00`         | `24`             |
-| `23`         | `-2`             |
-| `12`         | `2`              |
-| `15`         | `0`              |
-| `05`         | `33`             |
-
-### **millisecond**
-
-should match valid milliseconds in 24h format
-
-From [datetime.ts](./src/datetime.ts#L62)
-
-Copy:
-
-```js
-const millisecond = /([0-9]{3})/;
-```
-
-```ts
-import { millisecond } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `000`        | `1000`           |
-| `999`        | `-22`            |
-| `123`        | `2`              |
-| `456`        | `0`              |
-| `789`        | `33`             |
-
-### **minute**
-
-should match valid minutes in 24h format
-
-From [datetime.ts](./src/datetime.ts#L25)
-
-Copy:
-
-```js
-const minute = /([0-5][0-9])/;
-```
-
-```ts
-import { minute } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `00`         | `60`             |
-| `59`         | `-2`             |
-| `12`         | `2`              |
-| `15`         | `0`              |
-| `05`         |                  |
-
-### **month**
-
-should match any month number, must be 2 digits numbers
-
-From [datetime.ts](./src/datetime.ts#L124)
-
-Copy:
-
-```js
-const month = /(0[1-9]|1[0-2])/;
-```
-
-```ts
-import { month } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `01`         | `13`             |
-| `12`         | `00`             |
-| `03`         | `2`              |
-| `04`         |                  |
-
-### **second**
-
-should match valid seconds in 24h format
-
-From [datetime.ts](./src/datetime.ts#L43)
-
-Copy:
-
-```js
-const second = /([0-5][0-9])/;
-```
-
-```ts
-import { second } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `00`         | `60`             |
-| `59`         | `-2`             |
-| `12`         | `2`              |
-| `15`         | `0`              |
-| `05`         |                  |
-
-### **time**
-
-should match valid time in 24h format
-
-From [datetime.ts](./src/datetime.ts#L82)
-
-Copy:
-
-```js
-const time = /([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])/;
-```
-
-```ts
-import { time } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `00:00:00`   | `05:05:5`        |
-| `23:59:59`   | `05:5:05`        |
-| `12:00:00`   | `1:5:05`         |
-| `15:00:00`   | `24:00:00`       |
-| `05:05:05`   | `00:60:00`       |
-|              | `00:00:60`       |
-
-### **year**
-
-should match any year number, must be 4 digits numbers
-
-From [datetime.ts](./src/datetime.ts#L141)
-
-Copy:
-
-```js
-const year = /([0-9]{4})/;
-```
-
-```ts
-import { year } from "https://deno.land/x/regular_expressions/src/datetime.ts";
-```
-
-| Should match | Should not match |
-| ------------ | ---------------- |
-| `2020`       | `019`            |
-| `1982`       | `25`             |
-| `1082`       | `26`             |
-| `3022`       | `27`             |
-| `2021`       | `28`             |
-| `2022`       |                  |
-| `2023`       |                  |
-| `2024`       |                  |
-
 # color
 
 > At: [color.ts](./src/color.ts)
@@ -1017,6 +272,34 @@ import { colorRgb } from "https://deno.land/x/regular_expressions/src/color.ts";
 | `rgba(255,255,255)`                | `rg(256,255,255,0.5)`   |
 | `rgba( 255  ,   255     ,  255  )` | `(256,255,255,0.5)`     |
 | `rgb(999,0,0)`                     |                         |
+
+# example
+
+> At: [example.ts](./src/example.ts)
+
+### **lettersButNotH**
+
+should match any single letter but not H.
+https://www.w3.org/TR/CSS2/syndata.html#characters
+
+From [example.ts](./src/example.ts#L6)
+
+Copy:
+
+```js
+const lettersButNotH = /(?![H])[a-zA-Z]/;
+```
+
+```ts
+import { lettersButNotH } from "https://deno.land/x/regular_expressions/src/example.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `a`          | `H`              |
+| `h`          | `3`              |
+| `A`          | `aa`             |
+| `Z`          |                  |
 
 # number
 
@@ -1422,6 +705,44 @@ import { romanNumeral } from "https://deno.land/x/regular_expressions/src/number
 | `MMM`        |                  |
 | `MMMM`       |                  |
 
+# email
+
+> At: [email.ts](./src/email.ts)
+
+### **email**
+
+Allow IP as domain name: hello@154.145.68.12 does allow literal addresses
+&quot;hello, how are you?&quot;@world.com allows numeric domain names after the
+last &quot;.&quot; minimum 2 letters
+
+From [email.ts](./src/email.ts#L12)
+
+Copy:
+
+```js
+const email =
+  /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+/;
+```
+
+```ts
+import { email } from "https://deno.land/x/regular_expressions/src/email.ts";
+```
+
+| Should match            | Should not match       |
+| ----------------------- | ---------------------- |
+| `juan@garn.dev`         | `em\|ail@email`        |
+| `email+foo@email.com`   | `email&email.com`      |
+| `email+112@email.com`   | `hello@worl_d.com`     |
+| `he_llo@worl.d.com`     | `he&amp;llo@world.co1` |
+| `EMAIL@DOMAIN.COM`      | `.hello@wor#.co.uk`    |
+| `e.m.a.il@email.com`    | `juan@@garn.dev`       |
+| `email@email.uk.co`     |                        |
+| `bar.ba@test.co.uk`     |                        |
+| `em\|ail@email.com`     |                        |
+| `hel.l-o@wor-ld.museum` |                        |
+| `h1ello@123.com`        |                        |
+| `hello@154.145.68.12`   |                        |
+
 # js_eval
 
 > At: [js_eval.ts](./src/js_eval.ts)
@@ -1753,6 +1074,685 @@ import { reservedWords } from "https://deno.land/x/regular_expressions/src/js_ev
 | `null`         | `NULL`           |
 | `true`         | `TRUE`           |
 | `false`        | `FALSE`          |
+
+# uri
+
+> At: [uri.ts](./src/uri.ts)
+
+### **hostname**
+
+Should match any url hostname (no protocol, no port, no path)
+
+From [uri.ts](./src/uri.ts#L98)
+
+Copy:
+
+```js
+const hostname = /[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}/;
+```
+
+```ts
+import { hostname } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match      | Should not match            |
+| ----------------- | --------------------------- |
+| `example.com`     | `example.com/`              |
+| `sub.example.com` | `example.com:1234`          |
+| `www.exampl3.com` | `example.com:1234/`         |
+|                   | `example.com/path`          |
+|                   | `example.com/path/`         |
+|                   | `//example.com`             |
+|                   | `http://example.com:1234`   |
+|                   | `https://example.com`       |
+|                   | `http://example.com/`       |
+|                   | `https://example.com/`      |
+|                   | `http://example.com/path`   |
+|                   | `https://example.com/path`  |
+|                   | `http://example.com/path/`  |
+|                   | `https://example.com/path/` |
+
+### **iPv4Private**
+
+Should match any private ip v4
+
+From [uri.ts](./src/uri.ts#L287)
+
+Copy:
+
+```js
+const iPv4Private =
+  /(?:(?:10|127)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\.254|192\.168)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/;
+```
+
+```ts
+import { iPv4Private } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match      | Should not match |
+| ----------------- | ---------------- |
+| `10.196.0.1`      | `156.10.3.1`     |
+| `127.196.100.1`   | `127.196.300.1`  |
+| `192.168.1.0`     | `139.47.8.243`   |
+| `192.168.123.134` |                  |
+| `192.168.0.1`     |                  |
+
+### **ipv4**
+
+Should match any ip v4 without protocol, no any mask of subnet
+
+From [uri.ts](./src/uri.ts#L162)
+
+Copy:
+
+```js
+const ipv4 =
+  /((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/;
+```
+
+```ts
+import { ipv4 } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match      | Should not match      |
+| ----------------- | --------------------- |
+| `192.168.1.0`     | `254.254.254.254.254` |
+| `192.168.1.1`     | `1.1.1.1.1`           |
+| `10.123.3.234`    | `1.1.1`               |
+| `254.254.254.254` | `192.168.A.0`         |
+| `0.0.0.0`         | `192.168.1.b`         |
+| `255.0.0.0`       |                       |
+| `255.255.0.0`     |                       |
+| `255.255.255.0`   |                       |
+| `255.255.255.255` |                       |
+
+### **ipv4CIDR**
+
+Should match any ipv4 CIDR notation (subnet) *
+https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+
+From [uri.ts](./src/uri.ts#L209)
+
+Copy:
+
+```js
+const ipv4CIDR =
+  /(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))/;
+```
+
+```ts
+import { ipv4CIDR } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match       | Should not match   |
+| ------------------ | ------------------ |
+| `192.168.100.1/24` | `192.168.100.1/33` |
+| `192.168.0.1/25`   | `0.0.0.0/90`       |
+| `192.168.254.1/26` |                    |
+| `0.0.0.0/0`        |                    |
+| `10.120.192.2/32`  |                    |
+| `10.120.192.2/31`  |                    |
+| `10.120.192.2/30`  |                    |
+| `10.120.192.2/29`  |                    |
+| `10.120.192.2/28`  |                    |
+| `10.120.192.2/27`  |                    |
+| `10.120.192.2/26`  |                    |
+| `10.120.192.2/25`  |                    |
+| `10.120.192.0/24`  |                    |
+| `10.120.192.0/23`  |                    |
+| `10.120.192.0/22`  |                    |
+| `10.120.192.0/21`  |                    |
+| `10.120.192.0/20`  |                    |
+| `10.120.192.0/19`  |                    |
+| `10.120.192.0/18`  |                    |
+| `10.120.192.0/17`  |                    |
+| `10.120.0.0/16`    |                    |
+| `10.120.0.0/15`    |                    |
+| `10.120.0.0/14`    |                    |
+| `10.120.0.0/13`    |                    |
+| `10.120.0.0/12`    |                    |
+| `10.120.0.0/11`    |                    |
+| `10.120.0.0/10`    |                    |
+| `10.120.0.0/9`     |                    |
+| `10.0.0.0/8`       |                    |
+| `10.0.0.0/7`       |                    |
+| `10.0.0.0/6`       |                    |
+| `10.0.0.0/5`       |                    |
+| `10.0.0.0/4`       |                    |
+| `10.0.0.0/3`       |                    |
+| `10.0.0.0/2`       |                    |
+| `10.0.0.0/1`       |                    |
+
+### **ipv4SubnetMask**
+
+Should match any subnet mask * https://en.wikipedia.org/wiki/Subnetwork
+
+From [uri.ts](./src/uri.ts#L189)
+
+Copy:
+
+```js
+const ipv4SubnetMask =
+  /((255\.){3}(0|128|192|224|240|248|252|254|255))|((255\.){2}(0|128|192|224|240|248|252|254|255)\.0)|((255\.)(0|128|192|224|240|248|252|254|255)\.0\.0)|((255\.){1}(0|128|192|224|240|248|252|254|255)\.0\.0\.0)/;
+```
+
+```ts
+import { ipv4SubnetMask } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match      | Should not match  |
+| ----------------- | ----------------- |
+| `255.255.255.255` | `255.255.255.253` |
+| `255.255.255.0`   |                   |
+| `255.255.0.0`     |                   |
+| `255.0.0.0`       |                   |
+| `255.255.255.128` |                   |
+| `255.255.255.192` |                   |
+
+### **ipv6**
+
+Should match any ip v6 without protocol https://es.wikipedia.org/wiki/IPv6
+
+From [uri.ts](./src/uri.ts#L263)
+
+Copy:
+
+```js
+const ipv6 = /(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}/;
+```
+
+```ts
+import { ipv6 } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match                              | Should not match                           |
+| ----------------------------------------- | ------------------------------------------ |
+| `2001:0db8:85a3:0000:0000:8a2e:0370:7334` | `:a591:dfe9:8840:aa39:f830:0224:55c8:f21b` |
+| `2001:db8:85a3:0:0:8a2e:370:7334`         | `2001:0db8:85a3:0000:0000:8a2e:0370:7334:` |
+| `2001:db8:85a3:8a2e:0370:7334:ff:fe00`    | `g591:dfe9:8840:aa39:f830:0224:55c8:f21b`  |
+| `a591:dfe9:8840:aa39:f830:0224:55c8:f21b` | `2001:db8:85a3:0:0:8a2e:370:7334:`         |
+|                                           | `2001:db8:85a3:0:8a2e:370:7334:`           |
+|                                           | `::1`                                      |
+|                                           | `::ffff`                                   |
+
+### **uri**
+
+Should match any uri with any protocol, for example file://, http://, https://,
+ftp://, chrome-extension://, chrome://, etc... *
+https://es.wikipedia.org/wiki/Esquema_de_URI
+
+From [uri.ts](./src/uri.ts#L126)
+
+Copy:
+
+```js
+const uri =
+  /([\w-.]{3,}:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
+```
+
+```ts
+import { uri } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match                            | Should not match    |
+| --------------------------------------- | ------------------- |
+| `https://example.com:1234`              | `//example.com`     |
+| `http://example.com:1234/`              | `example.com`       |
+| `any://example.com`                     | `example.com/`      |
+| `ftp://example.com/`                    | `example.com/path`  |
+| `ftp://example.com:1234`                | `example.com/path/` |
+| `z39.50r://example.com`                 |                     |
+| `https://example.com`                   |                     |
+| `https://example.com/`                  |                     |
+| `http://example.com/path`               |                     |
+| `https://example.com/path`              |                     |
+| `http://example.com/path/`              |                     |
+| `https://example.com/path/`             |                     |
+| `file://example.com`                    |                     |
+| `file://example.com/`                   |                     |
+| `file://example.com/path`               |                     |
+| `file://example.com/path/`              |                     |
+| `chrome-extensions://example.com/path/` |                     |
+| `estrange-protocol://example.com/path/` |                     |
+
+### **uriProtocol**
+
+Should match any valid uri protocol
+https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+https://es.wikipedia.org/wiki/Esquema_de_URI
+
+From [uri.ts](./src/uri.ts#L310)
+
+Copy:
+
+```js
+const uriProtocol =
+  /((aaa)|(aaas)|(about)|(acap)|(adiumxtra)|(afp)|(aim)|(apt)|(attachment)|(aw)|(beshare)|(bitcoin)|(bolo)|(callto)|(cap)|(chrome)|(chrome-extension)|(cid)|(content)|(crid)|(cvs)|(data)|(dav)|(dict)|(dns)|(ed2k)|(facetime)|(fax)|(feed)|(file)|(finger)|(fish)|(ftp)|(geo)|(gg)|(git)|(gizmoproject)|(go)|(gopher)|(gtalk)|(h323)|(hcp)|(http)|(https)|(iax)|(icap)|(im)|(imap)|(info)|(ipp)|(irc)|(irc6)|(ircs)|(iris)|(iris.beep)|(iris\.xpc)|(iris\.xpcs)|(iris\.lws)|(itms)|(jar)|(keyparc)|(lastfm)|(ldap)|(ldaps)|(lightning)|(magnet)|(mailto)|(maps)|(market)|(message)|(mid)|(mms)|(modem)|(ms-help)|(msnim)|(msrp)|(msrps)|(mtqp)|(mumble)|(mupdate)|(mvn)|(news)|(nfs)|(nntp)|(notes)|(opaquelocktoken)|(palm)|(paparazzi)|(platform)|(pop)|(pres)|(prospero)|(proxy)|(psyc)|(query)|(res)|(resource)|(rmi)|(rsync)|(rtmp)|(rtsp)|(secondlife)|(service)|(sftp)|(sgn)|(shttp)|(sieve)|(sip)|(sips)|(skype)|(smb)|(sms)|(snmp)|(soap\.beep)|(soap\.beeps)|(soldat)|(spotify)|(ssh)|(steam)|(svn)|(tag)|(teamspeak)|(tel)|(telnet)|(tftp)|(things)|(thismessage)|(tip)|(tv)|(udp)|(unreal)|(urn)|(ut2004)|(uuid)|(vemmi)|(ventrilo)|(view-source)|(wais)|(webcal)|(ws)|(wss)|(wtai)|(wyciwyg)|(xfire)|(xmlrpc\.beep)|(xmlrpc\.beeps)|(xmpp)|(xri)|(ymsgr)|(z39\.50r)|(z39\.50s)):/;
+```
+
+```ts
+import { uriProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match                     |
+| ------------ | ------------------------------------ |
+| `http:`      | `http://`                            |
+| `https:`     | `https`                              |
+| `ftp:`       | `www.google.com`                     |
+| `ssh:`       | `ftp://ftp.is.co.za/rfc/rfc1808.txt` |
+| `irc:`       |                                      |
+| `ircs:`      |                                      |
+| `git:`       |                                      |
+| `gopher:`    |                                      |
+| `telnet:`    |                                      |
+| `nntp:`      |                                      |
+| `news:`      |                                      |
+| `mailto:`    |                                      |
+| `sftp:`      |                                      |
+| `ldap:`      |                                      |
+| `ldaps:`     |                                      |
+| `webcal:`    |                                      |
+| `xmpp:`      |                                      |
+| `callto:`    |                                      |
+| `ymsgr:`     |                                      |
+| `skype:`     |                                      |
+| `sip:`       |                                      |
+| `sips:`      |                                      |
+| `sms:`       |                                      |
+| `mailto:`    |                                      |
+| `msnim:`     |                                      |
+| `irc:`       |                                      |
+| `aim:`       |                                      |
+| `gtalk:`     |                                      |
+| `feed:`      |                                      |
+| `sip:`       |                                      |
+| `sips:`      |                                      |
+| `sms:`       |                                      |
+| `msnim:`     |                                      |
+| `aim:`       |                                      |
+| `gtalk:`     |                                      |
+
+### **url**
+
+Should match any url with or without http/s protocol and with or without port
+
+From [uri.ts](./src/uri.ts#L4)
+
+Copy:
+
+```js
+const url =
+  /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:[0-9]{1,5})?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
+```
+
+```ts
+import { url } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match                            | Should not match             |
+| --------------------------------------- | ---------------------------- |
+| `//ex4mpl3.com`                         | `https://example.com:123456` |
+| `http://ex4mpl3.com`                    | `http://example.com:123456`  |
+| `http://subdomain.example.com`          | `http://example.c0m`         |
+| `http://sub.domain.example.com`         | `example.c0m`                |
+| `http://sub.domain.numb3rs.example.com` | `example,com`                |
+| `http://example.com`                    | `example_com`                |
+| `https://example.com`                   |                              |
+| `http://example.com/`                   |                              |
+| `https://example.com/`                  |                              |
+| `http://example.com/path`               |                              |
+| `https://example.com/path`              |                              |
+| `http://example.com/path/`              |                              |
+| `https://example.com/path/subpath`      |                              |
+| `http://example.com:1234`               |                              |
+| `//example.com`                         |                              |
+| `example.com`                           |                              |
+| `example.com:80`                        |                              |
+| `example.com/`                          |                              |
+| `example.com/path`                      |                              |
+| `example.com/path/`                     |                              |
+| `//www.example.com`                     |                              |
+| `sub-d0m4in.exampl3.com`                |                              |
+| `http://sub-d0m4in.exampl3.com`         |                              |
+| `http://example.com`                    |                              |
+| `https://example.com:1`                 |                              |
+| `http://example.com:80`                 |                              |
+| `https://example.com:123`               |                              |
+| `https://example.com:1234`              |                              |
+| `https://example.com:65535`             |                              |
+
+### **urlWithPort**
+
+Should match any url with or without http/s protocols and port
+https://es.wikipedia.org/wiki/Anexo:Puertos_de_red
+
+From [uri.ts](./src/uri.ts#L53)
+
+Copy:
+
+```js
+const urlWithPort =
+  /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
+```
+
+```ts
+import { urlWithPort } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match                | Should not match       |
+| --------------------------- | ---------------------- |
+| `https://example.com:0`     | `https://example.com:` |
+| `http://example.com:1`      | `//example.com`        |
+| `http://example.com:80`     | `example.com`          |
+| `https://example.com:123`   |                        |
+| `https://example.com:1234`  |                        |
+| `https://example.com:65535` |                        |
+| `//example.com:65535`       |                        |
+| `example.com:65535`         |                        |
+
+### **urlWithProtocol**
+
+Should match any url with http/s protocols and with or without port
+
+From [uri.ts](./src/uri.ts#L76)
+
+Copy:
+
+```js
+const urlWithProtocol =
+  /(https?:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
+```
+
+```ts
+import { urlWithProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match                | Should not match       |
+| --------------------------- | ---------------------- |
+| `https://example.com:0`     | `//example.com:65535`  |
+| `http://example.com:1`      | `example.com:65535`    |
+| `http://example.com:80`     | `https://example.com:` |
+| `https://example.com:123`   | `//example.com`        |
+| `https://example.com:1234`  | `example.com`          |
+| `https://example.com:65535` |                        |
+
+# datetime
+
+> At: [datetime.ts](./src/datetime.ts)
+
+### **date**
+
+should match any date in YYYY-MM-DD format
+
+From [datetime.ts](./src/datetime.ts#L164)
+
+Copy:
+
+```js
+const date = /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])/;
+```
+
+```ts
+import { date } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `2022-01-01` | `2022/01/01`     |
+| `3044-12-31` | `13-12-2021`     |
+| `1982-01-01` | `82-12-31`       |
+| `1982-12-31` | `2020-31-12`     |
+| `1082-01-01` |                  |
+| `0082-12-31` |                  |
+
+### **dateTime**
+
+should match any date time in `YYYY-MM-DD  hh:mm:ss` format
+
+From [datetime.ts](./src/datetime.ts#L184)
+
+Copy:
+
+```js
+const dateTime =
+  /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1]) ([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])/;
+```
+
+```ts
+import { dateTime } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match          | Should not match      |
+| --------------------- | --------------------- |
+| `2020-01-01 00:00:00` | `13-12-2021 23:59:59` |
+| `2020-12-31 23:59:59` | `82-12-31 23:59:59`   |
+| `1982-01-01 00:00:00` | `2020-12-31 00:60:00` |
+| `1982-12-31 23:59:59` | `2020-12-31`          |
+| `1082-01-01 00:00:00` | `00:59:00`            |
+| `0082-12-31 23:59:59` |                       |
+
+### **dateTimeISO8601**
+
+should match any date time ISO8601 in `YYYY-MM-DDThh:mm:ss` format
+https://es.wikipedia.org/wiki/ISO_8601
+
+From [datetime.ts](./src/datetime.ts#L205)
+
+Copy:
+
+```js
+const dateTimeISO8601 =
+  /([0-9]{4})-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])/;
+```
+
+```ts
+import { dateTimeISO8601 } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match          | Should not match      |
+| --------------------- | --------------------- |
+| `2020-01-01T00:00:00` | `13-12-2021T23:59:59` |
+| `2020-12-31T23:59:59` | `82-12-31T23:59:59`   |
+| `1982-01-01T00:00:00` | `2020-12-31T00:60:00` |
+| `1982-12-31T23:59:59` | `2020-12-31`          |
+| `1082-01-01T00:00:00` | `00:59:00`            |
+
+### **day**
+
+should match any day number, 2 digits numbers from 01 to 31,
+
+From [datetime.ts](./src/datetime.ts#L103)
+
+Copy:
+
+```js
+const day = /(0[1-9]|[1-2][0-9]|3[0-1])/;
+```
+
+```ts
+import { day } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `01`         | `00`             |
+| `12`         | `32`             |
+| `03`         | `100`            |
+| `04`         | `0`              |
+| `05`         | `2`              |
+| `22`         |                  |
+| `31`         |                  |
+
+### **hour**
+
+should match valid hours in 24h format
+
+From [datetime.ts](./src/datetime.ts#L5)
+
+Copy:
+
+```js
+const hour = /([0-1][0-9]|2[0-3])/;
+```
+
+```ts
+import { hour } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `00`         | `24`             |
+| `23`         | `-2`             |
+| `12`         | `2`              |
+| `15`         | `0`              |
+| `05`         | `33`             |
+
+### **millisecond**
+
+should match valid milliseconds in 24h format
+
+From [datetime.ts](./src/datetime.ts#L62)
+
+Copy:
+
+```js
+const millisecond = /([0-9]{3})/;
+```
+
+```ts
+import { millisecond } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `000`        | `1000`           |
+| `999`        | `-22`            |
+| `123`        | `2`              |
+| `456`        | `0`              |
+| `789`        | `33`             |
+
+### **minute**
+
+should match valid minutes in 24h format
+
+From [datetime.ts](./src/datetime.ts#L25)
+
+Copy:
+
+```js
+const minute = /([0-5][0-9])/;
+```
+
+```ts
+import { minute } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `00`         | `60`             |
+| `59`         | `-2`             |
+| `12`         | `2`              |
+| `15`         | `0`              |
+| `05`         |                  |
+
+### **month**
+
+should match any month number, must be 2 digits numbers
+
+From [datetime.ts](./src/datetime.ts#L124)
+
+Copy:
+
+```js
+const month = /(0[1-9]|1[0-2])/;
+```
+
+```ts
+import { month } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `01`         | `13`             |
+| `12`         | `00`             |
+| `03`         | `2`              |
+| `04`         |                  |
+
+### **second**
+
+should match valid seconds in 24h format
+
+From [datetime.ts](./src/datetime.ts#L43)
+
+Copy:
+
+```js
+const second = /([0-5][0-9])/;
+```
+
+```ts
+import { second } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `00`         | `60`             |
+| `59`         | `-2`             |
+| `12`         | `2`              |
+| `15`         | `0`              |
+| `05`         |                  |
+
+### **time**
+
+should match valid time in 24h format
+
+From [datetime.ts](./src/datetime.ts#L82)
+
+Copy:
+
+```js
+const time = /([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])/;
+```
+
+```ts
+import { time } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `00:00:00`   | `05:05:5`        |
+| `23:59:59`   | `05:5:05`        |
+| `12:00:00`   | `1:5:05`         |
+| `15:00:00`   | `24:00:00`       |
+| `05:05:05`   | `00:60:00`       |
+|              | `00:00:60`       |
+
+### **year**
+
+should match any year number, must be 4 digits numbers
+
+From [datetime.ts](./src/datetime.ts#L141)
+
+Copy:
+
+```js
+const year = /([0-9]{4})/;
+```
+
+```ts
+import { year } from "https://deno.land/x/regular_expressions/src/datetime.ts";
+```
+
+| Should match | Should not match |
+| ------------ | ---------------- |
+| `2020`       | `019`            |
+| `1982`       | `25`             |
+| `1082`       | `26`             |
+| `3022`       | `27`             |
+| `2021`       | `28`             |
+| `2022`       |                  |
+| `2023`       |                  |
+| `2024`       |                  |
 
 # currency
 
