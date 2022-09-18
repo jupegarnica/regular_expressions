@@ -3,7 +3,8 @@
  */
 export const url =
   /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:[0-9]{1,5})?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
-export const url_description = "Should match any url with or without http/s protocol and with or without port";
+export const url_description =
+  "Should match any url with or without http/s protocol and with or without port";
 export const url_should_match: string[] = [
   "//ex4mpl3.com",
   "http://ex4mpl3.com",
@@ -52,7 +53,8 @@ export const url_should_not_match: string[] = [
 
 export const urlWithPort =
   /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
-export const urlWithPort_description = "Should match any url with or without http/s protocols and port";
+export const urlWithPort_description =
+  "Should match any url with or without http/s protocols and port";
 export const urlWithPort_should_match: string[] = [
   "https://example.com:0",
   "http://example.com:1",
@@ -76,7 +78,8 @@ export const urlWithPort_should_not_match: string[] = [
 export const urlWithProtocol =
   /(https?:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
 
-export const urlWithProtocol_description = "Should match any url with http/s protocols and with or without port";
+export const urlWithProtocol_description =
+  "Should match any url with http/s protocols and with or without port";
 export const urlWithProtocol_should_match: string[] = [
   "https://example.com:0",
   "http://example.com:1",
@@ -97,7 +100,8 @@ export const urlWithProtocol_should_not_match: string[] = [
  * Should match any url hostname (no protocol, no port, no path)
  */
 export const hostname = /[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}/;
-export const hostname_description = "Should match any url hostname (no protocol, no port, no path)";
+export const hostname_description =
+  "Should match any url hostname (no protocol, no port, no path)";
 
 export const hostname_should_match: string[] = [
   "example.com",
@@ -128,7 +132,8 @@ export const hostname_should_not_match: string[] = [
 export const uri =
   /([\w-.]{3,}:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/;
 
-export const uri_description = "Should match any uri with any protocol, for example file://, http://, https://, ftp://, chrome-extension://, chrome://, etc...\nhttps://es.wikipedia.org/wiki/Esquema_de_URI";
+export const uri_description =
+  "Should match any uri with any protocol, for example file://, http://, https://, ftp://, chrome-extension://, chrome://, etc...\nhttps://es.wikipedia.org/wiki/Esquema_de_URI";
 export const uri_should_match: string[] = [
   "https://example.com:1234",
   "http://example.com:1234/",
@@ -165,7 +170,8 @@ export const uri_should_not_match: string[] = [
 export const ipv4 =
   /((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/;
 
-export const ipv4_description = "Should match any ip v4 without protocol, no any mask of subnet";
+export const ipv4_description =
+  "Should match any ip v4 without protocol, no any mask of subnet";
 export const ipv4_should_match: string[] = [
   "192.168.1.0",
   "192.168.1.1",
@@ -192,7 +198,8 @@ export const ipv4_should_not_match: string[] = [
 
 export const ipv4SubnetMask =
   /((255\.){3}(0|128|192|224|240|248|252|254|255))|((255\.){2}(0|128|192|224|240|248|252|254|255)\.0)|((255\.)(0|128|192|224|240|248|252|254|255)\.0\.0)|((255\.){1}(0|128|192|224|240|248|252|254|255)\.0\.0\.0)/;
-export const ipv4SubnetMask_description = "Should match any subnet mask\nhttps://en.wikipedia.org/wiki/Subnetwork";
+export const ipv4SubnetMask_description =
+  "Should match any subnet mask\nhttps://en.wikipedia.org/wiki/Subnetwork";
 export const ipv4SubnetMask_should_match: string[] = [
   "255.255.255.255",
   "255.255.255.0",
@@ -212,7 +219,8 @@ export const ipv4SubnetMask_should_not_match: string[] = [
 
 export const ipv4CIDR =
   /(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))/;
-export const ipv4CIDR_description = "Should match any ipv4 CIDR notation (subnet)\nhttps://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing";
+export const ipv4CIDR_description =
+  "Should match any ipv4 CIDR notation (subnet)\nhttps://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing";
 //https://regexlib.com/REDetails.aspx?regexp_id=2717
 // /(([01]?\d?\d|2[0-4]\d|25[0-5])\.){3}([01]?\d?\d|2[0-4]\d|25[0-5])\/(\d{1}|[0-2]{1}\d{1}|3[0-2])/;
 
@@ -294,7 +302,7 @@ export const iPv4Private =
   /(?:(?:10|127)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\.254|192\.168)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/;
 
 export const iPv4Private_description = "Should match any private ip v4";
-  // /(10|127|172\.(1[6-9]|2[0-9]|3[01])|192\.168)\.(\d){1,3}\.(\d){1,3}/g;
+// /(10|127|172\.(1[6-9]|2[0-9]|3[01])|192\.168)\.(\d){1,3}\.(\d){1,3}/g;
 
 export const iPv4Private_should_match: string[] = [
   "10.196.0.1",
@@ -321,8 +329,7 @@ export const uriProtocol =
 
 export const uriProtocol_description = "Should match any valid uri protocol";
 export const uriProtocol_should_match: string[] = [
-
-    "http:",
+  "http:",
   "https:",
   "ftp:",
   // "ftps:",

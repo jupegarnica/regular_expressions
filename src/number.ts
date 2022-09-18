@@ -4,7 +4,8 @@
 
 export const number =
   /(?:[-+]?(?:0|[1-9_][0-9_]*)(?:\.[0-9_]*)?(?:[eE][-+]?[0-9]+)?)/;
-export const number_description = "Should match any valid JS number but not NaN, Infinity or -Infinity.";
+export const number_description =
+  "Should match any valid JS number but not NaN, Infinity or -Infinity.";
 export const number_should_match: string[] = [
   "1_000_000",
   "1_000.45",
@@ -34,9 +35,9 @@ export const number_should_not_match: string[] = [
  * Should match any number signed integer or unsigned integer.
  */
 
-
 export const numberInteger = /(?:[-+]?(?:0|[1-9][0-9]*))/;
-export const numberInteger_description = "Should match any number signed integer or unsigned integer.";
+export const numberInteger_description =
+  "Should match any number signed integer or unsigned integer.";
 export const numberInteger_should_match: string[] = [
   "0",
   "123",
@@ -59,7 +60,8 @@ export const numberInteger_should_not_match: string[] = [
  */
 
 export const numberFloat = /([-+]?([0-9]+))?\.([0-9])+/;
-export const numberFloat_description = "Should match any float number, signed or unsigned, but not integers or exponential.";
+export const numberFloat_description =
+  "Should match any float number, signed or unsigned, but not integers or exponential.";
 export const numberFloat_should_match: string[] = [
   "123.45",
   "0.123",
@@ -87,7 +89,8 @@ export const numberFloat_should_not_match: string[] = [
 
 export const numberExponential =
   /([-+]?([0-9]+))?(\.([0-9]+))?[eE]([-+]?([0-9]+))/;
-export const numberExponential_description = "Should match any exponential number.";
+export const numberExponential_description =
+  "Should match any exponential number.";
 export const numberExponential_should_match: string[] = [
   "123e4",
   "0.123e4",
@@ -117,7 +120,8 @@ export const numberExponential_should_not_match: string[] = [
  */
 
 export const numberHex = /(([+-])?0[xX][0-9a-fA-F]+)/;
-export const numberHex_description = "Should match any number hexadecimal, signed or unsigned";
+export const numberHex_description =
+  "Should match any number hexadecimal, signed or unsigned";
 export const numberHex_should_match: string[] = [
   "0x123",
   "0x0",
@@ -145,7 +149,8 @@ export const numberHex_should_not_match: string[] = [
  */
 
 export const numberOctal = /([+-])?(0o?[0-7]+)/;
-export const numberOctal_description = "Should match any number octal, signed or unsigned, but not integers or exponential.";
+export const numberOctal_description =
+  "Should match any number octal, signed or unsigned, but not integers or exponential.";
 export const numberOctal_should_match: string[] = [
   "0123",
   "07",
@@ -178,7 +183,8 @@ export const numberOctal_should_not_match: string[] = [
  */
 
 export const numberBinary = /([+-])?0[bB][01]+/;
-export const numberBinary_description = "Should match any binary number, signed or unsigned, but not integers or exponential.";
+export const numberBinary_description =
+  "Should match any binary number, signed or unsigned, but not integers or exponential.";
 export const numberBinary_should_match: string[] = [
   "0b101",
   "0b0",

@@ -3,7 +3,8 @@ Should match any valid css hex color. (#ffcc00,  #abc, or #ffcc0033)
  */
 export const colorHex = /#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4}))/;
 
-export const colorHex_description = "Should match any valid css hex color. (#ffcc00,  #abc, or #ffcc0033)";
+export const colorHex_description =
+  "Should match any valid css hex color. (#ffcc00,  #abc, or #ffcc0033)";
 export const colorHex_should_match: string[] = [
   "#abc",
   "#ABC",
@@ -35,7 +36,8 @@ Should match any valid css rgb o rgba color. (rgb(255,255,255), rgba(255,255,255
 export const colorRgb =
   /rgba?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})(\s*,\s*0?\.[0-9])?\s*\)/;
 
-export const colorRgb_description = "Should match any valid css rgb o rgba color. (rgb(255,255,255), rgba(255,255,255,0.5))";
+export const colorRgb_description =
+  "Should match any valid css rgb o rgba color. (rgb(255,255,255), rgba(255,255,255,0.5))";
 export const colorRgb_should_match: string[] = [
   "rgb(255,255,255)",
   "rgb(255,255,255,0.5)",
@@ -59,7 +61,8 @@ Should match any valid  css hsl color. (hsl(0,100%,50%), hsla(0,100%,50%,0.5))
 export const colorHsl =
   /hsla?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})%\s*,\s*([0-9]{1,3}%)(\s*,\s*0?\.[0-9])?\s*\)/;
 
-export const colorHsl_description = "Should match any valid  css hsl color. (hsl(0,100%,50%), hsla(0,100%,50%,0.5))";
+export const colorHsl_description =
+  "Should match any valid  css hsl color. (hsl(0,100%,50%), hsla(0,100%,50%,0.5))";
 export const colorHsl_should_match: string[] = [
   "hsl(0,100%,50%)",
   "hsl(0,100%,50%,0.5)",
