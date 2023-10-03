@@ -1,36 +1,27 @@
 {
   "lint": {
-    "files": {
-      "exclude": [
-        ".cache",
-        ".git",
-        "coverage",
-        "node_modules/**",
-        "vendor/**"
-      ]
-    },
-    "rules": {
-      "exclude": []
-    }
+    "exclude": [
+      ".cache",
+      ".git",
+      "coverage",
+      "node_modules/**",
+      "vendor/**"
+    ]
   },
   "fmt": {
-    "files": {
-      "exclude": [
-        ".cache",
-        ".git",
-        "coverage",
-        "node_modules/**",
-        "vendor/**",
-        "**/*.md"
-      ]
-    },
-    "options": {
-      "useTabs": false,
-      "lineWidth": 80,
-      "indentWidth": 2,
-      "singleQuote": false,
-      "proseWrap": "always"
-    }
+    "exclude": [
+      ".cache",
+      ".git",
+      "coverage",
+      "node_modules/**",
+      "vendor/**",
+      "**/*.md"
+    ],
+    "useTabs": false,
+    "lineWidth": 80,
+    "indentWidth": 2,
+    "singleQuote": false,
+    "proseWrap": "always"
   },
   "tasks": {
     "test": "deno test --fail-fast --ignore=.cache --no-prompt",
@@ -38,6 +29,7 @@
     "test-watch": "deno task test --watch",
     "build-npm": "deno run -A _scripts/build_npm.ts",
     "ci": "deno lint && deno fmt --check && deno task test",
+    "fmt": "deno fmt --ignore=coverage,.cache",
     "release": "sh _scripts/release.sh",
     "tag": "sh _scripts/tag.sh",
     "bench": "deno bench --allow-env=NO-COLOR,LOG_LEVEL --no-check --unstable",
