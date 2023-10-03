@@ -1,0 +1,39 @@
+{
+  "version": "3",
+  "redirects": {
+    "https://deno.land/x/regular_expressions/src/case.ts": "https://deno.land/x/regular_expressions@0.0.3/src/case.ts",
+    "https://deno.land/x/regular_expressions/src/color.ts": "https://deno.land/x/regular_expressions@0.0.3/src/color.ts",
+    "https://deno.land/x/regular_expressions/src/currency.ts": "https://deno.land/x/regular_expressions@0.0.3/src/currency.ts",
+    "https://deno.land/x/regular_expressions/src/datetime.ts": "https://deno.land/x/regular_expressions@0.0.3/src/datetime.ts",
+    "https://deno.land/x/regular_expressions/src/email.ts": "https://deno.land/x/regular_expressions@0.0.3/src/email.ts",
+    "https://deno.land/x/regular_expressions/src/example.ts": "https://deno.land/x/regular_expressions@0.0.3/src/example.ts",
+    "https://deno.land/x/regular_expressions/src/js_eval.ts": "https://deno.land/x/regular_expressions@0.0.3/src/js_eval.ts",
+    "https://deno.land/x/regular_expressions/src/number.ts": "https://deno.land/x/regular_expressions@0.0.3/src/number.ts",
+    "https://deno.land/x/regular_expressions/src/uri.ts": "https://deno.land/x/regular_expressions@0.0.3/src/uri.ts"
+  },
+  "remote": {
+    "https://deno.land/std@0.129.0/fmt/colors.ts": "30455035d6d728394781c10755351742dd731e3db6771b1843f9b9e490104d37",
+    "https://deno.land/std@0.129.0/testing/_diff.ts": "9d849cd6877694152e01775b2d93f9d6b7aef7e24bfe3bfafc4d7a1ac8e9f392",
+    "https://deno.land/std@0.129.0/testing/asserts.ts": "0a95d9e8076dd3e7f0eeb605a67c148078b4b11f4abcd5eef115b0361b0736a2",
+    "https://deno.land/std@0.130.0/_util/assert.ts": "e94f2eb37cebd7f199952e242c77654e43333c1ac4c5c700e929ea3aa5489f74",
+    "https://deno.land/std@0.130.0/_util/os.ts": "49b92edea1e82ba295ec946de8ffd956ed123e2948d9bd1d3e901b04e4307617",
+    "https://deno.land/std@0.130.0/path/_constants.ts": "df1db3ffa6dd6d1252cc9617e5d72165cd2483df90e93833e13580687b6083c3",
+    "https://deno.land/std@0.130.0/path/_interface.ts": "ee3b431a336b80cf445441109d089b70d87d5e248f4f90ff906820889ecf8d09",
+    "https://deno.land/std@0.130.0/path/_util.ts": "c1e9686d0164e29f7d880b2158971d805b6e0efc3110d0b3e24e4b8af2190d2b",
+    "https://deno.land/std@0.130.0/path/common.ts": "bee563630abd2d97f99d83c96c2fa0cca7cee103e8cb4e7699ec4d5db7bd2633",
+    "https://deno.land/std@0.130.0/path/glob.ts": "cb5255638de1048973c3e69e420c77dc04f75755524cb3b2e160fe9277d939ee",
+    "https://deno.land/std@0.130.0/path/mod.ts": "4275129bb766f0e475ecc5246aa35689eeade419d72a48355203f31802640be7",
+    "https://deno.land/std@0.130.0/path/posix.ts": "663e4a6fe30a145f56aa41a22d95114c4c5582d8b57d2d7c9ed27ad2c47636bb",
+    "https://deno.land/std@0.130.0/path/separator.ts": "fe1816cb765a8068afb3e8f13ad272351c85cbc739af56dacfc7d93d710fe0f9",
+    "https://deno.land/std@0.130.0/path/win32.ts": "e7bdf63e8d9982b4d8a01ef5689425c93310ece950e517476e22af10f41a136e",
+    "https://deno.land/x/regular_expressions@0.0.3/src/case.ts": "f6dba3215fb046cdb2c6e3487e068596273aa930d8cc5904dec853b17c50436c",
+    "https://deno.land/x/regular_expressions@0.0.3/src/color.ts": "72b8932b1ac5028abdad5da6186093ed620ca68a9732f3dfea0dda0fc4003f43",
+    "https://deno.land/x/regular_expressions@0.0.3/src/currency.ts": "403bf22eda2374ce17e41c734d1ab49b32ab6978aa4e0b2a9289130cc2de8e91",
+    "https://deno.land/x/regular_expressions@0.0.3/src/datetime.ts": "ffbb494d9a79461422c4e2c0091c667ed55395c07e6c7014545c0910709bf349",
+    "https://deno.land/x/regular_expressions@0.0.3/src/email.ts": "5abc1e7dad8f7d04c157daf88c9937b4c6873eaa934fc470d85c54e4f5a0a578",
+    "https://deno.land/x/regular_expressions@0.0.3/src/example.ts": "4a3d61d78793c0e086d71ab49f97748f4671289dfff872c4b0200590ae209ed3",
+    "https://deno.land/x/regular_expressions@0.0.3/src/js_eval.ts": "a5684683901fc245ac90a74fe6d994ea1736e8191e821ac32f6e7db6581d96e0",
+    "https://deno.land/x/regular_expressions@0.0.3/src/number.ts": "cf63b94e2b08cca5ac20ed9166a5f19a85913d13bb7beb3973950b9dae96b0e1",
+    "https://deno.land/x/regular_expressions@0.0.3/src/uri.ts": "3495576813c4bfe7f70ea6951c76218c4b0ba9a9c81b2bc69f990dcab30ca993"
+  }
+}
