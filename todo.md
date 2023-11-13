@@ -113,7 +113,6 @@ https://github.com/Archakov06/rgxp/blob/master/src/assets/patterns.json
 
 https://github.com/nicoandresr/regexlib/blob/master/index.ts
 
-<!-- https://github.com/ardalis/RegExLib/blob/master/src/regexlib.com/App_Data/create_database.sql -->
 
 https://atrilsolutions.zendesk.com/hc/en-us/articles/205539861-Useful-regular_expressions
 
