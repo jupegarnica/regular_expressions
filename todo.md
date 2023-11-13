@@ -83,9 +83,7 @@
 - [ ] conventional commit messages
 - [ ] git references
 
-## Contributing
 
-<!-- TODO -->
 
 ## Sources of inspiration
 
