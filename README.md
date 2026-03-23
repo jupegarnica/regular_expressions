@@ -11,135 +11,1857 @@ Mainly assisted by github copilot and tweaked by [me](https://garn.dev).
 
 # Contents
 
-# color
+# js_eval
 
-> At: [color.ts](./src/color.ts)
+> At: [js_eval.ts](./src/js_eval.ts)
 
-### **color**
+### **classDefinition**
 
-Should match any valid css color.
+Should match a js class definition
 
-From [color.ts](./src/color.ts#L86)
+From [js_eval.ts](./src/js_eval.ts#L274)
 
 Copy:
 ```js
-const color = /(#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4})))|(rgba?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})(\s*,\s*0?\.[0-9])?\s*\))|(hsla?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})%\s*,\s*([0-9]{1,3}%)(\s*,\s*0?\.[0-9])?\s*\))/
+const classDefinition = /class\s+((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))\s*(extends\s+((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*)))?\s*\{.*\}/
 ```
 
 ```ts
-import { color } from "https://deno.land/x/regular_expressions/src/color.ts";
+import { classDefinition } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match | Should not match  |
 |---|---|
-| `#abc` | `#0ffcc00`  |
-| `#ABC` | `#abcdefG`  |
-| `#123` | `#FFG`  |
-| `#123456` | `FFF`  |
-| `#aAcCff` | `FFF`  |
-| `#1234` | `$FFF`  |
-| `#ffcc00` | `#12345`  |
-| `#ffcc0033` | `#1234567`  |
-| `#abcdefee` | `#123456789`  |
-| `rgb(255,255,255)` | `#123456789a`  |
-| `rgb(255,255,255,0.5)` | `#123456789ab`  |
-| `rgba(255,255,255,0.1)` | `rgba(2 55,255,255)`  |
-| `rgba(255,255,255)` | `rgbc(300,0,0)`  |
-| `rgba( 255  ,   255     ,  255  )` | `rgb(256,25 5,255,0.5)`  |
-| `rgb(999,0,0)` | `rg(256,255,255,0.5)`  |
-| `hsl(0,100%,50%)` | `(256,255,255,0.5)`  |
-| `hsl(0,100%,50%,0.5)` | `hsl(24,50%,200)`  |
-| `hsla(0,100%,50%,0.1)` | `hsla(2 55,255,255)`  |
-| `hsla(0,100%,50%)` | `hslc(300,0%,0%)`  |
-| `hsla( 0  ,  100%       ,  50%  )` | `hsl(256,25 5,255,0.5)`  |
-| `hsl(24,50%,200%)` | `hs(256,255,255,0.5)`  |
-|  | `(256,255,255,0.5)`  |
+| `class A{ }` | `class 1foo{}`  |
+| `class A{}` | `class foo extends 3hola{}`  |
+| `class A { }` | `class A extends 1{ }`  |
+| `class _ { }` | `class while {}`  |
+| `class $ { }` | `class foo extends if{}`  |
+| `class A extends B { }` | `classB{}`  |
+| `class A extends B{ }` | `class MyClass `  |
+| `class A extends B { constructor() { } }` | `class MyClass {`  |
+| `class A extends B { constructor() { super(); } }` | `CLASS A {}`  |
+| `class A extends B { constructor() { super(); } foo() { } }` | `class A extendsB{ }`  |
+| `class A extends B { constructor() { super(); } foo() { } bar() { } }` |   |
 
 
 
 
-### **colorHex**
+### **functionAnonymous**
 
-Should match any valid css hex color. (#ffcc00,  #abc, or #ffcc0033)
+Should match a js anonymous classic function definition
 
-From [color.ts](./src/color.ts#L4)
+From [js_eval.ts](./src/js_eval.ts#L124)
 
 Copy:
 ```js
-const colorHex = /#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4}))/
+const functionAnonymous = /function(?<noName>\s*)\(.*\)\s*\{(.*)\}/
 ```
 
 ```ts
-import { colorHex } from "https://deno.land/x/regular_expressions/src/color.ts";
+import { functionAnonymous } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match | Should not match  |
 |---|---|
-| `#abc` | `#0ffcc00`  |
-| `#ABC` | `#abcdefG`  |
-| `#123` | `#FFG`  |
-| `#123456` | `FFF`  |
-| `#aAcCff` | `FFF`  |
-| `#1234` | `$FFF`  |
-| `#ffcc00` | `#12345`  |
-| `#ffcc0033` | `#1234567`  |
-| `#abcdefee` | `#123456789`  |
-|  | `#123456789a`  |
-|  | `#123456789ab`  |
+| `function(){}` | `function name(){return 2;}`  |
+| `function (...args) { }` | `func(){}`  |
+| `function (a1,a2,a3) { }` | `function(a1,a2,a3)`  |
+| `function() {return 1;}` |   |
+| `function (){ if(true) { return 1; } }` |   |
 
 
 
 
-### **colorHsl**
+### **functionArrow**
 
-Should match any valid  css hsl color. (hsl(0,100%,50%), hsla(0,100%,50%,0.5))
+Should match a js arrow function definition
 
-From [color.ts](./src/color.ts#L61)
+From [js_eval.ts](./src/js_eval.ts#L176)
 
 Copy:
 ```js
-const colorHsl = /hsla?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})%\s*,\s*([0-9]{1,3}%)(\s*,\s*0?\.[0-9])?\s*\)/
+const functionArrow = /([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)/
 ```
 
 ```ts
-import { colorHsl } from "https://deno.land/x/regular_expressions/src/color.ts";
+import { functionArrow } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match | Should not match  |
 |---|---|
-| `hsl(0,100%,50%)` | `hsl(24,50%,200)`  |
-| `hsl(0,100%,50%,0.5)` | `hsla(2 55,255,255)`  |
-| `hsla(0,100%,50%,0.1)` | `hslc(300,0%,0%)`  |
-| `hsla(0,100%,50%)` | `hsl(256,25 5,255,0.5)`  |
-| `hsla( 0  ,  100%       ,  50%  )` | `hs(256,255,255,0.5)`  |
-| `hsl(24,50%,200%)` | `(256,255,255,0.5)`  |
+| `A => A` | `A,B => A`  |
+| `() => 42` | `functionname () {  return 'hello'; }`  |
+| `(a,b,c) => 42` | `function () {}`  |
+| `(...args) => 42` | `function myFunction(param1, param2) {`  |
+| `() => {}` |   |
+| `() => { return 'hello'; }` |   |
 
 
 
 
-### **colorRgb**
+### **functionAsync**
 
-Should match any valid css rgb o rgba color. (rgb(255,255,255), rgba(255,255,255,0.5))
+Should match a js async function definition
 
-From [color.ts](./src/color.ts#L36)
+From [js_eval.ts](./src/js_eval.ts#L197)
 
 Copy:
 ```js
-const colorRgb = /rgba?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})(\s*,\s*0?\.[0-9])?\s*\)/
+const functionAsync = /async\s+((function(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\})|(([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)))/
 ```
 
 ```ts
-import { colorRgb } from "https://deno.land/x/regular_expressions/src/color.ts";
+import { functionAsync } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
 ```
 
 | Should match | Should not match  |
 |---|---|
-| `rgb(255,255,255)` | `rgba(2 55,255,255)`  |
-| `rgb(255,255,255,0.5)` | `rgbc(300,0,0)`  |
-| `rgba(255,255,255,0.1)` | `rgb(256,25 5,255,0.5)`  |
-| `rgba(255,255,255)` | `rg(256,255,255,0.5)`  |
-| `rgba( 255  ,   255     ,  255  )` | `(256,255,255,0.5)`  |
-| `rgb(999,0,0)` |   |
+| `async function(){}` | `async func(){}`  |
+| `async function named() {}` | `async functionA(a1,a2,a3)`  |
+| `async function (...args) { }` |   |
+| `async function (a1,a2,a3) { }` |   |
+| `async function() {return 1;}` |   |
+| `async function (){ if(true) { return 1; } }` |   |
+| `async function name(){return 2;}` |   |
+| `async () => {return 2;}` |   |
+
+
+
+
+### **functionAsyncGenerator**
+
+Should match a js async generator function. Only matches the syntax of `async function*` not any other way of creating an async generator or iterator.
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+
+From [js_eval.ts](./src/js_eval.ts#L247)
+
+Copy:
+```js
+const functionAsyncGenerator = /async\s+((function\*(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\*\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}))/
+```
+
+```ts
+import { functionAsyncGenerator } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `async function* (){}` | `function (){}`  |
+| `async function* named() {}` | `async function (){}`  |
+| `async function* (...args) { }` | `function* while() {}`  |
+| `async function* named(a1,a2,a3) { yield 42; return 43; }` | `async function (){}`  |
+|  | `function named(a1,a2,a3)`  |
+
+
+
+
+### **functionClassic**
+
+Should match a js classic function definition
+
+From [js_eval.ts](./src/js_eval.ts#L144)
+
+Copy:
+```js
+const functionClassic = /function\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}/
+```
+
+```ts
+import { functionClassic } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `function name(param1, param2) { }` | `function while() {}`  |
+| `function name() {  }` | `function function() { }`  |
+| `function name () {}` | `functionname () {  return 'hello'; }`  |
+| `function name         () {}` | `function name     foo    () {}`  |
+| `function name() {  return 'hello'; }` | `function () {}`  |
+| `function name() {  if(true) { return 42 } }` | ` () => {}`  |
+|  | `function myFunction(param1, param2) {`  |
+
+
+
+
+### **functionGenerator**
+
+Should match a js generator function definition
+
+From [js_eval.ts](./src/js_eval.ts#L220)
+
+Copy:
+```js
+const functionGenerator = /((function\*(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\*\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}))/
+```
+
+```ts
+import { functionGenerator } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `function*(){}` | `function (){}`  |
+| `function* named() {}` | `async function (){}`  |
+| `function* (...args) { }` | `function* while() {}`  |
+|  | `async function* (){}`  |
+|  | `function named(a1,a2,a3)`  |
+|  | `async function* named(a1,a2,a3)`  |
+
+
+
+
+### **globalScope**
+
+Should match any global variable
+
+From [js_eval.ts](./src/js_eval.ts#L581)
+
+Copy:
+```js
+const globalScope = /Deno|queueMicrotask|dispatchEvent|addEventListener|removeEventListener|AbortSignal|AbortController|atob|btoa|clearInterval|clearTimeout|crypto|fetch|performance|setInterval|setTimeout|structuredClone|location|window|self|navigator|close|closed|alert|confirm|prompt|localStorage|sessionStorage|onload|onunload|global|clearImmediate|setImmediate|document|name|customElements|history|locationbar|menubar|personalbar|scrollbars|statusbar|toolbar|status|frames|length|top|opener|parent|frameElement|origin|external|screen|innerWidth|innerHeight|scrollX|pageXOffset|scrollY|pageYOffset|visualViewport|screenX|screenY|outerWidth|outerHeight|devicePixelRatio|clientInformation|screenLeft|screenTop|defaultStatus|defaultstatus|styleMedia|onsearch|isSecureContext|onappinstalled|onbeforeinstallprompt|indexedDB|webkitStorageInfo|onbeforexrselect|onabort|onblur|oncancel|oncanplay|oncanplaythrough|onchange|onclick|onclose|oncontextmenu|oncuechange|ondblclick|ondrag|ondragend|ondragenter|ondragleave|ondragover|ondragstart|ondrop|ondurationchange|onemptied|onended|onerror|onfocus|onformdata|oninput|oninvalid|onkeydown|onkeypress|onkeyup|onloadeddata|onloadedmetadata|onloadstart|onmousedown|onmouseenter|onmouseleave|onmousemove|onmouseout|onmouseover|onmouseup|onmousewheel|onpause|onplay|onplaying|onprogress|onratechange|onreset|onresize|onscroll|onsecuritypolicyviolation|onseeked|onseeking|onselect|onslotchange|onstalled|onsubmit|onsuspend|ontimeupdate|ontoggle|onvolumechange|onwaiting|onwebkitanimationend|onwebkitanimationiteration|onwebkitanimationstart|onwebkittransitionend|onwheel|onauxclick|ongotpointercapture|onlostpointercapture|onpointerdown|onpointermove|onpointerup|onpointercancel|onpointerover|onpointerout|onpointerenter|onpointerleave|onselectstart|onselectionchange|onanimationend|onanimationiteration|onanimationstart|ontransitionrun|ontransitionstart|ontransitionend|ontransitioncancel|onafterprint|onbeforeprint|onbeforeunload|onhashchange|onlanguagechange|onmessage|onmessageerror|onoffline|ononline|onpagehide|onpageshow|onpopstate|onrejectionhandled|onstorage|onunhandledrejection|blur|cancelAnimationFrame|cancelIdleCallback|captureEvents|createImageBitmap|find|focus|getComputedStyle|getSelection|matchMedia|moveBy|moveTo|open|postMessage|print|releaseEvents|reportError|requestAnimationFrame|requestIdleCallback|resizeBy|resizeTo|scroll|scrollBy|scrollTo|stop|webkitCancelAnimationFrame|webkitRequestAnimationFrame|chrome|caches|cookieStore|ondevicemotion|ondeviceorientation|ondeviceorientationabsolute|oncontextlost|oncontextrestored|showDirectoryPicker|showOpenFilePicker|showSaveFilePicker|originAgentCluster|trustedTypes|speechSynthesis|onpointerrawupdate|crossOriginIsolated|scheduler|openDatabase|webkitRequestFileSystem|webkitResolveLocalFileSystemURL|console/
+```
+
+```ts
+import { globalScope } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `Deno` | `DENO`  |
+| `fetch` | `fETCH`  |
+| `window` | `Window`  |
+| `global` | `Global`  |
+
+
+
+
+### **identifierNames**
+
+Should match a valid js variable/function/class name * https://developer.mozilla.org/en-US/docs/Glossary/Identifier
+
+From [js_eval.ts](./src/js_eval.ts#L89)
+
+Copy:
+```js
+const identifierNames = /((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))/
+```
+
+```ts
+import { identifierNames } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `a` | `1`  |
+| `Z` | `1a`  |
+| `FOO` | `name with space`  |
+| `a1` | `a-1a`  |
+| `a_9` | `b%`  |
+| `_10` | `while`  |
+| `$1` | `do`  |
+| `$H` | `if`  |
+| `$` | `in`  |
+| `whileDo` | `for`  |
+| `_` | `let`  |
+
+
+
+
+### **reservedWords**
+
+Should match a js reserved word
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords
+
+From [js_eval.ts](./src/js_eval.ts#L7)
+
+Copy:
+```js
+const reservedWords = /(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b)/
+```
+
+```ts
+import { reservedWords } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `break` | `BREAK`  |
+| `case` | `CASE`  |
+| `catch` | `CATCH`  |
+| `class` | `CLASS`  |
+| `const` | `CONST`  |
+| `continue` | `CONTINUE`  |
+| `debugger` | `DEBUGGER`  |
+| `default` | `DEFAULT`  |
+| `delete` | `DELETE`  |
+| `do` | `DO`  |
+| `else` | `ELSE`  |
+| `export` | `EXPORT`  |
+| `extends` | `EXTENDS`  |
+| `finally` | `FINALLY`  |
+| `for` | `FOR`  |
+| `function` | `FUNCTION`  |
+| `if` | `IF`  |
+| `import` | `IMPORT`  |
+| `in` | `IN`  |
+| `instanceof` | `INSTANCEOF`  |
+| `new` | `NEW`  |
+| `return` | `RETURN`  |
+| `super` | `SUPER`  |
+| `switch` | `SWITCH`  |
+| `this` | `THIS`  |
+| `throw` | `THROW`  |
+| `try` | `TRY`  |
+| `typeof` | `TYPEOF`  |
+| `var` | `VAR`  |
+| `void` | `VOID`  |
+| `while` | `WHILE`  |
+| `with` | `WITH`  |
+| `yield` | `YIELD`  |
+| `implements` | `IMPLEMENTS`  |
+| `interface` | `INTERFACE`  |
+| `let` | `LET`  |
+| `package` | `PACKAGE`  |
+| `private` | `PRIVATE`  |
+| `protected` | `PROTECTED`  |
+| `public` | `PUBLIC`  |
+| `static` | `STATIC`  |
+| `yield` | `YIELD`  |
+| `enum` | `ENUM`  |
+| `await` | `AWAIT`  |
+| `abstract` | `ABSTRACT`  |
+| `boolean` | `BOOLEAN`  |
+| `byte` | `BYTE`  |
+| `char` | `CHAR`  |
+| `double` | `DOUBLE`  |
+| `final` | `FINAL`  |
+| `float` | `FLOAT`  |
+| `goto` | `GOTO`  |
+| `int` | `INT`  |
+| `long` | `LONG`  |
+| `native` | `NATIVE`  |
+| `short` | `SHORT`  |
+| `synchronized` | `SYNCHRONIZED`  |
+| `throws` | `THROWS`  |
+| `transient` | `TRANSIENT`  |
+| `volatile` | `VOLATILE`  |
+| `null` | `NULL`  |
+| `true` | `TRUE`  |
+| `false` | `FALSE`  |
+
+
+
+# phone
+
+> At: [phone.ts](./src/phone.ts)
+
+### **phoneE164**
+
+Should match a phone number in E.164 international format
+(e.g. +15551234567).
+
+From [phone.ts](./src/phone.ts#L5)
+
+Copy:
+```js
+const phoneE164 = /\+[1-9][0-9]{6,14}/
+```
+
+```ts
+import { phoneE164 } from "https://deno.land/x/regular_expressions/src/phone.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `+15551234567` | `15551234567`  |
+| `+442071234567` | `+0551234567`  |
+| `+861012345678` | `+123456`  |
+| `+1234567` | `+1234567890123456`  |
+| `+123456789012345` | `++15551234567`  |
+
+
+
+
+### **phoneInternational**
+
+Should match a generic international phone number with country code.
+
+From [phone.ts](./src/phone.ts#L51)
+
+Copy:
+```js
+const phoneInternational = /\+?[1-9][0-9]{0,2}[-.\s]?\(?[0-9]{1,4}\)?(?:[-.\s]?[0-9]{1,4}){1,5}/
+```
+
+```ts
+import { phoneInternational } from "https://deno.land/x/regular_expressions/src/phone.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `+44 20 7123 4567` | `+0 123 456 7890`  |
+| `+49 30 12345678` | `abcdefghij`  |
+| `+81 3 1234 5678` | `++44 20 7123 4567`  |
+| `+1 555 123 4567` | `+`  |
+| `+33 1 23 45 67 89` |   |
+| `44 20 71234567` |   |
+
+
+
+
+### **phoneUS**
+
+Should match a US/Canada phone number in common formats such as
+(555) 123-4567 or 555-123-4567.
+
+From [phone.ts](./src/phone.ts#L27)
+
+Copy:
+```js
+const phoneUS = /(?:\+?1[-.\s]?)?(?:\(?[2-9][0-9]{2}\)?[-.\s]?)[2-9][0-9]{2}[-.\s]?[0-9]{4}/
+```
+
+```ts
+import { phoneUS } from "https://deno.land/x/regular_expressions/src/phone.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `(555) 234-5678` | `(055) 234-5678`  |
+| `555-234-5678` | `555-023-5678`  |
+| `5552345678` | `12345`  |
+| `1-555-234-5678` | `(555) 234-567`  |
+| `+1 555 234 5678` | `+2 555 234 5678`  |
+| `+1.555.234.5678` |   |
+| `(555)234-5678` |   |
+
+
+
+# markup
+
+> At: [markup.ts](./src/markup.ts)
+
+### **htmlComment**
+
+Should match an HTML comment (&lt;!-- ... --&gt;).
+
+From [markup.ts](./src/markup.ts#L30)
+
+Copy:
+```js
+const htmlComment = /<!--[^]*?-->/
+```
+
+```ts
+import { htmlComment } from "https://deno.land/x/regular_expressions/src/markup.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `<!-- comment -->` | `<!-- unclosed`  |
+| `<!-- multi
+line
+comment -->` | `/* css comment */`  |
+| `<!---->` | `// js comment`  |
+| `<!-- a -->` | `<!- not a comment ->`  |
+
+
+
+
+### **htmlTag**
+
+Should match an HTML tag including attributes
+(e.g. &lt;div class="foo"&gt;).
+
+From [markup.ts](./src/markup.ts#L5)
+
+Copy:
+```js
+const htmlTag = /<[a-zA-Z][a-zA-Z0-9-]*(?:\s+[a-zA-Z][\w-]*(?:\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+))?)*\s*\/?>/
+```
+
+```ts
+import { htmlTag } from "https://deno.land/x/regular_expressions/src/markup.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `<div>` | `</div>`  |
+| `<div class="foo">` | `< div>`  |
+| `<br/>` | `<123>`  |
+| `<br />` | `div`  |
+| `<img src='image.png' alt='test'>` | `< >`  |
+| `<input type="text" disabled>` |   |
+| `<p>` |   |
+| `<custom-element>` |   |
+
+
+
+
+### **markdownCodeBlock**
+
+Should match a fenced Markdown code block (triple backticks).
+
+From [markup.ts](./src/markup.ts#L89)
+
+Copy:
+```js
+const markdownCodeBlock = /```[a-zA-Z]*\n[^]*?```/
+```
+
+```ts
+import { markdownCodeBlock } from "https://deno.land/x/regular_expressions/src/markup.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| ````
+code
+```` | `````  |
+| ````js
+console.log('hi');
+```` | ```code```  |
+| ````python
+print('hello')
+```` | ``inline``  |
+| ````
+line1
+line2
+```` | ````no newline````  |
+
+
+
+
+### **markdownHeading**
+
+Should match a Markdown heading (# H1 through ###### H6).
+
+From [markup.ts](./src/markup.ts#L49)
+
+Copy:
+```js
+const markdownHeading = /#{1,6}\s+.+/
+```
+
+```ts
+import { markdownHeading } from "https://deno.land/x/regular_expressions/src/markup.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `# Heading 1` | `####### Too deep`  |
+| `## Heading 2` | `#NoSpace`  |
+| `### Heading 3` | `Not a heading`  |
+| `###### Heading 6` | `# `  |
+| `# A` |   |
+
+
+
+
+### **markdownLink**
+
+Should match a Markdown link (e.g. [text](url)).
+
+From [markup.ts](./src/markup.ts#L69)
+
+Copy:
+```js
+const markdownLink = /\[[^\]]+\]\([^)]+\)/
+```
+
+```ts
+import { markdownLink } from "https://deno.land/x/regular_expressions/src/markup.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `[Google](https://google.com)` | `[text]`  |
+| `[click here](./page.html)` | `(url)`  |
+| `[link text](http://example.com/path?q=1)` | `[text]()`  |
+| `[a](b)` | `[](url)`  |
+|  | `text(url)`  |
+
+
+
+# file
+
+> At: [file.ts](./src/file.ts)
+
+### **fileExtension**
+
+Should match a file extension including compound extensions
+like .tar.gz.
+
+From [file.ts](./src/file.ts#L47)
+
+Copy:
+```js
+const fileExtension = /\.[a-zA-Z0-9]+(?:\.[a-zA-Z0-9]+)*/
+```
+
+```ts
+import { fileExtension } from "https://deno.land/x/regular_expressions/src/file.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `.txt` | `txt`  |
+| `.tar.gz` | `.`  |
+| `.js` | `..`  |
+| `.d.ts` | `tar.gz`  |
+| `.json` | `..txt`  |
+| `.min.js` |   |
+
+
+
+
+### **fileName**
+
+Should match a valid filename without path separators.
+
+From [file.ts](./src/file.ts#L69)
+
+Copy:
+```js
+const fileName = /[a-zA-Z0-9](?:[a-zA-Z0-9._-]*[a-zA-Z0-9])?(?:\.[a-zA-Z0-9]+)?/
+```
+
+```ts
+import { fileName } from "https://deno.land/x/regular_expressions/src/file.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `file.txt` | `.hidden`  |
+| `my-document.pdf` | `-start`  |
+| `image_001.png` | `file/name`  |
+| `README` | `my file`  |
+| `a` | `file?name`  |
+| `data.backup.tar.gz` |   |
+
+
+
+
+### **filePathUnix**
+
+Should match a Unix-style absolute file path.
+
+From [file.ts](./src/file.ts#L4)
+
+Copy:
+```js
+const filePathUnix = /(?:\/[a-zA-Z0-9._-]+)+/
+```
+
+```ts
+import { filePathUnix } from "https://deno.land/x/regular_expressions/src/file.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `/usr/local/bin/foo` | `usr/local/bin`  |
+| `/home/user/file.txt` | `C:\Users\foo`  |
+| `/var/log/syslog` | `//double`  |
+| `/tmp/test` | `/`  |
+| `/a` | `relative/path`  |
+
+
+
+
+### **filePathWindows**
+
+Should match a Windows-style absolute file path.
+
+From [file.ts](./src/file.ts#L25)
+
+Copy:
+```js
+const filePathWindows = /[a-zA-Z]:\\(?:[a-zA-Z0-9._-]+\\)*[a-zA-Z0-9._-]+/
+```
+
+```ts
+import { filePathWindows } from "https://deno.land/x/regular_expressions/src/file.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `C:\Users\foo\bar` | `/usr/local/bin`  |
+| `D:\Documents\file.txt` | `C:/Users/foo`  |
+| `E:\data` | `C:\`  |
+| `C:\Windows\System32\cmd.exe` | `1:\foo`  |
+|  | `CC:\foo`  |
+
+
+
+
+### **gitBranchName**
+
+Should match a valid git branch name.
+
+From [file.ts](./src/file.ts#L161)
+
+Copy:
+```js
+const gitBranchName = /[a-zA-Z0-9](?:[a-zA-Z0-9_\/-]*(?:\.[a-zA-Z0-9_\/-]+))*(?:[a-zA-Z0-9_\/-]*[a-zA-Z0-9])?/
+```
+
+```ts
+import { gitBranchName } from "https://deno.land/x/regular_expressions/src/file.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `main` | `.hidden`  |
+| `feature/login` | `-start`  |
+| `fix/bug-123` | `branch..name`  |
+| `release/v1.0.0` | `branch name`  |
+| `my-branch` | `branch~name`  |
+| `dev` |   |
+
+
+
+
+### **gitCommitHash**
+
+Should match a git commit hash (7 to 40 lowercase hex characters).
+
+From [file.ts](./src/file.ts#L142)
+
+Copy:
+```js
+const gitCommitHash = /[0-9a-f]{7,40}/
+```
+
+```ts
+import { gitCommitHash } from "https://deno.land/x/regular_expressions/src/file.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `a94a8fe` | `a94a8f`  |
+| `da39a3ee5e6b4b0d3255bfef95601890afd80709` | `ABCDEF1`  |
+| `1234abc` | `ghijklm`  |
+| `abcdef1234567890abcdef1234567890abcdef12` | `12345g7`  |
+
+
+
+
+### **mimeType**
+
+Should match a MIME type (e.g. application/json, image/png).
+
+From [file.ts](./src/file.ts#L92)
+
+Copy:
+```js
+const mimeType = /[a-zA-Z0-9][a-zA-Z0-9!#$&\-^_]*\/[a-zA-Z0-9][a-zA-Z0-9!#$&\-^_.+]*/
+```
+
+```ts
+import { mimeType } from "https://deno.land/x/regular_expressions/src/file.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `application/json` | `application`  |
+| `text/html` | `/json`  |
+| `image/png` | `application/`  |
+| `application/octet-stream` | `text html`  |
+| `text/plain` | `application\json`  |
+| `application/vnd.api+json` |   |
+| `multipart/form-data` |   |
+
+
+
+
+### **semver**
+
+Should match a semantic version string (e.g. 1.2.3,
+1.0.0-alpha.1, 2.0.0+build.123).
+
+From [file.ts](./src/file.ts#L117)
+
+Copy:
+```js
+const semver = /(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)(?:-(?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*)(?:\.(?:0|[1-9][0-9]*|[0-9]*[a-zA-Z-][0-9a-zA-Z-]*))*)?(?:\+[0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*)?/
+```
+
+```ts
+import { semver } from "https://deno.land/x/regular_expressions/src/file.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `1.2.3` | `1.2`  |
+| `0.0.0` | `1`  |
+| `1.0.0-alpha` | `01.2.3`  |
+| `1.0.0-alpha.1` | `1.02.3`  |
+| `1.0.0+build.123` | `1.2.03`  |
+| `1.0.0-beta+exp.sha.5114f85` | `1.2.3.4`  |
+| `10.20.30` |   |
+
+
+
+# currency
+
+> At: [currency.ts](./src/currency.ts)
+
+### **currencySymbol**
+
+should match a currency symbol
+
+From [currency.ts](./src/currency.ts#L6)
+
+Copy:
+```js
+const currencySymbol = /[$€£¥₩₤₦₹₨₪₱]/
+```
+
+```ts
+import { currencySymbol } from "https://deno.land/x/regular_expressions/src/currency.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `$` |   |
+| `€` | ` `  |
+| `£` | `a`  |
+| `¥` | `b`  |
+| `₩` | `c`  |
+| `₤` | `d`  |
+| `₦` | `e`  |
+| `₹` | `f`  |
+| `₨` | `x`  |
+| `₪` | `y`  |
+| `₱` | `z`  |
+
+
+
+# text
+
+> At: [text.ts](./src/text.ts)
+
+### **blankLine**
+
+Should match a blank line (empty or whitespace-only).
+
+From [text.ts](./src/text.ts#L107)
+
+Copy:
+```js
+const blankLine = /[ \t]*/
+```
+
+```ts
+import { blankLine } from "https://deno.land/x/regular_expressions/src/text.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+|  | `a`  |
+| ` ` | ` a`  |
+| `	` | `hello`  |
+| `   ` | `
+`  |
+| `		` |   |
+| ` 	 ` |   |
+
+
+
+
+### **hashtag**
+
+Should match a hashtag (e.g. #topic, #CamelCase).
+
+From [text.ts](./src/text.ts#L25)
+
+Copy:
+```js
+const hashtag = /#[a-zA-Z][a-zA-Z0-9_]*/
+```
+
+```ts
+import { hashtag } from "https://deno.land/x/regular_expressions/src/text.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `#hello` | `#123`  |
+| `#JavaScript` | `#`  |
+| `#my_tag` | `##double`  |
+| `#A` | `hashtag`  |
+| `#camelCase123` | `#_start`  |
+
+
+
+
+### **mention**
+
+Should match an @mention (e.g. @username).
+
+From [text.ts](./src/text.ts#L46)
+
+Copy:
+```js
+const mention = /@[a-zA-Z][a-zA-Z0-9_]*/
+```
+
+```ts
+import { mention } from "https://deno.land/x/regular_expressions/src/text.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `@john` | `@123`  |
+| `@User123` | `@`  |
+| `@my_name` | `@@double`  |
+| `@A` | `mention`  |
+| `@userName` | `@_start`  |
+
+
+
+
+### **multilineComment**
+
+Should match a multi-line block comment.
+
+From [text.ts](./src/text.ts#L148)
+
+Copy:
+```js
+const multilineComment = /\/\*[^]*?\*\//
+```
+
+```ts
+import { multilineComment } from "https://deno.land/x/regular_expressions/src/text.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `/* comment */` | `// single line`  |
+| `/* multi
+line */` | `/* unclosed`  |
+| `/** jsdoc */` | `no comment`  |
+| `/* a */` | `*/ end only`  |
+
+
+
+
+### **sentence**
+
+Should match a sentence starting with a capital letter and ending
+with punctuation (period, exclamation, or question mark).
+
+From [text.ts](./src/text.ts#L5)
+
+Copy:
+```js
+const sentence = /[A-Z][^.!?]*[.!?]/
+```
+
+```ts
+import { sentence } from "https://deno.land/x/regular_expressions/src/text.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `Hello world.` | `hello world.`  |
+| `This is a test!` | `No punctuation`  |
+| `Is this working?` | `123 start.`  |
+| `A.` | `lowercase!`  |
+| `The quick brown fox jumps over the lazy dog.` |   |
+
+
+
+
+### **singleLineComment**
+
+Should match a single-line comment (// or #).
+
+From [text.ts](./src/text.ts#L128)
+
+Copy:
+```js
+const singleLineComment = /(?:\/\/|#).*/
+```
+
+```ts
+import { singleLineComment } from "https://deno.land/x/regular_expressions/src/text.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `// this is a comment` | `/* block comment */`  |
+| `# python comment` | `not a comment`  |
+| `//compact` | `/ slash`  |
+| `#!shebang` | `http://url.com`  |
+| `// ` |   |
+
+
+
+
+### **slug**
+
+Should match a URL-friendly slug (e.g. my-post-title).
+
+From [text.ts](./src/text.ts#L66)
+
+Copy:
+```js
+const slug = /[a-z0-9]+(?:-[a-z0-9]+)*/
+```
+
+```ts
+import { slug } from "https://deno.land/x/regular_expressions/src/text.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `my-post-title` | `My-Post`  |
+| `hello` | `-leading`  |
+| `hello-world` | `trailing-`  |
+| `post-123` | `double--dash`  |
+| `a-b-c-d` | `UPPER`  |
+
+
+
+
+### **whitespaceOnly**
+
+Should match a string containing only whitespace characters.
+
+From [text.ts](./src/text.ts#L87)
+
+Copy:
+```js
+const whitespaceOnly = /\s+/
+```
+
+```ts
+import { whitespaceOnly } from "https://deno.land/x/regular_expressions/src/text.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| ` ` | `a`  |
+| `   ` | ` a `  |
+| `	` | `hello`  |
+| `
+` | `123`  |
+| ` 	
+ ` |   |
+
+
+
+# finance
+
+> At: [finance.ts](./src/finance.ts)
+
+### **creditCard**
+
+Should match any major credit card number (Visa, Mastercard, or
+Amex).
+
+From [finance.ts](./src/finance.ts#L66)
+
+Copy:
+```js
+const creditCard = /(?:4[0-9]{12}(?:[0-9]{3})?)|(?:(?:5[1-5][0-9]{2}|2(?:2[2-9][0-9]|[3-6][0-9]{2}|7[01][0-9]|720))[0-9]{12})|(?:3[47][0-9]{13})/
+```
+
+```ts
+import { creditCard } from "https://deno.land/x/regular_expressions/src/finance.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `4111111111111111` | `6011111111111117`  |
+| `5500000000000004` | `1234567890123456`  |
+| `371449635398431` | `411111111111`  |
+| `2221000000000009` | `abcdefghijklmnop`  |
+
+
+
+
+### **creditCardAmex**
+
+Should match an American Express credit card number (starts with
+34 or 37, 15 digits).
+
+From [finance.ts](./src/finance.ts#L46)
+
+Copy:
+```js
+const creditCardAmex = /3[47][0-9]{13}/
+```
+
+```ts
+import { creditCardAmex } from "https://deno.land/x/regular_expressions/src/finance.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `340000000000009` | `350000000000009`  |
+| `371449635398431` | `34000000000000`  |
+| `378282246310005` | `3400000000000090`  |
+| `341111111111111` | `4111111111111111`  |
+
+
+
+
+### **creditCardMastercard**
+
+Should match a Mastercard credit card number (starts with 51-55 or
+2221-2720, 16 digits).
+
+From [finance.ts](./src/finance.ts#L25)
+
+Copy:
+```js
+const creditCardMastercard = /(?:5[1-5][0-9]{2}|2(?:2[2-9][0-9]|[3-6][0-9]{2}|7[01][0-9]|720))[0-9]{12}/
+```
+
+```ts
+import { creditCardMastercard } from "https://deno.land/x/regular_expressions/src/finance.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `5111111111111118` | `4111111111111111`  |
+| `5500000000000004` | `5011111111111111`  |
+| `2221000000000009` | `5600000000000004`  |
+| `2720990000000007` | `2221000000000`  |
+
+
+
+
+### **creditCardVisa**
+
+Should match a Visa credit card number (starts with 4, 13 or
+16 digits).
+
+From [finance.ts](./src/finance.ts#L5)
+
+Copy:
+```js
+const creditCardVisa = /4[0-9]{12}(?:[0-9]{3})?/
+```
+
+```ts
+import { creditCardVisa } from "https://deno.land/x/regular_expressions/src/finance.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `4111111111111111` | `5111111111111111`  |
+| `4012888888881881` | `411111111111111`  |
+| `4222222222222` | `41111111111111112`  |
+| `4000056655665556` | `4111-1111-1111-1111`  |
+
+
+
+
+### **ibanCode**
+
+Should match an International Bank Account Number (IBAN).
+
+From [finance.ts](./src/finance.ts#L87)
+
+Copy:
+```js
+const ibanCode = /[A-Z]{2}[0-9]{2}[A-Z0-9]{4}[0-9]{7}(?:[A-Z0-9]{0,16})?/
+```
+
+```ts
+import { ibanCode } from "https://deno.land/x/regular_expressions/src/finance.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `GB29NWBK60161331926819` | `gb29NWBK60161331926819`  |
+| `DE89370400440532013000` | `G129NWBK60161331926819`  |
+| `FR7630006000011234567890189` | `GB2NWBK60161331926819`  |
+| `ES9121000418450200051332` | `1234567890`  |
+
+
+
+
+### **stockTicker**
+
+Should match a stock ticker symbol (1-5 uppercase letters).
+
+From [finance.ts](./src/finance.ts#L126)
+
+Copy:
+```js
+const stockTicker = /[A-Z]{1,5}/
+```
+
+```ts
+import { stockTicker } from "https://deno.land/x/regular_expressions/src/finance.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `AAPL` | `aapl`  |
+| `MSFT` | `GOOGLES`  |
+| `GOOGL` | `123`  |
+| `A` | `AA1`  |
+| `TSLA` |   |
+
+
+
+
+### **swiftBic**
+
+Should match a SWIFT/BIC bank code (8 or 11 characters).
+
+From [finance.ts](./src/finance.ts#L107)
+
+Copy:
+```js
+const swiftBic = /[A-Z]{6}[A-Z0-9]{2}(?:[A-Z0-9]{3})?/
+```
+
+```ts
+import { swiftBic } from "https://deno.land/x/regular_expressions/src/finance.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `DEUTDEFF` | `DEUTDE`  |
+| `BNPAFRPP` | `deutdeff`  |
+| `CHASUS33XXX` | `DEUTDEFF1`  |
+| `COBADEFFXXX` | `12345678`  |
+
+
+
+# uri
+
+> At: [uri.ts](./src/uri.ts)
+
+### **hostname**
+
+Should match any url hostname (no protocol, no port, no path)
+
+From [uri.ts](./src/uri.ts#L102)
+
+Copy:
+```js
+const hostname = /[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}/
+```
+
+```ts
+import { hostname } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `example.com` | `example.com/`  |
+| `sub.example.com` | `example.com:1234`  |
+| `www.exampl3.com` | `example.com:1234/`  |
+|  | `example.com/path`  |
+|  | `example.com/path/`  |
+|  | `//example.com`  |
+|  | `http://example.com:1234`  |
+|  | `https://example.com`  |
+|  | `http://example.com/`  |
+|  | `https://example.com/`  |
+|  | `http://example.com/path`  |
+|  | `https://example.com/path`  |
+|  | `http://example.com/path/`  |
+|  | `https://example.com/path/`  |
+
+
+
+
+### **iPv4Private**
+
+Should match any private ip v4
+
+From [uri.ts](./src/uri.ts#L301)
+
+Copy:
+```js
+const iPv4Private = /(?:(?:10|127)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\.254|192\.168)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/
+```
+
+```ts
+import { iPv4Private } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `10.196.0.1` | `156.10.3.1`  |
+| `127.196.100.1` | `127.196.300.1`  |
+| `192.168.1.0` | `139.47.8.243`  |
+| `192.168.123.134` |   |
+| `192.168.0.1` |   |
+
+
+
+
+### **ipv4**
+
+Should match any ip v4 without protocol, no any mask of subnet
+
+From [uri.ts](./src/uri.ts#L170)
+
+Copy:
+```js
+const ipv4 = /((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/
+```
+
+```ts
+import { ipv4 } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `192.168.1.0` | `254.254.254.254.254`  |
+| `192.168.1.1` | `1.1.1.1.1`  |
+| `10.123.3.234` | `1.1.1`  |
+| `254.254.254.254` | `192.168.A.0`  |
+| `0.0.0.0` | `192.168.1.b`  |
+| `255.0.0.0` |   |
+| `255.255.0.0` |   |
+| `255.255.255.0` |   |
+| `255.255.255.255` |   |
+
+
+
+
+### **ipv4CIDR**
+
+Should match any ipv4 CIDR notation (subnet) * https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+
+From [uri.ts](./src/uri.ts#L220)
+
+Copy:
+```js
+const ipv4CIDR = /(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))/
+```
+
+```ts
+import { ipv4CIDR } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `192.168.100.1/24` | `192.168.100.1/33`  |
+| `192.168.0.1/25` | `0.0.0.0/90`  |
+| `192.168.254.1/26` |   |
+| `0.0.0.0/0` |   |
+| `10.120.192.2/32` |   |
+| `10.120.192.2/31` |   |
+| `10.120.192.2/30` |   |
+| `10.120.192.2/29` |   |
+| `10.120.192.2/28` |   |
+| `10.120.192.2/27` |   |
+| `10.120.192.2/26` |   |
+| `10.120.192.2/25` |   |
+| `10.120.192.0/24` |   |
+| `10.120.192.0/23` |   |
+| `10.120.192.0/22` |   |
+| `10.120.192.0/21` |   |
+| `10.120.192.0/20` |   |
+| `10.120.192.0/19` |   |
+| `10.120.192.0/18` |   |
+| `10.120.192.0/17` |   |
+| `10.120.0.0/16` |   |
+| `10.120.0.0/15` |   |
+| `10.120.0.0/14` |   |
+| `10.120.0.0/13` |   |
+| `10.120.0.0/12` |   |
+| `10.120.0.0/11` |   |
+| `10.120.0.0/10` |   |
+| `10.120.0.0/9` |   |
+| `10.0.0.0/8` |   |
+| `10.0.0.0/7` |   |
+| `10.0.0.0/6` |   |
+| `10.0.0.0/5` |   |
+| `10.0.0.0/4` |   |
+| `10.0.0.0/3` |   |
+| `10.0.0.0/2` |   |
+| `10.0.0.0/1` |   |
+
+
+
+
+### **ipv4SubnetMask**
+
+Should match any subnet mask * https://en.wikipedia.org/wiki/Subnetwork
+
+From [uri.ts](./src/uri.ts#L199)
+
+Copy:
+```js
+const ipv4SubnetMask = /((255\.){3}(0|128|192|224|240|248|252|254|255))|((255\.){2}(0|128|192|224|240|248|252|254|255)\.0)|((255\.)(0|128|192|224|240|248|252|254|255)\.0\.0)|((255\.){1}(0|128|192|224|240|248|252|254|255)\.0\.0\.0)/
+```
+
+```ts
+import { ipv4SubnetMask } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `255.255.255.255` | `255.255.255.253`  |
+| `255.255.255.0` |   |
+| `255.255.0.0` |   |
+| `255.0.0.0` |   |
+| `255.255.255.128` |   |
+| `255.255.255.192` |   |
+
+
+
+
+### **ipv6**
+
+Should match any ip v6 without protocol
+https://es.wikipedia.org/wiki/IPv6
+
+From [uri.ts](./src/uri.ts#L276)
+
+Copy:
+```js
+const ipv6 = /(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}/
+```
+
+```ts
+import { ipv6 } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `2001:0db8:85a3:0000:0000:8a2e:0370:7334` | `:a591:dfe9:8840:aa39:f830:0224:55c8:f21b`  |
+| `2001:db8:85a3:0:0:8a2e:370:7334` | `2001:0db8:85a3:0000:0000:8a2e:0370:7334:`  |
+| `2001:db8:85a3:8a2e:0370:7334:ff:fe00` | `g591:dfe9:8840:aa39:f830:0224:55c8:f21b`  |
+| `a591:dfe9:8840:aa39:f830:0224:55c8:f21b` | `2001:db8:85a3:0:0:8a2e:370:7334:`  |
+|  | `2001:db8:85a3:0:8a2e:370:7334:`  |
+|  | `::1`  |
+|  | `::ffff`  |
+
+
+
+
+### **uri**
+
+Should match any uri with any protocol, for example file://, http://, https://, ftp://, chrome-extension://, chrome://, etc... * https://es.wikipedia.org/wiki/Esquema_de_URI
+
+From [uri.ts](./src/uri.ts#L132)
+
+Copy:
+```js
+const uri = /([\w-.]{3,}:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
+```
+
+```ts
+import { uri } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `https://example.com:1234` | `//example.com`  |
+| `http://example.com:1234/` | `example.com`  |
+| `any://example.com` | `example.com/`  |
+| `ftp://example.com/` | `example.com/path`  |
+| `ftp://example.com:1234` | `example.com/path/`  |
+| `z39.50r://example.com` |   |
+| `https://example.com` |   |
+| `https://example.com/` |   |
+| `http://example.com/path` |   |
+| `https://example.com/path` |   |
+| `http://example.com/path/` |   |
+| `https://example.com/path/` |   |
+| `file://example.com` |   |
+| `file://example.com/` |   |
+| `file://example.com/path` |   |
+| `file://example.com/path/` |   |
+| `chrome-extensions://example.com/path/` |   |
+| `estrange-protocol://example.com/path/` |   |
+
+
+
+
+### **uriProtocol**
+
+Should match any valid uri protocol
+https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
+https://es.wikipedia.org/wiki/Esquema_de_URI
+
+From [uri.ts](./src/uri.ts#L326)
+
+Copy:
+```js
+const uriProtocol = /((aaa)|(aaas)|(about)|(acap)|(adiumxtra)|(afp)|(aim)|(apt)|(attachment)|(aw)|(beshare)|(bitcoin)|(bolo)|(callto)|(cap)|(chrome)|(chrome-extension)|(cid)|(content)|(crid)|(cvs)|(data)|(dav)|(dict)|(dns)|(ed2k)|(facetime)|(fax)|(feed)|(file)|(finger)|(fish)|(ftp)|(geo)|(gg)|(git)|(gizmoproject)|(go)|(gopher)|(gtalk)|(h323)|(hcp)|(http)|(https)|(iax)|(icap)|(im)|(imap)|(info)|(ipp)|(irc)|(irc6)|(ircs)|(iris)|(iris.beep)|(iris\.xpc)|(iris\.xpcs)|(iris\.lws)|(itms)|(jar)|(keyparc)|(lastfm)|(ldap)|(ldaps)|(lightning)|(magnet)|(mailto)|(maps)|(market)|(message)|(mid)|(mms)|(modem)|(ms-help)|(msnim)|(msrp)|(msrps)|(mtqp)|(mumble)|(mupdate)|(mvn)|(news)|(nfs)|(nntp)|(notes)|(opaquelocktoken)|(palm)|(paparazzi)|(platform)|(pop)|(pres)|(prospero)|(proxy)|(psyc)|(query)|(res)|(resource)|(rmi)|(rsync)|(rtmp)|(rtsp)|(secondlife)|(service)|(sftp)|(sgn)|(shttp)|(sieve)|(sip)|(sips)|(skype)|(smb)|(sms)|(snmp)|(soap\.beep)|(soap\.beeps)|(soldat)|(spotify)|(ssh)|(steam)|(svn)|(tag)|(teamspeak)|(tel)|(telnet)|(tftp)|(things)|(thismessage)|(tip)|(tv)|(udp)|(unreal)|(urn)|(ut2004)|(uuid)|(vemmi)|(ventrilo)|(view-source)|(wais)|(webcal)|(ws)|(wss)|(wtai)|(wyciwyg)|(xfire)|(xmlrpc\.beep)|(xmlrpc\.beeps)|(xmpp)|(xri)|(ymsgr)|(z39\.50r)|(z39\.50s)):/
+```
+
+```ts
+import { uriProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `http:` | `http://`  |
+| `https:` | `https`  |
+| `ftp:` | `www.google.com`  |
+| `ssh:` | `ftp://ftp.is.co.za/rfc/rfc1808.txt`  |
+| `irc:` |   |
+| `ircs:` |   |
+| `git:` |   |
+| `gopher:` |   |
+| `telnet:` |   |
+| `nntp:` |   |
+| `news:` |   |
+| `mailto:` |   |
+| `sftp:` |   |
+| `ldap:` |   |
+| `ldaps:` |   |
+| `webcal:` |   |
+| `xmpp:` |   |
+| `callto:` |   |
+| `ymsgr:` |   |
+| `skype:` |   |
+| `sip:` |   |
+| `sips:` |   |
+| `sms:` |   |
+| `mailto:` |   |
+| `msnim:` |   |
+| `irc:` |   |
+| `aim:` |   |
+| `gtalk:` |   |
+| `feed:` |   |
+| `sip:` |   |
+| `sips:` |   |
+| `sms:` |   |
+| `msnim:` |   |
+| `aim:` |   |
+| `gtalk:` |   |
+
+
+
+
+### **url**
+
+Should match any url with or without http/s protocol and with or without port
+
+From [uri.ts](./src/uri.ts#L4)
+
+Copy:
+```js
+const url = /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:[0-9]{1,5})?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
+```
+
+```ts
+import { url } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `//ex4mpl3.com` | `https://example.com:123456`  |
+| `http://ex4mpl3.com` | `http://example.com:123456`  |
+| `http://subdomain.example.com` | `http://example.c0m`  |
+| `http://sub.domain.example.com` | `example.c0m`  |
+| `http://sub.domain.numb3rs.example.com` | `example,com`  |
+| `http://example.com` | `example_com`  |
+| `https://example.com` |   |
+| `http://example.com/` |   |
+| `https://example.com/` |   |
+| `http://example.com/path` |   |
+| `https://example.com/path` |   |
+| `http://example.com/path/` |   |
+| `https://example.com/path/subpath` |   |
+| `http://example.com:1234` |   |
+| `//example.com` |   |
+| `example.com` |   |
+| `example.com:80` |   |
+| `example.com/` |   |
+| `example.com/path` |   |
+| `example.com/path/` |   |
+| `//www.example.com` |   |
+| `sub-d0m4in.exampl3.com` |   |
+| `http://sub-d0m4in.exampl3.com` |   |
+| `http://example.com` |   |
+| `https://example.com:1` |   |
+| `http://example.com:80` |   |
+| `https://example.com:123` |   |
+| `https://example.com:1234` |   |
+| `https://example.com:65535` |   |
+
+
+
+
+### **urlWithPort**
+
+Should match any url with or without http/s protocols and port
+https://es.wikipedia.org/wiki/Anexo:Puertos_de_red
+
+From [uri.ts](./src/uri.ts#L54)
+
+Copy:
+```js
+const urlWithPort = /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
+```
+
+```ts
+import { urlWithPort } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `https://example.com:0` | `https://example.com:`  |
+| `http://example.com:1` | `//example.com`  |
+| `http://example.com:80` | `example.com`  |
+| `https://example.com:123` |   |
+| `https://example.com:1234` |   |
+| `https://example.com:65535` |   |
+| `//example.com:65535` |   |
+| `example.com:65535` |   |
+
+
+
+
+### **urlWithProtocol**
+
+Should match any url with http/s protocols and with or without port
+
+From [uri.ts](./src/uri.ts#L78)
+
+Copy:
+```js
+const urlWithProtocol = /(https?:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
+```
+
+```ts
+import { urlWithProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `https://example.com:0` | `//example.com:65535`  |
+| `http://example.com:1` | `example.com:65535`  |
+| `http://example.com:80` | `https://example.com:`  |
+| `https://example.com:123` | `//example.com`  |
+| `https://example.com:1234` | `example.com`  |
+| `https://example.com:65535` |   |
+
+
+
+# geo
+
+> At: [geo.ts](./src/geo.ts)
+
+### **countryCode2**
+
+Should match an ISO 3166-1 alpha-2 country code (e.g. US, DE).
+
+From [geo.ts](./src/geo.ts#L139)
+
+Copy:
+```js
+const countryCode2 = /[A-Z]{2}/
+```
+
+```ts
+import { countryCode2 } from "https://deno.land/x/regular_expressions/src/geo.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `US` | `us`  |
+| `DE` | `USA`  |
+| `GB` | `1A`  |
+| `JP` | `U`  |
+| `FR` | `U5`  |
+
+
+
+
+### **countryCode3**
+
+Should match an ISO 3166-1 alpha-3 country code (e.g. USA, DEU).
+
+From [geo.ts](./src/geo.ts#L160)
+
+Copy:
+```js
+const countryCode3 = /[A-Z]{3}/
+```
+
+```ts
+import { countryCode3 } from "https://deno.land/x/regular_expressions/src/geo.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `USA` | `usa`  |
+| `DEU` | `US`  |
+| `GBR` | `USAA`  |
+| `JPN` | `1AB`  |
+| `FRA` | `U5A`  |
+
+
+
+
+### **latLng**
+
+Should match a latitude,longitude coordinate pair.
+
+From [geo.ts](./src/geo.ts#L51)
+
+Copy:
+```js
+const latLng = /-?(?:90(?:\.0+)?|[1-8]?[0-9](?:\.[0-9]+)?),\s*-?(?:180(?:\.0+)?|(?:1[0-7][0-9]|[1-9]?[0-9])(?:\.[0-9]+)?)/
+```
+
+```ts
+import { latLng } from "https://deno.land/x/regular_expressions/src/geo.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `0,0` | `91, 0`  |
+| `45.123, -93.456` | `0, 181`  |
+| `-90,180` | `45.123`  |
+| `90, -180` | `abc, def`  |
+| `37.7749, -122.4194` |   |
+
+
+
+
+### **latitude**
+
+Should match a latitude value in decimal degrees (-90 to 90).
+
+From [geo.ts](./src/geo.ts#L4)
+
+Copy:
+```js
+const latitude = /-?(?:90(?:\.0+)?|[1-8]?[0-9](?:\.[0-9]+)?)/
+```
+
+```ts
+import { latitude } from "https://deno.land/x/regular_expressions/src/geo.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `0` | `91`  |
+| `45.123` | `-91`  |
+| `-90` | `100`  |
+| `90` | `90.1`  |
+| `90.0` | `-90.1`  |
+| `-45.6789` |   |
+| `12.3456789` |   |
+
+
+
+
+### **longitude**
+
+Should match a longitude value in decimal degrees (-180 to 180).
+
+From [geo.ts](./src/geo.ts#L27)
+
+Copy:
+```js
+const longitude = /-?(?:180(?:\.0+)?|(?:1[0-7][0-9]|[1-9]?[0-9])(?:\.[0-9]+)?)/
+```
+
+```ts
+import { longitude } from "https://deno.land/x/regular_expressions/src/geo.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `0` | `181`  |
+| `45.123` | `-181`  |
+| `-180` | `200`  |
+| `180` | `180.1`  |
+| `180.0` | `-180.1`  |
+| `-179.999` |   |
+| `123.456789` |   |
+
+
+
+
+### **zipCodeCA**
+
+Should match a Canadian postal code (e.g. K1A 0B1).
+
+From [geo.ts](./src/geo.ts#L117)
+
+Copy:
+```js
+const zipCodeCA = /[A-CEGHJ-NPR-TVXY][0-9][A-CEGHJ-NPR-TV-Z]\s?[0-9][A-CEGHJ-NPR-TV-Z][0-9]/
+```
+
+```ts
+import { zipCodeCA } from "https://deno.land/x/regular_expressions/src/geo.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `K1A 0B1` | `D1A 0B1`  |
+| `V6B 3K9` | `K1A OB1`  |
+| `T2P 1J9` | `12345`  |
+| `M5W 1E6` | `K1A0B`  |
+| `H3Z 2Y7` | `W1A 0B1`  |
+
+
+
+
+### **zipCodeUK**
+
+Should match a UK postcode (e.g. SW1A 1AA, EC1A 1BB).
+
+From [geo.ts](./src/geo.ts#L94)
+
+Copy:
+```js
+const zipCodeUK = /[A-Z]{1,2}[0-9][A-Z0-9]?\s?[0-9][A-Z]{2}/
+```
+
+```ts
+import { zipCodeUK } from "https://deno.land/x/regular_expressions/src/geo.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `SW1A 1AA` | `111 1AA`  |
+| `EC1A 1BB` | `AAA 1AA`  |
+| `W1A 0AX` | `SW1A 1A`  |
+| `M1 1AE` | `12345`  |
+| `B33 8TH` | `SWIA IAA`  |
+| `CR2 6XH` |   |
+| `DN55 1PT` |   |
+
+
+
+
+### **zipCodeUS**
+
+Should match a US ZIP code in 5-digit or ZIP+4 format.
+
+From [geo.ts](./src/geo.ts#L73)
+
+Copy:
+```js
+const zipCodeUS = /[0-9]{5}(?:-[0-9]{4})?/
+```
+
+```ts
+import { zipCodeUS } from "https://deno.land/x/regular_expressions/src/geo.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `10001` | `1234`  |
+| `90210` | `123456`  |
+| `00501` | `ABCDE`  |
+| `10001-1234` | `10001-123`  |
+| `99999-9999` | `10001-12345`  |
 
 
 
@@ -437,6 +2159,810 @@ import { year } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 | `2022` |   |
 | `2023` |   |
 | `2024` |   |
+
+
+
+# crypto
+
+> At: [crypto.ts](./src/crypto.ts)
+
+### **jwtToken**
+
+Should match a JSON Web Token (JWT) with three base64url-encoded segments.
+
+From [crypto.ts](./src/crypto.ts#L91)
+
+Copy:
+```js
+const jwtToken = /[A-Za-z0-9_-]{2,}(?:\.[A-Za-z0-9_-]{2,}){2}/
+```
+
+```ts
+import { jwtToken } from "https://deno.land/x/regular_expressions/src/crypto.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIn0.dozjgNryP4J3jVmNHl0w5N_XgL0n3I9PlFUP0THsR8U` | `abc.def`  |
+| `eyJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJqb2UifQ.cC4hiUPoj9Eetdgtv3hF80EGrhuB__dzERat0XF9g2VtQgr9PJbu3XOiZj5RZmh7AAuHIm4Bh-0Qc_lF5YKt_O8W2Fp5jujGbds9uJdbF9CUAr7t1dnZcAcQjbKBYNX4BAynRFdiuB--f_nZLgrnbyTyWzO75vRK5h6xBArLIARNPvkSjtQBMHlb1L07Qe7K0GarZRmB_eSN9383LcOLn6_dO--xi12jzDwusC-eOkHWEsqtFZESc6BfI7noOPqvhJ1phCnvWh6IeYI2w9QOYEUipUTI8np6LbgGY9Fs98rqVt5AXLIhWkWywlVmtVrBp0igcN_IoypGlUPQGe77Rw` | `abc`  |
+| `abc.def.ghi` | `.def.ghi`  |
+|  | `abc..ghi`  |
+|  | `a.b.c`  |
+
+
+
+
+### **md5**
+
+Should match an MD5 hash (32 lowercase hex characters).
+
+From [crypto.ts](./src/crypto.ts#L4)
+
+Copy:
+```js
+const md5 = /[0-9a-f]{32}/
+```
+
+```ts
+import { md5 } from "https://deno.land/x/regular_expressions/src/crypto.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `d41d8cd98f00b204e9800998ecf8427e` | `d41d8cd98f00b204e9800998ecf8427`  |
+| `098f6bcd4621d373cade4e832627b4f6` | `g41d8cd98f00b204e9800998ecf8427e`  |
+| `5d41402abc4b2a76b9719d911017c592` | `D41D8CD98F00B204E9800998ECF8427E`  |
+|  | `d41d8cd98f00b204e9800998ecf8427e0`  |
+
+
+
+
+### **pemCertificate**
+
+Should match a PEM-encoded certificate or key block.
+
+From [crypto.ts](./src/crypto.ts#L110)
+
+Copy:
+```js
+const pemCertificate = /-----BEGIN [A-Z ]+-----[\s\S]+?-----END [A-Z ]+-----/
+```
+
+```ts
+import { pemCertificate } from "https://deno.land/x/regular_expressions/src/crypto.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `-----BEGIN CERTIFICATE-----
+MIIBkTCB+wIJAL2B
+-----END CERTIFICATE-----` | `-----BEGIN CERTIFICATE-----`  |
+| `-----BEGIN PUBLIC KEY-----
+MIGfMA0GCSqGSIb3DQEBAQUAA4GN
+-----END PUBLIC KEY-----` | `-----END CERTIFICATE-----`  |
+| `-----BEGIN RSA PRIVATE KEY-----
+MIIEpAIBAAKCAQEA
+-----END RSA PRIVATE KEY-----` | `-----BEGIN lowercase-----
+data
+-----END lowercase-----`  |
+|  | `BEGIN CERTIFICATE
+data
+END CERTIFICATE`  |
+
+
+
+
+### **sha1**
+
+Should match a SHA-1 hash (40 lowercase hex characters).
+
+From [crypto.ts](./src/crypto.ts#L22)
+
+Copy:
+```js
+const sha1 = /[0-9a-f]{40}/
+```
+
+```ts
+import { sha1 } from "https://deno.land/x/regular_expressions/src/crypto.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `da39a3ee5e6b4b0d3255bfef95601890afd80709` | `da39a3ee5e6b4b0d3255bfef95601890afd8070`  |
+| `a94a8fe5ccb19ba61c4c0873d391e987982fbbd3` | `ga39a3ee5e6b4b0d3255bfef95601890afd80709`  |
+| `2fd4e1c67a2d28fced849ee1bb76e7391b93eb12` | `DA39A3EE5E6B4B0D3255BFEF95601890AFD80709`  |
+
+
+
+
+### **sha256**
+
+Should match a SHA-256 hash (64 lowercase hex characters).
+
+From [crypto.ts](./src/crypto.ts#L39)
+
+Copy:
+```js
+const sha256 = /[0-9a-f]{64}/
+```
+
+```ts
+import { sha256 } from "https://deno.land/x/regular_expressions/src/crypto.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855` | `e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b85`  |
+| `ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad` | `g3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855`  |
+| `d7a8fbb307d7809469ca9abcb0082e4f8d5651e46d3cdb762d02d0bf37c9e592` | `E3B0C44298FC1C149AFBF4C8996FB92427AE41E4649B934CA495991B7852B855`  |
+
+
+
+
+### **sha512**
+
+Should match a SHA-512 hash (128 lowercase hex characters).
+
+From [crypto.ts](./src/crypto.ts#L56)
+
+Copy:
+```js
+const sha512 = /[0-9a-f]{128}/
+```
+
+```ts
+import { sha512 } from "https://deno.land/x/regular_expressions/src/crypto.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3e` | `cf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3`  |
+| `ddaf35a193617abacc417349ae20413112e6fa4e89a97ea20a9eeee64b55d39a2192992a274fc1a836ba3c23a3feebbd454d4423643ce80e2a9ac94fa54ca49f` | `CF83E1357EEFB8BDF1542850D66D8007D620E4050B5715DC83F4A921D36CE9CE47D0D13C5D85F2B0FF8318D2877EEC2F63B931BD47417A81A538327AF927DA3E`  |
+
+
+
+
+### **uuidV4**
+
+Should match a UUID version 4 (RFC 4122).
+
+From [crypto.ts](./src/crypto.ts#L71)
+
+Copy:
+```js
+const uuidV4 = /[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}/
+```
+
+```ts
+import { uuidV4 } from "https://deno.land/x/regular_expressions/src/crypto.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `550e8400-e29b-41d4-a716-446655440000` | `550e8400-e29b-31d4-a716-446655440000`  |
+| `6ba7b810-9dad-41d4-80b5-fc0098000000` | `550e8400-e29b-41d4-c716-446655440000`  |
+| `f47ac10b-58cc-4372-a567-0e02b2c3d479` | `550e8400e29b41d4a716446655440000`  |
+| `91b4d142-5c28-4be2-8e5a-2b3c4d5e6f70` | `550e8400-e29b-41d4-a716-44665544000`  |
+|  | `ZZZZZZZZ-ZZZZ-4ZZZ-8ZZZ-ZZZZZZZZZZZZ`  |
+
+
+
+# email
+
+> At: [email.ts](./src/email.ts)
+
+### **email**
+
+Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters
+
+From [email.ts](./src/email.ts#L13)
+
+Copy:
+```js
+const email = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+/
+```
+
+```ts
+import { email } from "https://deno.land/x/regular_expressions/src/email.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `juan@garn.dev` | `em\|ail@email`  |
+| `email+foo@email.com` | `email&email.com`  |
+| `email+112@email.com` | `hello@worl_d.com`  |
+| `he_llo@worl.d.com` | `he&amp;llo@world.co1`  |
+| `EMAIL@DOMAIN.COM` | `.hello@wor#.co.uk`  |
+| `e.m.a.il@email.com` | `juan@@garn.dev`  |
+| `email@email.uk.co` |   |
+| `bar.ba@test.co.uk` |   |
+| `em\|ail@email.com` |   |
+| `hel.l-o@wor-ld.museum` |   |
+| `h1ello@123.com` |   |
+| `hello@154.145.68.12` |   |
+
+
+
+# color
+
+> At: [color.ts](./src/color.ts)
+
+### **color**
+
+Should match any valid css color.
+
+From [color.ts](./src/color.ts#L86)
+
+Copy:
+```js
+const color = /(#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4})))|(rgba?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})(\s*,\s*0?\.[0-9])?\s*\))|(hsla?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})%\s*,\s*([0-9]{1,3}%)(\s*,\s*0?\.[0-9])?\s*\))/
+```
+
+```ts
+import { color } from "https://deno.land/x/regular_expressions/src/color.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `#abc` | `#0ffcc00`  |
+| `#ABC` | `#abcdefG`  |
+| `#123` | `#FFG`  |
+| `#123456` | `FFF`  |
+| `#aAcCff` | `FFF`  |
+| `#1234` | `$FFF`  |
+| `#ffcc00` | `#12345`  |
+| `#ffcc0033` | `#1234567`  |
+| `#abcdefee` | `#123456789`  |
+| `rgb(255,255,255)` | `#123456789a`  |
+| `rgb(255,255,255,0.5)` | `#123456789ab`  |
+| `rgba(255,255,255,0.1)` | `rgba(2 55,255,255)`  |
+| `rgba(255,255,255)` | `rgbc(300,0,0)`  |
+| `rgba( 255  ,   255     ,  255  )` | `rgb(256,25 5,255,0.5)`  |
+| `rgb(999,0,0)` | `rg(256,255,255,0.5)`  |
+| `hsl(0,100%,50%)` | `(256,255,255,0.5)`  |
+| `hsl(0,100%,50%,0.5)` | `hsl(24,50%,200)`  |
+| `hsla(0,100%,50%,0.1)` | `hsla(2 55,255,255)`  |
+| `hsla(0,100%,50%)` | `hslc(300,0%,0%)`  |
+| `hsla( 0  ,  100%       ,  50%  )` | `hsl(256,25 5,255,0.5)`  |
+| `hsl(24,50%,200%)` | `hs(256,255,255,0.5)`  |
+|  | `(256,255,255,0.5)`  |
+
+
+
+
+### **colorHex**
+
+Should match any valid css hex color. (#ffcc00,  #abc, or #ffcc0033)
+
+From [color.ts](./src/color.ts#L4)
+
+Copy:
+```js
+const colorHex = /#((([0-9a-fA-F]{1}){3,4})|(([0-9a-fA-F]{2}){3,4}))/
+```
+
+```ts
+import { colorHex } from "https://deno.land/x/regular_expressions/src/color.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `#abc` | `#0ffcc00`  |
+| `#ABC` | `#abcdefG`  |
+| `#123` | `#FFG`  |
+| `#123456` | `FFF`  |
+| `#aAcCff` | `FFF`  |
+| `#1234` | `$FFF`  |
+| `#ffcc00` | `#12345`  |
+| `#ffcc0033` | `#1234567`  |
+| `#abcdefee` | `#123456789`  |
+|  | `#123456789a`  |
+|  | `#123456789ab`  |
+
+
+
+
+### **colorHsl**
+
+Should match any valid  css hsl color. (hsl(0,100%,50%), hsla(0,100%,50%,0.5))
+
+From [color.ts](./src/color.ts#L61)
+
+Copy:
+```js
+const colorHsl = /hsla?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})%\s*,\s*([0-9]{1,3}%)(\s*,\s*0?\.[0-9])?\s*\)/
+```
+
+```ts
+import { colorHsl } from "https://deno.land/x/regular_expressions/src/color.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `hsl(0,100%,50%)` | `hsl(24,50%,200)`  |
+| `hsl(0,100%,50%,0.5)` | `hsla(2 55,255,255)`  |
+| `hsla(0,100%,50%,0.1)` | `hslc(300,0%,0%)`  |
+| `hsla(0,100%,50%)` | `hsl(256,25 5,255,0.5)`  |
+| `hsla( 0  ,  100%       ,  50%  )` | `hs(256,255,255,0.5)`  |
+| `hsl(24,50%,200%)` | `(256,255,255,0.5)`  |
+
+
+
+
+### **colorRgb**
+
+Should match any valid css rgb o rgba color. (rgb(255,255,255), rgba(255,255,255,0.5))
+
+From [color.ts](./src/color.ts#L36)
+
+Copy:
+```js
+const colorRgb = /rgba?\(\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})\s*,\s*([0-9]{1,3})(\s*,\s*0?\.[0-9])?\s*\)/
+```
+
+```ts
+import { colorRgb } from "https://deno.land/x/regular_expressions/src/color.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `rgb(255,255,255)` | `rgba(2 55,255,255)`  |
+| `rgb(255,255,255,0.5)` | `rgbc(300,0,0)`  |
+| `rgba(255,255,255,0.1)` | `rgb(256,25 5,255,0.5)`  |
+| `rgba(255,255,255)` | `rg(256,255,255,0.5)`  |
+| `rgba( 255  ,   255     ,  255  )` | `(256,255,255,0.5)`  |
+| `rgb(999,0,0)` |   |
+
+
+
+# identity
+
+> At: [identity.ts](./src/identity.ts)
+
+### **orcidId**
+
+Should match an ORCID identifier in XXXX-XXXX-XXXX-XXXX format
+where X is a digit and the last character can be a digit or X
+(checksum).
+
+From [identity.ts](./src/identity.ts#L31)
+
+Copy:
+```js
+const orcidId = /[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}[0-9X]/
+```
+
+```ts
+import { orcidId } from "https://deno.land/x/regular_expressions/src/identity.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `0000-0002-1825-0097` | `0000-0002-1825-009`  |
+| `0000-0001-5109-3700` | `0000-0002-1825-00977`  |
+| `0000-0002-9079-593X` | `0000-00021825-0097`  |
+| `1234-5678-9012-3456` | `AAAA-BBBB-CCCC-DDDD`  |
+|  | `0000:0002:1825:0097`  |
+
+
+
+
+### **ssnUS**
+
+Should match a US Social Security Number in XXX-XX-XXXX format.
+Excludes invalid area numbers (000, 666, 900-999).
+
+From [identity.ts](./src/identity.ts#L5)
+
+Copy:
+```js
+const ssnUS = /(?!000|666|9[0-9]{2})[0-9]{3}-(?!00)[0-9]{2}-(?!0000)[0-9]{4}/
+```
+
+```ts
+import { ssnUS } from "https://deno.land/x/regular_expressions/src/identity.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `123-45-6789` | `000-45-6789`  |
+| `001-01-0001` | `666-45-6789`  |
+| `899-99-9999` | `900-45-6789`  |
+| `765-43-2100` | `123-00-6789`  |
+| `078-05-1120` | `123-45-0000`  |
+|  | `1234-56-7890`  |
+|  | `123456789`  |
+
+
+
+# case
+
+> At: [case.ts](./src/case.ts)
+
+### **camelCase**
+
+Should match  camelCase string
+
+From [case.ts](./src/case.ts#L5)
+
+Copy:
+```js
+const camelCase = /((?![A-Z])[a-zA-Z0-9]+)+/
+```
+
+```ts
+import { camelCase } from "https://deno.land/x/regular_expressions/src/case.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `camelCase` | `PascalCase`  |
+| `camelCase2` | `kebab-case`  |
+| `camelCase3` | `snake_case`  |
+
+
+
+
+### **constantCase**
+
+Should match  CONSTANT_CASE string
+
+From [case.ts](./src/case.ts#L94)
+
+Copy:
+```js
+const constantCase = /([A-Z0-9]+)(_[A-Z0-9]+)?/
+```
+
+```ts
+import { constantCase } from "https://deno.land/x/regular_expressions/src/case.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `CONSTANT_CASE2` | `PascalCase`  |
+| `CONSTANT` | `camelCase`  |
+|  | `kebab-case`  |
+|  | `snake_case`  |
+|  | `CONSTANT-CASE`  |
+|  | `CONSTANT_CASE_`  |
+|  | `_CONSTANT_CASE`  |
+|  | `CONSTANT_CAse`  |
+
+
+
+
+### **kebabCase**
+
+Should match  kebab-case string
+
+From [case.ts](./src/case.ts#L24)
+
+Copy:
+```js
+const kebabCase = /((?!-)([a-z0-9]+)(-[a-z0-9])?)+/
+```
+
+```ts
+import { kebabCase } from "https://deno.land/x/regular_expressions/src/case.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `kebab-case` | `PascalCase`  |
+| `kebab-case2` | `camelCase`  |
+| `kebab-case3` | `no kebab case`  |
+|  | `snake_case`  |
+|  | `-kebab-case`  |
+|  | `kebab-case-`  |
+|  | `kebab--case`  |
+|  | `kebab-CAse`  |
+|  | `KEBAB-CASE`  |
+
+
+
+
+### **pascalCase**
+
+Should match PascalCase string
+
+From [case.ts](./src/case.ts#L73)
+
+Copy:
+```js
+const pascalCase = /([A-Z][a-z0-9]+)+/
+```
+
+```ts
+import { pascalCase } from "https://deno.land/x/regular_expressions/src/case.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `PascalCase` | `PascalCAse3`  |
+| `Pascal` | `PAscalCase3`  |
+| `PascalCase2` | `camelCase`  |
+|  | `kebab-case`  |
+|  | `snake_case`  |
+
+
+
+
+### **snakeCase**
+
+Should match  snake_case string
+
+From [case.ts](./src/case.ts#L48)
+
+Copy:
+```js
+const snakeCase = /((?!_)([a-z0-9]+)(_[a-z0-9])?)+/
+```
+
+```ts
+import { snakeCase } from "https://deno.land/x/regular_expressions/src/case.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `snake_case` | `PascalCase`  |
+| `snake_case2` | `camelCase`  |
+| `snake_case3` | `no snake case`  |
+|  | `no-snake-case`  |
+|  | `kebab-case`  |
+|  | `_snake_case`  |
+|  | `snake_case_`  |
+|  | `snake__case`  |
+|  | `snake_CAse`  |
+|  | `SNAKE_CASE`  |
+
+
+
+# example
+
+> At: [example.ts](./src/example.ts)
+
+### **lettersButNotH**
+
+should match any single letter but not H.
+https://www.w3.org/TR/CSS2/syndata.html#characters
+
+From [example.ts](./src/example.ts#L6)
+
+Copy:
+```js
+const lettersButNotH = /(?![H])[a-zA-Z]/
+```
+
+```ts
+import { lettersButNotH } from "https://deno.land/x/regular_expressions/src/example.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `a` | `H`  |
+| `h` | `3`  |
+| `A` | `aa`  |
+| `Z` |   |
+
+
+
+# network
+
+> At: [network.ts](./src/network.ts)
+
+### **basicAuth**
+
+Should match a Basic authentication header value (Basic followed by
+base64).
+
+From [network.ts](./src/network.ts#L160)
+
+Copy:
+```js
+const basicAuth = /Basic\s+[A-Za-z0-9+\/]+=*/
+```
+
+```ts
+import { basicAuth } from "https://deno.land/x/regular_expressions/src/network.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `Basic dXNlcjpwYXNz` | `basic dXNlcjpwYXNz`  |
+| `Basic YWRtaW46YWRtaW4=` | `Bearer dXNlcjpwYXNz`  |
+| `Basic Zm9vOmJhcg==` | `Basicabc123`  |
+|  | `Basic `  |
+
+
+
+
+### **bearerToken**
+
+Should match a Bearer token authorization header value.
+
+From [network.ts](./src/network.ts#L141)
+
+Copy:
+```js
+const bearerToken = /Bearer\s+[A-Za-z0-9\-._~+\/]+=*/
+```
+
+```ts
+import { bearerToken } from "https://deno.land/x/regular_expressions/src/network.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `Bearer eyJhbGciOiJIUzI1NiJ9` | `bearer abc123`  |
+| `Bearer abc123def456` | `Basic abc123`  |
+| `Bearer dG9rZW4=` | `Bearerabc123`  |
+|  | `Bearer `  |
+
+
+
+
+### **cidrBlock**
+
+Should match an IPv4 CIDR block notation (e.g. 192.168.1.0/24).
+
+From [network.ts](./src/network.ts#L50)
+
+Copy:
+```js
+const cidrBlock = /(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\/(?:3[0-2]|[12]?[0-9])/
+```
+
+```ts
+import { cidrBlock } from "https://deno.land/x/regular_expressions/src/network.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `192.168.1.0/24` | `192.168.1.0/33`  |
+| `10.0.0.0/8` | `256.168.1.0/24`  |
+| `172.16.0.0/12` | `192.168.1/24`  |
+| `0.0.0.0/0` | `192.168.1.0`  |
+| `255.255.255.255/32` |   |
+
+
+
+
+### **domainName**
+
+Should match a bare domain name without protocol.
+
+From [network.ts](./src/network.ts#L71)
+
+Copy:
+```js
+const domainName = /(?:[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}/
+```
+
+```ts
+import { domainName } from "https://deno.land/x/regular_expressions/src/network.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `example.com` | `example`  |
+| `sub.example.com` | `-example.com`  |
+| `my-site.org` | `example-.com`  |
+| `a.co` | `example.c`  |
+| `deep.nested.sub.domain.example.com` | `.example.com`  |
+
+
+
+
+### **httpMethod**
+
+Should match a standard HTTP method verb.
+
+From [network.ts](./src/network.ts#L93)
+
+Copy:
+```js
+const httpMethod = /GET|POST|PUT|DELETE|PATCH|HEAD|OPTIONS|CONNECT|TRACE/
+```
+
+```ts
+import { httpMethod } from "https://deno.land/x/regular_expressions/src/network.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `GET` | `get`  |
+| `POST` | `GETS`  |
+| `PUT` | `PUSH`  |
+| `DELETE` | `REMOVE`  |
+| `PATCH` | `FETCH`  |
+| `HEAD` |   |
+| `OPTIONS` |   |
+| `CONNECT` |   |
+| `TRACE` |   |
+
+
+
+
+### **httpStatusCode**
+
+Should match an HTTP status code (100-599).
+
+From [network.ts](./src/network.ts#L119)
+
+Copy:
+```js
+const httpStatusCode = /[1-5][0-9]{2}/
+```
+
+```ts
+import { httpStatusCode } from "https://deno.land/x/regular_expressions/src/network.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `100` | `600`  |
+| `200` | `099`  |
+| `301` | `999`  |
+| `404` | `10`  |
+| `500` | `1000`  |
+| `599` |   |
+
+
+
+
+### **macAddress**
+
+Should match an IEEE 802 MAC address separated by colons, dashes,
+or dots.
+
+From [network.ts](./src/network.ts#L5)
+
+Copy:
+```js
+const macAddress = /[0-9a-fA-F]{2}(?:[:\-][0-9a-fA-F]{2}){5}/
+```
+
+```ts
+import { macAddress } from "https://deno.land/x/regular_expressions/src/network.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `00:1A:2B:3C:4D:5E` | `00:1A:2B:3C:4D`  |
+| `aa:bb:cc:dd:ee:ff` | `00:1A:2B:3C:4D:5E:6F`  |
+| `00-1A-2B-3C-4D-5E` | `GG:HH:II:JJ:KK:LL`  |
+| `aa-bb-cc-dd-ee-ff` | `001A2B3C4D5E`  |
+| `01:23:45:67:89:ab` | `00:1A:2B:3C:4D:5G`  |
+
+
+
+
+### **portNumber**
+
+Should match a valid TCP/UDP port number (0-65535).
+
+From [network.ts](./src/network.ts#L26)
+
+Copy:
+```js
+const portNumber = /(?:6553[0-5]|655[0-2][0-9]|65[0-4][0-9]{2}|6[0-4][0-9]{3}|[1-5][0-9]{4}|[1-9][0-9]{0,3}|0)/
+```
+
+```ts
+import { portNumber } from "https://deno.land/x/regular_expressions/src/network.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `0` | `65536`  |
+| `80` | `99999`  |
+| `443` | `100000`  |
+| `8080` | `-1`  |
+| `65535` | `abc`  |
+| `1024` |   |
+| `3000` |   |
 
 
 
@@ -859,1000 +3385,5 @@ import { romanNumeral } from "https://deno.land/x/regular_expressions/src/number
 | `MM` |   |
 | `MMM` |   |
 | `MMMM` |   |
-
-
-
-# case
-
-> At: [case.ts](./src/case.ts)
-
-### **camelCase**
-
-Should match  camelCase string
-
-From [case.ts](./src/case.ts#L5)
-
-Copy:
-```js
-const camelCase = /((?![A-Z])[a-zA-Z0-9]+)+/
-```
-
-```ts
-import { camelCase } from "https://deno.land/x/regular_expressions/src/case.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `camelCase` | `PascalCase`  |
-| `camelCase2` | `kebab-case`  |
-| `camelCase3` | `snake_case`  |
-
-
-
-
-### **constantCase**
-
-Should match  CONSTANT_CASE string
-
-From [case.ts](./src/case.ts#L94)
-
-Copy:
-```js
-const constantCase = /([A-Z0-9]+)(_[A-Z0-9]+)?/
-```
-
-```ts
-import { constantCase } from "https://deno.land/x/regular_expressions/src/case.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `CONSTANT_CASE2` | `PascalCase`  |
-| `CONSTANT` | `camelCase`  |
-|  | `kebab-case`  |
-|  | `snake_case`  |
-|  | `CONSTANT-CASE`  |
-|  | `CONSTANT_CASE_`  |
-|  | `_CONSTANT_CASE`  |
-|  | `CONSTANT_CAse`  |
-
-
-
-
-### **kebabCase**
-
-Should match  kebab-case string
-
-From [case.ts](./src/case.ts#L24)
-
-Copy:
-```js
-const kebabCase = /((?!-)([a-z0-9]+)(-[a-z0-9])?)+/
-```
-
-```ts
-import { kebabCase } from "https://deno.land/x/regular_expressions/src/case.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `kebab-case` | `PascalCase`  |
-| `kebab-case2` | `camelCase`  |
-| `kebab-case3` | `no kebab case`  |
-|  | `snake_case`  |
-|  | `-kebab-case`  |
-|  | `kebab-case-`  |
-|  | `kebab--case`  |
-|  | `kebab-CAse`  |
-|  | `KEBAB-CASE`  |
-
-
-
-
-### **pascalCase**
-
-Should match PascalCase string
-
-From [case.ts](./src/case.ts#L73)
-
-Copy:
-```js
-const pascalCase = /([A-Z][a-z0-9]+)+/
-```
-
-```ts
-import { pascalCase } from "https://deno.land/x/regular_expressions/src/case.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `PascalCase` | `PascalCAse3`  |
-| `Pascal` | `PAscalCase3`  |
-| `PascalCase2` | `camelCase`  |
-|  | `kebab-case`  |
-|  | `snake_case`  |
-
-
-
-
-### **snakeCase**
-
-Should match  snake_case string
-
-From [case.ts](./src/case.ts#L48)
-
-Copy:
-```js
-const snakeCase = /((?!_)([a-z0-9]+)(_[a-z0-9])?)+/
-```
-
-```ts
-import { snakeCase } from "https://deno.land/x/regular_expressions/src/case.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `snake_case` | `PascalCase`  |
-| `snake_case2` | `camelCase`  |
-| `snake_case3` | `no snake case`  |
-|  | `no-snake-case`  |
-|  | `kebab-case`  |
-|  | `_snake_case`  |
-|  | `snake_case_`  |
-|  | `snake__case`  |
-|  | `snake_CAse`  |
-|  | `SNAKE_CASE`  |
-
-
-
-# example
-
-> At: [example.ts](./src/example.ts)
-
-### **lettersButNotH**
-
-should match any single letter but not H.
-https://www.w3.org/TR/CSS2/syndata.html#characters
-
-From [example.ts](./src/example.ts#L6)
-
-Copy:
-```js
-const lettersButNotH = /(?![H])[a-zA-Z]/
-```
-
-```ts
-import { lettersButNotH } from "https://deno.land/x/regular_expressions/src/example.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `a` | `H`  |
-| `h` | `3`  |
-| `A` | `aa`  |
-| `Z` |   |
-
-
-
-# email
-
-> At: [email.ts](./src/email.ts)
-
-### **email**
-
-Allow IP as domain name: hello@154.145.68.12 does allow literal addresses &quot;hello, how are you?&quot;@world.com allows numeric domain names after the last &quot;.&quot; minimum 2 letters
-
-From [email.ts](./src/email.ts#L13)
-
-Copy:
-```js
-const email = /[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)+/
-```
-
-```ts
-import { email } from "https://deno.land/x/regular_expressions/src/email.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `juan@garn.dev` | `em\|ail@email`  |
-| `email+foo@email.com` | `email&email.com`  |
-| `email+112@email.com` | `hello@worl_d.com`  |
-| `he_llo@worl.d.com` | `he&amp;llo@world.co1`  |
-| `EMAIL@DOMAIN.COM` | `.hello@wor#.co.uk`  |
-| `e.m.a.il@email.com` | `juan@@garn.dev`  |
-| `email@email.uk.co` |   |
-| `bar.ba@test.co.uk` |   |
-| `em\|ail@email.com` |   |
-| `hel.l-o@wor-ld.museum` |   |
-| `h1ello@123.com` |   |
-| `hello@154.145.68.12` |   |
-
-
-
-# uri
-
-> At: [uri.ts](./src/uri.ts)
-
-### **hostname**
-
-Should match any url hostname (no protocol, no port, no path)
-
-From [uri.ts](./src/uri.ts#L102)
-
-Copy:
-```js
-const hostname = /[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}/
-```
-
-```ts
-import { hostname } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `example.com` | `example.com/`  |
-| `sub.example.com` | `example.com:1234`  |
-| `www.exampl3.com` | `example.com:1234/`  |
-|  | `example.com/path`  |
-|  | `example.com/path/`  |
-|  | `//example.com`  |
-|  | `http://example.com:1234`  |
-|  | `https://example.com`  |
-|  | `http://example.com/`  |
-|  | `https://example.com/`  |
-|  | `http://example.com/path`  |
-|  | `https://example.com/path`  |
-|  | `http://example.com/path/`  |
-|  | `https://example.com/path/`  |
-
-
-
-
-### **iPv4Private**
-
-Should match any private ip v4
-
-From [uri.ts](./src/uri.ts#L301)
-
-Copy:
-```js
-const iPv4Private = /(?:(?:10|127)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:(?:169\.254|192\.168)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))|(?:172\.(?:1[6-9]|2[0-9]|3[01]|4[0-9]|5[0-9])\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?))/
-```
-
-```ts
-import { iPv4Private } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `10.196.0.1` | `156.10.3.1`  |
-| `127.196.100.1` | `127.196.300.1`  |
-| `192.168.1.0` | `139.47.8.243`  |
-| `192.168.123.134` |   |
-| `192.168.0.1` |   |
-
-
-
-
-### **ipv4**
-
-Should match any ip v4 without protocol, no any mask of subnet
-
-From [uri.ts](./src/uri.ts#L170)
-
-Copy:
-```js
-const ipv4 = /((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/
-```
-
-```ts
-import { ipv4 } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `192.168.1.0` | `254.254.254.254.254`  |
-| `192.168.1.1` | `1.1.1.1.1`  |
-| `10.123.3.234` | `1.1.1`  |
-| `254.254.254.254` | `192.168.A.0`  |
-| `0.0.0.0` | `192.168.1.b`  |
-| `255.0.0.0` |   |
-| `255.255.0.0` |   |
-| `255.255.255.0` |   |
-| `255.255.255.255` |   |
-
-
-
-
-### **ipv4CIDR**
-
-Should match any ipv4 CIDR notation (subnet) * https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-
-From [uri.ts](./src/uri.ts#L220)
-
-Copy:
-```js
-const ipv4CIDR = /(([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])\.){3}([0-9]|[1-9][0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])(\/([0-9]|[1-2][0-9]|3[0-2]))/
-```
-
-```ts
-import { ipv4CIDR } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `192.168.100.1/24` | `192.168.100.1/33`  |
-| `192.168.0.1/25` | `0.0.0.0/90`  |
-| `192.168.254.1/26` |   |
-| `0.0.0.0/0` |   |
-| `10.120.192.2/32` |   |
-| `10.120.192.2/31` |   |
-| `10.120.192.2/30` |   |
-| `10.120.192.2/29` |   |
-| `10.120.192.2/28` |   |
-| `10.120.192.2/27` |   |
-| `10.120.192.2/26` |   |
-| `10.120.192.2/25` |   |
-| `10.120.192.0/24` |   |
-| `10.120.192.0/23` |   |
-| `10.120.192.0/22` |   |
-| `10.120.192.0/21` |   |
-| `10.120.192.0/20` |   |
-| `10.120.192.0/19` |   |
-| `10.120.192.0/18` |   |
-| `10.120.192.0/17` |   |
-| `10.120.0.0/16` |   |
-| `10.120.0.0/15` |   |
-| `10.120.0.0/14` |   |
-| `10.120.0.0/13` |   |
-| `10.120.0.0/12` |   |
-| `10.120.0.0/11` |   |
-| `10.120.0.0/10` |   |
-| `10.120.0.0/9` |   |
-| `10.0.0.0/8` |   |
-| `10.0.0.0/7` |   |
-| `10.0.0.0/6` |   |
-| `10.0.0.0/5` |   |
-| `10.0.0.0/4` |   |
-| `10.0.0.0/3` |   |
-| `10.0.0.0/2` |   |
-| `10.0.0.0/1` |   |
-
-
-
-
-### **ipv4SubnetMask**
-
-Should match any subnet mask * https://en.wikipedia.org/wiki/Subnetwork
-
-From [uri.ts](./src/uri.ts#L199)
-
-Copy:
-```js
-const ipv4SubnetMask = /((255\.){3}(0|128|192|224|240|248|252|254|255))|((255\.){2}(0|128|192|224|240|248|252|254|255)\.0)|((255\.)(0|128|192|224|240|248|252|254|255)\.0\.0)|((255\.){1}(0|128|192|224|240|248|252|254|255)\.0\.0\.0)/
-```
-
-```ts
-import { ipv4SubnetMask } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `255.255.255.255` | `255.255.255.253`  |
-| `255.255.255.0` |   |
-| `255.255.0.0` |   |
-| `255.0.0.0` |   |
-| `255.255.255.128` |   |
-| `255.255.255.192` |   |
-
-
-
-
-### **ipv6**
-
-Should match any ip v6 without protocol
-https://es.wikipedia.org/wiki/IPv6
-
-From [uri.ts](./src/uri.ts#L276)
-
-Copy:
-```js
-const ipv6 = /(?:[0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}/
-```
-
-```ts
-import { ipv6 } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `2001:0db8:85a3:0000:0000:8a2e:0370:7334` | `:a591:dfe9:8840:aa39:f830:0224:55c8:f21b`  |
-| `2001:db8:85a3:0:0:8a2e:370:7334` | `2001:0db8:85a3:0000:0000:8a2e:0370:7334:`  |
-| `2001:db8:85a3:8a2e:0370:7334:ff:fe00` | `g591:dfe9:8840:aa39:f830:0224:55c8:f21b`  |
-| `a591:dfe9:8840:aa39:f830:0224:55c8:f21b` | `2001:db8:85a3:0:0:8a2e:370:7334:`  |
-|  | `2001:db8:85a3:0:8a2e:370:7334:`  |
-|  | `::1`  |
-|  | `::ffff`  |
-
-
-
-
-### **uri**
-
-Should match any uri with any protocol, for example file://, http://, https://, ftp://, chrome-extension://, chrome://, etc... * https://es.wikipedia.org/wiki/Esquema_de_URI
-
-From [uri.ts](./src/uri.ts#L132)
-
-Copy:
-```js
-const uri = /([\w-.]{3,}:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
-```
-
-```ts
-import { uri } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `https://example.com:1234` | `//example.com`  |
-| `http://example.com:1234/` | `example.com`  |
-| `any://example.com` | `example.com/`  |
-| `ftp://example.com/` | `example.com/path`  |
-| `ftp://example.com:1234` | `example.com/path/`  |
-| `z39.50r://example.com` |   |
-| `https://example.com` |   |
-| `https://example.com/` |   |
-| `http://example.com/path` |   |
-| `https://example.com/path` |   |
-| `http://example.com/path/` |   |
-| `https://example.com/path/` |   |
-| `file://example.com` |   |
-| `file://example.com/` |   |
-| `file://example.com/path` |   |
-| `file://example.com/path/` |   |
-| `chrome-extensions://example.com/path/` |   |
-| `estrange-protocol://example.com/path/` |   |
-
-
-
-
-### **uriProtocol**
-
-Should match any valid uri protocol
-https://en.wikipedia.org/wiki/Uniform_Resource_Identifier
-https://es.wikipedia.org/wiki/Esquema_de_URI
-
-From [uri.ts](./src/uri.ts#L326)
-
-Copy:
-```js
-const uriProtocol = /((aaa)|(aaas)|(about)|(acap)|(adiumxtra)|(afp)|(aim)|(apt)|(attachment)|(aw)|(beshare)|(bitcoin)|(bolo)|(callto)|(cap)|(chrome)|(chrome-extension)|(cid)|(content)|(crid)|(cvs)|(data)|(dav)|(dict)|(dns)|(ed2k)|(facetime)|(fax)|(feed)|(file)|(finger)|(fish)|(ftp)|(geo)|(gg)|(git)|(gizmoproject)|(go)|(gopher)|(gtalk)|(h323)|(hcp)|(http)|(https)|(iax)|(icap)|(im)|(imap)|(info)|(ipp)|(irc)|(irc6)|(ircs)|(iris)|(iris.beep)|(iris\.xpc)|(iris\.xpcs)|(iris\.lws)|(itms)|(jar)|(keyparc)|(lastfm)|(ldap)|(ldaps)|(lightning)|(magnet)|(mailto)|(maps)|(market)|(message)|(mid)|(mms)|(modem)|(ms-help)|(msnim)|(msrp)|(msrps)|(mtqp)|(mumble)|(mupdate)|(mvn)|(news)|(nfs)|(nntp)|(notes)|(opaquelocktoken)|(palm)|(paparazzi)|(platform)|(pop)|(pres)|(prospero)|(proxy)|(psyc)|(query)|(res)|(resource)|(rmi)|(rsync)|(rtmp)|(rtsp)|(secondlife)|(service)|(sftp)|(sgn)|(shttp)|(sieve)|(sip)|(sips)|(skype)|(smb)|(sms)|(snmp)|(soap\.beep)|(soap\.beeps)|(soldat)|(spotify)|(ssh)|(steam)|(svn)|(tag)|(teamspeak)|(tel)|(telnet)|(tftp)|(things)|(thismessage)|(tip)|(tv)|(udp)|(unreal)|(urn)|(ut2004)|(uuid)|(vemmi)|(ventrilo)|(view-source)|(wais)|(webcal)|(ws)|(wss)|(wtai)|(wyciwyg)|(xfire)|(xmlrpc\.beep)|(xmlrpc\.beeps)|(xmpp)|(xri)|(ymsgr)|(z39\.50r)|(z39\.50s)):/
-```
-
-```ts
-import { uriProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `http:` | `http://`  |
-| `https:` | `https`  |
-| `ftp:` | `www.google.com`  |
-| `ssh:` | `ftp://ftp.is.co.za/rfc/rfc1808.txt`  |
-| `irc:` |   |
-| `ircs:` |   |
-| `git:` |   |
-| `gopher:` |   |
-| `telnet:` |   |
-| `nntp:` |   |
-| `news:` |   |
-| `mailto:` |   |
-| `sftp:` |   |
-| `ldap:` |   |
-| `ldaps:` |   |
-| `webcal:` |   |
-| `xmpp:` |   |
-| `callto:` |   |
-| `ymsgr:` |   |
-| `skype:` |   |
-| `sip:` |   |
-| `sips:` |   |
-| `sms:` |   |
-| `mailto:` |   |
-| `msnim:` |   |
-| `irc:` |   |
-| `aim:` |   |
-| `gtalk:` |   |
-| `feed:` |   |
-| `sip:` |   |
-| `sips:` |   |
-| `sms:` |   |
-| `msnim:` |   |
-| `aim:` |   |
-| `gtalk:` |   |
-
-
-
-
-### **url**
-
-Should match any url with or without http/s protocol and with or without port
-
-From [uri.ts](./src/uri.ts#L4)
-
-Copy:
-```js
-const url = /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:[0-9]{1,5})?(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
-```
-
-```ts
-import { url } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `//ex4mpl3.com` | `https://example.com:123456`  |
-| `http://ex4mpl3.com` | `http://example.com:123456`  |
-| `http://subdomain.example.com` | `http://example.c0m`  |
-| `http://sub.domain.example.com` | `example.c0m`  |
-| `http://sub.domain.numb3rs.example.com` | `example,com`  |
-| `http://example.com` | `example_com`  |
-| `https://example.com` |   |
-| `http://example.com/` |   |
-| `https://example.com/` |   |
-| `http://example.com/path` |   |
-| `https://example.com/path` |   |
-| `http://example.com/path/` |   |
-| `https://example.com/path/subpath` |   |
-| `http://example.com:1234` |   |
-| `//example.com` |   |
-| `example.com` |   |
-| `example.com:80` |   |
-| `example.com/` |   |
-| `example.com/path` |   |
-| `example.com/path/` |   |
-| `//www.example.com` |   |
-| `sub-d0m4in.exampl3.com` |   |
-| `http://sub-d0m4in.exampl3.com` |   |
-| `http://example.com` |   |
-| `https://example.com:1` |   |
-| `http://example.com:80` |   |
-| `https://example.com:123` |   |
-| `https://example.com:1234` |   |
-| `https://example.com:65535` |   |
-
-
-
-
-### **urlWithPort**
-
-Should match any url with or without http/s protocols and port
-https://es.wikipedia.org/wiki/Anexo:Puertos_de_red
-
-From [uri.ts](./src/uri.ts#L54)
-
-Copy:
-```js
-const urlWithPort = /((https?:)?\/\/)?(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
-```
-
-```ts
-import { urlWithPort } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `https://example.com:0` | `https://example.com:`  |
-| `http://example.com:1` | `//example.com`  |
-| `http://example.com:80` | `example.com`  |
-| `https://example.com:123` |   |
-| `https://example.com:1234` |   |
-| `https://example.com:65535` |   |
-| `//example.com:65535` |   |
-| `example.com:65535` |   |
-
-
-
-
-### **urlWithProtocol**
-
-Should match any url with http/s protocols and with or without port
-
-From [uri.ts](./src/uri.ts#L78)
-
-Copy:
-```js
-const urlWithProtocol = /(https?:\/\/)(www\.)?[-a-zA-Z0-9:%._\+~#=]{2,256}\.[a-z]{2,6}(:([0-9]{1,5}))(\/[-a-zA-Z0-9:%_\+.~#?&//=]*)?/
-```
-
-```ts
-import { urlWithProtocol } from "https://deno.land/x/regular_expressions/src/uri.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `https://example.com:0` | `//example.com:65535`  |
-| `http://example.com:1` | `example.com:65535`  |
-| `http://example.com:80` | `https://example.com:`  |
-| `https://example.com:123` | `//example.com`  |
-| `https://example.com:1234` | `example.com`  |
-| `https://example.com:65535` |   |
-
-
-
-# js_eval
-
-> At: [js_eval.ts](./src/js_eval.ts)
-
-### **classDefinition**
-
-Should match a js class definition
-
-From [js_eval.ts](./src/js_eval.ts#L274)
-
-Copy:
-```js
-const classDefinition = /class\s+((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))\s*(extends\s+((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*)))?\s*\{.*\}/
-```
-
-```ts
-import { classDefinition } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `class A{ }` | `class 1foo{}`  |
-| `class A{}` | `class foo extends 3hola{}`  |
-| `class A { }` | `class A extends 1{ }`  |
-| `class _ { }` | `class while {}`  |
-| `class $ { }` | `class foo extends if{}`  |
-| `class A extends B { }` | `classB{}`  |
-| `class A extends B{ }` | `class MyClass `  |
-| `class A extends B { constructor() { } }` | `class MyClass {`  |
-| `class A extends B { constructor() { super(); } }` | `CLASS A {}`  |
-| `class A extends B { constructor() { super(); } foo() { } }` | `class A extendsB{ }`  |
-| `class A extends B { constructor() { super(); } foo() { } bar() { } }` |   |
-
-
-
-
-### **functionAnonymous**
-
-Should match a js anonymous classic function definition
-
-From [js_eval.ts](./src/js_eval.ts#L124)
-
-Copy:
-```js
-const functionAnonymous = /function(?<noName>\s*)\(.*\)\s*\{(.*)\}/
-```
-
-```ts
-import { functionAnonymous } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `function(){}` | `function name(){return 2;}`  |
-| `function (...args) { }` | `func(){}`  |
-| `function (a1,a2,a3) { }` | `function(a1,a2,a3)`  |
-| `function() {return 1;}` |   |
-| `function (){ if(true) { return 1; } }` |   |
-
-
-
-
-### **functionArrow**
-
-Should match a js arrow function definition
-
-From [js_eval.ts](./src/js_eval.ts#L176)
-
-Copy:
-```js
-const functionArrow = /([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)/
-```
-
-```ts
-import { functionArrow } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `A => A` | `A,B => A`  |
-| `() => 42` | `functionname () {  return 'hello'; }`  |
-| `(a,b,c) => 42` | `function () {}`  |
-| `(...args) => 42` | `function myFunction(param1, param2) {`  |
-| `() => {}` |   |
-| `() => { return 'hello'; }` |   |
-
-
-
-
-### **functionAsync**
-
-Should match a js async function definition
-
-From [js_eval.ts](./src/js_eval.ts#L197)
-
-Copy:
-```js
-const functionAsync = /async\s+((function(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\})|(([a-zA-Z0-9-$]+)|(\(.*\))\s*=>\s*(.*)))/
-```
-
-```ts
-import { functionAsync } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `async function(){}` | `async func(){}`  |
-| `async function named() {}` | `async functionA(a1,a2,a3)`  |
-| `async function (...args) { }` |   |
-| `async function (a1,a2,a3) { }` |   |
-| `async function() {return 1;}` |   |
-| `async function (){ if(true) { return 1; } }` |   |
-| `async function name(){return 2;}` |   |
-| `async () => {return 2;}` |   |
-
-
-
-
-### **functionAsyncGenerator**
-
-Should match a js async generator function. Only matches the syntax of `async function*` not any other way of creating an async generator or iterator.
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
-
-From [js_eval.ts](./src/js_eval.ts#L247)
-
-Copy:
-```js
-const functionAsyncGenerator = /async\s+((function\*(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\*\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}))/
-```
-
-```ts
-import { functionAsyncGenerator } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `async function* (){}` | `function (){}`  |
-| `async function* named() {}` | `async function (){}`  |
-| `async function* (...args) { }` | `function* while() {}`  |
-| `async function* named(a1,a2,a3) { yield 42; return 43; }` | `async function (){}`  |
-|  | `function named(a1,a2,a3)`  |
-
-
-
-
-### **functionClassic**
-
-Should match a js classic function definition
-
-From [js_eval.ts](./src/js_eval.ts#L144)
-
-Copy:
-```js
-const functionClassic = /function\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}/
-```
-
-```ts
-import { functionClassic } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `function name(param1, param2) { }` | `function while() {}`  |
-| `function name() {  }` | `function function() { }`  |
-| `function name () {}` | `functionname () {  return 'hello'; }`  |
-| `function name         () {}` | `function name     foo    () {}`  |
-| `function name() {  return 'hello'; }` | `function () {}`  |
-| `function name() {  if(true) { return 42 } }` | ` () => {}`  |
-|  | `function myFunction(param1, param2) {`  |
-
-
-
-
-### **functionGenerator**
-
-Should match a js generator function definition
-
-From [js_eval.ts](./src/js_eval.ts#L220)
-
-Copy:
-```js
-const functionGenerator = /((function\*(?<noName>\s*)\(.*\)\s*\{(.*)\})|(function\*\s+(?<name>(((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))))\s*\(.*\)\s*\{(.*)\}))/
-```
-
-```ts
-import { functionGenerator } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `function*(){}` | `function (){}`  |
-| `function* named() {}` | `async function (){}`  |
-| `function* (...args) { }` | `function* while() {}`  |
-|  | `async function* (){}`  |
-|  | `function named(a1,a2,a3)`  |
-|  | `async function* named(a1,a2,a3)`  |
-
-
-
-
-### **globalScope**
-
-Should match any global variable
-
-From [js_eval.ts](./src/js_eval.ts#L581)
-
-Copy:
-```js
-const globalScope = /Deno|queueMicrotask|dispatchEvent|addEventListener|removeEventListener|AbortSignal|AbortController|atob|btoa|clearInterval|clearTimeout|crypto|fetch|performance|setInterval|setTimeout|structuredClone|location|window|self|navigator|close|closed|alert|confirm|prompt|localStorage|sessionStorage|onload|onunload|global|clearImmediate|setImmediate|document|name|customElements|history|locationbar|menubar|personalbar|scrollbars|statusbar|toolbar|status|frames|length|top|opener|parent|frameElement|origin|external|screen|innerWidth|innerHeight|scrollX|pageXOffset|scrollY|pageYOffset|visualViewport|screenX|screenY|outerWidth|outerHeight|devicePixelRatio|clientInformation|screenLeft|screenTop|defaultStatus|defaultstatus|styleMedia|onsearch|isSecureContext|onappinstalled|onbeforeinstallprompt|indexedDB|webkitStorageInfo|onbeforexrselect|onabort|onblur|oncancel|oncanplay|oncanplaythrough|onchange|onclick|onclose|oncontextmenu|oncuechange|ondblclick|ondrag|ondragend|ondragenter|ondragleave|ondragover|ondragstart|ondrop|ondurationchange|onemptied|onended|onerror|onfocus|onformdata|oninput|oninvalid|onkeydown|onkeypress|onkeyup|onloadeddata|onloadedmetadata|onloadstart|onmousedown|onmouseenter|onmouseleave|onmousemove|onmouseout|onmouseover|onmouseup|onmousewheel|onpause|onplay|onplaying|onprogress|onratechange|onreset|onresize|onscroll|onsecuritypolicyviolation|onseeked|onseeking|onselect|onslotchange|onstalled|onsubmit|onsuspend|ontimeupdate|ontoggle|onvolumechange|onwaiting|onwebkitanimationend|onwebkitanimationiteration|onwebkitanimationstart|onwebkittransitionend|onwheel|onauxclick|ongotpointercapture|onlostpointercapture|onpointerdown|onpointermove|onpointerup|onpointercancel|onpointerover|onpointerout|onpointerenter|onpointerleave|onselectstart|onselectionchange|onanimationend|onanimationiteration|onanimationstart|ontransitionrun|ontransitionstart|ontransitionend|ontransitioncancel|onafterprint|onbeforeprint|onbeforeunload|onhashchange|onlanguagechange|onmessage|onmessageerror|onoffline|ononline|onpagehide|onpageshow|onpopstate|onrejectionhandled|onstorage|onunhandledrejection|blur|cancelAnimationFrame|cancelIdleCallback|captureEvents|createImageBitmap|find|focus|getComputedStyle|getSelection|matchMedia|moveBy|moveTo|open|postMessage|print|releaseEvents|reportError|requestAnimationFrame|requestIdleCallback|resizeBy|resizeTo|scroll|scrollBy|scrollTo|stop|webkitCancelAnimationFrame|webkitRequestAnimationFrame|chrome|caches|cookieStore|ondevicemotion|ondeviceorientation|ondeviceorientationabsolute|oncontextlost|oncontextrestored|showDirectoryPicker|showOpenFilePicker|showSaveFilePicker|originAgentCluster|trustedTypes|speechSynthesis|onpointerrawupdate|crossOriginIsolated|scheduler|openDatabase|webkitRequestFileSystem|webkitResolveLocalFileSystemURL|console/
-```
-
-```ts
-import { globalScope } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `Deno` | `DENO`  |
-| `fetch` | `fETCH`  |
-| `window` | `Window`  |
-| `global` | `Global`  |
-
-
-
-
-### **identifierNames**
-
-Should match a valid js variable/function/class name * https://developer.mozilla.org/en-US/docs/Glossary/Identifier
-
-From [js_eval.ts](./src/js_eval.ts#L89)
-
-Copy:
-```js
-const identifierNames = /((?!(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b))([a-zA-Z$_][a-zA-Z0-9$_]*))/
-```
-
-```ts
-import { identifierNames } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `a` | `1`  |
-| `Z` | `1a`  |
-| `FOO` | `name with space`  |
-| `a1` | `a-1a`  |
-| `a_9` | `b%`  |
-| `_10` | `while`  |
-| `$1` | `do`  |
-| `$H` | `if`  |
-| `$` | `in`  |
-| `whileDo` | `for`  |
-| `_` | `let`  |
-
-
-
-
-### **reservedWords**
-
-Should match a js reserved word
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Lexical_grammar#keywords
-
-From [js_eval.ts](./src/js_eval.ts#L7)
-
-Copy:
-```js
-const reservedWords = /(\b(?:break|case|catch|class|const|continue|debugger|default|delete|do|else|export|extends|finally|for|function|if|import|in|instanceof|new|return|super|switch|this|throw|try|typeof|var|void|while|with|yield|implements|interface|let|package|private|protected|public|static|yield|enum|await|abstract|boolean|byte|char|double|final|float|goto|int|long|native|short|synchronized|throws|transient|volatile|null|true|false)\b)/
-```
-
-```ts
-import { reservedWords } from "https://deno.land/x/regular_expressions/src/js_eval.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `break` | `BREAK`  |
-| `case` | `CASE`  |
-| `catch` | `CATCH`  |
-| `class` | `CLASS`  |
-| `const` | `CONST`  |
-| `continue` | `CONTINUE`  |
-| `debugger` | `DEBUGGER`  |
-| `default` | `DEFAULT`  |
-| `delete` | `DELETE`  |
-| `do` | `DO`  |
-| `else` | `ELSE`  |
-| `export` | `EXPORT`  |
-| `extends` | `EXTENDS`  |
-| `finally` | `FINALLY`  |
-| `for` | `FOR`  |
-| `function` | `FUNCTION`  |
-| `if` | `IF`  |
-| `import` | `IMPORT`  |
-| `in` | `IN`  |
-| `instanceof` | `INSTANCEOF`  |
-| `new` | `NEW`  |
-| `return` | `RETURN`  |
-| `super` | `SUPER`  |
-| `switch` | `SWITCH`  |
-| `this` | `THIS`  |
-| `throw` | `THROW`  |
-| `try` | `TRY`  |
-| `typeof` | `TYPEOF`  |
-| `var` | `VAR`  |
-| `void` | `VOID`  |
-| `while` | `WHILE`  |
-| `with` | `WITH`  |
-| `yield` | `YIELD`  |
-| `implements` | `IMPLEMENTS`  |
-| `interface` | `INTERFACE`  |
-| `let` | `LET`  |
-| `package` | `PACKAGE`  |
-| `private` | `PRIVATE`  |
-| `protected` | `PROTECTED`  |
-| `public` | `PUBLIC`  |
-| `static` | `STATIC`  |
-| `yield` | `YIELD`  |
-| `enum` | `ENUM`  |
-| `await` | `AWAIT`  |
-| `abstract` | `ABSTRACT`  |
-| `boolean` | `BOOLEAN`  |
-| `byte` | `BYTE`  |
-| `char` | `CHAR`  |
-| `double` | `DOUBLE`  |
-| `final` | `FINAL`  |
-| `float` | `FLOAT`  |
-| `goto` | `GOTO`  |
-| `int` | `INT`  |
-| `long` | `LONG`  |
-| `native` | `NATIVE`  |
-| `short` | `SHORT`  |
-| `synchronized` | `SYNCHRONIZED`  |
-| `throws` | `THROWS`  |
-| `transient` | `TRANSIENT`  |
-| `volatile` | `VOLATILE`  |
-| `null` | `NULL`  |
-| `true` | `TRUE`  |
-| `false` | `FALSE`  |
-
-
-
-# currency
-
-> At: [currency.ts](./src/currency.ts)
-
-### **currencySymbol**
-
-should match a currency symbol
-
-From [currency.ts](./src/currency.ts#L6)
-
-Copy:
-```js
-const currencySymbol = /[$€£¥₩₤₦₹₨₪₱]/
-```
-
-```ts
-import { currencySymbol } from "https://deno.land/x/regular_expressions/src/currency.ts";
-```
-
-| Should match | Should not match  |
-|---|---|
-| `$` |   |
-| `€` | ` `  |
-| `£` | `a`  |
-| `¥` | `b`  |
-| `₩` | `c`  |
-| `₤` | `d`  |
-| `₦` | `e`  |
-| `₹` | `f`  |
-| `₨` | `x`  |
-| `₪` | `y`  |
-| `₱` | `z`  |
 
 

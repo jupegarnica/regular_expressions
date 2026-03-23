@@ -1,5 +1,11 @@
-import jsDocs from "../jsDocs_data.json" assert { type: "json" };
+import jsDocsRaw from "../jsDocs_data.json" with { type: "json" };
 import { basename } from "https://deno.land/std@0.130.0/path/mod.ts";
+
+// deno doc v2 wraps nodes in { version, nodes }, v1 is a flat array
+// deno-lint-ignore no-explicit-any
+const jsDocs: any[] = Array.isArray(jsDocsRaw)
+  ? jsDocsRaw
+  : (jsDocsRaw as { nodes: unknown[] }).nodes ?? jsDocsRaw;
 
 // import * as all from "../mod.ts";
 
