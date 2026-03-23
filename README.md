@@ -11,6 +11,195 @@ Mainly assisted by github copilot and tweaked by [me](https://garn.dev).
 
 # Contents
 
+# web
+
+> At: [web.ts](./src/web.ts)
+
+### **cookiePair**
+
+Should match a cookie key=value pair.
+
+From [web.ts](./src/web.ts#L24)
+
+Copy:
+```js
+const cookiePair = /[a-zA-Z0-9_-]+=[^\s;]*/
+```
+
+```ts
+import { cookiePair } from "https://deno.land/x/regular_expressions/src/web.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `session_id=abc123` | `=value`  |
+| `theme=dark` | `key value`  |
+| `user-pref=compact` | `key;value`  |
+| `token=eyJhbGci` | `=`  |
+| `flag=true` |   |
+
+
+
+
+### **cssProperty**
+
+Should match a CSS property name (e.g. background-color, font-size).
+
+From [web.ts](./src/web.ts#L104)
+
+Copy:
+```js
+const cssProperty = /[a-z][a-z-]*[a-z]/
+```
+
+```ts
+import { cssProperty } from "https://deno.land/x/regular_expressions/src/web.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `background-color` | `Background-Color`  |
+| `font-size` | `-webkit-transform`  |
+| `margin` | `a`  |
+| `border-top-left-radius` | `123`  |
+| `color` | `font_size`  |
+| `display` |   |
+
+
+
+
+### **cssSelector**
+
+Should match a basic CSS selector
+(class, ID, element, or attribute selector).
+
+From [web.ts](./src/web.ts#L127)
+
+Copy:
+```js
+const cssSelector = /(?:[.#]?[a-zA-Z][a-zA-Z0-9_-]*|\*|\[[a-zA-Z][a-zA-Z0-9_-]*(?:=[^\]]+)?\])(?:\s*[>+~]\s*[.#]?[a-zA-Z][a-zA-Z0-9_-]*)*/
+```
+
+```ts
+import { cssSelector } from "https://deno.land/x/regular_expressions/src/web.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `.class-name` | `.`  |
+| `#my-id` | `#`  |
+| `div` | `123`  |
+| `div > span` | `>child`  |
+| `.parent + .sibling` | `.123class`  |
+| `[data-attr]` |   |
+| `h1` |   |
+
+
+
+
+### **cssVariable**
+
+Should match a CSS custom property / variable
+(e.g. var(--custom-property) or --custom-property).
+
+From [web.ts](./src/web.ts#L84)
+
+Copy:
+```js
+const cssVariable = /(?:var\()?--[a-zA-Z][a-zA-Z0-9-]*\)?/
+```
+
+```ts
+import { cssVariable } from "https://deno.land/x/regular_expressions/src/web.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `--color-primary` | `-single-dash`  |
+| `var(--font-size)` | `var(color)`  |
+| `--bg-color` | `--`  |
+| `var(--spacing-lg)` | `--123`  |
+| `--a` |   |
+
+
+
+
+### **httpHeader**
+
+Should match an HTTP header line (e.g. Content-Type: application/json).
+
+From [web.ts](./src/web.ts#L4)
+
+Copy:
+```js
+const httpHeader = /[A-Za-z][A-Za-z0-9-]*:\s*.+/
+```
+
+```ts
+import { httpHeader } from "https://deno.land/x/regular_expressions/src/web.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `Content-Type: application/json` | `: value`  |
+| `Authorization: Bearer token` | `Header`  |
+| `X-Custom-Header: value` | `123: value`  |
+| `Accept: */*` | `-Header: value`  |
+| `Host: example.com` |   |
+
+
+
+
+### **queryString**
+
+Should match a URL query string (e.g. ?key=value&key2=value2).
+
+From [web.ts](./src/web.ts#L43)
+
+Copy:
+```js
+const queryString = /\?[a-zA-Z0-9_-]+=[^\s&#]*(?:&[a-zA-Z0-9_-]+=[^\s&#]*)*/
+```
+
+```ts
+import { queryString } from "https://deno.land/x/regular_expressions/src/web.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `?key=value` | `key=value`  |
+| `?name=john&age=30` | `?`  |
+| `?q=search+term&page=1` | `?=value`  |
+| `?filter=active` | `&key=value`  |
+
+
+
+
+### **urlFragment**
+
+Should match a URL fragment/anchor (e.g. #section-name).
+
+From [web.ts](./src/web.ts#L63)
+
+Copy:
+```js
+const urlFragment = /#[a-zA-Z][a-zA-Z0-9_-]*/
+```
+
+```ts
+import { urlFragment } from "https://deno.land/x/regular_expressions/src/web.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `#section` | `#`  |
+| `#top` | `#123`  |
+| `#my-section` | `section`  |
+| `#heading_1` | `##double`  |
+| `#A` |   |
+
+
+
 # js_eval
 
 > At: [js_eval.ts](./src/js_eval.ts)
@@ -838,6 +1027,196 @@ import { currencySymbol } from "https://deno.land/x/regular_expressions/src/curr
 
 
 
+# validation
+
+> At: [validation.ts](./src/validation.ts)
+
+### **alphabetic**
+
+Should match a string containing only letters (a-z, A-Z).
+
+From [validation.ts](./src/validation.ts#L70)
+
+Copy:
+```js
+const alphabetic = /[a-zA-Z]+/
+```
+
+```ts
+import { alphabetic } from "https://deno.land/x/regular_expressions/src/validation.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `hello` | `hello1`  |
+| `Hello` | `123`  |
+| `ABC` | `hello world`  |
+| `a` | `hello!`  |
+| `abcXYZ` |   |
+
+
+
+
+### **alphanumeric**
+
+Should match a string containing only alphanumeric characters.
+
+From [validation.ts](./src/validation.ts#L50)
+
+Copy:
+```js
+const alphanumeric = /[a-zA-Z0-9]+/
+```
+
+```ts
+import { alphanumeric } from "https://deno.land/x/regular_expressions/src/validation.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `hello` | `hello world`  |
+| `Hello123` | `hello!`  |
+| `ABC` | `hello-world`  |
+| `123` | `hello_world`  |
+| `a` |   |
+
+
+
+
+### **noWhitespace**
+
+Should match a string with no whitespace characters.
+
+From [validation.ts](./src/validation.ts#L110)
+
+Copy:
+```js
+const noWhitespace = /[^\s]+/
+```
+
+```ts
+import { noWhitespace } from "https://deno.land/x/regular_expressions/src/validation.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `hello` | ` `  |
+| `hello-world` | `hello world`  |
+| `user@example.com` | `tab	here`  |
+| `123!@#` | `
+`  |
+| `no_spaces_here` |   |
+
+
+
+
+### **numericString**
+
+Should match a string containing only digits (0-9).
+
+From [validation.ts](./src/validation.ts#L90)
+
+Copy:
+```js
+const numericString = /[0-9]+/
+```
+
+```ts
+import { numericString } from "https://deno.land/x/regular_expressions/src/validation.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `0` | `12.34`  |
+| `123` | `12a`  |
+| `9999999999` | `-5`  |
+| `007` | `+3`  |
+|  | `1 2`  |
+
+
+
+
+### **printableAscii**
+
+Should match a string of only printable ASCII characters (32-126).
+
+From [validation.ts](./src/validation.ts#L130)
+
+Copy:
+```js
+const printableAscii = /[\x20-\x7E]+/
+```
+
+```ts
+import { printableAscii } from "https://deno.land/x/regular_expressions/src/validation.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `Hello, World!` | `	`  |
+| ` ` | `
+`  |
+| `~` | ` `  |
+| `abc123!@#` | ``  |
+| `all printable chars` |   |
+
+
+
+
+### **strongPassword**
+
+Should match a strong password (min 8 chars with at least one
+uppercase, one lowercase, one digit, and one special character).
+
+From [validation.ts](./src/validation.ts#L29)
+
+Copy:
+```js
+const strongPassword = /(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}/
+```
+
+```ts
+import { strongPassword } from "https://deno.land/x/regular_expressions/src/validation.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `P@ssw0rd!` | `password`  |
+| `Str0ng#Pass` | `PASSWORD1!`  |
+| `Abcd1234!` | `Passw0rd`  |
+| `myP@ss99` | `Pa1!`  |
+|  | `12345678`  |
+
+
+
+
+### **username**
+
+Should match a valid username (3-20 chars, alphanumeric, underscore,
+or dash).
+
+From [validation.ts](./src/validation.ts#L5)
+
+Copy:
+```js
+const username = /[a-zA-Z0-9][a-zA-Z0-9_-]{2,19}/
+```
+
+```ts
+import { username } from "https://deno.land/x/regular_expressions/src/validation.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `john` | `ab`  |
+| `user_name` | `_user`  |
+| `my-user` | `-user`  |
+| `abc` | `a b`  |
+| `User123` | `user!name`  |
+| `a1b2c3d4e5f6g7h8i9j0` | `a1b2c3d4e5f6g7h8i9j0x`  |
+
+
+
 # text
 
 > At: [text.ts](./src/text.ts)
@@ -1051,6 +1430,145 @@ import { whitespaceOnly } from "https://deno.land/x/regular_expressions/src/text
 ` | `123`  |
 | ` 	
  ` |   |
+
+
+
+# devops
+
+> At: [devops.ts](./src/devops.ts)
+
+### **dockerfileInstruction**
+
+Should match a Dockerfile instruction keyword
+(FROM, RUN, COPY, CMD, ENV, etc.).
+
+From [devops.ts](./src/devops.ts#L70)
+
+Copy:
+```js
+const dockerfileInstruction = /FROM|RUN|CMD|LABEL|MAINTAINER|EXPOSE|ENV|ADD|COPY|ENTRYPOINT|VOLUME|USER|WORKDIR|ARG|ONBUILD|STOPSIGNAL|HEALTHCHECK|SHELL/
+```
+
+```ts
+import { dockerfileInstruction } from "https://deno.land/x/regular_expressions/src/devops.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `FROM` | `from`  |
+| `RUN` | `INSTALL`  |
+| `COPY` | `EXECUTE`  |
+| `CMD` | `MOVE`  |
+| `ENV` | `PRINT`  |
+| `WORKDIR` |   |
+| `ENTRYPOINT` |   |
+
+
+
+
+### **helmTemplate**
+
+Should match a Go/Helm template expression
+(e.g. {{ .Values.property }}).
+
+From [devops.ts](./src/devops.ts#L49)
+
+Copy:
+```js
+const helmTemplate = /\{\{-?\s*[^}\s][^}]*\s*-?\}\}/
+```
+
+```ts
+import { helmTemplate } from "https://deno.land/x/regular_expressions/src/devops.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `{{ .Values.image }}` | `{ .Values }`  |
+| `{{- .Release.Name -}}` | `{{}`  |
+| `{{ if .Values.enabled }}` | `{{ }}`  |
+| `{{ include "chart.name" . }}` | `{ { .Values } }`  |
+| `{{ .Chart.Version }}` |   |
+
+
+
+
+### **iniSection**
+
+Should match an INI-style section header
+(e.g. [section] or [section.subsection]).
+
+From [devops.ts](./src/devops.ts#L5)
+
+Copy:
+```js
+const iniSection = /\[[a-zA-Z][a-zA-Z0-9_.-]*\]/
+```
+
+```ts
+import { iniSection } from "https://deno.land/x/regular_expressions/src/devops.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `[section]` | `[]`  |
+| `[database]` | `[123]`  |
+| `[app.settings]` | `section`  |
+| `[my-config]` | `[-invalid]`  |
+| `[Section_1]` | `[[double]]`  |
+
+
+
+
+### **terraformResource**
+
+Should match a Terraform resource block header
+(e.g. resource "aws_instance" "example").
+
+From [devops.ts](./src/devops.ts#L95)
+
+Copy:
+```js
+const terraformResource = /(?:resource|data|module)\s+"[a-zA-Z_][a-zA-Z0-9_]*"\s+"[a-zA-Z_][a-zA-Z0-9_]*"/
+```
+
+```ts
+import { terraformResource } from "https://deno.land/x/regular_expressions/src/devops.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `resource "aws_instance" "web"` | `resource aws_instance web`  |
+| `data "aws_ami" "ubuntu"` | `variable "name"`  |
+| `module "vpc" "main"` | `provider "aws"`  |
+| `resource "google_compute_instance" "default"` | `resource "123" "name"`  |
+
+
+
+
+### **tomlKeyValue**
+
+Should match a TOML key-value assignment
+(e.g. key = "value").
+
+From [devops.ts](./src/devops.ts#L27)
+
+Copy:
+```js
+const tomlKeyValue = /[a-zA-Z_][a-zA-Z0-9_-]*\s*=\s*(?:"[^"]*"|'[^']*'|true|false|[0-9][0-9._]*)/
+```
+
+```ts
+import { tomlKeyValue } from "https://deno.land/x/regular_expressions/src/devops.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `name = "TOML"` | `= value`  |
+| `debug = true` | `key =`  |
+| `port = 8080` | `123 = value`  |
+| `title = 'example'` | `key: value`  |
+| `version = 0.1` |   |
 
 
 
@@ -1976,6 +2494,143 @@ import { translationKey } from "https://deno.land/x/regular_expressions/src/i18n
 
 
 
+# git
+
+> At: [git.ts](./src/git.ts)
+
+### **conventionalCommit**
+
+Should match a conventional commit message
+(e.g. feat(scope): message or fix!: breaking change).
+
+From [git.ts](./src/git.ts#L5)
+
+Copy:
+```js
+const conventionalCommit = /(?:feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(?:\([a-zA-Z0-9_-]+\))?!?:\s.+/
+```
+
+```ts
+import { conventionalCommit } from "https://deno.land/x/regular_expressions/src/git.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `feat: add new feature` | `feature: add something`  |
+| `fix(auth): resolve login bug` | `feat add new feature`  |
+| `docs: update README` | `feat:`  |
+| `feat!: breaking change` | `feat(: bad scope`  |
+| `refactor(core): simplify logic` | `FIX: uppercase`  |
+| `chore: update deps` |   |
+
+
+
+
+### **gitConflictMarker**
+
+Should match a git conflict marker
+(<<<<<<< HEAD, =======, or >>>>>>> branch).
+
+From [git.ts](./src/git.ts#L49)
+
+Copy:
+```js
+const gitConflictMarker = /(?:<{7}|={7}|>{7})(?:\s+\S+)?/
+```
+
+```ts
+import { gitConflictMarker } from "https://deno.land/x/regular_expressions/src/git.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `<<<<<<< HEAD` | `<<<<<< short`  |
+| `=======` | `====`  |
+| `>>>>>>> feature/branch` | `>>> not enough`  |
+| `<<<<<<< ours` | `<<<<<<`  |
+| `>>>>>>> theirs` |   |
+
+
+
+
+### **gitDiffHunk**
+
+Should match a git diff hunk header
+(e.g. @@ -1,3 +1,4 @@).
+
+From [git.ts](./src/git.ts#L29)
+
+Copy:
+```js
+const gitDiffHunk = /@@ -\d+(?:,\d+)? \+\d+(?:,\d+)? @@/
+```
+
+```ts
+import { gitDiffHunk } from "https://deno.land/x/regular_expressions/src/git.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `@@ -1,3 +1,4 @@` | `@@ -1 @@`  |
+| `@@ -0,0 +1,10 @@` | `@@ +1 @@`  |
+| `@@ -100 +200 @@` | `--- a/file`  |
+| `@@ -1,5 +1,5 @@` | `+++ b/file`  |
+
+
+
+
+### **gitRemoteUrl**
+
+Should match a git remote URL
+(SSH git@host:org/repo.git or HTTPS ...git).
+
+From [git.ts](./src/git.ts#L70)
+
+Copy:
+```js
+const gitRemoteUrl = /(?:git@[a-zA-Z0-9.-]+:[a-zA-Z0-9_-]+\/[a-zA-Z0-9._-]+(?:\.git)?|https?:\/\/[a-zA-Z0-9.-]+\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9._-]+(?:\.git)?)/
+```
+
+```ts
+import { gitRemoteUrl } from "https://deno.land/x/regular_expressions/src/git.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `git@github.com:user/repo.git` | `github.com/user/repo`  |
+| `https://github.com/user/repo.git` | `git@:user/repo.git`  |
+| `git@gitlab.com:org/project` | `ftp://github.com/user/repo`  |
+| `https://bitbucket.org/team/repo` | `user/repo`  |
+
+
+
+
+### **gitTag**
+
+Should match a git tag (e.g. v1.2.3, release-1.0).
+
+From [git.ts](./src/git.ts#L90)
+
+Copy:
+```js
+const gitTag = /v?(?:0|[1-9][0-9]*)(?:\.(?:0|[1-9][0-9]*))+(?:-[a-zA-Z0-9._-]+)?/
+```
+
+```ts
+import { gitTag } from "https://deno.land/x/regular_expressions/src/git.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `v1.2.3` | `v1`  |
+| `1.0.0` | `abc`  |
+| `v0.1.0` | `v`  |
+| `v2.0.0-beta.1` | `1`  |
+| `1.0.0-rc1` | `v01.2.3`  |
+| `v10.20.30` |   |
+
+
+
 # geo
 
 > At: [geo.ts](./src/geo.ts)
@@ -2190,6 +2845,249 @@ import { zipCodeUS } from "https://deno.land/x/regular_expressions/src/geo.ts";
 | `00501` | `ABCDE`  |
 | `10001-1234` | `10001-123`  |
 | `99999-9999` | `10001-12345`  |
+
+
+
+# media
+
+> At: [media.ts](./src/media.ts)
+
+### **aspectRatio**
+
+Should match a display aspect ratio (e.g. 16:9, 4:3).
+
+From [media.ts](./src/media.ts#L4)
+
+Copy:
+```js
+const aspectRatio = /[1-9][0-9]*:[1-9][0-9]*/
+```
+
+```ts
+import { aspectRatio } from "https://deno.land/x/regular_expressions/src/media.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `16:9` | `0:9`  |
+| `4:3` | `16:0`  |
+| `21:9` | `16-9`  |
+| `1:1` | `:9`  |
+| `32:9` | `16:`  |
+
+
+
+
+### **colorName**
+
+Should match a common CSS named color.
+
+From [media.ts](./src/media.ts#L46)
+
+Copy:
+```js
+const colorName = /red|blue|green|black|white|yellow|orange|purple|pink|gray|grey|brown|cyan|magenta|lime|navy|teal|silver|gold|indigo|violet|coral|salmon|khaki|maroon|olive|aqua|fuchsia|beige|ivory|linen|plum|orchid|peru|sienna|tan|wheat|tomato|turquoise/
+```
+
+```ts
+import { colorName } from "https://deno.land/x/regular_expressions/src/media.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `red` | `Red`  |
+| `blue` | `BLUE`  |
+| `green` | `chartreuse`  |
+| `coral` | `123`  |
+| `turquoise` | `color`  |
+| `navy` |   |
+
+
+
+
+### **fontStack**
+
+Should match a font stack declaration
+(e.g. "Helvetica Neue", Arial, sans-serif).
+
+From [media.ts](./src/media.ts#L69)
+
+Copy:
+```js
+const fontStack = /(?:"[^"]+"|'[^']+'|[a-zA-Z-]+)(?:\s*,\s*(?:"[^"]+"|'[^']+'|[a-zA-Z-]+))+/
+```
+
+```ts
+import { fontStack } from "https://deno.land/x/regular_expressions/src/media.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `"Helvetica Neue", Arial, sans-serif` | `Arial`  |
+| `Georgia, serif` | `sans-serif`  |
+| `'Courier New', monospace` | `,Arial`  |
+| `system-ui, -apple-system, sans-serif` | `Arial,`  |
+
+
+
+
+### **resolution**
+
+Should match a screen resolution (e.g. 1920x1080, 3840x2160).
+
+From [media.ts](./src/media.ts#L25)
+
+Copy:
+```js
+const resolution = /[1-9][0-9]*x[1-9][0-9]*/
+```
+
+```ts
+import { resolution } from "https://deno.land/x/regular_expressions/src/media.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `1920x1080` | `0x1080`  |
+| `3840x2160` | `1920x0`  |
+| `1280x720` | `1920*1080`  |
+| `800x600` | `1920X1080`  |
+| `7680x4320` | `1920 x 1080`  |
+
+
+
+# database
+
+> At: [database.ts](./src/database.ts)
+
+### **mongoObjectId**
+
+Should match a MongoDB ObjectId (24 lowercase hex characters).
+
+From [database.ts](./src/database.ts#L50)
+
+Copy:
+```js
+const mongoObjectId = /[0-9a-f]{24}/
+```
+
+```ts
+import { mongoObjectId } from "https://deno.land/x/regular_expressions/src/database.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `507f1f77bcf86cd799439011` | `507f1f77bcf86cd79943901`  |
+| `000000000000000000000000` | `507F1F77BCF86CD799439011`  |
+| `aabbccddeeff112233445566` | `507f1f77bcf86cd79943901g`  |
+|  | `short`  |
+
+
+
+
+### **sqlComment**
+
+Should match a single-line SQL comment (-- comment).
+
+From [database.ts](./src/database.ts#L90)
+
+Copy:
+```js
+const sqlComment = /--.*/
+```
+
+```ts
+import { sqlComment } from "https://deno.land/x/regular_expressions/src/database.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `-- this is a comment` | `- not a comment`  |
+| `-- SELECT * FROM users` | `// js comment`  |
+| `--compact` | `# python comment`  |
+| `-- ` | `/* block */`  |
+
+
+
+
+### **sqlKeyword**
+
+Should match a SQL keyword
+(SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP, JOIN, WHERE, FROM, etc.).
+
+From [database.ts](./src/database.ts#L5)
+
+Copy:
+```js
+const sqlKeyword = /SELECT|INSERT|UPDATE|DELETE|CREATE|ALTER|DROP|JOIN|WHERE|FROM|INTO|VALUES|SET|ORDER|GROUP|HAVING|LIMIT|OFFSET|UNION|DISTINCT|INDEX|TABLE|VIEW|BEGIN|COMMIT|ROLLBACK/
+```
+
+```ts
+import { sqlKeyword } from "https://deno.land/x/regular_expressions/src/database.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `SELECT` | `select`  |
+| `INSERT` | `SELECTS`  |
+| `UPDATE` | `FIND`  |
+| `DELETE` | `REMOVE`  |
+| `CREATE` | `FETCH`  |
+| `JOIN` |   |
+| `WHERE` |   |
+
+
+
+
+### **sqlPlaceholder**
+
+Should match a SQL prepared statement placeholder
+($1, :name, or ?).
+
+From [database.ts](./src/database.ts#L69)
+
+Copy:
+```js
+const sqlPlaceholder = /\$[1-9][0-9]*|:[a-zA-Z_][a-zA-Z0-9_]*|\?/
+```
+
+```ts
+import { sqlPlaceholder } from "https://deno.land/x/regular_expressions/src/database.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `$1` | `$0`  |
+| `$12` | `$`  |
+| `:username` | `:`  |
+| `:user_id` | `:123`  |
+| `?` | `??`  |
+
+
+
+
+### **sqlTableRef**
+
+Should match a dotted SQL table reference
+(e.g. schema.table or database.schema.table).
+
+From [database.ts](./src/database.ts#L30)
+
+Copy:
+```js
+const sqlTableRef = /[a-zA-Z_][a-zA-Z0-9_]*(?:\.[a-zA-Z_][a-zA-Z0-9_]*)+/
+```
+
+```ts
+import { sqlTableRef } from "https://deno.land/x/regular_expressions/src/database.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `public.users` | `users`  |
+| `mydb.public.orders` | `.users`  |
+| `dbo.Customers` | `public.`  |
+| `schema_1.table_2` | `123.table`  |
 
 
 
@@ -2487,6 +3385,118 @@ import { year } from "https://deno.land/x/regular_expressions/src/datetime.ts";
 | `2022` |   |
 | `2023` |   |
 | `2024` |   |
+
+
+
+# security
+
+> At: [security.ts](./src/security.ts)
+
+### **cveId**
+
+Should match a CVE identifier
+(e.g. CVE-2024-12345).
+
+From [security.ts](./src/security.ts#L5)
+
+Copy:
+```js
+const cveId = /CVE-[0-9]{4}-[0-9]{4,}/
+```
+
+```ts
+import { cveId } from "https://deno.land/x/regular_expressions/src/security.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `CVE-2024-12345` | `CVE-2024-123`  |
+| `CVE-2021-44228` | `cve-2024-12345`  |
+| `CVE-2014-0160` | `CVE-24-12345`  |
+| `CVE-2023-1234567` | `CVE2024-12345`  |
+| `CVE-2017-5638` | `CWE-79`  |
+
+
+
+
+### **cweId**
+
+Should match a CWE identifier (e.g. CWE-79).
+
+From [security.ts](./src/security.ts#L26)
+
+Copy:
+```js
+const cweId = /CWE-[1-9][0-9]*/
+```
+
+```ts
+import { cweId } from "https://deno.land/x/regular_expressions/src/security.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `CWE-79` | `CWE-0`  |
+| `CWE-89` | `cwe-79`  |
+| `CWE-200` | `CWE79`  |
+| `CWE-1234` | `CVE-2024-1234`  |
+| `CWE-22` | `CWE-`  |
+
+
+
+
+### **filePermission**
+
+Should match a Unix file permission string
+(e.g. rwxr-xr-x) or octal (e.g. 755).
+
+From [security.ts](./src/security.ts#L69)
+
+Copy:
+```js
+const filePermission = /[r-][w-][xsS-][r-][w-][xsS-][r-][w-][xtT-]|[0-7]{3,4}/
+```
+
+```ts
+import { filePermission } from "https://deno.land/x/regular_expressions/src/security.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `rwxr-xr-x` | `rwx`  |
+| `rw-r--r--` | `rw`  |
+| `rwx------` | `888`  |
+| `755` | `75`  |
+| `644` | `rwxrwxrw`  |
+| `0755` |   |
+| `---------` |   |
+
+
+
+
+### **hashBang**
+
+Should match a shebang/hashbang line
+(e.g. #!/usr/bin/env node).
+
+From [security.ts](./src/security.ts#L47)
+
+Copy:
+```js
+const hashBang = /#!\/[a-zA-Z0-9._-]+(?:\/[a-zA-Z0-9._-]+)*(?:\s+[a-zA-Z0-9._-]+)*/
+```
+
+```ts
+import { hashBang } from "https://deno.land/x/regular_expressions/src/security.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `#!/usr/bin/env node` | `#/bin/bash`  |
+| `#!/bin/bash` | `!/bin/bash`  |
+| `#!/usr/bin/python3` | `# comment`  |
+| `#!/bin/sh` | `#!/`  |
+| `#!/usr/bin/env deno` |   |
 
 
 
@@ -2996,6 +4006,225 @@ import { templateLiteral } from "https://deno.land/x/regular_expressions/src/lan
 | `${obj.prop}` | `{name}`  |
 | `${fn()}` | `${`  |
 | `${arr[0]}` |   |
+
+
+
+# math
+
+> At: [math.ts](./src/math.ts)
+
+### **coordinate**
+
+Should match a parenthesized coordinate pair (e.g. (3, 4)).
+
+From [math.ts](./src/math.ts#L47)
+
+Copy:
+```js
+const coordinate = /\(-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?,\s*-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?\)/
+```
+
+```ts
+import { coordinate } from "https://deno.land/x/regular_expressions/src/math.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `(0, 0)` | `3, 4`  |
+| `(3, 4)` | `(3 4)`  |
+| `(-1, 2)` | `()`  |
+| `(10.5, -3.14)` | `(3,)`  |
+| `(100, 200)` | `[3, 4]`  |
+
+
+
+
+### **fraction**
+
+Should match a fraction (e.g. 3/4, 1/2, -7/8).
+
+From [math.ts](./src/math.ts#L4)
+
+Copy:
+```js
+const fraction = /-?(?:0|[1-9][0-9]*)\/[1-9][0-9]*/
+```
+
+```ts
+import { fraction } from "https://deno.land/x/regular_expressions/src/math.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `1/2` | `1/0`  |
+| `3/4` | `/2`  |
+| `-7/8` | `1/`  |
+| `0/1` | `abc`  |
+| `22/7` | `1.5/2`  |
+| `100/3` |   |
+
+
+
+
+### **mathOperator**
+
+Should match a math operator (+, -, *, /, %, **, ^).
+
+From [math.ts](./src/math.ts#L69)
+
+Copy:
+```js
+const mathOperator = /\*\*|[+\-*\/%^]/
+```
+
+```ts
+import { mathOperator } from "https://deno.land/x/regular_expressions/src/math.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `+` | `=`  |
+| `-` | `&&`  |
+| `*` | `\|\|`  |
+| `/` | `!`  |
+| `%` | `++`  |
+| `**` |   |
+| `^` |   |
+
+
+
+
+### **numericRange**
+
+Should match a numeric range notation (e.g. 1-10).
+
+From [math.ts](./src/math.ts#L26)
+
+Copy:
+```js
+const numericRange = /[0-9]+-[0-9]+/
+```
+
+```ts
+import { numericRange } from "https://deno.land/x/regular_expressions/src/math.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `1-10` | `-10`  |
+| `0-100` | `1-`  |
+| `1-1` | `1..10`  |
+| `100-200` | `abc`  |
+| `0-9` | `1 - 10`  |
+
+
+
+# version
+
+> At: [version.ts](./src/version.ts)
+
+### **calver**
+
+Should match a calendar version (e.g. 2024.01.15).
+
+From [version.ts](./src/version.ts#L4)
+
+Copy:
+```js
+const calver = /(?:19|20)[0-9]{2}\.(?:0[1-9]|1[0-2])\.(?:0[1-9]|[12][0-9]|3[01])/
+```
+
+```ts
+import { calver } from "https://deno.land/x/regular_expressions/src/version.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `2024.01.15` | `2024.13.01`  |
+| `2023.12.31` | `2024.00.15`  |
+| `2000.01.01` | `2024.01.32`  |
+| `1999.06.30` | `24.01.15`  |
+|  | `2024-01-15`  |
+
+
+
+
+### **changelogEntry**
+
+Should match a changelog version entry heading
+(e.g. ## [1.2.3] - 2024-01-15).
+
+From [version.ts](./src/version.ts#L47)
+
+Copy:
+```js
+const changelogEntry = /## \[(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\] - [0-9]{4}-[0-9]{2}-[0-9]{2}/
+```
+
+```ts
+import { changelogEntry } from "https://deno.land/x/regular_expressions/src/version.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `## [1.2.3] - 2024-01-15` | `# [1.2.3] - 2024-01-15`  |
+| `## [0.0.1] - 2023-12-31` | `## 1.2.3 - 2024-01-15`  |
+| `## [10.0.0] - 2024-06-01` | `## [1.2.3] 2024-01-15`  |
+|  | `## [1.2] - 2024-01-15`  |
+
+
+
+
+### **nodeVersion**
+
+Should match a Node.js version string with v prefix
+(e.g. v18.17.0).
+
+From [version.ts](./src/version.ts#L26)
+
+Copy:
+```js
+const nodeVersion = /v(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)\.(?:0|[1-9][0-9]*)/
+```
+
+```ts
+import { nodeVersion } from "https://deno.land/x/regular_expressions/src/version.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `v18.17.0` | `18.17.0`  |
+| `v20.0.0` | `v18.17`  |
+| `v0.12.7` | `v018.17.0`  |
+| `v16.20.2` | `V18.17.0`  |
+
+
+
+
+### **versionRange**
+
+Should match an npm-style version range
+(e.g. ^1.2.3, ~1.2.3, >=1.0.0).
+
+From [version.ts](./src/version.ts#L67)
+
+Copy:
+```js
+const versionRange = /[\^~>=<]{1,2}(?:0|[1-9][0-9]*)(?:\.(?:0|[1-9][0-9]*))*(?:-[a-zA-Z0-9._-]+)?/
+```
+
+```ts
+import { versionRange } from "https://deno.land/x/regular_expressions/src/version.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `^1.2.3` | `1.2.3`  |
+| `~1.2.3` | `v1.2.3`  |
+| `>=1.0.0` | `*`  |
+| `<2.0.0` | `latest`  |
+| `>=0.5.0-beta` |   |
+| `>3` |   |
 
 
 
@@ -3817,6 +5046,89 @@ import { colorRgb } from "https://deno.land/x/regular_expressions/src/color.ts";
 | `rgba(255,255,255)` | `rg(256,255,255,0.5)`  |
 | `rgba( 255  ,   255     ,  255  )` | `(256,255,255,0.5)`  |
 | `rgb(999,0,0)` |   |
+
+
+
+# container
+
+> At: [container.ts](./src/container.ts)
+
+### **arnAws**
+
+Should match an AWS ARN
+(e.g. arn:aws:s3:::bucket-name).
+
+From [container.ts](./src/container.ts#L49)
+
+Copy:
+```js
+const arnAws = /arn:aws[a-zA-Z-]*:[a-zA-Z0-9-]*:[a-zA-Z0-9-]*:[0-9]*:[^\s]+/
+```
+
+```ts
+import { arnAws } from "https://deno.land/x/regular_expressions/src/container.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `arn:aws:s3:::my-bucket` | `arn:gcp:s3:::bucket`  |
+| `arn:aws:iam::123456789012:user/johndoe` | `aws:s3:::bucket`  |
+| `arn:aws:ec2:us-east-1:123456789012:instance/i-1234567890abcdef0` | `arn:aws`  |
+| `arn:aws:lambda:us-west-2:123456789012:function:my-function` | `arn:aws:`  |
+
+
+
+
+### **k8sLabel**
+
+Should match a Kubernetes label selector
+(e.g. app.kubernetes.io/name=my-app).
+
+From [container.ts](./src/container.ts#L28)
+
+Copy:
+```js
+const k8sLabel = /[a-zA-Z][a-zA-Z0-9_.\/-]*=[a-zA-Z0-9][a-zA-Z0-9_.-]*/
+```
+
+```ts
+import { k8sLabel } from "https://deno.land/x/regular_expressions/src/container.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `app=nginx` | `=value`  |
+| `app.kubernetes.io/name=my-app` | `key=`  |
+| `tier=frontend` | `123=value`  |
+| `env=production` | `key value`  |
+| `version=v1.0` |   |
+
+
+
+
+### **k8sResourceName**
+
+Should match a Kubernetes resource reference
+(e.g. deployment/my-app, pod/nginx-abc123).
+
+From [container.ts](./src/container.ts#L5)
+
+Copy:
+```js
+const k8sResourceName = /(?:pod|deployment|service|configmap|secret|ingress|daemonset|statefulset|job|cronjob|namespace|node|replicaset|pv|pvc)\/[a-z0-9][a-z0-9.-]*/
+```
+
+```ts
+import { k8sResourceName } from "https://deno.land/x/regular_expressions/src/container.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `deployment/my-app` | `deploy/my-app`  |
+| `pod/nginx-abc123` | `deployment/`  |
+| `service/backend` | `my-app`  |
+| `configmap/app-config` | `DEPLOYMENT/my-app`  |
+| `secret/db-credentials` | `deployment/My-App`  |
 
 
 
