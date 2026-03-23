@@ -1648,6 +1648,334 @@ import { urlWithProtocol } from "https://deno.land/x/regular_expressions/src/uri
 
 
 
+# science
+
+> At: [science.ts](./src/science.ts)
+
+### **chemicalFormula**
+
+Should match a simple chemical formula
+(e.g. H2O, NaCl, C6H12O6).
+
+From [science.ts](./src/science.ts#L26)
+
+Copy:
+```js
+const chemicalFormula = /[A-Z][a-z]?(?:\d+)?(?:[A-Z][a-z]?(?:\d+)?)*/
+```
+
+```ts
+import { chemicalFormula } from "https://deno.land/x/regular_expressions/src/science.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `H2O` | `h2o`  |
+| `NaCl` | `123`  |
+| `C6H12O6` | `nacl`  |
+| `CO2` | `2H`  |
+| `Fe2O3` |   |
+| `Ca` |   |
+
+
+
+
+### **doi**
+
+Should match a Digital Object Identifier
+(e.g. 10.1000/xyz123).
+
+From [science.ts](./src/science.ts#L5)
+
+Copy:
+```js
+const doi = /10\.\d{4,9}\/[^\s]+/
+```
+
+```ts
+import { doi } from "https://deno.land/x/regular_expressions/src/science.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `10.1000/xyz123` | `11.1000/xyz123`  |
+| `10.1038/nphys1170` | `10.123/xyz`  |
+| `10.1002/0470841559.ch1` | `10/1000/xyz`  |
+| `10.1371/journal.pmed.0020124` | `doi:10.1000`  |
+| `10.18637/jss.v067.i01` |   |
+
+
+
+
+### **ipRange**
+
+Should match an IP address range
+(e.g. 192.168.1.1-192.168.1.255).
+
+From [science.ts](./src/science.ts#L90)
+
+Copy:
+```js
+const ipRange = /(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)-(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/
+```
+
+```ts
+import { ipRange } from "https://deno.land/x/regular_expressions/src/science.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `192.168.1.1-192.168.1.255` | `192.168.1.1`  |
+| `10.0.0.0-10.255.255.255` | `192.168.1.1-`  |
+| `0.0.0.0-255.255.255.255` | `256.168.1.1-192.168.1.255`  |
+|  | `192.168.1-192.168.1.255`  |
+
+
+
+
+### **isbn**
+
+Should match an ISBN-13 (e.g. 978-3-16-148410-0).
+
+From [science.ts](./src/science.ts#L47)
+
+Copy:
+```js
+const isbn = /(?:978|979)[- ]?[0-9]{1,5}[- ]?[0-9]{1,7}[- ]?[0-9]{1,6}[- ]?[0-9]/
+```
+
+```ts
+import { isbn } from "https://deno.land/x/regular_expressions/src/science.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `978-3-16-148410-0` | `977-3-16-148410-0`  |
+| `978 0 596 52068 7` | `978`  |
+| `9780596520687` | `abc-3-16-148410-0`  |
+| `979-10-90636-07-1` | `1234567890`  |
+
+
+
+
+### **scientificNotation**
+
+Should match a scientific notation number
+(e.g. 6.022e23, 1.6E-19).
+
+From [science.ts](./src/science.ts#L68)
+
+Copy:
+```js
+const scientificNotation = /-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?[eE][+-]?[0-9]+/
+```
+
+```ts
+import { scientificNotation } from "https://deno.land/x/regular_expressions/src/science.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `6.022e23` | `6.022`  |
+| `1.6E-19` | `e23`  |
+| `3e8` | `1.6x10`  |
+| `-2.5e10` | `3*10^8`  |
+| `1.0E+5` |   |
+
+
+
+# auth
+
+> At: [auth.ts](./src/auth.ts)
+
+### **apiKeyGeneric**
+
+Should match a generic API key format (32+ alphanumeric characters).
+
+From [auth.ts](./src/auth.ts#L62)
+
+Copy:
+```js
+const apiKeyGeneric = /[A-Za-z0-9]{32,}/
+```
+
+```ts
+import { apiKeyGeneric } from "https://deno.land/x/regular_expressions/src/auth.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `abcdefghijklmnopqrstuvwxyz123456` | `short_key`  |
+| `ABCDEFGHIJKLMNOPQRSTUVWXYZ012345` | `abc-def-ghi-jkl-mno-pqr-stu-vwx`  |
+| `a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6` | `1234567890123456789012345678901`  |
+| `ThisIsAVeryLongApiKeyThatExceeds32Characters` | `key with spaces 1234567890abcdef`  |
+
+
+
+
+### **awsAccessKey**
+
+Should match an AWS access key ID (starts with AKIA, 20 characters).
+
+From [auth.ts](./src/auth.ts#L4)
+
+Copy:
+```js
+const awsAccessKey = /AKIA[0-9A-Z]{16}/
+```
+
+```ts
+import { awsAccessKey } from "https://deno.land/x/regular_expressions/src/auth.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `AKIAIOSFODNN7EXAMPLE` | `ASIA1234567890ABCDEF`  |
+| `AKIA1234567890ABCDEF` | `AKIA12345`  |
+| `AKIAZ5BCD3EFGHIJ4KLM` | `akia1234567890abcdef`  |
+|  | `AKIAIOSFODNN7EXAMPLEE`  |
+
+
+
+
+### **githubToken**
+
+Should match a GitHub personal access token
+(ghp_, gho_, ghs_, ghr_ prefixed).
+
+From [auth.ts](./src/auth.ts#L23)
+
+Copy:
+```js
+const githubToken = /gh[posru]_[A-Za-z0-9_]{36,255}/
+```
+
+```ts
+import { githubToken } from "https://deno.land/x/regular_expressions/src/auth.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `ghp_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij` | `ghx_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij`  |
+| `gho_1234567890abcdefghijklmnopqrstuvwxyz` | `ghp_short`  |
+| `ghs_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij` | `ghp_`  |
+| `ghr_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij` | `GHP_ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghij`  |
+
+
+
+
+### **slackToken**
+
+Should match a Slack bot or user token
+(xoxb-, xoxp-, xoxs-, xoxa- prefixed).
+
+From [auth.ts](./src/auth.ts#L43)
+
+Copy:
+```js
+const slackToken = /xox[bpsa]-[0-9A-Za-z-]+/
+```
+
+```ts
+import { slackToken } from "https://deno.land/x/regular_expressions/src/auth.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `xoxb-not-a-real-token-000` | `xoxc-123456789`  |
+| `xoxp-fake-token-for-tests-000` | `xoxb-`  |
+| `xoxs-example-000` | `xoxb`  |
+| `xoxa-2-example` | `XOXB-123456789`  |
+
+
+
+# i18n
+
+> At: [i18n.ts](./src/i18n.ts)
+
+### **bcp47**
+
+Should match a BCP 47 / IETF language tag
+(e.g. en, en-US, zh-Hans-CN).
+
+From [i18n.ts](./src/i18n.ts#L5)
+
+Copy:
+```js
+const bcp47 = /[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|[0-9]{3}))?(?:-(?:[a-zA-Z0-9]{5,8}|[0-9][a-zA-Z0-9]{3}))*/
+```
+
+```ts
+import { bcp47 } from "https://deno.land/x/regular_expressions/src/i18n.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `en` | `e`  |
+| `en-US` | `english`  |
+| `zh-Hans-CN` | `en_US`  |
+| `pt-BR` | `12-US`  |
+| `sr-Latn` | `en-`  |
+| `de-DE` |   |
+| `ja-JP` |   |
+
+
+
+
+### **localeCode**
+
+Should match a locale code in underscore format
+(e.g. en_US, pt_BR).
+
+From [i18n.ts](./src/i18n.ts#L30)
+
+Copy:
+```js
+const localeCode = /[a-z]{2}_[A-Z]{2}/
+```
+
+```ts
+import { localeCode } from "https://deno.land/x/regular_expressions/src/i18n.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `en_US` | `en-US`  |
+| `pt_BR` | `EN_US`  |
+| `zh_CN` | `en_us`  |
+| `ja_JP` | `english_US`  |
+| `de_DE` | `e_US`  |
+| `fr_FR` |   |
+
+
+
+
+### **translationKey**
+
+Should match a dot-notation translation key
+(e.g. common.button.submit).
+
+From [i18n.ts](./src/i18n.ts#L53)
+
+Copy:
+```js
+const translationKey = /[a-zA-Z_][a-zA-Z0-9_]*(?:\.[a-zA-Z_][a-zA-Z0-9_]*)+/
+```
+
+```ts
+import { translationKey } from "https://deno.land/x/regular_expressions/src/i18n.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `common.button.submit` | `singlekey`  |
+| `errors.notFound` | `.leading.dot`  |
+| `app.header.title` | `trailing.`  |
+| `i18n.key.nested.deep` | `123.key`  |
+| `nav.home` | `a..b`  |
+
+
+
 # geo
 
 > At: [geo.ts](./src/geo.ts)
@@ -2348,6 +2676,982 @@ import { uuidV4 } from "https://deno.land/x/regular_expressions/src/crypto.ts";
 
 
 
+# env
+
+> At: [env.ts](./src/env.ts)
+
+### **connectionString**
+
+Should match a generic database connection string URI
+(e.g. postgres://user:pass@host:5432/db).
+
+From [env.ts](./src/env.ts#L90)
+
+Copy:
+```js
+const connectionString = /[a-z][a-z0-9+.-]*:\/\/(?:[^\s:@]+(?::[^\s:@]*)?@)?(?:[^\s:\/]+(?::\d+)?)?(?:\/[^\s?#]*)?/
+```
+
+```ts
+import { connectionString } from "https://deno.land/x/regular_expressions/src/env.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `postgres://user:pass@localhost:5432/mydb` | `://missing-scheme`  |
+| `mysql://root@127.0.0.1/test` | `postgres//no-colon`  |
+| `redis://localhost:6379` | `just-a-string`  |
+| `mongodb://admin:secret@db.example.com:27017/app` | `123://invalid`  |
+| `sqlite:///path/to/db.sqlite` |   |
+
+
+
+
+### **cronExpression**
+
+Should match a 5-field cron expression
+(e.g. * /5 * * * *).
+
+From [env.ts](./src/env.ts#L69)
+
+Copy:
+```js
+const cronExpression = /(?:[0-9*\/,-]+\s+){4}[0-9*\/,-]+/
+```
+
+```ts
+import { cronExpression } from "https://deno.land/x/regular_expressions/src/env.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `* * * * *` | `* * * *`  |
+| `0 12 * * 1-5` | `* * * * * *`  |
+| `*/5 * * * *` | `abc * * * *`  |
+| `0 0 1 1 *` | `hello`  |
+| `30 4 1,15 * *` |   |
+
+
+
+
+### **dockerImage**
+
+Should match a Docker image reference
+(e.g. nginx:latest, registry.io/org/image:v1.2.3).
+
+From [env.ts](./src/env.ts#L47)
+
+Copy:
+```js
+const dockerImage = /[a-z0-9]+(?:[._-][a-z0-9]+)*(?:\/[a-z0-9]+(?:[._-][a-z0-9]+)*)*(?::[a-zA-Z0-9][a-zA-Z0-9._-]*)?/
+```
+
+```ts
+import { dockerImage } from "https://deno.land/x/regular_expressions/src/env.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `nginx:latest` | `:latest`  |
+| `ubuntu:22.04` | `UPPERCASE:tag`  |
+| `registry.io/org/image:v1.2.3` | `image:`  |
+| `node:18-alpine` | `a//b:tag`  |
+| `myapp:build-123` |   |
+
+
+
+
+### **envPlaceholder**
+
+Should match an environment variable placeholder
+(e.g. ${VAR_NAME} or $VAR_NAME).
+
+From [env.ts](./src/env.ts#L26)
+
+Copy:
+```js
+const envPlaceholder = /\$\{[A-Z_][A-Z0-9_]*\}|\$[A-Z_][A-Z0-9_]*/
+```
+
+```ts
+import { envPlaceholder } from "https://deno.land/x/regular_expressions/src/env.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `${HOME}` | `${lowercase}`  |
+| `$HOME` | `$123`  |
+| `${DATABASE_URL}` | `${}`  |
+| `$NODE_ENV` | `HOME`  |
+| `${A}` |   |
+
+
+
+
+### **envVar**
+
+Should match an environment variable assignment
+(e.g. KEY=value or export KEY=value).
+
+From [env.ts](./src/env.ts#L5)
+
+Copy:
+```js
+const envVar = /(?:export\s+)?[A-Z][A-Z0-9_]*=[^\s]*/
+```
+
+```ts
+import { envVar } from "https://deno.land/x/regular_expressions/src/env.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `FOO=bar` | `foo=bar`  |
+| `DATABASE_URL=postgres://localhost/db` | `=value`  |
+| `export SECRET_KEY=abc123` | `123=abc`  |
+| `NODE_ENV=production` | `_KEY=val`  |
+| `A=1` |   |
+
+
+
+
+### **s3Uri**
+
+Should match an S3 URI (e.g. s3://bucket/key/path).
+
+From [env.ts](./src/env.ts#L111)
+
+Copy:
+```js
+const s3Uri = /s3:\/\/[a-z0-9][a-z0-9.-]*[a-z0-9](?:\/[^\s]*)?/
+```
+
+```ts
+import { s3Uri } from "https://deno.land/x/regular_expressions/src/env.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `s3://my-bucket/path/to/file.txt` | `s3://`  |
+| `s3://bucket123/key` | `s3://-bucket/key`  |
+| `s3://my.bucket.name/folder/` | `S3://bucket/key`  |
+| `s3://data-lake/2024/01/data.parquet` | `http://bucket/key`  |
+
+
+
+# language
+
+> At: [language.ts](./src/language.ts)
+
+### **importStatement**
+
+Should match a JavaScript/TypeScript import statement
+(e.g. import ... from "...").
+
+From [language.ts](./src/language.ts#L47)
+
+Copy:
+```js
+const importStatement = /import\s+(?:(?:\{[^}]*\}|[a-zA-Z_$][a-zA-Z0-9_$]*|\*\s+as\s+[a-zA-Z_$][a-zA-Z0-9_$]*)(?:\s*,\s*(?:\{[^}]*\}|\*\s+as\s+[a-zA-Z_$][a-zA-Z0-9_$]*))?)\s+from\s+["'][^"']+["']/
+```
+
+```ts
+import { importStatement } from "https://deno.land/x/regular_expressions/src/language.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `import foo from "bar"` | `import()`  |
+| `import { a, b } from 'module'` | `require("module")`  |
+| `import * as utils from "./utils"` | `import`  |
+| `import React, { useState } from "react"` | `from "module"`  |
+
+
+
+
+### **javaAnnotation**
+
+Should match a Java-style annotation (e.g. @Override, @Deprecated).
+
+From [language.ts](./src/language.ts#L26)
+
+Copy:
+```js
+const javaAnnotation = /@[A-Z][a-zA-Z0-9_]*/
+```
+
+```ts
+import { javaAnnotation } from "https://deno.land/x/regular_expressions/src/language.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `@Override` | `@override`  |
+| `@Deprecated` | `Override`  |
+| `@SuppressWarnings` | `@123`  |
+| `@Test` | `@@Override`  |
+| `@Autowired` |   |
+
+
+
+
+### **pythonDecorator**
+
+Should match a Python decorator (e.g. @decorator or
+
+From [language.ts](./src/language.ts#L5)
+
+Copy:
+```js
+const pythonDecorator = /@[a-zA-Z_][a-zA-Z0-9_]*(?:\.[a-zA-Z_][a-zA-Z0-9_]*)*/
+```
+
+```ts
+import { pythonDecorator } from "https://deno.land/x/regular_expressions/src/language.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `@property` | `decorator`  |
+| `@staticmethod` | `@123`  |
+| `@app.route` | `@ property`  |
+| `@pytest.mark.skip` | `@@double`  |
+| `@my_decorator` |   |
+
+
+
+
+### **regexLiteral**
+
+Should match a JavaScript regex literal (e.g. /pattern/flags).
+
+From [language.ts](./src/language.ts#L87)
+
+Copy:
+```js
+const regexLiteral = /\/(?:[^\/\\]|\\.)+\/[gimsuy]*/
+```
+
+```ts
+import { regexLiteral } from "https://deno.land/x/regular_expressions/src/language.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `/hello/` | `//comment`  |
+| `/^test$/gi` | `/single`  |
+| `/foo\/bar/` | `regex`  |
+| `/[a-z]+/m` | `//`  |
+| `/\d+/g` |   |
+
+
+
+
+### **requireStatement**
+
+Should match a CommonJS require statement
+(e.g. require("module")).
+
+From [language.ts](./src/language.ts#L68)
+
+Copy:
+```js
+const requireStatement = /require\(["'][^"']+["']\)/
+```
+
+```ts
+import { requireStatement } from "https://deno.land/x/regular_expressions/src/language.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `require("fs")` | `require()`  |
+| `require('path')` | `require(variable)`  |
+| `require("./local-module")` | `require`  |
+| `require("@scope/package")` | `import("module")`  |
+
+
+
+
+### **templateLiteral**
+
+Should match a JavaScript template literal placeholder
+(e.g. ${expression}).
+
+From [language.ts](./src/language.ts#L108)
+
+Copy:
+```js
+const templateLiteral = /\$\{[^}]+\}/
+```
+
+```ts
+import { templateLiteral } from "https://deno.land/x/regular_expressions/src/language.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `${name}` | `${}`  |
+| `${a + b}` | `$name`  |
+| `${obj.prop}` | `{name}`  |
+| `${fn()}` | `${`  |
+| `${arr[0]}` |   |
+
+
+
+# social
+
+> At: [social.ts](./src/social.ts)
+
+### **discordSnowflake**
+
+Should match a Discord snowflake ID (17-20 digit numeric ID).
+
+From [social.ts](./src/social.ts#L90)
+
+Copy:
+```js
+const discordSnowflake = /[0-9]{17,20}/
+```
+
+```ts
+import { discordSnowflake } from "https://deno.land/x/regular_expressions/src/social.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `12345678901234567` | `1234567890123456`  |
+| `84484653687267328` | `123456789012345678901`  |
+| `175928847299117063` | `abcdefghijklmnopq`  |
+| `12345678901234567890` | `1234567890123456a`  |
+
+
+
+
+### **githubRepo**
+
+Should match a GitHub repository reference in owner/repo format.
+
+From [social.ts](./src/social.ts#L4)
+
+Copy:
+```js
+const githubRepo = /[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?\/[a-zA-Z0-9._-]+/
+```
+
+```ts
+import { githubRepo } from "https://deno.land/x/regular_expressions/src/social.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `facebook/react` | `facebook`  |
+| `torvalds/linux` | `/react`  |
+| `my-org/my-repo` | `facebook/`  |
+| `user123/project.js` | `-org/repo`  |
+| `a/b` | `/repo`  |
+
+
+
+
+### **npmPackage**
+
+Should match an npm package name
+(scoped @scope/pkg or unscoped package-name).
+
+From [social.ts](./src/social.ts#L67)
+
+Copy:
+```js
+const npmPackage = /(?:@[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?\/)?[a-z0-9](?:[a-z0-9._-]*[a-z0-9])?/
+```
+
+```ts
+import { npmPackage } from "https://deno.land/x/regular_expressions/src/social.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `express` | `@/package`  |
+| `lodash` | `-invalid`  |
+| `@types/node` | `.hidden`  |
+| `@babel/core` | `UPPERCASE`  |
+| `my-package` | `@-scope/pkg`  |
+| `package123` |   |
+
+
+
+
+### **twitterHandle**
+
+Should match a Twitter/X handle (1-15 chars, alphanumeric + underscore).
+
+From [social.ts](./src/social.ts#L26)
+
+Copy:
+```js
+const twitterHandle = /@[a-zA-Z_][a-zA-Z0-9_]{0,14}/
+```
+
+```ts
+import { twitterHandle } from "https://deno.land/x/regular_expressions/src/social.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `@jack` | `@`  |
+| `@TwitterDev` | `@123start`  |
+| `@user_name` | `noatsign`  |
+| `@A` | `@@double`  |
+| `@user123_test` | `@-invalid`  |
+
+
+
+
+### **youtubeVideoId**
+
+Should match a YouTube video ID (11 characters, base64url).
+
+From [social.ts](./src/social.ts#L47)
+
+Copy:
+```js
+const youtubeVideoId = /[a-zA-Z0-9_-]{11}/
+```
+
+```ts
+import { youtubeVideoId } from "https://deno.land/x/regular_expressions/src/social.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `dQw4w9WgXcQ` | `dQw4w9WgXc`  |
+| `jNQXAC9IVRw` | `dQw4w9WgXcQQ`  |
+| `9bZkp7q19f0` | `dQw4w9Wg.cQ`  |
+| `kJQP7kiw5Fk` | `dQw4w9Wg cQ`  |
+
+
+
+# encoding
+
+> At: [encoding.ts](./src/encoding.ts)
+
+### **base32**
+
+Should match a base32-encoded string (uppercase A-Z, digits 2-7,
+optional padding).
+
+From [encoding.ts](./src/encoding.ts#L73)
+
+Copy:
+```js
+const base32 = /[A-Z2-7]{2,}={0,6}/
+```
+
+```ts
+import { base32 } from "https://deno.land/x/regular_expressions/src/encoding.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `JBSWY3DPEHPK3PXP` | `jbswy3dp`  |
+| `MFRA====` | `A`  |
+| `GEZDGNBVGY3TQOJQ` | `JBSWY89Z`  |
+| `NBSWY3DP` | `12345678`  |
+
+
+
+
+### **escapedString**
+
+Should match a string containing common escape sequences
+(e.g. \\n, \\t, \\\\, \\").
+
+From [encoding.ts](./src/encoding.ts#L114)
+
+Copy:
+```js
+const escapedString = /\\[nrtbfv0'"\\\/]/
+```
+
+```ts
+import { escapedString } from "https://deno.land/x/regular_expressions/src/encoding.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `\n` | `\x`  |
+| `\t` | `\q`  |
+| `\\` | `n`  |
+| `\'` | `\`  |
+| `\"` |   |
+| `\r` |   |
+| `\0` |   |
+
+
+
+
+### **hexString**
+
+Should match a hexadecimal string with 0x prefix
+(e.g. 0x1a2b3c).
+
+From [encoding.ts](./src/encoding.ts#L93)
+
+Copy:
+```js
+const hexString = /0x[0-9a-fA-F]+/
+```
+
+```ts
+import { hexString } from "https://deno.land/x/regular_expressions/src/encoding.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `0x1a2b3c` | `1a2b3c`  |
+| `0xFF` | `0xGHI`  |
+| `0x0` | `0x`  |
+| `0xDEADBEEF` | `x1234`  |
+| `0x123abc` |   |
+
+
+
+
+### **htmlEntity**
+
+Should match an HTML/XML named or numeric character entity
+(e.g. &amp;amp;, &amp;lt;, &amp;#39;, &amp;#x27;).
+
+From [encoding.ts](./src/encoding.ts#L49)
+
+Copy:
+```js
+const htmlEntity = /&(?:#x[0-9a-fA-F]+|#[0-9]+|[a-zA-Z][a-zA-Z0-9]*);/
+```
+
+```ts
+import { htmlEntity } from "https://deno.land/x/regular_expressions/src/encoding.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `&amp;` | `&;`  |
+| `&lt;` | `&#;`  |
+| `&gt;` | `&#x;`  |
+| `&#39;` | `&123;`  |
+| `&#x27;` | `amp;`  |
+| `&nbsp;` |   |
+| `&#8212;` |   |
+
+
+
+
+### **unicodeEscape**
+
+Should match a JavaScript unicode escape sequence
+(e.g. \\u0041, \\u{1F600}).
+
+From [encoding.ts](./src/encoding.ts#L27)
+
+Copy:
+```js
+const unicodeEscape = /\\u(?:\{[0-9a-fA-F]{1,6}\}|[0-9a-fA-F]{4})/
+```
+
+```ts
+import { unicodeEscape } from "https://deno.land/x/regular_expressions/src/encoding.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `\u0041` | `\u04`  |
+| `\u{1F600}` | `\u{}`  |
+| `\uFFFF` | `u0041`  |
+| `\u{0}` | `\UFFFF`  |
+| `\u{10FFFF}` | `\u{GGGGGG}`  |
+
+
+
+
+### **urlEncoded**
+
+Should match a percent-encoded character (e.g. %20, %2F).
+
+From [encoding.ts](./src/encoding.ts#L4)
+
+Copy:
+```js
+const urlEncoded = /%[0-9a-fA-F]{2}/
+```
+
+```ts
+import { urlEncoded } from "https://deno.land/x/regular_expressions/src/encoding.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `%20` | `%2`  |
+| `%2F` | `%GG`  |
+| `%3A` | `20`  |
+| `%00` | `%%20`  |
+| `%ff` | `%2g`  |
+| `%7E` |   |
+
+
+
+# data
+
+> At: [data.ts](./src/data.ts)
+
+### **dataUri**
+
+Should match a data URI (e.g. data:image/png;base64,iVBOR...).
+
+From [data.ts](./src/data.ts#L130)
+
+Copy:
+```js
+const dataUri = /data:[a-zA-Z0-9][a-zA-Z0-9!#$&\-^_.+]*\/[a-zA-Z0-9][a-zA-Z0-9!#$&\-^_.+]*(?:;[a-zA-Z0-9-]+=[a-zA-Z0-9-]+)*(?:;base64)?,[A-Za-z0-9+\/=]+/
+```
+
+```ts
+import { dataUri } from "https://deno.land/x/regular_expressions/src/data.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `data:text/plain,Hello` | `data:`  |
+| `data:text/plain;base64,SGVsbG8=` | `data:text/plain`  |
+| `data:image/png;base64,iVBORw0KGgo=` | `data://not-a-data-uri`  |
+| `data:application/json;charset=utf-8,eyJrZXkiOiJ2YWx1ZSJ9` | `http://example.com`  |
+
+
+
+
+### **jsonBoolean**
+
+Should match a JSON boolean value (true or false).
+
+From [data.ts](./src/data.ts#L50)
+
+Copy:
+```js
+const jsonBoolean = /true|false/
+```
+
+```ts
+import { jsonBoolean } from "https://deno.land/x/regular_expressions/src/data.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `true` | `True`  |
+| `false` | `FALSE`  |
+|  | `yes`  |
+|  | `no`  |
+|  | `1`  |
+|  | `0`  |
+
+
+
+
+### **jsonNull**
+
+Should match a JSON null value.
+
+From [data.ts](./src/data.ts#L69)
+
+Copy:
+```js
+const jsonNull = /null/
+```
+
+```ts
+import { jsonNull } from "https://deno.land/x/regular_expressions/src/data.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `null` | `Null`  |
+|  | `NULL`  |
+|  | `nil`  |
+|  | `undefined`  |
+|  | `none`  |
+
+
+
+
+### **jsonNumber**
+
+Should match a JSON number (integer or decimal, with optional
+exponent).
+
+From [data.ts](./src/data.ts#L25)
+
+Copy:
+```js
+const jsonNumber = /-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?(?:[eE][+-]?[0-9]+)?/
+```
+
+```ts
+import { jsonNumber } from "https://deno.land/x/regular_expressions/src/data.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `0` | `0123`  |
+| `123` | `+5`  |
+| `-456` | `.5`  |
+| `3.14` | `1.`  |
+| `-0.5` | `NaN`  |
+| `1e10` | `Infinity`  |
+| `2.5E-3` |   |
+
+
+
+
+### **jsonString**
+
+Should match a JSON string value (double-quoted with escape support).
+
+From [data.ts](./src/data.ts#L4)
+
+Copy:
+```js
+const jsonString = /"(?:[^"\\]|\\.)*"/
+```
+
+```ts
+import { jsonString } from "https://deno.land/x/regular_expressions/src/data.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `"hello"` | `'single quotes'`  |
+| `"hello world"` | `no quotes`  |
+| `"escaped \"quote\""` | `"unclosed`  |
+| `"line\nbreak"` | `""extra"`  |
+| `""` |   |
+
+
+
+
+### **keyValuePair**
+
+Should match a key=value or key: value pair.
+
+From [data.ts](./src/data.ts#L85)
+
+Copy:
+```js
+const keyValuePair = /[a-zA-Z_][a-zA-Z0-9_]*\s*[:=]\s*[^\s,;]+/
+```
+
+```ts
+import { keyValuePair } from "https://deno.land/x/regular_expressions/src/data.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `key=value` | `=value`  |
+| `name: John` | `: value`  |
+| `count=42` | `123=abc`  |
+| `DATABASE_URL=localhost` | `key`  |
+| `debug = true` |   |
+
+
+
+
+### **xmlEntity**
+
+Should match an XML/HTML character entity
+(e.g. &amp;amp;, &amp;#123;, &amp;#x1F;).
+
+From [data.ts](./src/data.ts#L106)
+
+Copy:
+```js
+const xmlEntity = /&(?:#x[0-9a-fA-F]+|#[0-9]+|[a-zA-Z][a-zA-Z0-9]*);/
+```
+
+```ts
+import { xmlEntity } from "https://deno.land/x/regular_expressions/src/data.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `&amp;` | `&;`  |
+| `&lt;` | `&#;`  |
+| `&gt;` | `&#x;`  |
+| `&#123;` | `&123;`  |
+| `&#x1F600;` | `amp;`  |
+| `&nbsp;` | `& amp;`  |
+| `&#39;` |   |
+
+
+
+# log
+
+> At: [log.ts](./src/log.ts)
+
+### **errorCode**
+
+Should match an error code pattern
+(e.g. E1234, ERR_MODULE_NOT_FOUND).
+
+From [log.ts](./src/log.ts#L105)
+
+Copy:
+```js
+const errorCode = /ERR_[A-Z][A-Z0-9_]*|E[A-Z][A-Z0-9]*[A-Z][A-Z0-9]*|E[0-9]{2,}/
+```
+
+```ts
+import { errorCode } from "https://deno.land/x/regular_expressions/src/log.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `E1234` | `e1234`  |
+| `ERR_MODULE_NOT_FOUND` | `err_module`  |
+| `ERR_HTTP_HEADERS_SENT` | `1234`  |
+| `ENOENT` | `WARNING_CODE`  |
+| `ECONNREFUSED` | `E1`  |
+| `ERR_INVALID_ARG_TYPE` |   |
+
+
+
+
+### **logLevel**
+
+Should match a log level keyword
+(DEBUG, INFO, WARN, ERROR, FATAL, TRACE).
+
+From [log.ts](./src/log.ts#L5)
+
+Copy:
+```js
+const logLevel = /TRACE|DEBUG|INFO|WARN|ERROR|FATAL/
+```
+
+```ts
+import { logLevel } from "https://deno.land/x/regular_expressions/src/log.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `DEBUG` | `debug`  |
+| `INFO` | `WARNING`  |
+| `WARN` | `CRITICAL`  |
+| `ERROR` | `info`  |
+| `FATAL` | `LOG`  |
+| `TRACE` |   |
+
+
+
+
+### **logTimestamp**
+
+Should match a common log timestamp format
+(e.g. 2024-01-15 14:30:00.123 or 2024-01-15T14:30:00Z).
+
+From [log.ts](./src/log.ts#L28)
+
+Copy:
+```js
+const logTimestamp = /[0-9]{4}-[0-9]{2}-[0-9]{2}[T ][0-9]{2}:[0-9]{2}:[0-9]{2}(?:\.[0-9]+)?(?:Z|[+-][0-9]{2}:?[0-9]{2})?/
+```
+
+```ts
+import { logTimestamp } from "https://deno.land/x/regular_expressions/src/log.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `2024-01-15 14:30:00` | `2024-01-15`  |
+| `2024-01-15T14:30:00Z` | `14:30:00`  |
+| `2024-01-15T14:30:00.123Z` | `2024/01/15 14:30:00`  |
+| `2024-01-15 14:30:00.123456` | `Jan 15, 2024`  |
+| `2024-01-15T14:30:00+05:30` |   |
+| `2024-01-15T14:30:00-0800` |   |
+
+
+
+
+### **spanId**
+
+Should match an OpenTelemetry span ID (16 lowercase hex characters).
+
+From [log.ts](./src/log.ts#L87)
+
+Copy:
+```js
+const spanId = /[0-9a-f]{16}/
+```
+
+```ts
+import { spanId } from "https://deno.land/x/regular_expressions/src/log.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `00f067aa0ba902b7` | `00f067aa0ba902b`  |
+| `0000000000000001` | `ABCDEF1234567890`  |
+| `abcdef1234567890` | `00f067aa0ba902zz`  |
+
+
+
+
+### **stackTraceLine**
+
+Should match a JavaScript/Node.js stack trace line
+(e.g. at Function (file.js:10:5)).
+
+From [log.ts](./src/log.ts#L51)
+
+Copy:
+```js
+const stackTraceLine = /at\s+(?:[^\s(]+\s+)?\(?[^\s)]+:\d+:\d+\)?/
+```
+
+```ts
+import { stackTraceLine } from "https://deno.land/x/regular_expressions/src/log.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `at Object.<anonymous> (/app/index.js:10:5)` | `in file.js line 10`  |
+| `at Module._compile (internal/modules/cjs/loader.js:1085:14)` | `at Object.<anonymous>`  |
+| `at processTicksAndRejections (internal/process/task_queues.js:95:5)` | `file.js:10:5`  |
+| `at /app/server.js:42:3` | `Error: something failed`  |
+
+
+
+
+### **traceId**
+
+Should match an OpenTelemetry trace ID (32 lowercase hex characters).
+
+From [log.ts](./src/log.ts#L70)
+
+Copy:
+```js
+const traceId = /[0-9a-f]{32}/
+```
+
+```ts
+import { traceId } from "https://deno.land/x/regular_expressions/src/log.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `4bf92f3577b34da6a3ce929d0e0e4736` | `4bf92f3577b34da6a3ce929d0e0e473`  |
+| `00000000000000000000000000000001` | `ABCDEF1234567890ABCDEF1234567890`  |
+| `abcdef1234567890abcdef1234567890` | `4bf92f3577b34da6a3ce929d0e0e47zz`  |
+
+
+
 # email
 
 > At: [email.ts](./src/email.ts)
@@ -2573,6 +3877,182 @@ import { ssnUS } from "https://deno.land/x/regular_expressions/src/identity.ts";
 | `078-05-1120` | `123-45-0000`  |
 |  | `1234-56-7890`  |
 |  | `123456789`  |
+
+
+
+# measurement
+
+> At: [measurement.ts](./src/measurement.ts)
+
+### **angle**
+
+Should match a CSS angle value
+(e.g. 90deg, 3.14rad, 100grad, 0.25turn).
+
+From [measurement.ts](./src/measurement.ts#L102)
+
+Copy:
+```js
+const angle = /-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?(?:deg|rad|grad|turn)/
+```
+
+```ts
+import { angle } from "https://deno.land/x/regular_expressions/src/measurement.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `90deg` | `90`  |
+| `3.14rad` | `deg`  |
+| `100grad` | `90 deg`  |
+| `0.25turn` | `90degrees`  |
+| `0deg` |   |
+| `-45deg` |   |
+| `360deg` |   |
+
+
+
+
+### **cssLength**
+
+Should match a CSS length value with unit
+(e.g. 12px, 1.5rem, 100vh, 50%).
+
+From [measurement.ts](./src/measurement.ts#L5)
+
+Copy:
+```js
+const cssLength = /-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?(?:px|em|rem|vh|vw|vmin|vmax|ch|ex|cm|mm|in|pt|pc|%)/
+```
+
+```ts
+import { cssLength } from "https://deno.land/x/regular_expressions/src/measurement.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `12px` | `12`  |
+| `1.5rem` | `px`  |
+| `100vh` | `12 px`  |
+| `50%` | `12dp`  |
+| `0px` | `12sp`  |
+| `-10px` |   |
+| `3.14em` |   |
+| `100vw` |   |
+
+
+
+
+### **dataSize**
+
+Should match a data size with unit
+(e.g. 1.5GB, 256KB, 4TB, 100MiB).
+
+From [measurement.ts](./src/measurement.ts#L31)
+
+Copy:
+```js
+const dataSize = /(?:0|[1-9][0-9]*)(?:\.[0-9]+)?\s*(?:Ti|Gi|Mi|Ki|T|G|M|K)?B/
+```
+
+```ts
+import { dataSize } from "https://deno.land/x/regular_expressions/src/measurement.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `1.5GB` | `1.5`  |
+| `256KB` | `GB`  |
+| `4TB` | `1.5XB`  |
+| `100MiB` | `1.5 G`  |
+| `512B` |   |
+| `0B` |   |
+| `1 GiB` |   |
+| `64KiB` |   |
+
+
+
+
+### **isoDuration**
+
+Should match an ISO 8601 duration
+(e.g. P1DT12H, PT30M, P1Y2M3D).
+
+From [measurement.ts](./src/measurement.ts#L77)
+
+Copy:
+```js
+const isoDuration = /P(?=\d|T\d)(?:\d+Y)?(?:\d+M)?(?:\d+W)?(?:\d+D)?(?:T(?:\d+H)?(?:\d+M)?(?:\d+(?:\.\d+)?S)?)?/
+```
+
+```ts
+import { isoDuration } from "https://deno.land/x/regular_expressions/src/measurement.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `P1D` | `1D`  |
+| `PT30M` | `T30M`  |
+| `P1DT12H` | `P`  |
+| `P1Y2M3D` | `30M`  |
+| `PT1H30M` | `1H30M`  |
+| `P2W` |   |
+| `PT0.5S` |   |
+
+
+
+
+### **percentage**
+
+Should match a percentage value (e.g. 50%, 100%, 0.5%).
+
+From [measurement.ts](./src/measurement.ts#L55)
+
+Copy:
+```js
+const percentage = /-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?%/
+```
+
+```ts
+import { percentage } from "https://deno.land/x/regular_expressions/src/measurement.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `0%` | `%`  |
+| `50%` | `50`  |
+| `100%` | `50 %`  |
+| `0.5%` | `abc%`  |
+| `99.99%` |   |
+| `-10%` |   |
+
+
+
+
+### **temperature**
+
+Should match a temperature value
+(e.g. 98.6\u00B0F, -40\u00B0C, 300K).
+
+From [measurement.ts](./src/measurement.ts#L125)
+
+Copy:
+```js
+const temperature = /-?(?:0|[1-9][0-9]*)(?:\.[0-9]+)?\s*(?:\u00B0[FCR]|K)/
+```
+
+```ts
+import { temperature } from "https://deno.land/x/regular_expressions/src/measurement.ts";
+```
+
+| Should match | Should not match  |
+|---|---|
+| `98.6°F` | `98.6F`  |
+| `-40°C` | `300 Kelvin`  |
+| `300K` | `°C`  |
+| `0°C` | `hot`  |
+| `212°F` |   |
+| `373.15K` |   |
 
 
 
