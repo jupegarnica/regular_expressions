@@ -1,5 +1,5 @@
 import jsDocsRaw from "../jsDocs_data.json" with { type: "json" };
-import { basename } from "https://deno.land/std@0.130.0/path/mod.ts";
+import { basename } from "@std/path";
 
 // deno doc v2 wraps nodes in { version, nodes }, v1 is a flat array
 // deno-lint-ignore no-explicit-any

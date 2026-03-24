@@ -1,4 +1,11 @@
 {
+  "imports": {
+    "@std/testing": "https://deno.land/std@0.129.0/testing/asserts.ts",
+    "@std/fmt/colors": "https://deno.land/std@0.129.0/fmt/colors.ts",
+    "@std/path": "https://deno.land/std@0.130.0/path/mod.ts",
+    "@commit": "https://deno.land/x/commit@0.1.5/mod.ts",
+    "@dnt": "https://deno.land/x/dnt@0.22.0/mod.ts"
+  },
   "lint": {
     "exclude": [
       ".cache",
@@ -33,7 +40,7 @@
     "release": "sh _scripts/release.sh",
     "tag": "sh _scripts/tag.sh",
     "bench": "deno bench --allow-env=NO-COLOR,LOG_LEVEL --no-check --unstable",
-    "docs": "sh  -c 'deno doc mod.ts --json > jsDocs_data.json' && deno task build-docs && deno fmt",
+    "docs": "sh -c 'NO_COLOR=1 deno doc --json mod.ts > jsDocs_data.json' && deno task build-docs && deno fmt",
     "build-docs": "deno run -A _scripts/build_docs.ts"
   }
   // "importMap":"vendor/import_map.json"

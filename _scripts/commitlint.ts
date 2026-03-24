@@ -1,4 +1,4 @@
-import { parse } from "https://deno.land/x/commit@0.1.5/mod.ts";
+import { parse } from "@commit";
 
 const text = Deno.args[0] ?? Deno.readTextFileSync("./.git/COMMIT_EDITMSG");
 
