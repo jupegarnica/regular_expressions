@@ -57,6 +57,29 @@ function escapeNonPrintable(str: string): string {
 }
 
 function generateMarkdown(data: Expression[]): string {
+  // Group expressions by file for index generation
+  const byFile = new Map<string, Expression[]>();
+  for (const expr of data) {
+    const fileName = expr.location && basename(expr.location.filename);
+    const key = fileName || "unknown";
+    if (!byFile.has(key)) byFile.set(key, []);
+    byFile.get(key)!.push(expr);
+  }
+
+  const totalCategories = byFile.size;
+  const totalPatterns = data.length;
+
+  let index =
+    `## Summary\n\n${totalCategories} categories, ${totalPatterns} patterns\n\n## Index\n\n`;
+  for (const [fileName, exprs] of byFile) {
+    const catName = fileName.replace(/(\..+)$/, "");
+    const patterns = exprs
+      .map((expr) => `  - [${expr.name}](#${expr.name.toLowerCase()})`)
+      .join("\n");
+    index +=
+      `- <details><summary>${catName}</summary>\n\n${patterns}\n\n  </details>\n`;
+  }
+
   let output = `
 # The Collection of Regular Expressions
 
@@ -66,8 +89,9 @@ Ready to be imported or copy pasted into your code.
 
 Fully tested, benchmarked and documented.
 
-Mainly assisted by github copilot and tweaked by [me](https://garn.dev).
+Mainly assisted by LLMs and tweaked by [me](https://garn.dev).
 
+${index}
 # Contents
 `;
   const fileNames: { [x: string]: true } = {};
