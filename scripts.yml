@@ -39,8 +39,8 @@ scripts:
 
   build_npm:
     desc: |
-     Builds the package for npm
-     docs: https://deno.land/x/dnt
+      Builds the package for npm
+      docs: https://deno.land/x/dnt
     cmd: deno task build-npm
 
   # pre-commit:
@@ -69,7 +69,6 @@ scripts:
     cmd: sh _scripts/auto_format.sh
     # gitHook: post-commit
 
-
   cov:
     desc: Shows uncovered lists
     cmd:
@@ -87,7 +86,6 @@ scripts:
       - timeout 14 vr test
 
     gitHook: pre-push
-
 
   commitlint:
     cmd: deno run --allow-read="./.git" _scripts/commitlint.ts
