@@ -649,9 +649,7 @@ import { htmlComment } from "https://deno.land/x/regular_expressions/src/markup.
 | Should match | Should not match  |
 |---|---|
 | `<!-- comment -->` | `<!-- unclosed`  |
-| `<!-- multi
-line
-comment -->` | `/* css comment */`  |
+| `<!-- multi\x0aline\x0acomment -->` | `/* css comment */`  |
 | `<!---->` | `// js comment`  |
 | `<!-- a -->` | `<!- not a comment ->`  |
 
@@ -705,19 +703,10 @@ import { markdownCodeBlock } from "https://deno.land/x/regular_expressions/src/m
 
 | Should match | Should not match  |
 |---|---|
-| ````
-code
-```` | `````  |
-| ````js
-console.log('hi');
-```` | ```code```  |
-| ````python
-print('hello')
-```` | ``inline``  |
-| ````
-line1
-line2
-```` | ````no newline````  |
+| ````\x0acode\x0a```` | `````  |
+| ````js\x0aconsole.log('hi');\x0a```` | ```code```  |
+| ````python\x0aprint('hello')\x0a```` | ``inline``  |
+| ````\x0aline1\x0aline2\x0a```` | ````no newline````  |
 
 
 
@@ -1102,9 +1091,8 @@ import { noWhitespace } from "https://deno.land/x/regular_expressions/src/valida
 |---|---|
 | `hello` | ` `  |
 | `hello-world` | `hello world`  |
-| `user@example.com` | `tab	here`  |
-| `123!@#` | `
-`  |
+| `user@example.com` | `tab\x09here`  |
+| `123!@#` | `\x0a`  |
 | `no_spaces_here` |   |
 
 
@@ -1153,11 +1141,10 @@ import { printableAscii } from "https://deno.land/x/regular_expressions/src/vali
 
 | Should match | Should not match  |
 |---|---|
-| `Hello, World!` | `	`  |
-| ` ` | `
-`  |
-| `~` | ` `  |
-| `abc123!@#` | ``  |
+| `Hello, World!` | `\x09`  |
+| ` ` | `\x0a`  |
+| `~` | `\x00`  |
+| `abc123!@#` | `\x7f`  |
 | `all printable chars` |   |
 
 
@@ -1240,11 +1227,10 @@ import { blankLine } from "https://deno.land/x/regular_expressions/src/text.ts";
 |---|---|
 |  | `a`  |
 | ` ` | ` a`  |
-| `	` | `hello`  |
-| `   ` | `
-`  |
-| `		` |   |
-| ` 	 ` |   |
+| `\x09` | `hello`  |
+| `   ` | `\x0a`  |
+| `\x09\x09` |   |
+| ` \x09 ` |   |
 
 
 
@@ -1319,8 +1305,7 @@ import { multilineComment } from "https://deno.land/x/regular_expressions/src/te
 | Should match | Should not match  |
 |---|---|
 | `/* comment */` | `// single line`  |
-| `/* multi
-line */` | `/* unclosed`  |
+| `/* multi\x0aline */` | `/* unclosed`  |
 | `/** jsdoc */` | `no comment`  |
 | `/* a */` | `*/ end only`  |
 
@@ -1425,11 +1410,9 @@ import { whitespaceOnly } from "https://deno.land/x/regular_expressions/src/text
 |---|---|
 | ` ` | `a`  |
 | `   ` | ` a `  |
-| `	` | `hello`  |
-| `
-` | `123`  |
-| ` 	
- ` |   |
+| `\x09` | `hello`  |
+| `\x0a` | `123`  |
+| ` \x09\x0a ` |   |
 
 
 
@@ -3572,20 +3555,10 @@ import { pemCertificate } from "https://deno.land/x/regular_expressions/src/cryp
 
 | Should match | Should not match  |
 |---|---|
-| `-----BEGIN CERTIFICATE-----
-MIIBkTCB+wIJAL2B
------END CERTIFICATE-----` | `-----BEGIN CERTIFICATE-----`  |
-| `-----BEGIN PUBLIC KEY-----
-MIGfMA0GCSqGSIb3DQEBAQUAA4GN
------END PUBLIC KEY-----` | `-----END CERTIFICATE-----`  |
-| `-----BEGIN RSA PRIVATE KEY-----
-MIIEpAIBAAKCAQEA
------END RSA PRIVATE KEY-----` | `-----BEGIN lowercase-----
-data
------END lowercase-----`  |
-|  | `BEGIN CERTIFICATE
-data
-END CERTIFICATE`  |
+| `-----BEGIN CERTIFICATE-----\x0aMIIBkTCB+wIJAL2B\x0a-----END CERTIFICATE-----` | `-----BEGIN CERTIFICATE-----`  |
+| `-----BEGIN PUBLIC KEY-----\x0aMIGfMA0GCSqGSIb3DQEBAQUAA4GN\x0a-----END PUBLIC KEY-----` | `-----END CERTIFICATE-----`  |
+| `-----BEGIN RSA PRIVATE KEY-----\x0aMIIEpAIBAAKCAQEA\x0a-----END RSA PRIVATE KEY-----` | `-----BEGIN lowercase-----\x0adata\x0a-----END lowercase-----`  |
+|  | `BEGIN CERTIFICATE\x0adata\x0aEND CERTIFICATE`  |
 
 
 

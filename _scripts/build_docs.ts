@@ -48,6 +48,14 @@ const data: Expression[] = allRegularExpressionsImported.map((name) => {
   };
 });
 
+function escapeNonPrintable(str: string): string {
+  return str.replace(
+    // deno-lint-ignore no-control-regex
+    /[\x00-\x1f\x7f]/g,
+    (ch) => "\\x" + ch.charCodeAt(0).toString(16).padStart(2, "0"),
+  );
+}
+
 function generateMarkdown(data: Expression[]): string {
   let output = `
 # The Collection of Regular Expressions
@@ -108,9 +116,15 @@ import { ${name} } from "https://deno.land/x/regular_expressions/src/${fileName}
 ${
       table.map(([shouldMatch, shouldNotMatch]) =>
         `| ${
-          shouldMatch ? `\`${shouldMatch.replaceAll(/\|/g, "\\|")}\`` : ""
+          shouldMatch
+            ? `\`${escapeNonPrintable(shouldMatch).replaceAll(/\|/g, "\\|")}\``
+            : ""
         } | ${
-          shouldNotMatch ? `\`${shouldNotMatch.replaceAll(/\|/g, "\\|")}\`` : ""
+          shouldNotMatch
+            ? `\`${
+              escapeNonPrintable(shouldNotMatch).replaceAll(/\|/g, "\\|")
+            }\``
+            : ""
         }  |`
       ).join("\n")
     }
