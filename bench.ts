@@ -1,7 +1,4 @@
-import {
-  assertMatch,
-  assertNotMatch,
-} from "https://deno.land/std@0.129.0/testing/asserts.ts";
+import { assertMatch, assertNotMatch } from "@std/testing";
 
 import * as all from "./mod.ts";
 

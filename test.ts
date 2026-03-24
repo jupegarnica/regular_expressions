@@ -1,17 +1,8 @@
-import {
-  assert,
-  assertMatch,
-  assertNotMatch,
-} from "https://deno.land/std@0.129.0/testing/asserts.ts";
+import { assert, assertMatch, assertNotMatch } from "@std/testing";
 
 import * as all from "./mod.ts";
 
-import {
-  blue,
-  bold,
-  dim,
-  gray,
-} from "https://deno.land/std@0.129.0/fmt/colors.ts";
+import { blue, bold, dim, gray } from "@std/fmt/colors";
 
 const allKeysImported = Object.keys(all);
 const allImported: Record<string, RegExp | string[] | string> = all;

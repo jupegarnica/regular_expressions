@@ -1,5 +1,11 @@
-import jsDocs from "../jsDocs_data.json" assert { type: "json" };
-import { basename } from "https://deno.land/std@0.130.0/path/mod.ts";
+import jsDocsRaw from "../jsDocs_data.json" with { type: "json" };
+import { basename } from "@std/path";
+
+// deno doc v2 wraps nodes in { version, nodes }, v1 is a flat array
+// deno-lint-ignore no-explicit-any
+const jsDocs: any[] = Array.isArray(jsDocsRaw)
+  ? jsDocsRaw
+  : (jsDocsRaw as { nodes: unknown[] }).nodes ?? jsDocsRaw;
 
 // import * as all from "../mod.ts";
 
@@ -41,6 +47,14 @@ const data: Expression[] = allRegularExpressionsImported.map((name) => {
     location,
   };
 });
+
+function escapeNonPrintable(str: string): string {
+  return str.replace(
+    // deno-lint-ignore no-control-regex
+    /[\x00-\x1f\x7f]/g,
+    (ch) => "\\x" + ch.charCodeAt(0).toString(16).padStart(2, "0"),
+  );
+}
 
 function generateMarkdown(data: Expression[]): string {
   let output = `
@@ -102,9 +116,15 @@ import { ${name} } from "https://deno.land/x/regular_expressions/src/${fileName}
 ${
       table.map(([shouldMatch, shouldNotMatch]) =>
         `| ${
-          shouldMatch ? `\`${shouldMatch.replaceAll(/\|/g, "\\|")}\`` : ""
+          shouldMatch
+            ? `\`${escapeNonPrintable(shouldMatch).replaceAll(/\|/g, "\\|")}\``
+            : ""
         } | ${
-          shouldNotMatch ? `\`${shouldNotMatch.replaceAll(/\|/g, "\\|")}\`` : ""
+          shouldNotMatch
+            ? `\`${
+              escapeNonPrintable(shouldNotMatch).replaceAll(/\|/g, "\\|")
+            }\``
+            : ""
         }  |`
       ).join("\n")
     }

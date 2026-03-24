@@ -1,10 +1,6 @@
-import { build } from "https://deno.land/x/dnt@0.22.0/mod.ts";
+import { build } from "@dnt";
 
-import {
-  dirname,
-  fromFileUrl,
-  resolve,
-} from "https://deno.land/std@0.129.0/path/mod.ts";
+import { dirname, fromFileUrl, resolve } from "@std/path";
 
 const baseDir = resolve(dirname(fromFileUrl(import.meta.url)), "..");
 
